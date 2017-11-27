@@ -1,0 +1,38 @@
+﻿@using Adikov.Domain.Models
+
+@model BaseProduct
+   
+@helper ToLabel(ProductStatus status)
+{
+    switch (status)
+    {
+        case ProductStatus.InStock:
+        {
+            <span class="label label-sm label-success"> В наличии </span>
+            break;
+        }
+        case ProductStatus.UnderOrder:
+        {
+            <span class="label label-sm label-primary"> Под заказ </span>
+            break;
+        }
+        case ProductStatus.Pending:
+        {
+            <span class="label label-sm label-warning"> Ожидается </span>
+            break;
+        }
+    }
+}
+
+@helper ToCell(ProductStatus status)
+{
+    <td>
+        @ToLabel(status)
+    </td>
+}
+
+@ToCell(Model.Mark1)
+@ToCell(Model.Mark2)
+@ToCell(Model.Mark3)
+@ToCell(Model.Mark4)
+@ToCell(Model.Mark5)

@@ -1,0 +1,103 @@
+﻿@using Adikov.ViewModels.Account
+@model LoginViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Вход в систему";
+}
+
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - ИП Адиков</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+
+    @Styles.Render("~/Content/globalCss")
+    @Styles.Render("~/Content/themeCss")
+    @Styles.Render("~/Content/layoutCss")
+    <link href="~/Content/assets/pages/css/login.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body class=" login">
+
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <h3 style="color: aliceblue;">ADIKOV</h3>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <h3 class="form-title font-green">@ViewBag.Title</h3>
+
+            if (ViewData.ModelState.ContainsKey("attempt"))
+            {
+                <div class="alert alert-danger">
+                    <button class="close" data-close="alert"></button>
+                    <span> @(ViewData.ModelState["attempt"].Errors?.FirstOrDefault()?.ErrorMessage) </span>
+                </div>
+            }
+
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Почта</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-solid placeholder-no-fix", placeholder = "Почта", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Пароль</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-solid placeholder-no-fix", placeholder = "Пароль", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn green uppercase">Войти</button>
+                <label class="rememberme check mt-checkbox mt-checkbox-outline">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    Запомнить
+                    <span></span>
+                </label>
+                @Html.ActionLink("Забыли пароль?", "ForgotPassword", null, new { @class = "forget-password" })
+            </div>
+
+            <div class="create-account">
+                <p>
+                    @Html.ActionLink("Регистрация", "Register", null, new { @class = "uppercase" })
+                </p>
+            </div>
+        }
+        <!-- END LOGIN FORM -->
+    </div>
+
+    <div class="copyright"> @DateTime.Now.Year © ИП Адиков. </div>
+
+    <!--[if lt IE 9]>
+        <script src="../assets/global/plugins/respond.min.js"></script>
+        <script src="../assets/global/plugins/excanvas.min.js"></script>
+        <script src="../assets/global/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/coreJs")
+    @Scripts.Render("~/bundles/themeComponents")
+    @Scripts.Render("~/bundles/layout")
+
+</body>
+</html>

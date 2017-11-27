@@ -1,0 +1,22 @@
+﻿
+<table class="table table-striped table-bordered table-hover table-checkable order-column">
+    <thead>
+    <tr>
+        <th> Диаметр </th>
+        <th> Стенка </th>
+        <th> Кг/м </th>
+        @Html.Partial("_ProductMarkHeadRow")
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in Model)
+    {
+        <tr class="odd gradeX">
+            <td> @product.Diameter </td>
+            <td> @product.Thickness </td>
+            <td> @product.KgOneMeter </td>
+            @Html.Partial("_ProductMarkRow", product)
+        </tr>
+    }
+    </tbody>
+</table>
