@@ -1,0 +1,13 @@
+﻿@model Adikov.ViewModels.ProductCategory.ProductCategoryViewModel
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> @ViewBag.Title </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_AddProductCategoryForm", Model)
+    </div>
+</div>

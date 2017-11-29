@@ -220,6 +220,7 @@
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ProductCategory\ProductCategoryIndexViewModel.cs" />
+    <Compile Include="ViewModels\ProductCategory\ProductCategoryViewModel.cs" />
     <Compile Include="ViewModels\Product\ProductIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -5988,6 +5989,9 @@
     <Content Include="Views\Product\_ProductTable.cshtml" />
     <Content Include="Views\ProductCategory\Index.cshtml" />
     <Content Include="Views\ProductCategory\_ProductCategoryTable.cshtml" />
+    <Content Include="Views\ProductCategory\Add.cshtml" />
+    <Content Include="Views\ProductCategory\_AddProductCategoryForm.cshtml" />
+    <Content Include="Views\ProductCategory\_AddProductCategoryPortlet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

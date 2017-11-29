@@ -40,11 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ISortable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\BaseUserContext.cs" />
     <Compile Include="Security\ClaimsTypes.cs" />
     <Compile Include="Security\IUserContext.cs" />
     <Compile Include="Security\UserContext.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

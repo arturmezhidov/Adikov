@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Commands\AddProductCategoryCommandHandler.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandBuilder.cs" />
     <Compile Include="Commands\CommandHandler.cs" />

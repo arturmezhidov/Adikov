@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Adikov.Infrastructura.Interfaces;
 
 namespace Adikov.Domain.Models
 {
-    public class ProductCategory : BaseEntity
+    public class ProductCategory : BaseEntity, ISortable
     {
         public string Icon { get; set; }
 
@@ -11,5 +12,7 @@ namespace Adikov.Domain.Models
         public ProductCategoryType Type { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
+
+        public int SortNumber { get; set; }
     }
 }

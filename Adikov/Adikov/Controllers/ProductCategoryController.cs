@@ -19,6 +19,30 @@ namespace Adikov.Controllers
             return View(vm);
         }
 
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(ProductCategoryViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            Command.Execute(new AddProductCategoryCommand
+            {
+                Icon = vm.Icon,
+                Name = vm.Name,
+                Type = vm.Type
+            });
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Delete(int id)
         {
             Command.Execute(new DeleteProductCategoryCommand(id));
