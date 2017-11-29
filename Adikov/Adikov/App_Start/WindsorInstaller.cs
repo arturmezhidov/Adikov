@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web.Mvc;
+using Adikov.Domain.Commands;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
@@ -14,14 +11,27 @@ namespace Adikov.App_Start
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            Type searchingInterface = typeof(IQuery<,>);
+            // Query
 
-            var queries = Classes.FromAssembly(searchingInterface.Assembly)
-                .BasedOn(searchingInterface)
+            Type queryInterface = typeof(IQuery<,>);
+
+            var queries = Classes.FromAssembly(queryInterface.Assembly)
+                .BasedOn(queryInterface)
                 .WithService.FirstInterface()
                 .LifestyleTransient();
 
             container.Register(queries);
+
+            // Command
+
+            Type commandInterface = typeof(ICommandHandler<>);
+
+            var commands = Classes.FromAssembly(commandInterface.Assembly)
+                .BasedOn(commandInterface)
+                .WithService.FirstInterface()
+                .LifestyleTransient();
+
+            container.Register(commands);
         }
     }
 }

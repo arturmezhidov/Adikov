@@ -33,33 +33,14 @@ namespace Adikov.Domain.Queries
             return query.Execute(criterion);
         }
 
-        public IQueryable<TEntity> WithAll<TCriterion>(TCriterion criterion) where TCriterion : ICriterion
-        {
-            IQuery<TCriterion, IQueryable<TEntity>> query = null;
-
-            try
-            {
-                query = dependencyResolver.GetService<IQuery<TCriterion, IQueryable<TEntity>>>();
-            }
-            finally
-            {
-                if (query == null)
-                {
-                    throw new NotImplementedException($"Interface IQuery<{typeof(TCriterion).Name}, IQueryable<{typeof(TEntity).Name}>> does not implement.");
-                }
-            }
-
-            return query.Execute(criterion);
-        }
-
         public TEntity ById(object id)
         {
-            return new FindByIdQuery<TEntity>().Execute(new IdCriterion(id));
+            return null;
         }
 
         public IQueryable<TEntity> All()
         {
-            return new FindAllQuery<TEntity>().Execute(new EmptyCriterion());
+            return null;
         }
     }
 }

@@ -8,9 +8,7 @@ namespace Adikov.Controllers
     {
         public ActionResult Index()
         {
-            var t = Query.For<Product>().WithAll(new StringSizeCriterion("12"));
-
-            return View(t);
+            return View();
         }
     }
 }

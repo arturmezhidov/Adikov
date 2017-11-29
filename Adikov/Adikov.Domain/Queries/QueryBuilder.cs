@@ -11,9 +11,9 @@ namespace Adikov.Domain.Queries
             this.dependencyResolver = dependencyResolver;
         }
 
-        public IQueryFor<TEntity> For<TEntity>() where TEntity : class
+        public IQueryFor<TResult> For<TResult>() where TResult : class
         {
-            return new QueryFor<TEntity>(dependencyResolver);
+            return new QueryFor<TResult>(dependencyResolver);
         }
     }
 }

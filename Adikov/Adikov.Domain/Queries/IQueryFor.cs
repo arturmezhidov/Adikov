@@ -3,14 +3,12 @@ using Adikov.Domain.Criterion;
 
 namespace Adikov.Domain.Queries
 {
-    public interface IQueryFor<out TEntity>
+    public interface IQueryFor<out TResult>
     {
-        TEntity With<TCriterion>(TCriterion criterion) where TCriterion : ICriterion;
+        TResult With<TCriterion>(TCriterion criterion) where TCriterion : ICriterion;
 
-        IQueryable<TEntity> WithAll<TCriterion>(TCriterion criterion) where TCriterion : ICriterion;
+        TResult ById(object id);
 
-        TEntity ById(object id);
-
-        IQueryable<TEntity> All();
+        IQueryable<TResult> All();
     }
 }

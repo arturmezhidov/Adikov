@@ -57,6 +57,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandBuilder.cs" />
+    <Compile Include="Commands\CommandHandler.cs" />
+    <Compile Include="Commands\ClearProductCategoryCommandHandler.cs" />
+    <Compile Include="Commands\RecoveryAllProductCategoryCommandHandler.cs" />
+    <Compile Include="Commands\RecoveryProductCategoryCommandHandler.cs" />
+    <Compile Include="Commands\DeleteProductCategoryCommandHandler.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandBuilder.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
     <Compile Include="Criterion\EmailCriterion.cs" />
     <Compile Include="Criterion\EmptyCriterion.cs" />
     <Compile Include="Criterion\IdCriterion.cs" />
@@ -72,20 +82,15 @@
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\FindAllQuery.cs" />
-    <Compile Include="Queries\FindByEmailQuery.cs" />
-    <Compile Include="Queries\FindByIdQuery.cs" />
     <Compile Include="Criterion\ICriterion.cs" />
-    <Compile Include="Queries\IFindByIdQuery.cs" />
+    <Compile Include="Queries\FindAllProductCategoryQuery.cs" />
     <Compile Include="Queries\IQuery.cs" />
     <Compile Include="Queries\IQueryableQuery.cs" />
     <Compile Include="Queries\IQueryBuilder.cs" />
     <Compile Include="Queries\IQueryFor.cs" />
-    <Compile Include="Queries\QueryableQuery.cs" />
     <Compile Include="Queries\Query.cs" />
     <Compile Include="Queries\QueryBuilder.cs" />
     <Compile Include="Queries\QueryFor.cs" />
-    <Compile Include="Queries\SingleQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Infrastructura\Adikov.Infrastructura.csproj">
@@ -101,8 +106,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

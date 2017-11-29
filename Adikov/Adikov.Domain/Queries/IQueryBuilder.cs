@@ -2,6 +2,6 @@
 {
     public interface IQueryBuilder
     {
-        IQueryFor<TEntity> For<TEntity>() where TEntity : class;
+        IQueryFor<TResult> For<TResult>() where TResult : class;
     }
 }

@@ -1,0 +1,19 @@
+﻿
+@helper ConfirmationLink(string text, string link, string cssClass, string icon = null, string placement = "bottom") {
+    
+    <a href="@link"  
+       class="@cssClass" 
+       data-toggle="confirmation" 
+       data-placement="@placement"
+       data-btn-ok-label="Да"
+       data-btn-cancel-label="Нет"
+       data-original-title="Вы уверены?">
+        
+        @if (!string.IsNullOrEmpty(icon))
+        {
+            <i class="fa fa-trash-o"></i>
+        }
+        
+        @text
+    </a>
+}

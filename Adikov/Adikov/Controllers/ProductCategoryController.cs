@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Adikov.Domain.Commands;
+using Adikov.Domain.Criterion;
+using Adikov.Domain.Queries;
+using Adikov.ViewModels.ProductCategory;
 
 namespace Adikov.Controllers
 {
@@ -11,7 +11,40 @@ namespace Adikov.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            return View();
+            var vm = new ProductCategoryIndexViewModel
+            {
+                ProductCategories = Query.For<FindAllProductCategoryQueryResult>().With(new EmptyCriterion())
+            };
+
+            return View(vm);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Command.Execute(new DeleteProductCategoryCommand(id));
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Clear()
+        {
+            Command.Execute(new ClearProductCategoryCommand());
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Recovery(int id)
+        {
+            Command.Execute(new RecoveryProductCategoryCommand(id));
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult RecoveryAll()
+        {
+            Command.Execute(new RecoveryAllProductCategoryCommand());
+
+            return RedirectToAction("Index");
         }
     }
 }
