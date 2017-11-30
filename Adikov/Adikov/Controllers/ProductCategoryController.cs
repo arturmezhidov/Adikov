@@ -1,6 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Adikov.Domain.Commands;
 using Adikov.Domain.Criterion;
+using Adikov.Domain.Models;
 using Adikov.Domain.Queries;
 using Adikov.ViewModels.ProductCategory;
 
@@ -8,21 +10,34 @@ namespace Adikov.Controllers
 {
     public class ProductCategoryController : LayoutController
     {
-        // GET: Category
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            var result = Query.For<FindAllProductCategoryQueryResult>().With(new EmptyCriterion());
+
             var vm = new ProductCategoryIndexViewModel
             {
-                ProductCategories = Query.For<FindAllProductCategoryQueryResult>().With(new EmptyCriterion())
+                ActiveCategories = result.ActiveCategories.Select(ToViewModel),
+                DeletedCategories = result.DeletedCategories.Select(ToViewModel)
             };
 
-            return View(vm);
-        }
+            if (id == null)
+            {
+                vm.NewProductCategory = new ProductCategoryViewModel();
+            }
+            else
+            {
+                var editCategory = result.ActiveCategories.FirstOrDefault(i => i.Id == id) ??
+                                   result.DeletedCategories.FirstOrDefault(i => i.Id == id);
 
-        [HttpGet]
-        public ActionResult Add()
-        {
-            return View();
+                if (editCategory == null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                vm.EditProductCategory = ToViewModel(editCategory);
+            }
+
+            return View(vm);
         }
 
         [HttpPost]
@@ -69,6 +84,18 @@ namespace Adikov.Controllers
             Command.Execute(new RecoveryAllProductCategoryCommand());
 
             return RedirectToAction("Index");
+        }
+
+        protected ProductCategoryViewModel ToViewModel(ProductCategory category)
+        {
+            return new ProductCategoryViewModel
+            {
+                Id = category.Id,
+                Icon = category.Icon,
+                Name = category.Name,
+                Type = category.Type,
+                IsDeleted = category.IsDeleted
+            };
         }
     }
 }

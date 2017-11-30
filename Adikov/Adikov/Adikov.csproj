@@ -5988,10 +5988,12 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\_ProductTable.cshtml" />
     <Content Include="Views\ProductCategory\Index.cshtml" />
-    <Content Include="Views\ProductCategory\_ProductCategoryTable.cshtml" />
-    <Content Include="Views\ProductCategory\Add.cshtml" />
+    <Content Include="Views\ProductCategory\_ProductCategoryListTable.cshtml" />
     <Content Include="Views\ProductCategory\_AddProductCategoryForm.cshtml" />
     <Content Include="Views\ProductCategory\_AddProductCategoryPortlet.cshtml" />
+    <Content Include="Views\ProductCategory\_ProductCategoryListPortlet.cshtml" />
+    <Content Include="Views\ProductCategory\_EditProductCategoryPortlet.cshtml" />
+    <Content Include="Views\ProductCategory\_EditProductCategoryForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

@@ -1,6 +1,7 @@
-﻿@using Adikov.Domain.Models
+﻿ 
 
-@model IEnumerable<ProductCategory>
+@using Adikov.Domain.Models
+@model IEnumerable<Adikov.ViewModels.ProductCategory.ProductCategoryViewModel>
 
 <table class="table table-striped table-hover">
     <thead>
@@ -30,7 +31,7 @@
                 <td> @CategoryTypeToLabel(category.Type) </td>
                 <td>
                     <div class="pull-right">
-                        <a href="@Url.Action("Edit", new {id = category.Id})" class="btn btn-sm btn-info">
+                        <a href="@Url.Action("Index", new { id = category.Id })" class="btn btn-sm btn-info">
                             <i class="fa fa-pencil"></i>
                             Редактировать
                         </a>
