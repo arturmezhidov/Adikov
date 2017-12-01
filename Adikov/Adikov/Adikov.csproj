@@ -5981,6 +5981,7 @@
     <Content Include="Content\assets\pages\media\blog\Thumbs.db" />
     <Content Include="Content\assets\pages\media\pages\Thumbs.db" />
     <Content Include="App_Code\LinkHelper.cshtml" />
+    <Content Include="App_Code\Enum.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Product\_ProductMarkRow.cshtml" />
