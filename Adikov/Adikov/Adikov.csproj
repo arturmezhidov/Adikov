@@ -228,6 +228,7 @@
     <Compile Include="ViewModels\ProductCategory\ProductCategoryIndexViewModel.cs" />
     <Compile Include="ViewModels\ProductCategory\ProductCategoryAddViewModel.cs" />
     <Compile Include="ViewModels\ProductCategory\ProductCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Product\ProductAddViewModel.cs" />
     <Compile Include="ViewModels\Product\ProductIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -5252,6 +5253,7 @@
     <Content Include="Content\assets\pages\scripts\portlet-ajax.min.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.min.js" />
+    <Content Include="Content\assets\pages\scripts\product-attribute.js" />
     <Content Include="Content\assets\pages\scripts\profile.js" />
     <Content Include="Content\assets\pages\scripts\profile.min.js" />
     <Content Include="Content\assets\pages\scripts\search.js" />
@@ -5728,6 +5730,7 @@
     <Content Include="Views\ProductAttribute\_EditProductAttributePortlet.cshtml" />
     <Content Include="Views\ProductAttribute\_ProductAttributeListPortlet.cshtml" />
     <Content Include="Views\ProductAttribute\_ProductAttributeListTable.cshtml" />
+    <Content Include="Views\Product\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

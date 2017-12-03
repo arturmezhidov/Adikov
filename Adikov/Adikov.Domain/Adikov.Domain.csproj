@@ -73,6 +73,7 @@
     <Compile Include="Commands\ProductCategory\RecoveryAllProductCategoryCommand.cs" />
     <Compile Include="Commands\ProductCategory\RecoveryProductCategoryCommand.cs" />
     <Compile Include="Commands\ProductCategory\DeleteProductCategoryCommand.cs" />
+    <Compile Include="Commands\Product\AddProductCommand.cs" />
     <Compile Include="Criterion\StringSizeCriterion.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="Models\ProductCategoryType.cs" />
     <Compile Include="Models\ProductStatus.cs" />
     <Compile Include="Models\ProductAttributeType.cs" />
-    <Compile Include="Models\ProductAttributeMatrix.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
