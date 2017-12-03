@@ -1,0 +1,13 @@
+﻿@model Adikov.ViewModels.ProductAttribute.ProductAttributeViewModel
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Добавление нового атрибута </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_AddProductAttributeForm", Model)
+    </div>
+</div>

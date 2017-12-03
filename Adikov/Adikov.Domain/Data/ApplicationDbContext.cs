@@ -9,6 +9,8 @@ namespace Adikov.Domain.Data
     {
         public DbSet<ProductCategory> ProductCategories { get; set; }
 
+        public DbSet<ProductAttribute> ProductAttributes { get; set; }
+
         public DbSet<Product> Products { get; set; }
 
         public DbSet<File> Files { get; set; }

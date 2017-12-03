@@ -123,7 +123,7 @@ namespace Adikov.Controllers
                 Name = category.Name,
                 Type = category.Type,
                 IsDeleted = category.IsDeleted,
-                ImageUrl = ""
+                ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedProductCategoryPath)
             };
         }
 

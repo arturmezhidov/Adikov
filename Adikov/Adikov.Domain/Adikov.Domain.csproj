@@ -61,6 +61,12 @@
     <Compile Include="Commands\File\AddFileCommand.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\File\DeleteFileCommand.cs" />
+    <Compile Include="Commands\ProductAttribute\ClearProductAttributeCommand.cs" />
+    <Compile Include="Commands\ProductAttribute\DeleteProductAttributeCommand.cs" />
+    <Compile Include="Commands\ProductAttribute\EditProductAttributeCommand.cs" />
+    <Compile Include="Commands\ProductAttribute\AddProductAttributeCommand.cs" />
+    <Compile Include="Commands\ProductAttribute\RecoveryAllProductAttributeCommand.cs" />
+    <Compile Include="Commands\ProductAttribute\RecoveryProductAttributeCommand.cs" />
     <Compile Include="Commands\ProductCategory\EditProductCategoryCommand.cs" />
     <Compile Include="Commands\ProductCategory\AddProductCategoryCommand.cs" />
     <Compile Include="Commands\ProductCategory\ClearProductCategoryCommand.cs" />
@@ -80,6 +86,7 @@
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ProductAttribute\FindAllProductAttributeQuery.cs" />
     <Compile Include="Queries\ProductCategory\FindAllProductCategoryQuery.cs" />
     <Compile Include="Queries\Query.cs" />
   </ItemGroup>

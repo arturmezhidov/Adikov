@@ -202,6 +202,7 @@
     <Compile Include="App_Start\WindsorInstaller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ProductAttributeController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
@@ -221,6 +222,8 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\ProductAttribute\ProductAttributeViewModel.cs" />
+    <Compile Include="ViewModels\ProductAttribute\ProductAttributeIndexViewModel.cs" />
     <Compile Include="ViewModels\ProductCategory\ProductCategoryEditViewModel.cs" />
     <Compile Include="ViewModels\ProductCategory\ProductCategoryIndexViewModel.cs" />
     <Compile Include="ViewModels\ProductCategory\ProductCategoryAddViewModel.cs" />
@@ -5718,6 +5721,13 @@
     <Content Include="Views\ProductCategory\_EditProductCategoryPortlet.cshtml" />
     <Content Include="Views\ProductCategory\_EditProductCategoryForm.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\ProductAttribute\Index.cshtml" />
+    <Content Include="Views\ProductAttribute\_AddProductAttributeForm.cshtml" />
+    <Content Include="Views\ProductAttribute\_AddProductAttributePortlet.cshtml" />
+    <Content Include="Views\ProductAttribute\_EditProductAttributeForm.cshtml" />
+    <Content Include="Views\ProductAttribute\_EditProductAttributePortlet.cshtml" />
+    <Content Include="Views\ProductAttribute\_ProductAttributeListPortlet.cshtml" />
+    <Content Include="Views\ProductAttribute\_ProductAttributeListTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
