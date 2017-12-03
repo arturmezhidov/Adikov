@@ -11,6 +11,8 @@ namespace Adikov.Domain.Data
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<File> Files { get; set; }
+
         public ApplicationDbContext() : base(PlatformConfiguration.ConnectionString, throwIfV1Schema: false)
         {
         }

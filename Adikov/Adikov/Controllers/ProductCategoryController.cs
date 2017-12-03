@@ -1,9 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Adikov.Domain.Commands;
-using Adikov.Domain.Criterion;
+using Adikov.Domain.Commands.ProductCategory;
 using Adikov.Domain.Models;
-using Adikov.Domain.Queries;
+using Adikov.Domain.Queries.ProductCategory;
+using Adikov.Infrastructura.Criterion;
+using Adikov.Platform.Configuration;
 using Adikov.ViewModels.ProductCategory;
 
 namespace Adikov.Controllers
@@ -22,7 +23,7 @@ namespace Adikov.Controllers
 
             if (id == null)
             {
-                vm.NewProductCategory = new ProductCategoryViewModel();
+                vm.NewProductCategory = new ProductCategoryAddViewModel();
             }
             else
             {
@@ -34,26 +35,53 @@ namespace Adikov.Controllers
                     return RedirectToAction("Index");
                 }
 
-                vm.EditProductCategory = ToViewModel(editCategory);
+                vm.EditProductCategory = ToEditViewModel(editCategory);
             }
 
             return View(vm);
         }
 
         [HttpPost]
-        public ActionResult Add(ProductCategoryViewModel vm)
+        public ActionResult Add(ProductCategoryAddViewModel vm)
         {
-            if (!ModelState.IsValid)
+            var result = SaveAs(vm.Image, PlatformConfiguration.UploadedProductCategoryPath);
+
+            if (result != null)
             {
-                return View(vm);
+                Command.Execute(new AddProductCategoryCommand
+                {
+                    Icon = vm.Icon,
+                    Name = vm.Name,
+                    Type = vm.Type,
+                    FileId = result.File.Id
+                });
             }
 
-            Command.Execute(new AddProductCategoryCommand
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ProductCategoryEditViewModel vm)
+        {
+            var command = new EditProductCategoryCommand
             {
+                Id = vm.Id,
                 Icon = vm.Icon,
-                Name = vm.Name,
-                Type = vm.Type
-            });
+                Name = vm.Name
+            };
+
+            if (vm.Image != null)
+            {
+                var result = SaveAs(vm.Image, PlatformConfiguration.UploadedProductCategoryPath);
+
+                if (result != null)
+                {
+                    command.FileId = result.File.Id;
+                    command.IsFileChanged = true;
+                }
+            }
+
+            Command.Execute(command);
 
             return RedirectToAction("Index");
         }
@@ -94,7 +122,19 @@ namespace Adikov.Controllers
                 Icon = category.Icon,
                 Name = category.Name,
                 Type = category.Type,
-                IsDeleted = category.IsDeleted
+                IsDeleted = category.IsDeleted,
+                ImageUrl = ""
+            };
+        }
+
+        protected ProductCategoryEditViewModel ToEditViewModel(ProductCategory category)
+        {
+            return new ProductCategoryEditViewModel
+            {
+                Id = category.Id,
+                Icon = category.Icon,
+                Name = category.Name,
+                ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedProductCategoryPath)
             };
         }
     }

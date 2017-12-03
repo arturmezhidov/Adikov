@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Adikov.Infrastructura.Interfaces;
 
 namespace Adikov.Domain.Models
 {
@@ -11,8 +10,10 @@ namespace Adikov.Domain.Models
 
         public ProductCategoryType Type { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public int FileId { get; set; }
 
-      
+        public virtual File File { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

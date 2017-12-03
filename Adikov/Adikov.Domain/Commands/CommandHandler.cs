@@ -1,27 +1,30 @@
 ﻿using Adikov.Domain.Data;
-using Adikov.Infrastructura.Security;
+using Adikov.Infrastructura.Commands;
 
 namespace Adikov.Domain.Commands
 {
-    public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where TCommand : ICommand
+    public abstract class CommandHandler<TCommand> : CommandHandler<TCommand, CommandResult> 
+        where TCommand : ICommand
+    {
+    }
+
+    public abstract class CommandHandler<TCommand, TResult> : CommandHandlerBase<TCommand, TResult>
+        where TCommand : ICommand
+        where TResult : ICommandResult, new()
     {
         protected ApplicationDbContext DataContext { get; }
-
-        protected UserContext UserContext { get; }
 
         protected CommandHandler()
         {
             DataContext = ApplicationDbContext.Create();
-            UserContext = new UserContext();
         }
 
-        public void Handle(TCommand command)
+        protected override  void OnHandled(TCommand command, TResult result)
         {
-            OnHandling(command);
-
-            DataContext.SaveChanges();
+            if (result.ResultCode == CommandResultCode.Success)
+            {
+                DataContext.SaveChanges();
+            }
         }
-
-        protected abstract void OnHandling(TCommand command);
     }
 }

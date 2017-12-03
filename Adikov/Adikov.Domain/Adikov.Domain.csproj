@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
@@ -57,23 +58,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="Commands\AddProductCategoryCommandHandler.cs" />
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\CommandBuilder.cs" />
+    <Compile Include="Commands\File\AddFileCommand.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
-    <Compile Include="Commands\ClearProductCategoryCommandHandler.cs" />
-    <Compile Include="Commands\RecoveryAllProductCategoryCommandHandler.cs" />
-    <Compile Include="Commands\RecoveryProductCategoryCommandHandler.cs" />
-    <Compile Include="Commands\DeleteProductCategoryCommandHandler.cs" />
-    <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\ICommandBuilder.cs" />
-    <Compile Include="Commands\ICommandHandler.cs" />
-    <Compile Include="Criterion\EmailCriterion.cs" />
-    <Compile Include="Criterion\EmptyCriterion.cs" />
-    <Compile Include="Criterion\IdCriterion.cs" />
+    <Compile Include="Commands\File\DeleteFileCommand.cs" />
+    <Compile Include="Commands\ProductCategory\EditProductCategoryCommand.cs" />
+    <Compile Include="Commands\ProductCategory\AddProductCategoryCommand.cs" />
+    <Compile Include="Commands\ProductCategory\ClearProductCategoryCommand.cs" />
+    <Compile Include="Commands\ProductCategory\RecoveryAllProductCategoryCommand.cs" />
+    <Compile Include="Commands\ProductCategory\RecoveryProductCategoryCommand.cs" />
+    <Compile Include="Commands\ProductCategory\DeleteProductCategoryCommand.cs" />
     <Compile Include="Criterion\StringSizeCriterion.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\ProductAttribute.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductCategoryType.cs" />
@@ -83,15 +80,8 @@
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Criterion\ICriterion.cs" />
-    <Compile Include="Queries\FindAllProductCategoryQuery.cs" />
-    <Compile Include="Queries\IQuery.cs" />
-    <Compile Include="Queries\IQueryableQuery.cs" />
-    <Compile Include="Queries\IQueryBuilder.cs" />
-    <Compile Include="Queries\IQueryFor.cs" />
+    <Compile Include="Queries\ProductCategory\FindAllProductCategoryQuery.cs" />
     <Compile Include="Queries\Query.cs" />
-    <Compile Include="Queries\QueryBuilder.cs" />
-    <Compile Include="Queries\QueryFor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Infrastructura\Adikov.Infrastructura.csproj">

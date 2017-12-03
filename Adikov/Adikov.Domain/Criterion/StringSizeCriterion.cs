@@ -1,4 +1,6 @@
-﻿namespace Adikov.Domain.Criterion
+﻿using Adikov.Infrastructura.Criterion;
+
+namespace Adikov.Domain.Criterion
 {
     public class StringSizeCriterion : ICriterion
     {

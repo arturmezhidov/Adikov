@@ -8,8 +8,8 @@ namespace Adikov.ViewModels.ProductCategory
 
         public IEnumerable<ProductCategoryViewModel> DeletedCategories { get; set; }
 
-        public ProductCategoryViewModel NewProductCategory { get; set; }
+        public ProductCategoryAddViewModel NewProductCategory { get; set; }
 
-        public ProductCategoryViewModel EditProductCategory { get; set; }
+        public ProductCategoryEditViewModel EditProductCategory { get; set; }
     }
 }

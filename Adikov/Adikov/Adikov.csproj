@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -26,6 +27,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -219,7 +221,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\ProductCategory\ProductCategoryEditViewModel.cs" />
     <Compile Include="ViewModels\ProductCategory\ProductCategoryIndexViewModel.cs" />
+    <Compile Include="ViewModels\ProductCategory\ProductCategoryAddViewModel.cs" />
     <Compile Include="ViewModels\ProductCategory\ProductCategoryViewModel.cs" />
     <Compile Include="ViewModels\Product\ProductIndexViewModel.cs" />
   </ItemGroup>
@@ -3772,141 +3776,6 @@
     <Content Include="Content\assets\global\plugins\holder.js" />
     <Content Include="Content\assets\global\plugins\horizontal-timeline\horizontal-timeline.js" />
     <Content Include="Content\assets\global\plugins\horizontal-timeline\horizontal-timeline.min.js" />
-    <Content Include="Content\assets\global\plugins\icheck\.gitignore" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\banner.jpg" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\custom.css" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\icheck.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\ie\arrow-bottom.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\ie\arrow-top.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\ie\header-line.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\ie\icon-fork.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\ie\icon-github.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\ie\icon-lab.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\ie\icon-options.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\ie\icon-star.png" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-bold.svg" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-regular.svg" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\normalize.css" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\index.html" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\js\custom.js" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\js\custom.min.js" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\js\jquery.js" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\js\zepto.js" />
-    <Content Include="Content\assets\global\plugins\icheck\icheck.js" />
-    <Content Include="Content\assets\global\plugins\icheck\icheck.min.js" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\all.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\aero%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\aero.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\aero.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\blue%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\blue.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\blue.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\flat%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\flat.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\flat.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\green%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\green.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\green.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\grey%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\grey.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\grey.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\orange%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\orange.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\orange.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\pink%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\pink.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\pink.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\purple%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\purple.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\purple.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\red%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\red.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\red.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\yellow%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\yellow.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\yellow.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\flat\_all.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\futurico\futurico%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\futurico\futurico.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\futurico\futurico.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\aero.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\blue.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\green.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\grey.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\line%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\line.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\line.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\orange.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\pink.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\purple.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\red.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\yellow.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\line\_all.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\aero%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\aero.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\aero.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\blue%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\blue.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\blue.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\green%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\green.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\green.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\grey%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\grey.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\grey.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\minimal%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\minimal.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\minimal.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\orange%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\orange.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\orange.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\pink%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\pink.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\pink.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\purple%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\purple.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\purple.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\red%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\red.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\red.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\yellow%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\yellow.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\yellow.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\minimal\_all.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\polaris\polaris%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\polaris\polaris.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\polaris\polaris.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\aero%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\aero.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\aero.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\blue%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\blue.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\blue.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\green%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\green.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\green.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\grey%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\grey.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\grey.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\orange%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\orange.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\orange.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\pink%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\pink.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\pink.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\purple%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\purple.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\purple.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\red%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\red.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\red.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\square%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\square.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\square.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\yellow%402x.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\yellow.css" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\yellow.png" />
-    <Content Include="Content\assets\global\plugins\icheck\skins\square\_all.css" />
     <Content Include="Content\assets\global\plugins\ie8.fix.min.js" />
     <Content Include="Content\assets\global\plugins\ion.rangeslider\css\ion.rangeSlider.css" />
     <Content Include="Content\assets\global\plugins\ion.rangeslider\css\ion.rangeSlider.Metronic.css" />
@@ -4849,141 +4718,6 @@
     <Content Include="Content\assets\layouts\layout2\scripts\demo.min.js" />
     <Content Include="Content\assets\layouts\layout2\scripts\layout.js" />
     <Content Include="Content\assets\layouts\layout2\scripts\layout.min.js" />
-    <Content Include="Content\assets\layouts\layout3\css\custom.css" />
-    <Content Include="Content\assets\layouts\layout3\css\custom.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\layout.css" />
-    <Content Include="Content\assets\layouts\layout3\css\layout.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\blue-hoki.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\blue-hoki.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\blue-steel.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\blue-steel.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\default.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\default.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\green-haze.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\green-haze.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\purple-plum.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\purple-plum.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\purple-studio.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\purple-studio.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\red-intense.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\red-intense.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\red-sunglo.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\red-sunglo.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\yellow-crusta.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\yellow-crusta.min.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\yellow-orange.css" />
-    <Content Include="Content\assets\layouts\layout3\css\themes\yellow-orange.min.css" />
-    <Content Include="Content\assets\layouts\layout3\img\ajax-loading.gif" />
-    <Content Include="Content\assets\layouts\layout3\img\ajax-modal-loading.gif" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar.png" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar1.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar10.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar11.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar2.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar3.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar4.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar5.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar6.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar7.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar8.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\avatar9.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\icon-color-close.png" />
-    <Content Include="Content\assets\layouts\layout3\img\icon-color.png" />
-    <Content Include="Content\assets\layouts\layout3\img\loading-spinner-blue.gif" />
-    <Content Include="Content\assets\layouts\layout3\img\loading-spinner-default.gif" />
-    <Content Include="Content\assets\layouts\layout3\img\loading-spinner-grey.gif" />
-    <Content Include="Content\assets\layouts\layout3\img\loading.gif" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-big-white.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-big.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-blue-hoki.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-blue-steel.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-default.jpg" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-green-haze.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-purple-plum.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-purple-studio.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-red-intense.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-red-sunglo.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-yellow-crusta.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo-yellow-orange.png" />
-    <Content Include="Content\assets\layouts\layout3\img\logo.png" />
-    <Content Include="Content\assets\layouts\layout3\img\menu-toggler.png" />
-    <Content Include="Content\assets\layouts\layout3\scripts\demo.js" />
-    <Content Include="Content\assets\layouts\layout3\scripts\demo.min.js" />
-    <Content Include="Content\assets\layouts\layout3\scripts\layout.js" />
-    <Content Include="Content\assets\layouts\layout3\scripts\layout.min.js" />
-    <Content Include="Content\assets\layouts\layout4\css\custom.css" />
-    <Content Include="Content\assets\layouts\layout4\css\custom.min.css" />
-    <Content Include="Content\assets\layouts\layout4\css\layout.css" />
-    <Content Include="Content\assets\layouts\layout4\css\layout.min.css" />
-    <Content Include="Content\assets\layouts\layout4\css\themes\default.css" />
-    <Content Include="Content\assets\layouts\layout4\css\themes\default.min.css" />
-    <Content Include="Content\assets\layouts\layout4\css\themes\light.css" />
-    <Content Include="Content\assets\layouts\layout4\css\themes\light.min.css" />
-    <Content Include="Content\assets\layouts\layout4\img\ajax-loading.gif" />
-    <Content Include="Content\assets\layouts\layout4\img\ajax-modal-loading.gif" />
-    <Content Include="Content\assets\layouts\layout4\img\arrow-down.png" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar.png" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar1.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar10.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar11.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar1_small.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar2.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar3.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar3_small.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar4.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar5.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar6.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar7.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar8.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\avatar9.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\hor-menu-red-arrow.png" />
-    <Content Include="Content\assets\layouts\layout4\img\icon-color-close.png" />
-    <Content Include="Content\assets\layouts\layout4\img\icon-color.png" />
-    <Content Include="Content\assets\layouts\layout4\img\icon-img-down.png" />
-    <Content Include="Content\assets\layouts\layout4\img\icon-img-up.png" />
-    <Content Include="Content\assets\layouts\layout4\img\inbox-nav-arrow-blue.png" />
-    <Content Include="Content\assets\layouts\layout4\img\loading-spinner-blue.gif" />
-    <Content Include="Content\assets\layouts\layout4\img\loading-spinner-default.gif" />
-    <Content Include="Content\assets\layouts\layout4\img\loading-spinner-grey.gif" />
-    <Content Include="Content\assets\layouts\layout4\img\loading.gif" />
-    <Content Include="Content\assets\layouts\layout4\img\logo-big-white.png" />
-    <Content Include="Content\assets\layouts\layout4\img\logo-big.png" />
-    <Content Include="Content\assets\layouts\layout4\img\logo-default.png" />
-    <Content Include="Content\assets\layouts\layout4\img\logo-light.png" />
-    <Content Include="Content\assets\layouts\layout4\img\logo.png" />
-    <Content Include="Content\assets\layouts\layout4\img\menu-toggler.png" />
-    <Content Include="Content\assets\layouts\layout4\img\photo1.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\photo2.jpg" />
-    <Content Include="Content\assets\layouts\layout4\img\remove-icon-small.png" />
-    <Content Include="Content\assets\layouts\layout4\img\search_icon_light.png" />
-    <Content Include="Content\assets\layouts\layout4\img\sidebar-toggle-dark.png" />
-    <Content Include="Content\assets\layouts\layout4\img\sidebar-toggle-light.png" />
-    <Content Include="Content\assets\layouts\layout4\scripts\demo.js" />
-    <Content Include="Content\assets\layouts\layout4\scripts\demo.min.js" />
-    <Content Include="Content\assets\layouts\layout4\scripts\layout.js" />
-    <Content Include="Content\assets\layouts\layout4\scripts\layout.min.js" />
-    <Content Include="Content\assets\layouts\layout5\css\custom.css" />
-    <Content Include="Content\assets\layouts\layout5\css\custom.min.css" />
-    <Content Include="Content\assets\layouts\layout5\css\layout.css" />
-    <Content Include="Content\assets\layouts\layout5\css\layout.min.css" />
-    <Content Include="Content\assets\layouts\layout5\img\avatar1.jpg" />
-    <Content Include="Content\assets\layouts\layout5\img\logo.png" />
-    <Content Include="Content\assets\layouts\layout5\scripts\index.js" />
-    <Content Include="Content\assets\layouts\layout5\scripts\index.min.js" />
-    <Content Include="Content\assets\layouts\layout5\scripts\layout.js" />
-    <Content Include="Content\assets\layouts\layout5\scripts\layout.min.js" />
-    <Content Include="Content\assets\layouts\layout6\css\custom.css" />
-    <Content Include="Content\assets\layouts\layout6\css\custom.min.css" />
-    <Content Include="Content\assets\layouts\layout6\css\layout.css" />
-    <Content Include="Content\assets\layouts\layout6\css\layout.min.css" />
-    <Content Include="Content\assets\layouts\layout6\img\avatar1.jpg" />
-    <Content Include="Content\assets\layouts\layout6\img\bg_01.jpg" />
-    <Content Include="Content\assets\layouts\layout6\img\close.png" />
-    <Content Include="Content\assets\layouts\layout6\img\logo.png" />
-    <Content Include="Content\assets\layouts\layout6\scripts\index.js" />
-    <Content Include="Content\assets\layouts\layout6\scripts\index.min.js" />
-    <Content Include="Content\assets\layouts\layout6\scripts\layout.js" />
-    <Content Include="Content\assets\layouts\layout6\scripts\layout.min.js" />
     <Content Include="Content\assets\layouts\layout7\css\custom.css" />
     <Content Include="Content\assets\layouts\layout7\css\custom.min.css" />
     <Content Include="Content\assets\layouts\layout7\css\layout.css" />
@@ -5628,7 +5362,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\assets\apps\img\" />
     <Folder Include="Content\assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
-    <Folder Include="Models\Product\" />
     <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
@@ -5780,17 +5513,6 @@
     <Content Include="Content\assets\global\plugins\fuelux\README.md" />
     <Content Include="Content\assets\global\plugins\fullcalendar\demos\json\events.json" />
     <Content Include="Content\assets\global\plugins\gmaps\README.md" />
-    <Content Include="Content\assets\global\plugins\icheck\bower.json" />
-    <Content Include="Content\assets\global\plugins\icheck\CHANGELOG.md" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\custom.styl" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-bold.eot" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-bold.ttf" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-bold.woff" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-regular.eot" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-regular.ttf" />
-    <Content Include="Content\assets\global\plugins\icheck\demo\css\montserrat-regular.woff" />
-    <Content Include="Content\assets\global\plugins\icheck\icheck.jquery.json" />
-    <Content Include="Content\assets\global\plugins\icheck\README.md" />
     <Content Include="Content\assets\global\plugins\jcrop\README.md" />
     <Content Include="Content\assets\global\plugins\jquery-bootpag\README.md" />
     <Content Include="Content\assets\global\plugins\jquery-cookiebar\README.md" />
@@ -5981,7 +5703,7 @@
     <Content Include="Content\assets\pages\media\blog\Thumbs.db" />
     <Content Include="Content\assets\pages\media\pages\Thumbs.db" />
     <Content Include="App_Code\LinkHelper.cshtml" />
-    <Content Include="App_Code\Enum.cshtml" />
+    <Content Include="App_Code\EnumHelper.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Product\_ProductMarkRow.cshtml" />
@@ -5995,6 +5717,7 @@
     <Content Include="Views\ProductCategory\_ProductCategoryListPortlet.cshtml" />
     <Content Include="Views\ProductCategory\_EditProductCategoryPortlet.cshtml" />
     <Content Include="Views\ProductCategory\_EditProductCategoryForm.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
@@ -6005,12 +5728,23 @@
       <Project>{18742b75-10ef-48c7-b999-3f747fb354d2}</Project>
       <Name>Adikov.Infrastructura</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adikov.Platform\Adikov.Platform.csproj">
+      <Project>{879C0A8C-5B8E-4609-A49A-CE7F3A138387}</Project>
+      <Name>Adikov.Platform</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\pages\scripts\product-category.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
