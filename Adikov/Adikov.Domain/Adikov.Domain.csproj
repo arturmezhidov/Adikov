@@ -87,6 +87,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ProductAttribute\FindAllProductAttributeQuery.cs" />
+    <Compile Include="Queries\ProductAttribute\FindActiveProductAttributeQuery.cs" />
     <Compile Include="Queries\ProductCategory\FindAllProductCategoryQuery.cs" />
     <Compile Include="Queries\Query.cs" />
   </ItemGroup>

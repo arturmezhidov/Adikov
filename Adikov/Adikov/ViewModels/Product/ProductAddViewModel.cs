@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace Adikov.ViewModels.Product
 {
@@ -11,5 +12,7 @@ namespace Adikov.ViewModels.Product
         public int CategoryId { get; set; }
 
         public List<int> Attributes { get; set; }
+
+        public IEnumerable<SelectListItem> AttributesListItems { get; set; }
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Adikov.ViewModels.Product;
+using Adikov.Domain.Queries.ProductAttribute;
+using Adikov.Infrastructura.Criterion;
 
 namespace Adikov.Controllers
 {
@@ -18,10 +20,25 @@ namespace Adikov.Controllers
         [HttpGet]
         public ActionResult Add(int categoryId)
         {
-            return View(new ProductAddViewModel
+            FindActiveProductAttributeQueryResult attributes = Query.For<FindActiveProductAttributeQueryResult>().With(new EmptyCriterion());
+
+            if(attributes.ActiveAttributes.Count == 0)
             {
-                CategoryId = categoryId
-            });
+                // TODO: Redirect to attributes add page.
+            }
+
+            ProductAddViewModel vm = new ProductAddViewModel
+            {
+                CategoryId = categoryId,
+                AttributesListItems = attributes.ActiveAttributes
+                    .Select(i => new SelectListItem
+                    {
+                        Text = i.Name,
+                        Value = i.Id.ToString()
+                    })
+            };
+
+            return View(vm);
         }
 
         [HttpPost]
@@ -29,6 +46,24 @@ namespace Adikov.Controllers
         {
             if (!ModelState.IsValid)
             {
+                FindActiveProductAttributeQueryResult attributes = Query.For<FindActiveProductAttributeQueryResult>().With(new EmptyCriterion());
+
+                if (attributes.ActiveAttributes.Count == 0)
+                {
+                    // TODO: Redirect to attributes add page.
+                }
+
+                ProductAddViewModel vm = new ProductAddViewModel
+                {
+                    CategoryId = categoryId,
+                    AttributesListItems = attributes.ActiveAttributes
+                        .Select(i => new SelectListItem
+                        {
+                            Text = i.Name,
+                            Value = i.Id.ToString()
+                        })
+                };
+
                 return View(product);
             }
 
