@@ -1,0 +1,25 @@
+﻿@using System.Web.Mvc.Html
+
+@model Adikov.ViewModels.Columns.ColumnIndexViewModel
+
+@{
+    ViewBag.Title = "Столбцы";
+}
+
+@if (Model.EditColumn == null)
+{
+    @Html.Partial("_AddColumnPortlet", Model.NewColumn)
+}
+else
+{
+    @Html.Partial("_EditColumnPortlet", Model.EditColumn)
+}
+
+@Html.Partial("_ColumnListPortlet", Model)
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-confirmation/bootstrap-confirmation.min.js"></script>
+    <script src="~/Content/js/columns.js"></script>
+}

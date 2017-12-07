@@ -1,0 +1,22 @@
+﻿@model Adikov.ViewModels.Columns.ColumnViewModel
+
+@using (Html.BeginForm("Edit", "Column", null, FormMethod.Post, new { id = "column-form", @class = "form-horizontal", role = "form" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-body">
+        <div class="form-group">
+            <label class="col-md-3 control-label">Название <span class="required" aria-required="true"> * </span></label>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Название" })
+            </div>
+        </div>
+    </div>
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <button type="submit" class="btn green">Сохранить</button>
+                <a class="btn default" href="@Url.Action("Index", "Column", new { id = "" })">Отмена</a>
+            </div>
+        </div>
+    </div>
+}

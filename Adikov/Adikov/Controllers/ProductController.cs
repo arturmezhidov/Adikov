@@ -3,71 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Adikov.ViewModels.Product;
-using Adikov.Domain.Queries.ProductAttribute;
+using Adikov.Domain.Commands.Products;
+using Adikov.Domain.Models;
+using Adikov.Domain.Queries.Columns;
 using Adikov.Infrastructura.Criterion;
+using Adikov.ViewModels.Products;
 
 namespace Adikov.Controllers
 {
     public class ProductController : LayoutController
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            return View(new ProductIndexViewModel());
         }
 
         [HttpGet]
         public ActionResult Add(int categoryId)
         {
-            FindActiveProductAttributeQueryResult attributes = Query.For<FindActiveProductAttributeQueryResult>().With(new EmptyCriterion());
+            FindActiveColumnQueryResult attributes = Query.For<FindActiveColumnQueryResult>().With(new EmptyCriterion());
 
-            if(attributes.ActiveAttributes.Count == 0)
+            if(attributes.ActiveColumns.Count == 0)
             {
-                // TODO: Redirect to attributes add page.
+                return RedirectToAction("Index", "Column");
             }
 
             ProductAddViewModel vm = new ProductAddViewModel
             {
-                CategoryId = categoryId,
-                AttributesListItems = attributes.ActiveAttributes
-                    .Select(i => new SelectListItem
-                    {
-                        Text = i.Name,
-                        Value = i.Id.ToString()
-                    })
+                CategoryId = categoryId
             };
 
             return View(vm);
         }
 
         [HttpPost]
-        public ActionResult Add(int categoryId, ProductAddViewModel product)
+        public ActionResult Add(ProductAddViewModel product)
         {
             if (!ModelState.IsValid)
             {
-                FindActiveProductAttributeQueryResult attributes = Query.For<FindActiveProductAttributeQueryResult>().With(new EmptyCriterion());
-
-                if (attributes.ActiveAttributes.Count == 0)
-                {
-                    // TODO: Redirect to attributes add page.
-                }
-
-                ProductAddViewModel vm = new ProductAddViewModel
-                {
-                    CategoryId = categoryId,
-                    AttributesListItems = attributes.ActiveAttributes
-                        .Select(i => new SelectListItem
-                        {
-                            Text = i.Name,
-                            Value = i.Id.ToString()
-                        })
-                };
-
-                return View(product);
+                return RedirectToAction("Add", new { categoryId = product.CategoryId });
             }
 
-            return View();
+            AddProductCommandResult result = Command.For<AddProductCommandResult>().Execute(new AddProductCommand
+            {
+                Name = product.Name,
+                CategoryId = product.CategoryId
+            });
+
+            return RedirectToAction("Index", new { id = result.Product.Id });
         }
     }
 }

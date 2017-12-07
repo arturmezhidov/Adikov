@@ -67,6 +67,25 @@ namespace Adikov.Controllers
             {
                 new SidebarGroup
                 {
+                    Text = "Шаблоны",
+                    ViewLink = "/",
+                    Icon = "fa fa-puzzle-piece",
+                    Items = new List<SidebarItem>
+                    {
+                        new SidebarItem
+                        {
+                            Text = "Столбцы",
+                            ViewLink = "/Column"
+                        },
+                        new SidebarItem
+                        {
+                            Text = "Таблицы",
+                            ViewLink = "/Table"
+                        }
+                    }
+                },
+                new SidebarGroup
+                {
                     Text = "Трубы нержавеющие",
                     ViewLink = "/",
                     Icon = "fa fa-circle-thin",
@@ -183,12 +202,17 @@ namespace Adikov.Controllers
                         new SidebarItem
                         {
                             Text = "Категории",
-                            ViewLink = "/ProductCategory"
+                            ViewLink = "/Category"
                         },
                         new SidebarItem
                         {
-                            Text = "Атрибуты",
-                            ViewLink = "/ProductAttribute"
+                            Text = "Столбцы",
+                            ViewLink = "/Column"
+                        },
+                        new SidebarItem
+                        {
+                            Text = "Таблицы",
+                            ViewLink = "/Table"
                         }
                     }
                 },

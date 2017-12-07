@@ -202,8 +202,8 @@
     <Compile Include="App_Start\WindsorInstaller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ProductAttributeController.cs" />
-    <Compile Include="Controllers\ProductCategoryController.cs" />
+    <Compile Include="Controllers\ColumnController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -222,14 +222,14 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
-    <Compile Include="ViewModels\ProductAttribute\ProductAttributeViewModel.cs" />
-    <Compile Include="ViewModels\ProductAttribute\ProductAttributeIndexViewModel.cs" />
-    <Compile Include="ViewModels\ProductCategory\ProductCategoryEditViewModel.cs" />
-    <Compile Include="ViewModels\ProductCategory\ProductCategoryIndexViewModel.cs" />
-    <Compile Include="ViewModels\ProductCategory\ProductCategoryAddViewModel.cs" />
-    <Compile Include="ViewModels\ProductCategory\ProductCategoryViewModel.cs" />
-    <Compile Include="ViewModels\Product\ProductAddViewModel.cs" />
-    <Compile Include="ViewModels\Product\ProductIndexViewModel.cs" />
+    <Compile Include="ViewModels\Columns\ColumnViewModel.cs" />
+    <Compile Include="ViewModels\Columns\ColumnIndexViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CategoryEditViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CategoryIndexViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CategoryAddViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductAddViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\apps\css\inbox.css" />
@@ -5254,7 +5254,7 @@
     <Content Include="Content\assets\pages\scripts\portlet-ajax.min.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.min.js" />
-    <Content Include="Content\assets\pages\scripts\product-attribute.js" />
+    <Content Include="Content\js\columns.js" />
     <Content Include="Content\assets\pages\scripts\profile.js" />
     <Content Include="Content\assets\pages\scripts\profile.min.js" />
     <Content Include="Content\assets\pages\scripts\search.js" />
@@ -5368,7 +5368,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\assets\apps\img\" />
     <Folder Include="Content\assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
-    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\global\img\social\Thumbs.db" />
@@ -5716,21 +5715,21 @@
     <Content Include="Views\Product\_ProductMarkHeadRow.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\_ProductTable.cshtml" />
-    <Content Include="Views\ProductCategory\Index.cshtml" />
-    <Content Include="Views\ProductCategory\_ProductCategoryListTable.cshtml" />
-    <Content Include="Views\ProductCategory\_AddProductCategoryForm.cshtml" />
-    <Content Include="Views\ProductCategory\_AddProductCategoryPortlet.cshtml" />
-    <Content Include="Views\ProductCategory\_ProductCategoryListPortlet.cshtml" />
-    <Content Include="Views\ProductCategory\_EditProductCategoryPortlet.cshtml" />
-    <Content Include="Views\ProductCategory\_EditProductCategoryForm.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\_ProductCategoryListTable.cshtml" />
+    <Content Include="Views\Category\_AddProductCategoryForm.cshtml" />
+    <Content Include="Views\Category\_AddProductCategoryPortlet.cshtml" />
+    <Content Include="Views\Category\_ProductCategoryListPortlet.cshtml" />
+    <Content Include="Views\Category\_EditProductCategoryPortlet.cshtml" />
+    <Content Include="Views\Category\_EditProductCategoryForm.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="Views\ProductAttribute\Index.cshtml" />
-    <Content Include="Views\ProductAttribute\_AddProductAttributeForm.cshtml" />
-    <Content Include="Views\ProductAttribute\_AddProductAttributePortlet.cshtml" />
-    <Content Include="Views\ProductAttribute\_EditProductAttributeForm.cshtml" />
-    <Content Include="Views\ProductAttribute\_EditProductAttributePortlet.cshtml" />
-    <Content Include="Views\ProductAttribute\_ProductAttributeListPortlet.cshtml" />
-    <Content Include="Views\ProductAttribute\_ProductAttributeListTable.cshtml" />
+    <Content Include="Views\Column\Index.cshtml" />
+    <Content Include="Views\Column\_AddColumnForm.cshtml" />
+    <Content Include="Views\Column\_AddColumnPortlet.cshtml" />
+    <Content Include="Views\Column\_EditColumnForm.cshtml" />
+    <Content Include="Views\Column\_EditColumnPortlet.cshtml" />
+    <Content Include="Views\Column\_ColumnListPortlet.cshtml" />
+    <Content Include="Views\Column\_ColumnListTable.cshtml" />
     <Content Include="Views\Product\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -5748,7 +5747,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\assets\pages\scripts\product-category.js" />
+    <Content Include="Content\js\product-category.js" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
