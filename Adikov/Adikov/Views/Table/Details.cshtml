@@ -1,0 +1,29 @@
+﻿@model Adikov.ViewModels.Tables.TableDetailsViewModel
+
+@{
+    ViewBag.Title = "Детали таблицы - " + Model.Name;
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-exclamation-circle font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> @Model.Name </span>
+        </div>
+        <div class="actions">
+            <a href="@Url.Action("Index")" class="btn btn-circle red-sunglo ">
+                <i class="icon-action-undo"></i> Назад
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @if (Model.IsPreview == true)
+        {
+            @Html.Partial("_TablePreviewTable", Model)
+        }
+        else
+        {
+            @Html.Partial("_TableDetailsTable", Model)
+        }
+    </div>
+</div>

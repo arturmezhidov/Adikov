@@ -1,0 +1,12 @@
+﻿@model Adikov.ViewModels.Tables.TableIndexViewModel
+
+@{
+    ViewBag.Title = "Таблицы";
+}
+
+@Html.Partial("_TableListPortlet", Model)
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/bootstrap-confirmation/bootstrap-confirmation.min.js"></script>
+}

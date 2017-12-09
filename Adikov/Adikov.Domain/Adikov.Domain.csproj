@@ -74,6 +74,12 @@
     <Compile Include="Commands\Categories\RecoveryCategoryCommand.cs" />
     <Compile Include="Commands\Categories\DeleteCategoryCommand.cs" />
     <Compile Include="Commands\Products\AddProductCommand.cs" />
+    <Compile Include="Commands\Tables\EditTableCommand.cs" />
+    <Compile Include="Commands\Tables\AddTableCommand.cs" />
+    <Compile Include="Commands\Tables\ClearTableCommand.cs" />
+    <Compile Include="Commands\Tables\DeleteTableCommand.cs" />
+    <Compile Include="Commands\Tables\RecoveryAllTableCommand.cs" />
+    <Compile Include="Commands\Tables\RecoveryTableCommand.cs" />
     <Compile Include="Criterion\StringSizeCriterion.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
@@ -91,6 +97,8 @@
     <Compile Include="Queries\Columns\FindActiveColumnQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryQuery.cs" />
     <Compile Include="Queries\Query.cs" />
+    <Compile Include="Queries\Tables\FindTableDetailsQuery.cs" />
+    <Compile Include="Queries\Tables\FindAllTableQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Infrastructura\Adikov.Infrastructura.csproj">

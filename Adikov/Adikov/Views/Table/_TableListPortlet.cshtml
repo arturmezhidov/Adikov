@@ -1,0 +1,70 @@
+﻿@model Adikov.ViewModels.Tables.TableIndexViewModel
+
+<div class="portlet light">
+    <div class="portlet-title tabbable-line">
+        <div class="caption">
+            <i class="icon-list font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Все таблицы </span>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#portlet_tab-active" data-toggle="tab"> Активные </a>
+            </li>
+            <li>
+                <a href="#portlet_tab-deleted" data-toggle="tab"> Удаленные </a>
+            </li>
+        </ul>
+    </div>
+    <div class="portlet-body">
+        <div class="tab-content">
+            <div class="tab-pane active" id="portlet_tab-active">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="pull-right">
+                                <a href="@Url.Action("Add")" class="btn sbold green">
+                                    <i class="fa fa-plus"></i>
+                                    Добавить таблицу
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("_TableListTable", Model.ActiveTables)
+            </div>
+            <div class="tab-pane" id="portlet_tab-deleted">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @if (Model.DeletedTables.Any())
+                            {
+                                <div class="pull-right">
+                                    <a href="@Url.Action("RecoveryAll")" class="btn sbold green">
+                                        <i class="icon-action-undo"></i>
+                                        Восстановить все
+                                    </a>
+                                    @LinkHelper.ConfirmationLink(
+                                        "Очистить всё",
+                                        Url.Action("Clear"),
+                                        "btn btn-danger",
+                                        "fa fa-trash-o")
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("_TableListTable", Model.DeletedTables)
+            </div>
+        </div>
+    </div>
+</div>

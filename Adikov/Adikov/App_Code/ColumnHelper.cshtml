@@ -1,0 +1,40 @@
+﻿@using Adikov.Domain.Models
+
+@helper TypeToLabel(ColumnType type)
+{
+    switch (type)
+    {
+        case ColumnType.IntNumber:
+        {
+            <span class="label label-sm label-warning"> Целое число </span>
+            break;
+        }
+        case ColumnType.DoubleNumber:
+        {
+            <span class="label label-sm label-primary"> Вещественное число </span>
+            break;
+        }
+        case ColumnType.String:
+        {
+            <span class="label label-sm label-success"> Строка </span>
+            break;
+        }
+        case ColumnType.Status:
+        {
+            <span class="label label-sm label-info"> Статус </span>
+            break;
+        }
+    }
+}
+
+@helper ActiveStatusToLabel(bool isDeleted)
+{
+    if (isDeleted)
+    {
+        <span class="label label-sm label-danger"> Удален </span>
+    }
+    else
+    {
+        <span class="label label-sm label-success"> Активный </span>      
+    }
+}

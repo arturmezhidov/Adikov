@@ -35,7 +35,21 @@ namespace Adikov.Infrastructura.Queries
 
         public TResponse ById(object id)
         {
-            return null;
+            IQuery<IdCriterion, TResponse> query = null;
+
+            try
+            {
+                query = dependencyResolver.GetService<IQuery<IdCriterion, TResponse>>();
+            }
+            finally
+            {
+                if (query == null)
+                {
+                    throw new NotImplementedException($"Interface IQuery<{typeof(IdCriterion).Name}, {typeof(TResponse).Name}> does not implement.");
+                }
+            }
+
+            return query.Execute(new IdCriterion(id));
         }
 
         public IQueryable<TResponse> All()

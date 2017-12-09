@@ -1,0 +1,15 @@
+﻿@model Adikov.ViewModels.Tables.TableEditViewModel
+
+@{
+    ViewBag.Title = "Редактирование таблицы";
+}
+
+@Html.Partial("_EditTablePortlet", Model)
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/global/plugins/jquery-repeater/jquery.repeater.js"></script>
+    <script src="~/Content/assets/pages/scripts/common/form-repeater.js"></script>
+    <script src="~/Content/js/tables.js"></script>
+}

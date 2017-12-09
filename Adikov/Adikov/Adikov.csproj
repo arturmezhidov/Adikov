@@ -208,6 +208,7 @@
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -230,6 +231,11 @@
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductAddViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductIndexViewModel.cs" />
+    <Compile Include="ViewModels\Tables\TableDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Tables\TableEditViewModel.cs" />
+    <Compile Include="ViewModels\Tables\TableIndexViewModel.cs" />
+    <Compile Include="ViewModels\Tables\TableAddViewModel.cs" />
+    <Compile Include="ViewModels\Tables\TableViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\apps\css\inbox.css" />
@@ -5323,6 +5329,7 @@
     <Content Include="Content\assets\pages\scripts\v,..min.js" />
     <Content Include="Content\assets\pages\scripts\widgets.js" />
     <Content Include="Content\assets\pages\scripts\widgets.min.js" />
+    <Content Include="Content\js\tables.js" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -5709,6 +5716,7 @@
     <Content Include="Content\assets\pages\media\pages\Thumbs.db" />
     <Content Include="App_Code\LinkHelper.cshtml" />
     <Content Include="App_Code\EnumHelper.cshtml" />
+    <Content Include="App_Code\ColumnHelper.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Product\_ProductMarkRow.cshtml" />
@@ -5731,6 +5739,18 @@
     <Content Include="Views\Column\_ColumnListPortlet.cshtml" />
     <Content Include="Views\Column\_ColumnListTable.cshtml" />
     <Content Include="Views\Product\Add.cshtml" />
+    <Content Include="Views\Table\Index.cshtml" />
+    <Content Include="Views\Table\Add.cshtml" />
+    <Content Include="Views\Table\_AddTableForm.cshtml" />
+    <Content Include="Views\Table\_AddTablePortlet.cshtml" />
+    <Content Include="Views\Table\_TableListPortlet.cshtml" />
+    <Content Include="Views\Table\_TableListTable.cshtml" />
+    <Content Include="Views\Table\Details.cshtml" />
+    <Content Include="Views\Table\_TableDetailsTable.cshtml" />
+    <Content Include="Views\Table\_TablePreviewTable.cshtml" />
+    <Content Include="Views\Table\_EditTableForm.cshtml" />
+    <Content Include="Views\Table\_EditTablePortlet.cshtml" />
+    <Content Include="Views\Table\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
