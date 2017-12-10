@@ -15,5 +15,11 @@ namespace Adikov.ViewModels.Categories
         public string ImageUrl { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public bool CanAddProduct { get; set; }
+
+        public int ProductCount { get; set; }
+
+        public bool HasProducts { get; set; }
     }
 }

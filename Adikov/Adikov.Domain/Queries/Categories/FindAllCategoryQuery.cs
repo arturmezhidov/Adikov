@@ -7,9 +7,9 @@ namespace Adikov.Domain.Queries.Categories
 {
     public class FindAllCategoryQueryResult
     {
-        public IEnumerable<Category> ActiveCategories { get; set; }
+        public List<Category> ActiveCategories { get; set; }
 
-        public IEnumerable<Category> DeletedCategories { get; set; }
+        public List<Category> DeletedCategories { get; set; }
     }
 
     public class FindAllCategoryQuery : Query<EmptyCriterion, FindAllCategoryQueryResult>
@@ -20,8 +20,8 @@ namespace Adikov.Domain.Queries.Categories
 
             FindAllCategoryQueryResult result = new FindAllCategoryQueryResult
             {
-                ActiveCategories = categories.Where(i => !i.IsDeleted),
-                DeletedCategories = categories.Where(i => i.IsDeleted)
+                ActiveCategories = categories.Where(i => !i.IsDeleted).ToList(),
+                DeletedCategories = categories.Where(i => i.IsDeleted).ToList()
             };
 
             return result;

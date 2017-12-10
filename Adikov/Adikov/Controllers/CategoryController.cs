@@ -13,7 +13,7 @@ namespace Adikov.Controllers
     {
         public ActionResult Index()
         {
-            var result = Query.For<FindAllCategoryQueryResult>().With(new EmptyCriterion());
+            var result = Query.For<FindAllCategoryDetailsQueryResult>().With(new EmptyCriterion());
 
             var vm = new CategoryIndexViewModel
             {
@@ -118,7 +118,7 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
-        protected CategoryViewModel ToViewModel(Category category)
+        protected CategoryViewModel ToViewModel(CategoryDetails category)
         {
             return new CategoryViewModel
             {
@@ -127,7 +127,10 @@ namespace Adikov.Controllers
                 Name = category.Name,
                 Type = category.Type,
                 IsDeleted = category.IsDeleted,
-                ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedCategoryPath)
+                ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedCategoryPath),
+                CanAddProduct = category.CanAddProduct,
+                ProductCount = category.Products.Count(),
+                HasProducts = category.HasProducts
             };
         }
 

@@ -230,7 +230,9 @@
     <Compile Include="ViewModels\Categories\CategoryAddViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductAddViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductEditViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductIndexViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableDetailsViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableEditViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableIndexViewModel.cs" />
@@ -5260,6 +5262,7 @@
     <Content Include="Content\assets\pages\scripts\portlet-ajax.min.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.min.js" />
+    <Content Include="Content\js\products.js" />
     <Content Include="Content\js\columns.js" />
     <Content Include="Content\assets\pages\scripts\profile.js" />
     <Content Include="Content\assets\pages\scripts\profile.min.js" />
@@ -5719,10 +5722,7 @@
     <Content Include="App_Code\ColumnHelper.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Views\Product\_ProductMarkRow.cshtml" />
-    <Content Include="Views\Product\_ProductMarkHeadRow.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Product\_ProductTable.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\_CategoryListTable.cshtml" />
     <Content Include="Views\Category\_AddCategoryForm.cshtml" />
@@ -5738,7 +5738,6 @@
     <Content Include="Views\Column\_EditColumnPortlet.cshtml" />
     <Content Include="Views\Column\_ColumnListPortlet.cshtml" />
     <Content Include="Views\Column\_ColumnListTable.cshtml" />
-    <Content Include="Views\Product\Add.cshtml" />
     <Content Include="Views\Table\Index.cshtml" />
     <Content Include="Views\Table\Add.cshtml" />
     <Content Include="Views\Table\_AddTableForm.cshtml" />
@@ -5753,6 +5752,12 @@
     <Content Include="Views\Table\Edit.cshtml" />
     <Content Include="Views\Category\Add.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Product\_AddProductForm.cshtml" />
+    <Content Include="Views\Product\_AddProductPortlet.cshtml" />
+    <Content Include="Views\Product\_EditProductPortlet.cshtml" />
+    <Content Include="Views\Product\_EditProductForm.cshtml" />
+    <Content Include="Views\Product\_ProductListPortlet.cshtml" />
+    <Content Include="Views\Product\_ProductListTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

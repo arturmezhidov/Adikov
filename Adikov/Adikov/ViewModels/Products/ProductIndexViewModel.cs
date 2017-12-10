@@ -1,17 +1,15 @@
-﻿namespace Adikov.ViewModels.Products
+﻿using System.Collections.Generic;
+
+namespace Adikov.ViewModels.Products
 {
     public class ProductIndexViewModel
     {
-        public string PageHeader { get; set; }
+        public IEnumerable<ProductViewModel> ActiveProducts { get; set; }
 
-        public string PortletName { get; set; }
+        public IEnumerable<ProductViewModel> DeletedProducts { get; set; }
 
-        public string PortletIcon { get; set; }
+        public ProductAddViewModel NewProduct { get; set; }
 
-        public string PortletHeader { get; set; }
-
-        public string PortletCaptionHelper { get; set; }
-
-
+        public ProductEditViewModel EditProduct { get; set; }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 namespace Adikov.ViewModels.Products
 {
-    public class ProductAddViewModel
+    public class ProductEditViewModel
     {
-        [Required(ErrorMessage = "Поле обязательно для заполнения")]
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public int CategoryId { get; set; }

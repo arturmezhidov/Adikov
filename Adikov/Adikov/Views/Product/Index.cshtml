@@ -1,53 +1,25 @@
-﻿@model Adikov.ViewModels.Products.ProductIndexViewModel
+﻿@using System.Web.Mvc.Html
+
+@model Adikov.ViewModels.Products.ProductIndexViewModel
 
 @{
-    ViewBag.Title = Model.PortletName;
+    ViewBag.Title = "Продукты";
 }
 
-@if (String.IsNullOrEmpty(Model.PageHeader))
+@if (Model.EditProduct == null)
 {
-    <h1 class="page-title"> @Model.PageHeader </h1>
+    @Html.Partial("_AddProductPortlet", Model.NewProduct)
+}
+else
+{
+    @Html.Partial("_EditProductPortlet", Model.EditProduct)
 }
 
-<div class="portlet light bordered">
-    <div class="portlet-title">
-        <div class="caption">
+@Html.Partial("_ProductListPortlet", Model)
 
-            @if (String.IsNullOrEmpty(Model.PortletIcon))
-            {
-                <i class="@Model.PortletIcon font-purple-plum"></i>
-            }
-
-            <span class="caption-subject bold font-blue-hoki uppercase"> @Model.PortletName </span>
-
-            @if (String.IsNullOrEmpty(Model.PortletCaptionHelper))
-            {
-                <span class="caption-helper">@Model.PortletCaptionHelper</span>
-            }
-
-        </div>
-        <div class="actions">
-            <div class="portlet-input input-inline input-small">
-                <div class="input-icon right">
-                    <i class="icon-magnifier"></i>
-                    <input type="text" class="form-control input-circle" placeholder="Поиск...">
-                </div>
-            </div>
-            <a href="@Url.Action("Add")" class="btn btn-circle btn-default" style="padding: 6px 12px;">
-                <i class="fa fa-plus"></i> Добавить
-            </a>
-        </div>
-    </div>
-    <div class="portlet-body">
-        <div>
-
-            @if (ViewBag.Header != null)
-            {
-                <h4>@ViewBag.Header</h4>
-            }
-
-            
-
-        </div>
-    </div>
-</div>
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-confirmation/bootstrap-confirmation.min.js"></script>
+    <script src="~/Content/js/products.js"></script>
+}

@@ -1,10 +1,13 @@
-﻿using Adikov.Domain.Models;
+﻿using System.Data.Entity;
+using Adikov.Domain.Models;
 using Adikov.Infrastructura.Commands;
 
 namespace Adikov.Domain.Commands.Products
 {
-    public class AddProductCommand : CommandBase
+    public class EditProductCommand : CommandBase
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public int CategoryId { get; set; }
@@ -12,15 +15,18 @@ namespace Adikov.Domain.Commands.Products
         public int TableId { get; set; }
     }
 
-    public class AddProductCommandResult : CommandResult
+    public class EditProductCommandHandler : CommandHandler<EditProductCommand>
     {
-        public Product Product { get; set; }
-    }
-
-    public class AddProductCommandHandler : CommandHandler<AddProductCommand, AddProductCommandResult>
-    {
-        protected override void OnHandling(AddProductCommand command, AddProductCommandResult result)
+        protected override void OnHandling(EditProductCommand command, CommandResult result)
         {
+            Product product = DataContext.Products.Find(command.Id);
+
+            if (product == null)
+            {
+                result.ResultCode = CommandResultCode.Cancelled;
+                return;
+            }
+
             Category category = DataContext.Categories.Find(command.CategoryId);
 
             if (category == null)
@@ -43,16 +49,11 @@ namespace Adikov.Domain.Commands.Products
                 return;
             }
 
-            Product product = new Product
-            {
-                Name = command.Name,
-                CategoryId = command.CategoryId,
-                TableId = command.TableId
-            };
+            product.Name = command.Name;
+            product.CategoryId = command.CategoryId;
+            product.TableId = command.TableId;
 
-            DataContext.Products.Add(product);
-
-            result.Product = product;
+            DataContext.Entry(product).State = EntityState.Modified;
         }
     }
 }

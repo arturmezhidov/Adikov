@@ -1,10 +1,10 @@
-﻿@model Adikov.ViewModels.Columns.ColumnViewModel
+﻿@model Adikov.ViewModels.Products.ProductAddViewModel
 
 <div class="portlet light">
     <div class="portlet-title">
         <div class="caption">
             <i class="fa fa-plus font-red-sunglo"></i>
-            <span class="caption-subject font-red-sunglo bold uppercase"> Добавление нового столбца </span>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Добавление нового продукта </span>
         </div>
         <div class="tools">
             <a href="" class="collapse" data-original-title="" title="Свернуть"> </a>
@@ -12,6 +12,6 @@
         </div>
     </div>
     <div class="portlet-body">
-        @Html.Partial("_AddColumnForm", Model)
+        @Html.Partial("_AddProductForm", Model)
     </div>
 </div>

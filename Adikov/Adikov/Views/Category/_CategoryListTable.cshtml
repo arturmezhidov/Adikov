@@ -22,17 +22,26 @@
         {
             i++;
 
-            <tr>
+            <tr class="@(!category.HasProducts ? "warning" : "")">
                 <td> @i </td>
                 <td> <i class="@category.Icon"></i> </td>
-                <td> @category.Name </td>
+                <td>
+                    @if (!category.HasProducts)
+                    {
+                        <i class="fa fa-info-circle tooltips" data-container="body" data-placement="top" data-original-title="Категория не содержит продуктов!"></i>
+                    }
+                    @category.Name
+                </td>
                 <td> @CategoryTypeToLabel(category.Type) </td>
                 <td>
                     <div class="pull-right">
-                        <a href="@Url.Action("Add", "Product", new { categoryId = category.Id})" class="btn btn-sm btn-success">
-                            <i class="fa fa-plus"></i>
-                            Добавить продукт
-                        </a>
+                        @if (category.CanAddProduct)
+                        {
+                            <a href="@Url.Action("Index", "Product", new { categoryId = category.Id})" class="btn btn-sm btn-success">
+                                <i class="fa fa-plus"></i>
+                                Добавить продукт
+                            </a>
+                        }
                         <a href="@Url.Action("Edit", new { id = category.Id })" class="btn btn-sm btn-info">
                             <i class="fa fa-pencil"></i>
                             Редактировать
