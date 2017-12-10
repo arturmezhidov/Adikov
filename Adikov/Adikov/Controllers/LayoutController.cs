@@ -86,6 +86,25 @@ namespace Adikov.Controllers
                 },
                 new SidebarGroup
                 {
+                    Text = "Продукция",
+                    ViewLink = "/",
+                    Icon = "fa fa-cubes",
+                    Items = new List<SidebarItem>
+                    {
+                        new SidebarItem
+                        {
+                            Text = "Категории",
+                            ViewLink = "/Category"
+                        },
+                        new SidebarItem
+                        {
+                            Text = "Продукты",
+                            ViewLink = "/Product"
+                        }
+                    }
+                },
+                new SidebarGroup
+                {
                     Text = "Трубы нержавеющие",
                     ViewLink = "/",
                     Icon = "fa fa-circle-thin",

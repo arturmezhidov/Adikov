@@ -5724,12 +5724,12 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\_ProductTable.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Category\_ProductCategoryListTable.cshtml" />
-    <Content Include="Views\Category\_AddProductCategoryForm.cshtml" />
-    <Content Include="Views\Category\_AddProductCategoryPortlet.cshtml" />
-    <Content Include="Views\Category\_ProductCategoryListPortlet.cshtml" />
-    <Content Include="Views\Category\_EditProductCategoryPortlet.cshtml" />
-    <Content Include="Views\Category\_EditProductCategoryForm.cshtml" />
+    <Content Include="Views\Category\_CategoryListTable.cshtml" />
+    <Content Include="Views\Category\_AddCategoryForm.cshtml" />
+    <Content Include="Views\Category\_AddCategoryPortlet.cshtml" />
+    <Content Include="Views\Category\_CategoryListPortlet.cshtml" />
+    <Content Include="Views\Category\_EditCategoryPortlet.cshtml" />
+    <Content Include="Views\Category\_EditCategoryForm.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Column\Index.cshtml" />
     <Content Include="Views\Column\_AddColumnForm.cshtml" />
@@ -5751,6 +5751,8 @@
     <Content Include="Views\Table\_EditTableForm.cshtml" />
     <Content Include="Views\Table\_EditTablePortlet.cshtml" />
     <Content Include="Views\Table\Edit.cshtml" />
+    <Content Include="Views\Category\Add.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
@@ -5767,7 +5769,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\js\product-category.js" />
+    <Content Include="Content\js\categories.js" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

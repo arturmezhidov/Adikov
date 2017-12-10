@@ -2,9 +2,9 @@
 
     var handleValidation = function () {
 
-        var productCategoryAddForm = $('#product-category-form');
+        var form = $('#category-form');
 
-        var validator = productCategoryAddForm.validate({
+        var validator = form.validate({
             errorElement: 'span',
             errorClass: 'help-block help-block-error',
             focusInvalid: false,
@@ -59,12 +59,12 @@
             }
         });
 
-        productCategoryAddForm.find('[type="reset"]').click(function() {
+        form.find('[type="reset"]').click(function() {
             validator.resetForm();
         });
 
-        productCategoryAddForm.find('[type="file"]').on('change', function() {
-            productCategoryAddForm.validate();
+        form.find('[type="file"]').on('change', function() {
+            form.validate();
             document.activeElement.blur();
         });
     }

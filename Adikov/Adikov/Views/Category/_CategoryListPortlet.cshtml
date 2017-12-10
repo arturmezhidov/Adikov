@@ -20,7 +20,24 @@
     <div class="portlet-body">
         <div class="tab-content">
             <div class="tab-pane active" id="portlet_tab-active">
-                @Html.Partial("_ProductCategoryListTable", Model.ActiveCategories)
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="pull-right">
+                                <a href="@Url.Action("Add")" class="btn sbold green">
+                                    <i class="fa fa-plus"></i>
+                                    Добавить категорию
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("_CategoryListTable", Model.ActiveCategories)
             </div>
             <div class="tab-pane" id="portlet_tab-deleted">
                 <div class="table-toolbar">
@@ -36,16 +53,12 @@
                                     <i class="icon-action-undo"></i>
                                     Восстановить все
                                 </a>
-                                @LinkHelper.ConfirmationLink(
-                                    "Очистить всё",
-                                    Url.Action("Clear"),
-                                    "btn btn-danger",
-                                    "fa fa-trash-o")
+                                @LinkHelper.ConfirmationLink("Очистить всё", Url.Action("Clear"), "btn btn-danger", "fa fa-trash-o")
                             </div>
                         </div>
                     </div>
                 </div>
-                @Html.Partial("_ProductCategoryListTable", Model.DeletedCategories)
+                @Html.Partial("_CategoryListTable", Model.DeletedCategories)
             </div>
         </div>
     </div>

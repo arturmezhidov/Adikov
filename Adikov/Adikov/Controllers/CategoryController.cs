@@ -11,7 +11,7 @@ namespace Adikov.Controllers
 {
     public class CategoryController : LayoutController
     {
-        public ActionResult Index(int? id)
+        public ActionResult Index()
         {
             var result = Query.For<FindAllCategoryQueryResult>().With(new EmptyCriterion());
 
@@ -21,30 +21,19 @@ namespace Adikov.Controllers
                 DeletedCategories = result.DeletedCategories.Select(ToViewModel)
             };
 
-            if (id == null)
-            {
-                vm.NewCategory = new CategoryAddViewModel();
-            }
-            else
-            {
-                var editCategory = result.ActiveCategories.FirstOrDefault(i => i.Id == id) ??
-                                   result.DeletedCategories.FirstOrDefault(i => i.Id == id);
-
-                if (editCategory == null)
-                {
-                    return RedirectToAction("Index");
-                }
-
-                vm.EditCategory = ToEditViewModel(editCategory);
-            }
-
             return View(vm);
+        }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
         }
 
         [HttpPost]
         public ActionResult Add(CategoryAddViewModel vm)
         {
-            var result = SaveAs(vm.Image, PlatformConfiguration.UploadedProductCategoryPath);
+            var result = SaveAs(vm.Image, PlatformConfiguration.UploadedCategoryPath);
 
             if (result != null)
             {
@@ -60,6 +49,21 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            FindCategoryByIdQueryResult result = Query.For<FindCategoryByIdQueryResult>().ById(id);
+
+            if (result?.Category == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            CategoryEditViewModel vm = ToEditViewModel(result.Category);
+
+            return View(vm);
+        }
+
         [HttpPost]
         public ActionResult Edit(CategoryEditViewModel vm)
         {
@@ -72,7 +76,7 @@ namespace Adikov.Controllers
 
             if (vm.Image != null)
             {
-                var result = SaveAs(vm.Image, PlatformConfiguration.UploadedProductCategoryPath);
+                var result = SaveAs(vm.Image, PlatformConfiguration.UploadedCategoryPath);
 
                 if (result != null)
                 {
@@ -123,7 +127,7 @@ namespace Adikov.Controllers
                 Name = category.Name,
                 Type = category.Type,
                 IsDeleted = category.IsDeleted,
-                ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedProductCategoryPath)
+                ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedCategoryPath)
             };
         }
 
@@ -134,7 +138,7 @@ namespace Adikov.Controllers
                 Id = category.Id,
                 Icon = category.Icon,
                 Name = category.Name,
-                ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedProductCategoryPath)
+                ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedCategoryPath)
             };
         }
     }

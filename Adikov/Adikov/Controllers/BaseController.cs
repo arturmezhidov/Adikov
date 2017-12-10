@@ -45,14 +45,14 @@ namespace Adikov.Controllers
                     string path = Path.Combine(Server.MapPath(folderName), result.File.PhysicalName);
                     file.SaveAs(path);
                 }
-                catch
+                catch(Exception e)
                 {
                     Command.Execute(new DeleteFileCommand
                     {
                         Id = result.File.Id
                     });
 
-                    result = null;
+                    throw;
                 }
             }
 

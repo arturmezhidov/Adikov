@@ -6,25 +6,9 @@
     ViewBag.Title = "Категории";
 }
 
-@if (Model.EditCategory == null)
-{
-    @Html.Partial("_AddProductCategoryPortlet", Model.NewCategory)
-}
-else
-{
-    @Html.Partial("_EditProductCategoryPortlet", Model.EditCategory)
-}
-
-@Html.Partial("_ProductCategoryListPortlet", Model)
-
-@section styles {
-    <link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css">
-}
+@Html.Partial("_CategoryListPortlet", Model)
 
 @section scripts
 {
-    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
     <script src="~/Content/assets/global/plugins/bootstrap-confirmation/bootstrap-confirmation.min.js"></script>
-    <script src="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
-    <script src="~/Content/assets/pages/scripts/product-category.js"></script>
 }

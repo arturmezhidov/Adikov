@@ -1,0 +1,18 @@
+﻿@model Adikov.ViewModels.Categories.CategoryEditViewModel
+
+@{
+    ViewBag.Title = "Редактирование категории";
+}
+
+@Html.Partial("_EditCategoryPortlet")
+
+@section styles {
+    <link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css">
+}
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script src="~/Content/js/categories.js"></script>
+}
