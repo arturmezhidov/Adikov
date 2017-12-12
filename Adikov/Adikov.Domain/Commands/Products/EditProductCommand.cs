@@ -35,12 +35,6 @@ namespace Adikov.Domain.Commands.Products
                 return;
             }
 
-            if (category.Type == CategoryType.Single && category.Products.Count > 0)
-            {
-                result.ResultCode = CommandResultCode.Cancelled;
-                return;
-            }
-
             Table table = DataContext.Tables.Find(command.TableId);
 
             if (table == null)

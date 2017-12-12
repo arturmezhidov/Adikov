@@ -24,7 +24,7 @@
             <td> @i </td>
             <td> @item.Name </td>
             <td> @item.Category </td>
-            <td> @item.Table </td>
+            <td> @Html.ActionLink(item.Table, "Details", "Table", new { id = item.TableId, preview = true }, null) </td>
             <td>
                 <div class="pull-right">
                     <a href="@Url.Action("Index", new { id = item.Id })" class="btn btn-sm btn-info">

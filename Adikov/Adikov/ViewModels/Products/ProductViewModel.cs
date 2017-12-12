@@ -10,6 +10,8 @@
 
         public string Table { get; set; }
 
+        public int TableId { get; set; }
+
         public bool IsDeleted { get; set; }
     }
 }

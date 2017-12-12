@@ -6,6 +6,11 @@
             <i class="fa fa-plus font-red-sunglo"></i>
             <span class="caption-subject font-red-sunglo bold uppercase"> Создание новой таблицы </span>
         </div>
+        <div class="actions">
+            <a href="@Url.Action("Index")" class="btn btn-circle red-sunglo ">
+                <i class="icon-action-undo"></i> Назад
+            </a>
+        </div>
     </div>
     <div class="portlet-body">
         @Html.Partial("_AddTableForm", Model)
