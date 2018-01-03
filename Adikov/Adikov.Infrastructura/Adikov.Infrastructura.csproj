@@ -89,6 +89,7 @@
     <Compile Include="Security\ClaimsTypes.cs" />
     <Compile Include="Security\IUserContext.cs" />
     <Compile Include="Security\UserContext.cs" />
+    <Compile Include="Security\UserRoles.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

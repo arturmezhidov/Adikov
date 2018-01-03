@@ -11,18 +11,33 @@ namespace Adikov.Infrastructura.Security
         private string userId;
         private string email;
         private string avatar;
-        private bool? isAuth;
         private bool? isAdmin;
 
         public string UserId => userId ?? (userId = GetClaimValue(ClaimsTypes.USER_ID));
 
         public string Email => email ?? (email = GetClaimValue(ClaimsTypes.USER_EMAIL));
 
-        public bool IsAuth { get; set; }
+        public string Avatar => avatar ?? (avatar = GetClaimValue(ClaimsTypes.USER_AVATAR));
 
-        public string Avatar { get; set; }
+        public bool IsAuth => User.Identity.IsAuthenticated;
 
-        public bool IsAdmin { get; set; }
+        public bool IsAdmin
+        {
+            get
+            {
+                if (!IsAuth)
+                {
+                    return false;
+                }
+
+                if (!isAdmin.HasValue)
+                {
+                    isAdmin = User.IsInRole(UserRoles.ADMIN);
+                }
+
+                return isAdmin.Value;
+            }
+        }
 
         public override ClaimsPrincipal User
         {
