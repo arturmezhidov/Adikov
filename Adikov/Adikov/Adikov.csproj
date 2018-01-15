@@ -208,6 +208,7 @@
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,6 +234,9 @@
     <Compile Include="ViewModels\Products\ProductEditViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductIndexViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductViewModel.cs" />
+    <Compile Include="ViewModels\Profile\InfoCardViewModel.cs" />
+    <Compile Include="ViewModels\Profile\UserCardViewModel.cs" />
+    <Compile Include="ViewModels\Profile\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableDetailsViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableEditViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableIndexViewModel.cs" />
@@ -5758,6 +5762,13 @@
     <Content Include="Views\Product\_EditProductForm.cshtml" />
     <Content Include="Views\Product\_ProductListPortlet.cshtml" />
     <Content Include="Views\Product\_ProductListTable.cshtml" />
+    <Content Include="Views\Profile\_LayoutProfile.cshtml" />
+    <Content Include="Views\Profile\_UserCard.cshtml" />
+    <Content Include="Views\Profile\_InfoCard.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Settings.cshtml" />
+    <Content Include="Views\Profile\Avatar.cshtml" />
+    <Content Include="Views\Profile\Security.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

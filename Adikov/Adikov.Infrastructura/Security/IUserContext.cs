@@ -4,12 +4,26 @@
     {
         string UserId { get; }
 
-        string Email { get; }
-
         bool IsAuth { get; }
+
+        bool IsAdmin { get; }
+
+        string Email { get; }
 
         string Avatar { get; }
 
-        bool IsAdmin { get; }
+        string FirstName { get; }
+
+        string LastName { get; }
+
+        string PhoneNumber { get; }
+
+        string Occupation { get; }
+
+        string Interests { get; }
+
+        string About { get; }
+
+        string Website { get; }
     }
 }

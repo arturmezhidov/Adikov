@@ -1,0 +1,53 @@
+﻿@model Adikov.ViewModels.Profile.UserCardViewModel
+
+<div class="portlet light profile-sidebar-portlet ">
+
+    @if (!string.IsNullOrEmpty(Model.AvatarViewLink))
+    {
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+            <img src="@Model.AvatarViewLink" class="img-responsive" alt="@Model.FirstName @Model.LastName">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+    }
+
+    <!-- SIDEBAR USER TITLE -->
+    <div class="profile-usertitle">
+        <div class="profile-usertitle-name"> @Model.FirstName @Model.LastName </div>
+        <div class="profile-usertitle-job"> @Model.Occupation </div>
+    </div>
+    <!-- END SIDEBAR USER TITLE -->
+
+    <!-- SIDEBAR BUTTONS -->
+    <div class="profile-userbuttons">
+        <button type="button" class="btn btn-circle green btn-sm">Follow</button>
+        <button type="button" class="btn btn-circle red btn-sm">Message</button>
+    </div>
+    <!-- END SIDEBAR BUTTONS -->
+    <!-- SIDEBAR MENU -->
+    <div class="profile-usermenu">
+        <ul class="nav">
+            <li @*class="active"*@>
+                <a href="@Url.Action("Index")">
+                    <i class="icon-home"></i> Обзор
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Settings")">
+                    <i class="icon-settings"></i> Профиль
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Avatar")">
+                    <i class="fa fa-picture-o"></i> Аватар
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Security")">
+                    <i class="fa fa-shield"></i> Безопасность
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- END MENU -->
+</div>

@@ -1,7 +1,11 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using Adikov.Domain.Models;
 using Adikov.Infrastructura.Security;
+using Adikov.Platform.Extensions;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -9,7 +13,19 @@ namespace Adikov.Domain
 {
     public class ApplicationUser : IdentityUser
     {
-        public int AvatarId { get; set; }
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string Occupation { get; set; }
+
+        public string Interests { get; set; }
+
+        public string About { get; set; }
+
+        public string Website { get; set; }
+
+        public int? AvatarId { get; set; }
 
         public File Avatar { get; set; }
 
@@ -17,9 +33,17 @@ namespace Adikov.Domain
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            userIdentity.AddClaim(new Claim(ClaimsTypes.USER_ID, Id));
-            userIdentity.AddClaim(new Claim(ClaimsTypes.USER_EMAIL, Email));
-            if (Avatar != null) userIdentity.AddClaim(new Claim(ClaimsTypes.USER_AVATAR, Avatar.PhysicalName));
+            userIdentity.AddClaim(ClaimsTypes.USER_ID, Id);
+            userIdentity.AddClaim(ClaimsTypes.USER_EMAIL, Email);
+            userIdentity.AddClaim(ClaimsTypes.USER_FIRST_NAME, FirstName);
+            userIdentity.AddClaim(ClaimsTypes.USER_LAST_NAME, LastName);
+            userIdentity.AddClaim(ClaimsTypes.USER_PHONE_NUMBER, PhoneNumber);
+            userIdentity.AddClaim(ClaimsTypes.USER_OCCUPATION, Occupation);
+            userIdentity.AddClaim(ClaimsTypes.USER_INTERESTS, Website);
+            userIdentity.AddClaim(ClaimsTypes.USER_ABOUT, About);
+            userIdentity.AddClaim(ClaimsTypes.USER_WEBSITE, Website);
+
+            if (Avatar != null) userIdentity.AddClaim(ClaimsTypes.USER_AVATAR, Avatar.PhysicalName);
 
             return userIdentity;
         }
