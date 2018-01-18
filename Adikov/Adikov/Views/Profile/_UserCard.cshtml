@@ -1,4 +1,9 @@
-﻿@model Adikov.ViewModels.Profile.UserCardViewModel
+﻿@using Adikov.Models
+@model Adikov.ViewModels.Profile.UserCardViewModel
+    
+@{
+    LayoutContext LayoutContext = ViewData["LayoutContext"] as LayoutContext ?? new LayoutContext();
+}
 
 <div class="portlet light profile-sidebar-portlet ">
 
@@ -27,22 +32,22 @@
     <!-- SIDEBAR MENU -->
     <div class="profile-usermenu">
         <ul class="nav">
-            <li @*class="active"*@>
+            <li class="@(LayoutContext.ActionName == "" || LayoutContext.ActionName == "Index" ? "active" : "")">
                 <a href="@Url.Action("Index")">
                     <i class="icon-home"></i> Обзор
                 </a>
             </li>
-            <li>
+            <li class="@(LayoutContext.ActionName == "Settings" ? "active" : "")">
                 <a href="@Url.Action("Settings")">
                     <i class="icon-settings"></i> Профиль
                 </a>
             </li>
-            <li>
+            <li class="@(LayoutContext.ActionName == "Avatar" ? "active" : "")">
                 <a href="@Url.Action("Avatar")">
                     <i class="fa fa-picture-o"></i> Аватар
                 </a>
             </li>
-            <li>
+            <li class="@(LayoutContext.ActionName == "Security" ? "active" : "")">
                 <a href="@Url.Action("Security")">
                     <i class="fa fa-shield"></i> Безопасность
                 </a>

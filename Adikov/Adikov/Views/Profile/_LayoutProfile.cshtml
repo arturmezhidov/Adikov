@@ -1,4 +1,5 @@
 ﻿@using Adikov.Models
+@using Adikov.Platform.Configuration
 @using Adikov.ViewModels.Profile
 
 @{
@@ -15,7 +16,7 @@
                 FirstName = LayoutContext.User.FirstName,
                 LastName = LayoutContext.User.LastName,
                 Occupation = LayoutContext.User.Occupation,
-                AvatarViewLink = LayoutContext.User.Occupation
+                AvatarViewLink = String.IsNullOrEmpty(LayoutContext.User.Avatar) ? PlatformConfiguration.DefaultAvatarPath : LayoutContext.User.Avatar
             })
 
             @Html.Partial("_InfoCard", new InfoCardViewModel

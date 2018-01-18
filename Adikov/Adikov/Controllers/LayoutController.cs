@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Adikov.Models;
 using Adikov.Models.Sidebar;
@@ -55,6 +56,8 @@ namespace Adikov.Controllers
             }
 
             context.LogoUrl = @"/Content/assets/layouts/layout2/img/logo-default.png";
+            context.ActionName = (String)RouteData.Values["action"];
+            context.ContollerName = (String)RouteData.Values["controller"];
             context.Sidebar = GetSidebar();
             context.User = UserContext;
 
