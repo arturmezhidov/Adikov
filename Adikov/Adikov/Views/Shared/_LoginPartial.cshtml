@@ -1,22 +1,65 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
+﻿@using Adikov.Platform.Configuration
+@model Adikov.Infrastructura.Security.IUserContext
+
+@if (Model.IsAuth)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img alt="" class="img-circle" src="@(String.IsNullOrEmpty(Model.Avatar) ? PlatformConfiguration.DefaultAvatarPath : Model.Avatar)" />
+                        <span class="username username-hide-on-mobile"> @(String.IsNullOrEmpty(Model.FirstName) ? Model.Email : Model.FirstName) </span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="@Url.Action("Index", "Profile")">
+                                <i class="icon-user"></i> Мой профиль
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Settings", "Profile")">
+                                <i class="icon-settings"></i> Мои настройки
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="javascript:document.getElementById('logoutForm').submit()">
+                                <i class="icon-key"></i> Выйти
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    <style>
+        .account-menu-link {
+            padding-right: 20px !important;
+        }
+    </style>
+
+    <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle account-menu-link" href="@Url.Action("Login", "Account")">
+                    <i class="icon-key"></i>
+                    Войти
+                </a>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle account-menu-link" href="@Url.Action("Register", "Account")">
+                    <i class="icon-user-follow"></i>
+                    Регистрация
+                </a>
+            </li>
+        </ul>
+    </div>
 }

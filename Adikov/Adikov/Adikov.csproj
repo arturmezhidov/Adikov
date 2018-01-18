@@ -5266,6 +5266,7 @@
     <Content Include="Content\assets\pages\scripts\portlet-ajax.min.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.min.js" />
+    <Content Include="Content\img\avatar.png" />
     <Content Include="Content\js\products.js" />
     <Content Include="Content\js\columns.js" />
     <Content Include="Content\assets\pages\scripts\profile.js" />
