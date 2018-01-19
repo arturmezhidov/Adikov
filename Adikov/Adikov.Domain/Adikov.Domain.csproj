@@ -78,6 +78,7 @@
     <Compile Include="Commands\Products\EditProductCommand.cs" />
     <Compile Include="Commands\Products\RecoveryAllProductCommand.cs" />
     <Compile Include="Commands\Products\RecoveryProductCommand.cs" />
+    <Compile Include="Commands\Profile\UpdateAvatarCommand.cs" />
     <Compile Include="Commands\Tables\EditTableCommand.cs" />
     <Compile Include="Commands\Tables\AddTableCommand.cs" />
     <Compile Include="Commands\Tables\ClearTableCommand.cs" />

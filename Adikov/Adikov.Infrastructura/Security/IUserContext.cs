@@ -25,5 +25,7 @@
         string About { get; }
 
         string Website { get; }
+
+        void Reset();
     }
 }

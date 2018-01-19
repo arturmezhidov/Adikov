@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Adikov.Domain.Commands.Profile;
+using Adikov.Platform.Configuration;
 using Adikov.ViewModels.Profile;
 
 namespace Adikov.Controllers
@@ -31,6 +30,23 @@ namespace Adikov.Controllers
         [HttpGet]
         public ActionResult Avatar()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Avatar(AvatarViewModel vm)
+        {
+            var path = String.Format(PlatformConfiguration.UploadedUserPathTemplate, UserContext.UserId);
+            var result = SaveAs(vm.Image, path);
+
+            if (result != null)
+            {
+                Command.Execute(new UpdateAvatarCommand
+                {
+                    FileId = result.File.Id
+                });
+            }
+
             return View();
         }
 

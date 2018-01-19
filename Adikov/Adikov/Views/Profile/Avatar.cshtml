@@ -1,6 +1,43 @@
-﻿@{
+﻿@using Adikov.Models
+
+@model Adikov.ViewModels.Profile.AvatarViewModel
+
+@{
     Layout = "_LayoutProfile.cshtml";
     ViewBag.Title = "Аватар";
+    LayoutContext LayoutContext = ViewData["LayoutContext"] as LayoutContext ?? new LayoutContext();
 }
 
-<h2>Аватар</h2>
+<div class="portlet light ">
+    <div class="portlet-title tabbable-line">
+        <div class="caption caption-md">
+            <i class="icon-globe theme-font hide"></i>
+            <span class="caption-subject font-blue-madison bold uppercase">Аватар</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @using (Html.BeginForm("Avatar", "Profile", null, FormMethod.Post, new { id = "avatar-form", role = "form", enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                        <img src="@LayoutContext.User.Avatar" alt="" />
+                    </div>
+                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                    <div>
+                        <span class="btn default btn-file">
+                            <span class="fileinput-new"> Выбрать </span>
+                            <span class="fileinput-exists"> Изменить </span>
+                            <input type="file" name="Image" class="ignore">
+                        </span>
+                        <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Удалить </a>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top-10">
+                <input type="submit" class="btn green" value=" Сохранить " />
+                <a href="@Url.Action("Avatar")" class="btn default"> Отменить </a>
+            </div>
+        }
+    </div>
+</div>

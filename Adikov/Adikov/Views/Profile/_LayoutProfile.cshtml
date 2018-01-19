@@ -1,10 +1,9 @@
 ﻿@using Adikov.Models
-@using Adikov.Platform.Configuration
 @using Adikov.ViewModels.Profile
 
 @{
     Layout = "../Shared/_Layout.cshtml";
-    LayoutContext LayoutContext = this.ViewData["LayoutContext"] as LayoutContext ?? new LayoutContext();
+    LayoutContext LayoutContext = ViewData["LayoutContext"] as LayoutContext ?? new LayoutContext();
 }
 
 <div class="row">
@@ -16,7 +15,7 @@
                 FirstName = LayoutContext.User.FirstName,
                 LastName = LayoutContext.User.LastName,
                 Occupation = LayoutContext.User.Occupation,
-                AvatarViewLink = String.IsNullOrEmpty(LayoutContext.User.Avatar) ? PlatformConfiguration.DefaultAvatarPath : LayoutContext.User.Avatar
+                AvatarViewLink = LayoutContext.User.Avatar
             })
 
             @Html.Partial("_InfoCard", new InfoCardViewModel
@@ -40,11 +39,13 @@
 </div>
 
 @section styles {
+<link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css">
     <link href="~/Content/assets/pages/css/profile.min.css" rel="stylesheet" type="text/css">
 }
 
 @section scripts {
     <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script src="~/Content/assets/global/plugins/jquery.sparkline.min.js"></script>
     <script src="~/Content/assets/pages/scripts/profile.min.js"></script>
-    <script src="~/Content/assets/pages/scripts/timeline.min.js"></script>
 }
