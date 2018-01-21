@@ -163,7 +163,9 @@ namespace Adikov.Controllers
                 Name = product.Name,
                 Table = product.Table.Name,
                 TableId = product.TableId,
+                IsTableDeleted = product.Table.IsDeleted,
                 Category = product.Category.Name,
+                IsCategoryDeleted = product.Category.IsDeleted,
                 IsDeleted = product.IsDeleted
             };
         }
