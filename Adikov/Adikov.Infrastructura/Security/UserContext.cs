@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading;
+using Adikov.Platform.Configuration;
 
 namespace Adikov.Infrastructura.Security
 {
@@ -11,18 +10,83 @@ namespace Adikov.Infrastructura.Security
         private string userId;
         private string email;
         private string avatar;
-        private bool? isAuth;
         private bool? isAdmin;
+        private string firstName;
+        private string lastName;
+        private string phoneNumber;
+        private string occupation;
+        private string interests;
+        private string about;
+        private string website;
 
         public string UserId => userId ?? (userId = GetClaimValue(ClaimsTypes.USER_ID));
 
+        public bool IsAuth => User.Identity.IsAuthenticated;
+
+        public bool IsAdmin
+        {
+            get
+            {
+                if (!IsAuth)
+                {
+                    return false;
+                }
+
+                if (!isAdmin.HasValue)
+                {
+                    isAdmin = User.IsInRole(UserRoles.ADMIN);
+                }
+
+                return isAdmin.Value;
+            }
+        }
+
         public string Email => email ?? (email = GetClaimValue(ClaimsTypes.USER_EMAIL));
 
-        public bool IsAuth { get; set; }
+        public string Avatar
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(avatar))
+                {
+                    avatar = GetClaimValue(ClaimsTypes.USER_AVATAR);
+                }
 
-        public string Avatar { get; set; }
+                if (String.IsNullOrEmpty(avatar))
+                {
+                    avatar = PlatformConfiguration.DefaultAvatarPath;
+                }
+                
+                return avatar;
+            }
+        }
 
-        public bool IsAdmin { get; set; }
+        public string FirstName => firstName ?? (firstName = GetClaimValue(ClaimsTypes.USER_FIRST_NAME));
+
+        public string LastName => lastName ?? (lastName = GetClaimValue(ClaimsTypes.USER_LAST_NAME));
+
+        public string PhoneNumber => phoneNumber ?? (phoneNumber = GetClaimValue(ClaimsTypes.USER_PHONE_NUMBER));
+
+        public string Occupation => occupation ?? (occupation = GetClaimValue(ClaimsTypes.USER_OCCUPATION));
+
+        public string Interests => interests ?? (interests = GetClaimValue(ClaimsTypes.USER_INTERESTS));
+
+        public string About => about ?? (about = GetClaimValue(ClaimsTypes.USER_ABOUT));
+
+        public string Website => website ?? (website = GetClaimValue(ClaimsTypes.USER_WEBSITE));
+
+        public void Reset()
+        {
+            email = null;
+            avatar = null;
+            firstName = null;
+            lastName = null;
+            phoneNumber = null;
+            occupation = null;
+            interests = null;
+            about = null;
+            website = null;
+        }
 
         public override ClaimsPrincipal User
         {

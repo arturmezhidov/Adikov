@@ -1,0 +1,37 @@
+﻿@model Adikov.ViewModels.Profile.InfoCardViewModel
+
+<div class="portlet light ">
+    <!-- STAT -->
+    <div class="row list-separated profile-stat">
+        <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="uppercase profile-stat-title"> 37 </div>
+            <div class="uppercase profile-stat-text"> Projects </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="uppercase profile-stat-title"> 51 </div>
+            <div class="uppercase profile-stat-text"> Tasks </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="uppercase profile-stat-title"> 61 </div>
+            <div class="uppercase profile-stat-text"> Uploads </div>
+        </div>
+    </div>
+    <!-- END STAT -->
+    <div>
+        
+        <h4 class="profile-desc-title">О @Model.FirstName @Model.LastName</h4>
+        <span class="profile-desc-text"> @Model.About </span>
+
+        <h4 class="profile-desc-title">Интересы</h4>
+        <span class="profile-desc-text"> @Model.Interests </span>
+        
+        @if (!string.IsNullOrEmpty(Model.Website))
+        {
+            <div class="margin-top-20 profile-desc-link">
+                <i class="fa fa-globe"></i>
+                <a href="@Model.Website">@Model.Website</a>
+            </div>
+        }
+
+    </div>
+</div>

@@ -43,6 +43,14 @@ namespace Adikov.Controllers
                 try
                 {
                     string path = Path.Combine(Server.MapPath(folderName), result.File.PhysicalName);
+
+                    DirectoryInfo directory = Directory.GetParent(path);
+
+                    if (!directory.Exists)
+                    {
+                        directory.Create();
+                    }
+
                     file.SaveAs(path);
                 }
                 catch(Exception e)

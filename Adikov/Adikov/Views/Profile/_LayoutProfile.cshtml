@@ -1,0 +1,51 @@
+﻿@using Adikov.Models
+@using Adikov.ViewModels.Profile
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+    LayoutContext LayoutContext = ViewData["LayoutContext"] as LayoutContext ?? new LayoutContext();
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="profile-sidebar">
+
+            @Html.Partial("_UserCard", new UserCardViewModel
+            {
+                FirstName = LayoutContext.User.FirstName,
+                LastName = LayoutContext.User.LastName,
+                Occupation = LayoutContext.User.Occupation,
+                AvatarViewLink = LayoutContext.User.Avatar
+            })
+
+            @Html.Partial("_InfoCard", new InfoCardViewModel
+            {
+                FirstName = LayoutContext.User.FirstName,
+                LastName = LayoutContext.User.LastName,
+                About = LayoutContext.User.About,
+                Interests = LayoutContext.User.Interests,
+                Website = LayoutContext.User.Website
+            })
+
+        </div>
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles {
+<link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/assets/pages/css/profile.min.css" rel="stylesheet" type="text/css">
+}
+
+@section scripts {
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script src="~/Content/assets/global/plugins/jquery.sparkline.min.js"></script>
+    <script src="~/Content/assets/pages/scripts/profile.min.js"></script>
+}

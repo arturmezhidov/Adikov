@@ -89,10 +89,16 @@
     <Compile Include="Security\ClaimsTypes.cs" />
     <Compile Include="Security\IUserContext.cs" />
     <Compile Include="Security\UserContext.cs" />
+    <Compile Include="Security\UserRoles.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Adikov.Platform\Adikov.Platform.csproj">
+      <Project>{879C0A8C-5B8E-4609-A49A-CE7F3A138387}</Project>
+      <Name>Adikov.Platform</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

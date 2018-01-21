@@ -10,13 +10,13 @@ namespace Adikov.Infrastructura.Security
 
         protected virtual Claim GetClaim(string type)
         {
-            Claim claim = User.FindFirst(ClaimsTypes.USER_ID);
+            Claim claim = User.FindFirst(type);
             return claim;
         }
 
         protected virtual IEnumerable<Claim> GetClaims(string type)
         {
-            IEnumerable<Claim> claims = User.FindAll(ClaimsTypes.USER_ID);
+            IEnumerable<Claim> claims = User.FindAll(type);
             return claims;
         }
 
@@ -53,7 +53,7 @@ namespace Adikov.Infrastructura.Security
         protected virtual IEnumerable<string> GetClaimsValues(string type)
         {
             IEnumerable<string> claimsValues = User
-                .FindAll(ClaimsTypes.USER_ID)
+                .FindAll(type)
                 .Select(claim => claim.Value);
             return claimsValues;
         }
