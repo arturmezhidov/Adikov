@@ -22,7 +22,8 @@ namespace Adikov.Domain.Queries.Categories
                     .AsNoTracking()
                     .Include(i => i.Products)
                     .ToList()
-                    .Where(i => i.Type != CategoryType.Single || !i.Products.Any())
+                    .Where(i => !(i.Type == CategoryType.Single && i.Products.Any()))
+                    .OrderBy(i => i.SortNumber)
                     .ToList()
             };
 

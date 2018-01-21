@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Commands\Categories\SortDownCategoryCommand.cs" />
+    <Compile Include="Commands\Categories\SortUpCategoryCommand.cs" />
     <Compile Include="Commands\File\AddFileCommand.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\File\DeleteFileCommand.cs" />
@@ -88,6 +90,15 @@
     <Compile Include="Commands\Tables\RecoveryTableCommand.cs" />
     <Compile Include="Criterion\StringSizeCriterion.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
+    <Compile Include="Migrations\201801211926554_InitialCreate.cs" />
+    <Compile Include="Migrations\201801211926554_InitialCreate.Designer.cs">
+      <DependentUpon>201801211926554_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801212141027_sort.cs" />
+    <Compile Include="Migrations\201801212141027_sort.Designer.cs">
+      <DependentUpon>201801212141027_sort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\File.cs" />
@@ -130,6 +141,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801211926554_InitialCreate.resx">
+      <DependentUpon>201801211926554_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801212141027_sort.resx">
+      <DependentUpon>201801212141027_sort.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

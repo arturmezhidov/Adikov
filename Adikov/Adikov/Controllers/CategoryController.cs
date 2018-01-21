@@ -118,6 +118,26 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult SortUp(int categoryId)
+        {
+            Command.Execute(new SortUpCategoryCommand
+            {
+                CategoryId = categoryId
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult SortDown(int categoryId)
+        {
+            Command.Execute(new SortDownCategoryCommand
+            {
+                CategoryId = categoryId
+            });
+
+            return RedirectToAction("Index");
+        }
+
         protected CategoryViewModel ToViewModel(CategoryDetails category)
         {
             return new CategoryViewModel

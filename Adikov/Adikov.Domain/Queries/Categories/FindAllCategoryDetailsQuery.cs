@@ -46,8 +46,8 @@ namespace Adikov.Domain.Queries.Categories
 
             FindAllCategoryDetailsQueryResult result = new FindAllCategoryDetailsQueryResult
             {
-                ActiveCategories = categories.Where(i => !i.IsDeleted).Select(GetDetails).ToList(),
-                DeletedCategories = categories.Where(i => i.IsDeleted).Select(GetDetails).ToList()
+                ActiveCategories = categories.Where(i => !i.IsDeleted).OrderBy(i => i.SortNumber).Select(GetDetails).ToList(),
+                DeletedCategories = categories.Where(i => i.IsDeleted).OrderBy(i => i.SortNumber).Select(GetDetails).ToList()
             };
 
             return result;

@@ -8,6 +8,7 @@
             <th> Иконка </th>
             <th> Название </th>
             <th> Тип </th>
+            <th> Сортировка </th>
             <th>
                 <div class="pull-right"> Действия </div>
 
@@ -37,6 +38,14 @@
                     @category.Name
                 </td>
                 <td> @CategoryTypeToLabel(category.Type) </td>
+                <td>
+                    <a href="@Url.Action("SortUp", "Category", new { categoryId = category.Id})" class="btn btn-sm btn-outline green-jungle" @(i == 1 ? "disabled" : "")>
+                        <i class="fa fa-arrow-up"></i>
+                    </a>
+                    <a href="@Url.Action("SortDown", "Category", new { categoryId = category.Id})" class="btn btn-sm btn-outline green-jungle" @(i == Model.Count() ? "disabled" : "")>
+                        <i class="fa fa-arrow-down"></i>
+                    </a>
+                </td>
                 <td>
                     <div class="pull-right">
                         @if (category.CanAddProduct)
