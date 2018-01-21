@@ -35,12 +35,22 @@ namespace Adikov.Controllers
 
                 if (categoryId.HasValue)
                 {
-                    string strCategoryId = categoryId.ToString();
+                    Category category = categoryResult.Categories.FirstOrDefault(i => i.Id == categoryId);
 
-                    vm.NewProduct.CategorySelectListItems.ForEach(i =>
+                    if (category != null)
                     {
-                        i.Selected = i.Value == strCategoryId;
-                    });
+                        string strCategoryId = categoryId.ToString();
+
+                        vm.NewProduct.CategorySelectListItems.ForEach(i =>
+                        {
+                            i.Selected = i.Value == strCategoryId;
+                        });
+
+                        if (category.Type == CategoryType.Single)
+                        {
+                            vm.NewProduct.Name = vm.NewProduct.CategorySelectListItems.FirstOrDefault(i => i.Value == strCategoryId)?.Text;
+                        }
+                    }
                 }
             }
             else

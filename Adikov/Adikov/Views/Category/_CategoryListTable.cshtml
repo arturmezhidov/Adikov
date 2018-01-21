@@ -10,7 +10,7 @@
             <th> Тип </th>
             <th>
                 <div class="pull-right"> Действия </div>
-                
+
             </th>
         </tr>
     </thead>
@@ -26,7 +26,11 @@
                 <td> @i </td>
                 <td> <i class="@category.Icon"></i> </td>
                 <td>
-                    @if (!category.HasProducts)
+                    @if (category.HasDeletedProductSingleCategory)
+                    {
+                        <i class="fa fa-info-circle tooltips" data-container="body" data-placement="top" data-original-title="Категория с одним продуктом сожержит удаленный продук! Вы можете восстановить удаленный продукт."></i>
+                    }
+                    else if (!category.HasProducts)
                     {
                         <i class="fa fa-info-circle tooltips" data-container="body" data-placement="top" data-original-title="Категория не содержит продуктов!"></i>
                     }
@@ -55,7 +59,7 @@
                         }
                         else
                         {
-                            @LinkHelper.ConfirmationLink("Удалить", Url.Action("Delete", new {id = category.Id}), "btn btn-sm btn-danger", "fa fa-trash-o")
+                            @LinkHelper.ConfirmationLink("Удалить", Url.Action("Delete", new { id = category.Id }), "btn btn-sm btn-danger", "fa fa-trash-o")
                         }
                     </div>
                 </td>
@@ -65,18 +69,18 @@
 </table>
 
 @helper CategoryTypeToLabel(CategoryType type)
-{
-    switch (type)
     {
-        case CategoryType.Single:
+        switch (type)
         {
-            <span class="label label-sm label-warning"> Одиночка </span>
-            break;
+            case CategoryType.Single:
+                {
+                    <span class="label label-sm label-warning"> Одиночка </span>
+                    break;
+                }
+            case CategoryType.Default:
+                {
+                    <span class="label label-sm label-success"> Коллекция </span>
+                    break;
+                }
         }
-        case CategoryType.Default:
-        {
-            <span class="label label-sm label-success"> Коллекция </span>
-            break;
-        }
-    }
 }

@@ -130,7 +130,8 @@ namespace Adikov.Controllers
                 ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedCategoryPath),
                 CanAddProduct = category.CanAddProduct,
                 ProductCount = category.Products.Count(),
-                HasProducts = category.HasProducts
+                HasProducts = category.HasProducts,
+                HasDeletedProductSingleCategory = category.HasDeletedProductSingleCategory
             };
         }
 
