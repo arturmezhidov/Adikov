@@ -79,6 +79,7 @@
     <Compile Include="Commands\Products\RecoveryAllProductCommand.cs" />
     <Compile Include="Commands\Products\RecoveryProductCommand.cs" />
     <Compile Include="Commands\Profile\UpdateAvatarCommand.cs" />
+    <Compile Include="Commands\Rows\AddRowCommand.cs" />
     <Compile Include="Commands\Tables\EditTableCommand.cs" />
     <Compile Include="Commands\Tables\AddTableCommand.cs" />
     <Compile Include="Commands\Tables\ClearTableCommand.cs" />
@@ -88,12 +89,14 @@
     <Compile Include="Criterion\StringSizeCriterion.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Column.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryType.cs" />
     <Compile Include="Models\ProductStatus.cs" />
     <Compile Include="Models\ColumnType.cs" />
+    <Compile Include="Models\Row.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Table.cs" />
@@ -105,9 +108,12 @@
     <Compile Include="Queries\Columns\FindAllColumnQuery.cs" />
     <Compile Include="Queries\Columns\FindActiveColumnQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryQuery.cs" />
+    <Compile Include="Queries\Forms\GenerateFormQuery.cs" />
     <Compile Include="Queries\Products\FindAllProductQuery.cs" />
     <Compile Include="Queries\Query.cs" />
+    <Compile Include="Queries\Products\GetProductTableByIdQuery.cs" />
     <Compile Include="Queries\Tables\FindActiveTableQuery.cs" />
+    <Compile Include="Queries\Tables\FindTableEditQuery.cs" />
     <Compile Include="Queries\Tables\FindTableDetailsQuery.cs" />
     <Compile Include="Queries\Tables\FindAllTableQuery.cs" />
   </ItemGroup>
@@ -125,6 +131,5 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

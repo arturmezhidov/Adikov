@@ -1,40 +1,63 @@
 ﻿@using Adikov.Domain.Models
+@using Adikov.Platform.Extensions
 
 @helper TypeToLabel(ColumnType type)
-{
-    switch (type)
     {
-        case ColumnType.IntNumber:
+        switch (type)
         {
-            <span class="label label-sm label-warning"> Целое число </span>
-            break;
+            case ColumnType.IntNumber:
+                {
+                    <span class="label label-sm label-warning"> @type.GetValueDescription() </span>
+                    break;
+                }
+            case ColumnType.DoubleNumber:
+                {
+                    <span class="label label-sm label-primary"> @type.GetValueDescription() </span>
+                    break;
+                }
+            case ColumnType.String:
+                {
+                    <span class="label label-sm label-success"> @type.GetValueDescription() </span>
+                    break;
+                }
+            case ColumnType.Status:
+                {
+                    <span class="label label-sm label-info"> @type.GetValueDescription() </span>
+                    break;
+                }
         }
-        case ColumnType.DoubleNumber:
-        {
-            <span class="label label-sm label-primary"> Вещественное число </span>
-            break;
-        }
-        case ColumnType.String:
-        {
-            <span class="label label-sm label-success"> Строка </span>
-            break;
-        }
-        case ColumnType.Status:
-        {
-            <span class="label label-sm label-info"> Статус </span>
-            break;
-        }
-    }
 }
 
 @helper ActiveStatusToLabel(bool isDeleted)
-{
-    if (isDeleted)
     {
-        <span class="label label-sm label-danger"> Удален </span>
-    }
-    else
+        if (isDeleted)
+        {
+            <span class="label label-sm label-danger"> Удален </span>
+        }
+        else
+        {
+            <span class="label label-sm label-success"> Активный </span>
+        }
+}
+
+@helper StatusToLabel(ProductStatus status)
     {
-        <span class="label label-sm label-success"> Активный </span>      
-    }
+        switch (status)
+        {
+            case ProductStatus.InStock:
+                {
+            <span class="label label-sm label-success"> @status.GetValueDescription() </span>
+                    break;
+                }
+            case ProductStatus.Pending:
+                {
+            <span class="label label-sm label-warning"> @status.GetValueDescription() </span>
+                    break;
+                }
+            case ProductStatus.UnderOrder:
+                {
+            <span class="label label-sm label-danger"> @status.GetValueDescription() </span>
+                    break;
+                }
+        }
 }

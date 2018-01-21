@@ -1,0 +1,8 @@
+﻿@model Adikov.ViewModels.Rows.RowAddViewModel
+
+@{
+    ViewBag.Title = Model.Table.ProductName;
+}
+
+@Html.Partial("_AddRowPortlet", Model.Form)
+@Html.Partial("_ProductTablePortlet", Model.Table)

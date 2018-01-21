@@ -27,6 +27,10 @@
             <td> @Html.ActionLink(item.Table, "Details", "Table", new { id = item.TableId, preview = true }, null) </td>
             <td>
                 <div class="pull-right">
+                    <a href="@Url.Action("Index", "Row", new { productId = item.Id })" class="btn btn-sm btn-success">
+                        <i class="fa fa-plus"></i>
+                        Позиции
+                    </a>
                     <a href="@Url.Action("Index", new { id = item.Id })" class="btn btn-sm btn-info">
                         <i class="fa fa-pencil"></i>
                         Редактировать

@@ -5,6 +5,13 @@ using Adikov.Infrastructura.Criterion;
 
 namespace Adikov.Domain.Queries.Tables
 {
+    public class TableDetailsCriterion : IdCriterion
+    {
+        public bool IsPreview { get; set; }
+
+        public TableDetailsCriterion(int id) : base(id) { }
+    }
+
     public class FindTableDetailsQueryResult
     {
         public int Id { get; set; }
@@ -14,9 +21,9 @@ namespace Adikov.Domain.Queries.Tables
         public virtual ICollection<Column> Columns { get; set; }
     }
 
-    public class FindTableDetailsQuery : Query<IdCriterion, FindTableDetailsQueryResult>
+    public class FindTableDetailsQuery : Query<TableDetailsCriterion, FindTableDetailsQueryResult>
     {
-        protected override FindTableDetailsQueryResult OnExecuting(IdCriterion criterion)
+        protected override FindTableDetailsQueryResult OnExecuting(TableDetailsCriterion criterion)
         {
             Table item = DataContext.Tables.Find(criterion.Id);
 
@@ -29,7 +36,10 @@ namespace Adikov.Domain.Queries.Tables
             {
                 Id = item.Id,
                 Name = item.Name,
-                Columns = item.Columns.ToList()
+                Columns = (criterion.IsPreview 
+                    ? item.Columns.Where(i => !i.IsDeleted) 
+                    : item.Columns
+                ).ToList()
             };
 
             return result;

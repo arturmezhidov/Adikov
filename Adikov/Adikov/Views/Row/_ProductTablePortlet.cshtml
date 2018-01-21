@@ -1,0 +1,17 @@
+﻿@model Adikov.Domain.Queries.Products.ProductTable
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Позиции - @Model.ProductName </span>
+        </div>
+        <div class="tools">
+            <a href="" class="collapse" data-original-title="" title="Свернуть"> </a>
+            <a href="" class="remove" data-original-title="" title="Удалить"> </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_ProductTable", Model)
+    </div>
+</div>

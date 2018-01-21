@@ -33,6 +33,8 @@ namespace Adikov.Domain.Commands.Tables
                 return;
             }
 
+            table.Name = command.Name;
+
             List<int> newColumns = command.Columns.Distinct().ToList();
             List<int> tableComuns = table.Columns.Select(i => i.Id).ToList();
 
