@@ -1,0 +1,63 @@
+﻿@using Adikov.Domain.Models
+@using Adikov.Platform.Extensions
+@using Adikov.ViewModels.Forms
+
+@helper TextBox(FormControlViewModel control)
+{
+    <input type="text" class="form-control" name="@(control.FieldNamePrefix + nameof(control.Value))" value="@control.Value" placeholder="@control.Label">
+}
+
+@helper IntBox(FormControlViewModel control)
+{
+    <input type="number" class="form-control" name="@(control.FieldNamePrefix + nameof(control.Value))" value="@control.Value" placeholder="@control.Label">
+}
+
+@helper DoubleBox(FormControlViewModel control)
+{
+    <input type="number" class="form-control" name="@(control.FieldNamePrefix + nameof(control.Value))" value="@control.Value" placeholder="@control.Label">
+}
+
+@helper StatusDropDown(FormControlViewModel control)
+{
+    <select class="form-control" name="@(control.FieldNamePrefix + nameof(control.Value))">
+        <option value="@ProductStatus.InStock" selected>@ProductStatus.InStock.GetValueDescription()</option>
+        <option value="@ProductStatus.Pending">@ProductStatus.Pending.GetValueDescription()</option>
+        <option value="@ProductStatus.UnderOrder">@ProductStatus.UnderOrder.GetValueDescription()</option>
+    </select>
+}
+
+@helper RenderControl(FormControlViewModel control)
+{
+    <div class="form-group">
+        <label class="col-md-3 control-label">@control.Label <span class="required" aria-required="true"> * </span></label>
+        <div class="col-md-4">
+            <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.Id))" value="@control.Id"/>
+            <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.Type))" value="@control.Type" />
+            <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.Label))" value="@control.Label" />
+            <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.FieldNamePrefix))" value="@control.FieldNamePrefix" />
+            @switch (control.Type)
+            {
+                case ColumnType.String:
+                    @TextBox(control)
+                    break;
+                case ColumnType.IntNumber:
+                    @IntBox(control)
+                    break;
+                case ColumnType.DoubleNumber:
+                    @DoubleBox(control)
+                    break;
+                case ColumnType.Status:
+                    @StatusDropDown(control)
+                    break;
+            }
+        </div>
+    </div>
+}
+
+@helper RenderForm(FormViewModel form)
+{
+    foreach (FormControlViewModel control in form.Controls)
+    {
+        @RenderControl(control)
+    }
+}

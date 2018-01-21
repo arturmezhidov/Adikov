@@ -56,15 +56,14 @@ namespace Adikov.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            FindTableDetailsQueryResult result = Query.For<FindTableDetailsQueryResult>().ById(id);
-            FindActiveColumnQueryResult columns = Query.For<FindActiveColumnQueryResult>().With(new EmptyCriterion());
+            FindTableEditQueryResult result = Query.For<FindTableEditQueryResult>().ById(id);
 
             TableEditViewModel vm = new TableEditViewModel
             {
                 Id = result.Id,
                 Name = result.Name,
                 Columns = result.Columns.Select(i => i.Id).ToList(),
-                SelectListItems = columns.ActiveColumns.Select(ToSelectListItem).ToList()
+                SelectListItems = result.AllColumns.Select(ToSelectListItem).ToList()
             };
 
             return View(vm);
@@ -86,7 +85,10 @@ namespace Adikov.Controllers
         [HttpGet]
         public ActionResult Details(int id, bool? preview)
         {
-            FindTableDetailsQueryResult result = Query.For<FindTableDetailsQueryResult>().ById(id);
+            FindTableDetailsQueryResult result = Query.For<FindTableDetailsQueryResult>().With(new TableDetailsCriterion(id)
+            {
+                IsPreview = preview.HasValue && preview.Value
+            });
 
             if (result == null)
             {
@@ -161,7 +163,7 @@ namespace Adikov.Controllers
         {
             return new SelectListItem
             {
-                Text = String.Format("{0} ({1})", c.Name, c.Type.GetDescription()),
+                Text = String.Format("{0} ({1}){2}", c.Name, c.Type.GetValueDescription(), c.IsDeleted ? " - Удален" : ""),
                 Value = c.Id.ToString()
             };
         }

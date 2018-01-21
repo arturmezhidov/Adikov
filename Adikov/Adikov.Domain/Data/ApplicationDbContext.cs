@@ -15,6 +15,10 @@ namespace Adikov.Domain.Data
 
         public DbSet<Column> Columns { get; set; }
 
+        public DbSet<Row> Rows { get; set; }
+
+        public DbSet<Cell> Cells { get; set; }
+
         public DbSet<File> Files { get; set; }
 
         public ApplicationDbContext() : base(PlatformConfiguration.ConnectionString, throwIfV1Schema: false)

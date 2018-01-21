@@ -12,5 +12,14 @@ namespace Adikov.Platform.Extensions
 
             return description;
         }
+
+        public static string GetValueDescription(this Enum e)
+        {
+            string description = e
+                .GetType()
+                .GetFieldDescription(e.ToString());
+
+            return description;
+        }
     }
 }

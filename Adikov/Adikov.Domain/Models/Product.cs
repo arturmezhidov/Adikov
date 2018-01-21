@@ -1,4 +1,6 @@
-﻿namespace Adikov.Domain.Models
+﻿using System.Collections.Generic;
+
+namespace Adikov.Domain.Models
 {
     public class Product : BaseEntity
     {
@@ -11,5 +13,7 @@
         public int TableId { get; set; }
 
         public virtual Table Table { get; set; }
+
+        public virtual ICollection<Row> Rows { get; set; }
     }
 }

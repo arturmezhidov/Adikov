@@ -208,6 +208,7 @@
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RowController.cs" />
     <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -229,10 +230,13 @@
     <Compile Include="ViewModels\Categories\CategoryIndexViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryAddViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
+    <Compile Include="ViewModels\Forms\FormViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductAddViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductEditViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductIndexViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductViewModel.cs" />
+    <Compile Include="ViewModels\Rows\RowAddViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableDetailsViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableEditViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableIndexViewModel.cs" />
@@ -5720,6 +5724,7 @@
     <Content Include="App_Code\LinkHelper.cshtml" />
     <Content Include="App_Code\EnumHelper.cshtml" />
     <Content Include="App_Code\ColumnHelper.cshtml" />
+    <Content Include="App_Code\FormHelper.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -5758,6 +5763,11 @@
     <Content Include="Views\Product\_EditProductForm.cshtml" />
     <Content Include="Views\Product\_ProductListPortlet.cshtml" />
     <Content Include="Views\Product\_ProductListTable.cshtml" />
+    <Content Include="Views\Row\Index.cshtml" />
+    <Content Include="Views\Row\_AddRowPortlet.cshtml" />
+    <Content Include="Views\Row\_AddRowForm.cshtml" />
+    <Content Include="Views\Row\_ProductTablePortlet.cshtml" />
+    <Content Include="Views\Row\_ProductTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

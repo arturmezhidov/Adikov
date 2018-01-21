@@ -29,5 +29,34 @@ namespace Adikov.Platform.Extensions
 
             return attribute?.Description;
         }
+
+        public static IEnumerable<T> GetFieldAttributes<T>(this Type type, string property) where T : Attribute
+        {
+            if (property == null)
+            {
+                throw new ArgumentNullException(nameof(property));
+            }
+
+            IEnumerable<T> attribues = type
+                .GetField(property)
+                .GetCustomAttributes(typeof(T), true)
+                .Cast<T>();
+
+            return attribues;
+        }
+
+        public static T GetFieldAttribute<T>(this Type type, string property) where T : Attribute
+        {
+            T attribue = type.GetFieldAttributes<T>(property).FirstOrDefault();
+
+            return attribue;
+        }
+
+        public static string GetFieldDescription(this Type type, string property)
+        {
+            DescriptionAttribute attribute = type.GetFieldAttribute<DescriptionAttribute>(property);
+
+            return attribute?.Description;
+        }
     }
 }
