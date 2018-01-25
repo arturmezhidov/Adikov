@@ -22,15 +22,16 @@ namespace Adikov.Domain.Commands.Tables
                 return;
             }
 
-            command.Columns = command.Columns.Distinct().ToList();
-
-            var columns = DataContext.Columns.Where(i => command.Columns.Contains(i.Id));
-
             var newItem = new Table
             {
-                Name = command.Name,
-                Columns = columns.ToList()
+                Name = command.Name
             };
+
+            newItem.TableColumns = command.Columns.Distinct().Select(i => new TableColumn
+            {
+                ColumnId = i,
+                Table = newItem
+            }).ToList();
 
             DataContext.Tables.Add(newItem);
         }

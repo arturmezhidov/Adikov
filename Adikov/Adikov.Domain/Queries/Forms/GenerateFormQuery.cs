@@ -23,10 +23,12 @@ namespace Adikov.Domain.Queries.Forms
                 return null;
             }
 
+            List<int> columns = product.Table.TableColumns.Select(i => i.ColumnId).ToList();
+
             GenerateFormQueryResult result = new GenerateFormQueryResult
             {
                 Product = product,
-                Columns = product.Table.Columns.Where(i => !i.IsDeleted).ToList()
+                Columns = DataContext.Columns.Where(i => !i.IsDeleted && columns.Contains(i.Id)).ToList()
             };
 
             return result;

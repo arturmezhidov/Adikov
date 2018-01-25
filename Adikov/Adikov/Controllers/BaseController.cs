@@ -53,7 +53,7 @@ namespace Adikov.Controllers
 
                     file.SaveAs(path);
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                     Command.Execute(new DeleteFileCommand
                     {

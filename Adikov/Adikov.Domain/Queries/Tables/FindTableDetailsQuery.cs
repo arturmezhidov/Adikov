@@ -25,20 +25,21 @@ namespace Adikov.Domain.Queries.Tables
     {
         protected override FindTableDetailsQueryResult OnExecuting(TableDetailsCriterion criterion)
         {
-            Table item = DataContext.Tables.Find(criterion.Id);
+            Table table = DataContext.Tables.Find(criterion.Id);
+            List<Column> columns = DataContext.Columns.ToList();
 
-            if (item == null)
+            if (table == null)
             {
                 return null;
             }
 
             FindTableDetailsQueryResult result = new FindTableDetailsQueryResult
             {
-                Id = item.Id,
-                Name = item.Name,
-                Columns = (criterion.IsPreview 
-                    ? item.Columns.Where(i => !i.IsDeleted) 
-                    : item.Columns
+                Id = table.Id,
+                Name = table.Name,
+                Columns = ((criterion.IsPreview
+                    ? columns.Where(c => !c.IsDeleted)
+                    : columns).Where(c => table.TableColumns.Any(tc => tc.ColumnId == c.Id))
                 ).ToList()
             };
 

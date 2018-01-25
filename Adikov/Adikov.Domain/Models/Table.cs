@@ -6,6 +6,6 @@ namespace Adikov.Domain.Models
     {
         public string Name { get; set; }
 
-        public virtual ICollection<Column> Columns { get; set; }
+        public virtual ICollection<TableColumn> TableColumns { get; set; }
     }
 }

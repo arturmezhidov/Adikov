@@ -139,7 +139,7 @@ namespace Adikov.Controllers
             {
                 Id = table.Id,
                 Name = table.Name,
-                ColumnsCount = table.Columns.Count,
+                ColumnsCount = table.TableColumns.Count,
                 IsDeleted = table.IsDeleted
             };
 

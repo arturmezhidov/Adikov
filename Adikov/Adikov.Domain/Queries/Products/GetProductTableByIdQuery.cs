@@ -44,13 +44,14 @@ namespace Adikov.Domain.Queries.Products
                 return null;
             }
 
+            List<int> columns = product.Table.TableColumns.Select(i => i.ColumnId).ToList();
 
             GetProductTableByIdQueryResult result = new GetProductTableByIdQueryResult
             {
                 Table = new ProductTable
                 {
                     ProductName = product.Name,
-                    Columns = product.Table.Columns.Select(col => new TableColumn
+                    Columns = DataContext.Columns.Where(i => columns.Contains(i.Id)).Select(col => new TableColumn
                     {
                         ColumnId = col.Id,
                         Name = col.Name,
