@@ -60,6 +60,8 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Commands\Categories\SortDownCategoryCommand.cs" />
     <Compile Include="Commands\Categories\SortUpCategoryCommand.cs" />
+    <Compile Include="Commands\Columns\SortDownColumnCommand.cs" />
+    <Compile Include="Commands\Columns\SortUpColumnCommand.cs" />
     <Compile Include="Commands\File\AddFileCommand.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\File\DeleteFileCommand.cs" />

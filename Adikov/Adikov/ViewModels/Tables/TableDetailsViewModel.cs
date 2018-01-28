@@ -5,6 +5,8 @@ namespace Adikov.ViewModels.Tables
 {
     public class TableDetailsViewModel
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public IEnumerable<ColumnViewModel> Columns { get; set; }

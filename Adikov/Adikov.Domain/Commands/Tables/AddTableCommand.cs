@@ -27,10 +27,13 @@ namespace Adikov.Domain.Commands.Tables
                 Name = command.Name
             };
 
+            int order = 0;
+
             newItem.TableColumns = command.Columns.Distinct().Select(i => new TableColumn
             {
                 ColumnId = i,
-                Table = newItem
+                Table = newItem,
+                SortNumber = order++
             }).ToList();
 
             DataContext.Tables.Add(newItem);

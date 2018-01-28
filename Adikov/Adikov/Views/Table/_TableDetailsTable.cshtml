@@ -8,6 +8,7 @@
         <th> Название </th>
         <th> Тип </th>
         <th> Статус </th>
+        <th width="120"> Сортировка </th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +24,14 @@
             <td> @item.Name </td>
             <td> @ColumnHelper.TypeToLabel(item.Type) </td>
             <td> @ColumnHelper.ActiveStatusToLabel(item.IsDeleted) </td>
+            <td>
+                <a href="@Url.Action("SortUp", "Table", new { tableId = Model.Id, columnId = item.TableColumnId })" class="btn btn-sm btn-outline green-jungle" @(i == 1 ? "disabled" : "")>
+                    <i class="fa fa-arrow-up"></i>
+                </a>
+                <a href="@Url.Action("SortDown", "Table", new { tableId = Model.Id, columnId = item.TableColumnId })" class="btn btn-sm btn-outline green-jungle" @(i == Model.Columns.Count() ? "disabled" : "")>
+                    <i class="fa fa-arrow-down"></i>
+                </a>
+            </td>
         </tr>
     }
     </tbody>

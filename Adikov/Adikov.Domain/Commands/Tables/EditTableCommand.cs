@@ -37,6 +37,8 @@ namespace Adikov.Domain.Commands.Tables
 
             List<int> newColumns = command.Columns.Distinct().ToList();
             List<int> tableComuns = table.TableColumns.Select(i => i.ColumnId).ToList();
+            int count = tableComuns.Count;
+
 
             // Deleting
             foreach (int columnId in tableComuns)
@@ -54,9 +56,11 @@ namespace Adikov.Domain.Commands.Tables
                 }
 
                 DataContext.TableColumns.Remove(column);
+                count--;
             }
 
             // Adding
+            int order = count;
             foreach (int columnId in newColumns)
             {
                 if (tableComuns.Contains(columnId))
@@ -74,7 +78,8 @@ namespace Adikov.Domain.Commands.Tables
                 table.TableColumns.Add(new TableColumn
                 {
                     Column = column,
-                    Table = table
+                    Table = table,
+                    SortNumber = order++
                 });
             }
 

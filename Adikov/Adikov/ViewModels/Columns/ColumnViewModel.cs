@@ -6,6 +6,8 @@ namespace Adikov.ViewModels.Columns
     {
         public int? Id { get; set; }
 
+        public int? TableColumnId { get; set; }
+
         public string Name { get; set; }
 
         public ColumnType Type { get; set; }
