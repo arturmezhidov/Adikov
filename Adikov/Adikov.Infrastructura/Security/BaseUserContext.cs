@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using Adikov.Platform.Extensions;
 
 namespace Adikov.Infrastructura.Security
 {
     public abstract class BaseUserContext
     {
         public abstract ClaimsPrincipal User { get; }
+
+        public abstract ClaimsIdentity Identity { get; }
 
         protected virtual Claim GetClaim(string type)
         {
@@ -56,6 +59,11 @@ namespace Adikov.Infrastructura.Security
                 .FindAll(type)
                 .Select(claim => claim.Value);
             return claimsValues;
+        }
+
+        public virtual void UpdateClaim(string type, string value)
+        {
+            Identity.UpdateClaim(type, value);
         }
     }
 }

@@ -1,6 +1,51 @@
-﻿@{
+﻿@model Adikov.ViewModels.Profile.UserProfileViewModel
+
+@{
     Layout = "_LayoutProfile.cshtml";
-    ViewBag.Title = "Настройки";
+    ViewBag.Title = "Настройки профиля";
 }
 
-<h2>Настройки</h2>
+<div class="portlet light ">
+    <div class="portlet-title tabbable-line">
+        <div class="caption caption-md">
+            <i class="icon-globe theme-font hide"></i>
+            <span class="caption-subject font-blue-madison bold uppercase">@ViewBag.Title</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @using (Html.BeginForm("Settings", "Profile", null, FormMethod.Post, new { id = "settings-profile-form", role = "form", enctype = "multipart/form-data" })) { 
+            <div class="form-group">
+                <label class="control-label">Имя</label>
+                @Html.TextBoxFor(m => m.FirstName, new { placeholder = "Имя", @class="form-control"})
+            </div>
+            <div class="form-group">
+                <label class="control-label">Фамилия</label>
+                @Html.TextBoxFor(m => m.LastName, new { placeholder = "Фамилия", @class="form-control"})
+            </div>
+            <div class="form-group">
+                <label class="control-label">Номер телефона</label>
+                @Html.TextBoxFor(m => m.PhoneNumber, new { placeholder = "Номер телефона", @class="form-control"})
+            </div>
+            <div class="form-group">
+                <label class="control-label">Деятельность</label>
+                @Html.TextBoxFor(m => m.Occupation, new { placeholder = "Деятельность", @class="form-control"})
+            </div>
+            <div class="form-group">
+                <label class="control-label">Интересы</label>
+                @Html.TextBoxFor(m => m.Interests, new { placeholder = "Интересы", @class="form-control"})
+            </div>
+            <div class="form-group">
+                <label class="control-label">Обо мне</label>
+                @Html.TextAreaFor(m => m.About, new { placeholder = "Обо мне", @class="form-control"})
+            </div>
+            <div class="form-group">
+                <label class="control-label">Сайт</label>
+                @Html.TextBoxFor(m => m.Website, new { placeholder = "Сайт", @class="form-control"})
+            </div>
+            <div class="margiv-top-10">
+                <input type="submit" class="btn green" value=" Сохранить " />
+                <a href="@Url.Action("Settings")" class="btn default"> Отменить </a>
+            </div>
+        }
+    </div>
+</div>
