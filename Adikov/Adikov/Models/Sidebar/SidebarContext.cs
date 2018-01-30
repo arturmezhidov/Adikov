@@ -2,13 +2,8 @@
 
 namespace Adikov.Models.Sidebar
 {
-    public class SidebarContext
+    public class SidebarContext : ISidebarContext
     {
-        public List<SidebarGroup> Groups { get; set; }
-
-        public SidebarContext()
-        {
-            Groups = new List<SidebarGroup>();
-        }
+        public IEnumerable<SidebarGroup> Groups { get; set; }
     }
 }

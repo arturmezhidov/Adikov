@@ -111,6 +111,7 @@
     <Compile Include="Queries\Categories\FindAllCategoryDetailsQuery.cs" />
     <Compile Include="Queries\Categories\FindCategoryByTypeQuery.cs" />
     <Compile Include="Queries\Categories\FindCategoryByIdQuery.cs" />
+    <Compile Include="Queries\Categories\GetNavigateItemsQuery.cs" />
     <Compile Include="Queries\Columns\FindAllColumnQuery.cs" />
     <Compile Include="Queries\Columns\FindActiveColumnQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryQuery.cs" />
