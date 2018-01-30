@@ -41,7 +41,6 @@ namespace Adikov.Controllers
                 {
                     Icon = vm.Icon,
                     Name = vm.Name,
-                    Type = vm.Type,
                     FileId = result.File.Id
                 });
             }
@@ -145,13 +144,10 @@ namespace Adikov.Controllers
                 Id = category.Id,
                 Icon = category.Icon,
                 Name = category.Name,
-                Type = category.Type,
                 IsDeleted = category.IsDeleted,
                 ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedCategoryPath),
-                CanAddProduct = category.CanAddProduct,
                 ProductCount = category.Products.Count(),
-                HasProducts = category.HasProducts,
-                HasDeletedProductSingleCategory = category.HasDeletedProductSingleCategory
+                HasProducts = category.HasProducts
             };
         }
 

@@ -1,5 +1,4 @@
-﻿@using Adikov.Domain.Models
-@model Adikov.ViewModels.Categories.CategoryAddViewModel
+﻿@model Adikov.ViewModels.Categories.CategoryAddViewModel
 
 @using (Html.BeginForm("Add", "Category", null, FormMethod.Post, new { id = "category-form", @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
@@ -14,15 +13,6 @@
             <label class="col-md-3 control-label">Иконка <span class="required" aria-required="true"> * </span></label>
             <div class="col-md-4">
                 @Html.TextBoxFor(m => m.Icon, new { @class = "form-control", placeholder = "Иконка" })
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-3 control-label">Тип <span class="required" aria-required="true"> * </span></label>
-            <div class="col-md-4">
-                <select class="form-control" data-val="true" data-val-required="Требуется поле Type." id="Type" name="Type">
-                    <option selected="selected" value="@CategoryType.Single">Одиночка</option>
-                    <option value="@CategoryType.Default">Коллекция</option>
-                </select>
             </div>
         </div>
         <div class="form-group">

@@ -17,7 +17,7 @@ namespace Adikov.Controllers
         {
             FindAllProductQueryResult result = Query.For<FindAllProductQueryResult>().With(new EmptyCriterion());
             FindActiveTableQueryResult tableResult = Query.For<FindActiveTableQueryResult>().With(new EmptyCriterion());
-            FindAllCategoryCanAddProductQueryResult categoryResult = Query.For<FindAllCategoryCanAddProductQueryResult>().With(new EmptyCriterion());
+            FindAllCategoryQueryResult categoryResult = Query.For<FindAllCategoryQueryResult>().With(new EmptyCriterion());
 
             ProductIndexViewModel vm = new ProductIndexViewModel
             {
@@ -29,13 +29,13 @@ namespace Adikov.Controllers
             {
                 vm.NewProduct = new ProductAddViewModel
                 {
-                    CategorySelectListItems = categoryResult.Categories.Select(ToSelectListItem).ToList(),
+                    CategorySelectListItems = categoryResult.ActiveCategories.Select(ToSelectListItem).ToList(),
                     TableSelectListItems = tableResult.ActiveTables.Select(ToSelectListItem).ToList()
                 };
 
                 if (categoryId.HasValue)
                 {
-                    Category category = categoryResult.Categories.FirstOrDefault(i => i.Id == categoryId);
+                    Category category = categoryResult.ActiveCategories.FirstOrDefault(i => i.Id == categoryId);
 
                     if (category != null)
                     {
@@ -45,11 +45,6 @@ namespace Adikov.Controllers
                         {
                             i.Selected = i.Value == strCategoryId;
                         });
-
-                        if (category.Type == CategoryType.Single)
-                        {
-                            vm.NewProduct.Name = vm.NewProduct.CategorySelectListItems.FirstOrDefault(i => i.Value == strCategoryId)?.Text;
-                        }
                     }
                 }
             }
@@ -63,7 +58,7 @@ namespace Adikov.Controllers
                     return RedirectToAction("Index");
                 }
 
-                categoryResult.Categories.Add(edit.Category);
+                categoryResult.ActiveCategories.Add(edit.Category);
 
                 vm.EditProduct = new ProductEditViewModel
                 {
@@ -71,7 +66,7 @@ namespace Adikov.Controllers
                     Name = edit.Name,
                     CategoryId = edit.CategoryId,
                     TableId = edit.TableId,
-                    CategorySelectListItems = categoryResult.Categories.Select(ToSelectListItem).ToList(),
+                    CategorySelectListItems = categoryResult.ActiveCategories.Select(ToSelectListItem).ToList(),
                     TableSelectListItems = tableResult.ActiveTables.Select(ToSelectListItem).ToList()
                 };
 
