@@ -8,6 +8,6 @@ namespace Adikov.Domain.Models
 
         public ColumnType Type { get; set; }
 
-        public virtual ICollection<Table> Tables { get; set; }
+        public virtual ICollection<TableColumn> TableColumns { get; set; }
     }
 }

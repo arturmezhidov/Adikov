@@ -20,19 +20,20 @@ namespace Adikov.Domain.Queries.Tables
     {
         protected override FindTableEditQueryResult OnExecuting(IdCriterion criterion)
         {
-            Table item = DataContext.Tables.Find(criterion.Id);
+            Table table = DataContext.Tables.Find(criterion.Id);
+            List<Column> columns = DataContext.Columns.ToList();
 
-            if (item == null)
+            if (table == null)
             {
                 return null;
             }
 
             FindTableEditQueryResult result = new FindTableEditQueryResult
             {
-                Id = item.Id,
-                Name = item.Name,
-                Columns = item.Columns.ToList(),
-                AllColumns = DataContext.Columns.Where(i => !i.IsDeleted).ToList()
+                Id = table.Id,
+                Name = table.Name,
+                Columns = columns.Where(i => table.TableColumns.Any(tc => tc.ColumnId == i.Id)).ToList(),
+                AllColumns = columns.Where(i => !i.IsDeleted).ToList()
             };
 
             result.AllColumns.AddRange(result.Columns.Where(i => i.IsDeleted));

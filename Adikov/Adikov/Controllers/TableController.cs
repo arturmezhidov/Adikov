@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using Adikov.Domain.Commands.Columns;
 using Adikov.Domain.Commands.Tables;
 using Adikov.Domain.Models;
 using Adikov.Domain.Queries.Columns;
@@ -97,6 +98,7 @@ namespace Adikov.Controllers
 
             TableDetailsViewModel vm = new TableDetailsViewModel
             {
+                Id = result.Id,
                 Name = result.Name,
                 Columns = result.Columns.Select(ToViewModel),
                 IsPreview = preview
@@ -133,27 +135,50 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult SortUp(int tableId, int columnId)
+        {
+            Command.Execute(new SortUpColumnCommand
+            {
+                TableId = tableId,
+                TableColumnId = columnId
+            });
+
+            return RedirectToAction("Details", new { id = tableId });
+        }
+
+        public ActionResult SortDown(int tableId, int columnId)
+        {
+            Command.Execute(new SortDownColumnCommand
+            {
+                TableId = tableId,
+                TableColumnId = columnId
+            });
+
+            return RedirectToAction("Details", new { id = tableId });
+        }
+
         protected TableViewModel ToViewModel(Table table)
         {
             TableViewModel vm = new TableViewModel
             {
                 Id = table.Id,
                 Name = table.Name,
-                ColumnsCount = table.Columns.Count,
+                ColumnsCount = table.TableColumns.Count,
                 IsDeleted = table.IsDeleted
             };
 
             return vm;
         }
 
-        protected ColumnViewModel ToViewModel(Column column)
+        protected ColumnViewModel ToViewModel(TableColumnDetail column)
         {
             ColumnViewModel vm = new ColumnViewModel
             {
-                Id = column.Id,
-                Name = column.Name,
-                Type = column.Type,
-                IsDeleted = column.IsDeleted
+                Id = column.Column.Id,
+                Name = column.Column.Name,
+                Type = column.Column.Type,
+                IsDeleted = column.Column.IsDeleted,
+                TableColumnId = column.TableColumn.Id
             };
 
             return vm;

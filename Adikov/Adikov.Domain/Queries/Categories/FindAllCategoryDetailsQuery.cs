@@ -27,6 +27,8 @@ namespace Adikov.Domain.Queries.Categories
         public bool CanAddProduct { get; set; }
 
         public bool HasProducts { get; set; }
+
+        public bool HasDeletedProductSingleCategory { get; set; }
     }
 
     public class FindAllCategoryDetailsQueryResult
@@ -44,8 +46,8 @@ namespace Adikov.Domain.Queries.Categories
 
             FindAllCategoryDetailsQueryResult result = new FindAllCategoryDetailsQueryResult
             {
-                ActiveCategories = categories.Where(i => !i.IsDeleted).Select(GetDetails).ToList(),
-                DeletedCategories = categories.Where(i => i.IsDeleted).Select(GetDetails).ToList()
+                ActiveCategories = categories.Where(i => !i.IsDeleted).OrderBy(i => i.SortNumber).Select(GetDetails).ToList(),
+                DeletedCategories = categories.Where(i => i.IsDeleted).OrderBy(i => i.SortNumber).Select(GetDetails).ToList()
             };
 
             return result;
@@ -63,8 +65,9 @@ namespace Adikov.Domain.Queries.Categories
                 FileId = category.FileId,
                 IsDeleted = category.IsDeleted,
                 Products = category.Products,
-                HasProducts = category.Products.Any(),
-                CanAddProduct = category.Type != CategoryType.Single || !category.Products.Any()
+                HasProducts = category.Products.Any(i => !i.IsDeleted),
+                CanAddProduct = !(category.Type == CategoryType.Single && category.Products.Any()),
+                HasDeletedProductSingleCategory = category.Type == CategoryType.Single && category.Products.Any(i => i.IsDeleted)
             };
         } 
     }

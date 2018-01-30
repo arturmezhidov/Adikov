@@ -1,4 +1,5 @@
-﻿using Adikov.Domain.Models;
+﻿using System.Linq;
+using Adikov.Domain.Models;
 using Adikov.Infrastructura.Commands;
 
 namespace Adikov.Domain.Commands.Categories
@@ -23,7 +24,8 @@ namespace Adikov.Domain.Commands.Categories
                 Icon = command.Icon,
                 Name = command.Name,
                 Type = command.Type,
-                FileId = command.FileId
+                FileId = command.FileId,
+                SortNumber = DataContext.Categories.Count()
             };
 
             DataContext.Categories.Add(newItem);

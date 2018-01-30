@@ -21,5 +21,7 @@ namespace Adikov.ViewModels.Categories
         public int ProductCount { get; set; }
 
         public bool HasProducts { get; set; }
+
+        public bool HasDeletedProductSingleCategory { get; set; }
     }
 }

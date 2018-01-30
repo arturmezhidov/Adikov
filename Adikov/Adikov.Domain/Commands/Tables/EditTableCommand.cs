@@ -36,7 +36,9 @@ namespace Adikov.Domain.Commands.Tables
             table.Name = command.Name;
 
             List<int> newColumns = command.Columns.Distinct().ToList();
-            List<int> tableComuns = table.Columns.Select(i => i.Id).ToList();
+            List<int> tableComuns = table.TableColumns.Select(i => i.ColumnId).ToList();
+            int count = tableComuns.Count;
+
 
             // Deleting
             foreach (int columnId in tableComuns)
@@ -46,17 +48,19 @@ namespace Adikov.Domain.Commands.Tables
                     continue;
                 }
 
-                Column column = table.Columns.FirstOrDefault(i => i.Id == columnId);
+                TableColumn column = DataContext.TableColumns.FirstOrDefault(i => i.ColumnId == columnId);
 
                 if (column == null)
                 {
                     continue;
                 }
 
-                table.Columns.Remove(column);
+                DataContext.TableColumns.Remove(column);
+                count--;
             }
 
             // Adding
+            int order = count;
             foreach (int columnId in newColumns)
             {
                 if (tableComuns.Contains(columnId))
@@ -71,7 +75,12 @@ namespace Adikov.Domain.Commands.Tables
                     continue;
                 }
 
-                table.Columns.Add(column);
+                table.TableColumns.Add(new TableColumn
+                {
+                    Column = column,
+                    Table = table,
+                    SortNumber = order++
+                });
             }
 
             DataContext.Entry(table).State = EntityState.Modified;

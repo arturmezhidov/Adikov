@@ -23,8 +23,26 @@
         <tr>
             <td> @i </td>
             <td> @item.Name </td>
-            <td> @item.Category </td>
-            <td> @Html.ActionLink(item.Table, "Details", "Table", new { id = item.TableId, preview = true }, null) </td>
+            <td>
+                @item.Category
+                @if (item.IsCategoryDeleted)
+                {
+                    <span class="label label-sm label-danger">
+                        <i class="fa fa-info-circle tooltips" data-container="body" data-placement="top" data-original-title="Данная категория удалена и не будет видно пользователям. Вы можете восстановить данную категорию в настройках категорий."></i>
+                        Удалена
+                    </span>
+                }
+            </td>
+            <td>
+                @Html.ActionLink(item.Table, "Details", "Table", new {id = item.TableId, preview = true}, null)
+                @if (item.IsTableDeleted)
+                {
+                    <span class="label label-sm label-danger">
+                        <i class="fa fa-info-circle tooltips" data-container="body" data-placement="top" data-original-title="Данная таблица была удалена. Пользователи не смогут увидеть продукцию, которая использует данную таблицу. Вы можете восстановить данную таблицу в настройках таблиц."></i> 
+                        Удалена
+                    </span>
+                }
+            </td>
             <td>
                 <div class="pull-right">
                     <a href="@Url.Action("Index", "Row", new { productId = item.Id })" class="btn btn-sm btn-success">

@@ -118,6 +118,26 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult SortUp(int categoryId)
+        {
+            Command.Execute(new SortUpCategoryCommand
+            {
+                CategoryId = categoryId
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult SortDown(int categoryId)
+        {
+            Command.Execute(new SortDownCategoryCommand
+            {
+                CategoryId = categoryId
+            });
+
+            return RedirectToAction("Index");
+        }
+
         protected CategoryViewModel ToViewModel(CategoryDetails category)
         {
             return new CategoryViewModel
@@ -130,7 +150,8 @@ namespace Adikov.Controllers
                 ImageUrl = GetUrl(category.File.PhysicalName, PlatformConfiguration.UploadedCategoryPath),
                 CanAddProduct = category.CanAddProduct,
                 ProductCount = category.Products.Count(),
-                HasProducts = category.HasProducts
+                HasProducts = category.HasProducts,
+                HasDeletedProductSingleCategory = category.HasDeletedProductSingleCategory
             };
         }
 

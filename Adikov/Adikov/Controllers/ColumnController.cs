@@ -92,14 +92,14 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
-        protected ColumnViewModel ToViewModel(Column category)
+        protected ColumnViewModel ToViewModel(Column column)
         {
             return new ColumnViewModel
             {
-                Id = category.Id,
-                Name = category.Name,
-                Type = category.Type,
-                IsDeleted = category.IsDeleted
+                Id = column.Id,
+                Name = column.Name,
+                Type = column.Type,
+                IsDeleted = column.IsDeleted
             };
         }
     }

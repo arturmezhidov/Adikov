@@ -15,6 +15,8 @@ namespace Adikov.Domain.Data
 
         public DbSet<Column> Columns { get; set; }
 
+        public DbSet<TableColumn> TableColumns { get; set; }
+
         public DbSet<Row> Rows { get; set; }
 
         public DbSet<Cell> Cells { get; set; }

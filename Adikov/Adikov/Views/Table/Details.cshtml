@@ -11,6 +11,18 @@
             <span class="caption-subject font-red-sunglo bold uppercase"> @Model.Name </span>
         </div>
         <div class="actions">
+            @if (Model.IsPreview == true)
+            {
+                <a href="@Url.Action("Details", new { id = Model.Id })" class="btn btn-circle btn-info">
+                    <i class="fa fa-exclamation-circle"></i> Детали
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Details", new { id = Model.Id, preview = true })" class="btn btn-circle purple-plum">
+                    <i class="fa fa-search"></i> Предпросмотр
+                </a>
+            }
             <a href="@Url.Action("Index")" class="btn btn-circle red-sunglo ">
                 <i class="icon-action-undo"></i> Назад
             </a>
