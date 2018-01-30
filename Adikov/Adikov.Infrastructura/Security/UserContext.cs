@@ -98,7 +98,19 @@ namespace Adikov.Infrastructura.Security
                 }
 
                 throw new Exception("Current principal does not support claims.");
-                
+            }
+        }
+
+        public override ClaimsIdentity Identity
+        {
+            get
+            {
+                if (User.Identity is ClaimsIdentity identity)
+                {
+                    return identity;
+                }
+
+                throw new Exception("Current principal does not support claims.");
             }
         }
     }

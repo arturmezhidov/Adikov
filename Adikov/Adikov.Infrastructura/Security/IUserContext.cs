@@ -27,5 +27,7 @@
         string Website { get; }
 
         void Reset();
+
+        void UpdateClaim(string type, string value);
     }
 }

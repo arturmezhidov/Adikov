@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Adikov.Domain;
 using Adikov.Domain.Data;
+using Adikov.Infrastructura.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -101,6 +102,15 @@ namespace Adikov
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
         {
             return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
+        }
+
+        public async Task UpdateClaims(IUserContext userContext)
+        {
+            ApplicationUser user = await UserManager.FindByIdAsync(userContext.UserId);
+
+            await SignInAsync(user, false, false);
+
+            userContext.Reset();
         }
 
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
