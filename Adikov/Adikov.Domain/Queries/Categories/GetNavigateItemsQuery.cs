@@ -41,11 +41,13 @@ namespace Adikov.Domain.Queries.Categories
                     {
                         Text = i.Name,
                         Icon = i.Icon,
-                        Items = i.Products.Select(p => new Item
-                        {
-                            Id = p.Id,
-                            Text = p.Name
-                        })
+                        Items = i.Products
+                            .Where(p => !p.IsDeleted)
+                            .Select(p => new Item
+                            {
+                                Id = p.Id,
+                                Text = p.Name
+                            })
                     })
             };
         }

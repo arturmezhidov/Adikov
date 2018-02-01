@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
+using System.Web.Routing;
 using Adikov.Domain.Queries.Categories;
 using Adikov.Infrastructura.Criterion;
 using Adikov.Infrastructura.Queries;
@@ -30,10 +32,14 @@ namespace Adikov.Services
 
         public ISidebarContext CreateContext()
         {
-            return new SidebarContext
+            ISidebarContext context = new SidebarContext
             {
                 Groups = GetSidebarItems()
             };
+
+            CheckActiveItem(context);
+
+            return context;
         }
 
         public IEnumerable<SidebarGroup> GetSidebarItems()
@@ -58,7 +64,6 @@ namespace Adikov.Services
                 new SidebarGroup
                 {
                     Text = "Шаблоны",
-                    ViewLink = "/",
                     Icon = "fa fa-puzzle-piece",
                     Items = new List<SidebarItem>
                     {
@@ -77,7 +82,6 @@ namespace Adikov.Services
                 new SidebarGroup
                 {
                     Text = "Продукция",
-                    ViewLink = "/",
                     Icon = "fa fa-cubes",
                     Items = new List<SidebarItem>
                     {
@@ -103,20 +107,20 @@ namespace Adikov.Services
                 new SidebarGroup
                 {
                     Text = "Контакты",
-                    ViewLink = "/",
-                    Icon = "icon-call-end"
+                    Icon = "icon-call-end",
+                    ViewLink = "/Contacts"
                 },
                 new SidebarGroup
                 {
                     Text = "Об организации",
-                    ViewLink = "/",
-                    Icon = "icon-info"
+                    Icon = "icon-info",
+                    ViewLink = "/About"
                 },
                 new SidebarGroup
                 {
                     Text = "Услуги",
-                    ViewLink = "/",
-                    Icon = "icon-calculator"
+                    Icon = "icon-calculator",
+                    ViewLink = "/Services"
                 }
             };
         }
@@ -124,18 +128,75 @@ namespace Adikov.Services
         protected IEnumerable<SidebarGroup> GetProductItems()
         {
             GetNavigateItemsQueryResult result = Query.For<GetNavigateItemsQueryResult>().With(new EmptyCriterion());
-            return result
-                .Groups
-                .Select(g => new SidebarGroup
+
+            return result.Groups.Select(ToSidebarGroup).Where(i => i != null);
+        }
+
+        protected SidebarGroup ToSidebarGroup(Group group)
+        {
+            SidebarGroup sidebarGroup = new SidebarGroup
+            {
+                Text = group.Text,
+                Icon = group.Icon,
+                Items = group.Items.Select(ToSidebarItem).ToList()
+            };
+
+            if (sidebarGroup.Items.Count == 0)
+            {
+                if (UserContext.IsAdmin)
                 {
-                    Text = g.Text,
-                    Icon = g.Icon,
-                    ViewLink = g.Items.Any() ? "/" : null,
-                    Items = g.Items.Select(i => new SidebarItem
+                    sidebarGroup.ViewLink = "/Category";
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else if (sidebarGroup.Items.Count == 1)
+            {
+                sidebarGroup.ViewLink = sidebarGroup.Items.First().ViewLink;
+                sidebarGroup.Items.Clear();
+            }
+
+            return sidebarGroup;
+        }
+
+        protected SidebarItem ToSidebarItem(Item item)
+        {
+            return new SidebarItem
+            {
+                Text = item.Text,
+                ViewLink = $"/ProductInfo/Index/{item.Id}"
+            };
+        }
+
+        protected void CheckActiveItem(ISidebarContext context)
+        {
+            string url = HttpContext.Current.Request.RawUrl;
+
+            foreach (SidebarGroup group in context.Groups)
+            {
+                if (group.Items != null && group.Items.Any())
+                {
+                    foreach (SidebarItem item in group.Items)
                     {
-                        Text = i.Text
-                    }).ToList()
-                });
+                        if (item.ViewLink == url)
+                        {
+                            item.IsActive = true;
+                            group.IsActive = true;
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    if (group.ViewLink == url)
+                    {
+                        group.IsActive = true;
+                        return;
+                    }
+                }
+            }
         }
     }
 }
