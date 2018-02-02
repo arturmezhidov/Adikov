@@ -11,8 +11,6 @@ namespace Adikov.Domain.Commands.Categories
         public string Name { get; set; }
 
         public int FileId { get; set; }
-
-        public CategoryType Type { get; set; }
     }
 
     public class AddCategoryCommandHandler : CommandHandler<AddCategoryCommand>
@@ -23,7 +21,6 @@ namespace Adikov.Domain.Commands.Categories
             {
                 Icon = command.Icon,
                 Name = command.Name,
-                Type = command.Type,
                 FileId = command.FileId,
                 SortNumber = DataContext.Categories.Count()
             };

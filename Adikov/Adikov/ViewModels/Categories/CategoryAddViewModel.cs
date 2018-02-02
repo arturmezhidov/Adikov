@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
-using Adikov.Domain.Models;
 
 namespace Adikov.ViewModels.Categories
 {
@@ -11,8 +10,6 @@ namespace Adikov.ViewModels.Categories
 
         [Required(ErrorMessage = "Поле обязательно для заполнения.")]
         public string Name { get; set; }
-
-        public CategoryType Type { get; set; }
 
         public HttpPostedFileBase Image { get; set; }
     }

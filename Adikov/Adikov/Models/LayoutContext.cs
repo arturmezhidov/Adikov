@@ -9,7 +9,7 @@ namespace Adikov.Models
 
         public IUserContext User { get; set; }
 
-        public SidebarContext Sidebar { get; set; }
+        public ISidebarContext Sidebar { get; set; }
 
         public string ContollerName { get; set; }
 

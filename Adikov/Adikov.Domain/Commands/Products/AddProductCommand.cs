@@ -21,28 +21,6 @@ namespace Adikov.Domain.Commands.Products
     {
         protected override void OnHandling(AddProductCommand command, AddProductCommandResult result)
         {
-            Category category = DataContext.Categories.Find(command.CategoryId);
-
-            if (category == null)
-            {
-                result.ResultCode = CommandResultCode.Cancelled;
-                return;
-            }
-
-            if (category.Type == CategoryType.Single && category.Products.Count > 0)
-            {
-                result.ResultCode = CommandResultCode.Cancelled;
-                return;
-            }
-
-            Table table = DataContext.Tables.Find(command.TableId);
-
-            if (table == null)
-            {
-                result.ResultCode = CommandResultCode.Cancelled;
-                return;
-            }
-
             Product product = new Product
             {
                 Name = command.Name,

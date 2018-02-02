@@ -216,12 +216,14 @@
     </Compile>
     <Compile Include="Models\Home\IndexViewModel.cs" />
     <Compile Include="Models\LayoutContext.cs" />
+    <Compile Include="Models\Sidebar\ISidebarContext.cs" />
     <Compile Include="Models\Sidebar\SidebarContext.cs" />
     <Compile Include="Models\Sidebar\SidebarGroup.cs" />
     <Compile Include="Models\Sidebar\SidebarItem.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SidebarService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
