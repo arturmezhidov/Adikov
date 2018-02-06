@@ -44,7 +44,7 @@ namespace Adikov.Domain.Queries.Products
                 return null;
             }
 
-            List<int> columns = product.Table.TableColumns.Select(i => i.ColumnId).ToList();
+            List<int> columns = product.Table.TableColumns.OrderBy(i => i.SortNumber).Select(i => i.ColumnId).ToList();
 
             GetProductTableByIdQueryResult result = new GetProductTableByIdQueryResult
             {
