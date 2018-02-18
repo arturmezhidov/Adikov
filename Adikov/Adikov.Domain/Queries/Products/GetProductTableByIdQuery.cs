@@ -16,11 +16,15 @@ namespace Adikov.Domain.Queries.Products
 
     public class TableRow
     {
+        public int RowId { get; set; }
+
         public Dictionary<int, string> Cells { get; set; }
     }
 
     public class ProductTable
     {
+        public int ProductId { get; set; }
+
         public string ProductName { get; set; }
 
         public List<TableColumn> Columns { get; set; }
@@ -50,6 +54,7 @@ namespace Adikov.Domain.Queries.Products
             {
                 Table = new ProductTable
                 {
+                    ProductId = (int)criterion.Id,
                     ProductName = product.Name,
                     Columns = DataContext.Columns.Where(i => columns.Contains(i.Id)).Select(col => new TableColumn
                     {
@@ -59,6 +64,7 @@ namespace Adikov.Domain.Queries.Products
                     }).ToList(),
                     Rows = product.Rows.Select(r => new TableRow
                     {
+                        RowId = r.Id,
                         Cells = r.Cells.ToDictionary(cell => cell.ColumnId, cell => cell.Value)
                     }).ToList()
                 }

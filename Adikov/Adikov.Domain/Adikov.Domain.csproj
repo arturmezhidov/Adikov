@@ -85,6 +85,7 @@
     <Compile Include="Commands\Profile\UpdateProfileCommand.cs" />
     <Compile Include="Commands\Profile\UpdateAvatarCommand.cs" />
     <Compile Include="Commands\Rows\AddRowCommand.cs" />
+    <Compile Include="Commands\Rows\DeleteRowCommand.cs" />
     <Compile Include="Commands\Tables\EditTableCommand.cs" />
     <Compile Include="Commands\Tables\AddTableCommand.cs" />
     <Compile Include="Commands\Tables\ClearTableCommand.cs" />

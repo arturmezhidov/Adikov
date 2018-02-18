@@ -45,6 +45,16 @@ namespace Adikov.Controllers
             return RedirectToAction("Index", new { productId = vm.Id });
         }
 
+        public ActionResult Delete(int id, int productId)
+        {
+            Command.Execute(new DeleteRowCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index", new {productId});
+        }
+
         protected FormViewModel ToViewModel(GenerateFormQueryResult form)
         {
             FormViewModel vm = new FormViewModel

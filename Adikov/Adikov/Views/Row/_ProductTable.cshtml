@@ -9,6 +9,9 @@
             {
                 <th data-type="@column.Type"> @column.Name </th>
             }
+            <th>
+                <div class="pull-right"> Действия </div>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -34,6 +37,19 @@
                         }
                     </td>
                 }
+                <td>
+                    <div class="pull-right">
+                        <a href="@Url.Action("Index", new { id = row.RowId })" class="btn btn-sm btn-info">
+                            <i class="fa fa-pencil"></i>
+                            Редактировать
+                        </a>
+                        @LinkHelper.ConfirmationLink(
+                            "Удалить",
+                            Url.Action("Delete", new { id = row.RowId, productId = Model.ProductId }),
+                            "btn btn-sm btn-danger",
+                            "fa fa-trash-o")
+                    </div>
+                </td>
             </tr>
         }
     </tbody>
