@@ -6,6 +6,8 @@ namespace Adikov.ViewModels.Forms
     {
         public int Id { get; set; }
 
+        public int AditionalId { get; set; }
+
         public string Label { get; set; }
 
         public ColumnType Type { get; set; }

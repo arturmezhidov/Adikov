@@ -4,6 +4,9 @@ namespace Adikov.Domain.Models
 {
     public enum ProductStatus
     {
+        [Description("Не указан")]
+        None,
+
         [Description("В наличии")]
         InStock,
 

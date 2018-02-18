@@ -20,9 +20,10 @@
 @helper StatusDropDown(FormControlViewModel control)
 {
     <select class="form-control" name="@(control.FieldNamePrefix + nameof(control.Value))">
-        <option value="@ProductStatus.InStock" selected>@ProductStatus.InStock.GetValueDescription()</option>
-        <option value="@ProductStatus.Pending">@ProductStatus.Pending.GetValueDescription()</option>
-        <option value="@ProductStatus.UnderOrder">@ProductStatus.UnderOrder.GetValueDescription()</option>
+        <option value="@ProductStatus.None" @(control.Value == ProductStatus.None.ToString() ? "selected" : "")>@ProductStatus.None.GetValueDescription()</option>
+        <option value="@ProductStatus.InStock" @(control.Value == ProductStatus.InStock.ToString() ? "selected" : "")>@ProductStatus.InStock.GetValueDescription()</option>
+        <option value="@ProductStatus.Pending" @(control.Value == ProductStatus.Pending.ToString() ? "selected" : "")>@ProductStatus.Pending.GetValueDescription()</option>
+        <option value="@ProductStatus.UnderOrder" @(control.Value == ProductStatus.UnderOrder.ToString() ? "selected" : "")>@ProductStatus.UnderOrder.GetValueDescription()</option>
     </select>
 }
 
@@ -32,6 +33,7 @@
         <label class="col-md-3 control-label">@control.Label <span class="required" aria-required="true"> * </span></label>
         <div class="col-md-4">
             <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.Id))" value="@control.Id"/>
+            <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.AditionalId))" value="@control.AditionalId"/>
             <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.Type))" value="@control.Type" />
             <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.Label))" value="@control.Label" />
             <input type="hidden" name="@(control.FieldNamePrefix + nameof(control.FieldNamePrefix))" value="@control.FieldNamePrefix" />

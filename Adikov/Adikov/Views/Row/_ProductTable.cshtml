@@ -39,7 +39,7 @@
                 }
                 <td>
                     <div class="pull-right">
-                        <a href="@Url.Action("Index", new { id = row.RowId })" class="btn btn-sm btn-info">
+                        <a href="@Url.Action("Index", new { productId = Model.ProductId, rowId = row.RowId })" class="btn btn-sm btn-info">
                             <i class="fa fa-pencil"></i>
                             Редактировать
                         </a>

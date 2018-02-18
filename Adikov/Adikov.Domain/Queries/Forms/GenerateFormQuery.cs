@@ -29,7 +29,7 @@ namespace Adikov.Domain.Queries.Forms
             GenerateFormQueryResult result = new GenerateFormQueryResult
             {
                 Product = product,
-                Columns = tableColumns.Select(i => columns.FirstOrDefault(c => c.Id == i))
+                Columns = tableColumns.Select(i => columns.FirstOrDefault(c => c.Id == i)).Where(i => i != null)
             };
 
             return result;

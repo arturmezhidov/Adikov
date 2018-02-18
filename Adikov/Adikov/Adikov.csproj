@@ -208,6 +208,7 @@
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductInfoController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RowController.cs" />
     <Compile Include="Controllers\TableController.cs" />
@@ -5783,6 +5784,9 @@
     <Content Include="Views\Row\_AddRowForm.cshtml" />
     <Content Include="Views\Row\_ProductTablePortlet.cshtml" />
     <Content Include="Views\Row\_ProductTable.cshtml" />
+    <Content Include="Views\ProductInfo\Index.cshtml" />
+    <Content Include="Views\Row\_EditRowPortlet.cshtml" />
+    <Content Include="Views\Row\_EditRowForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

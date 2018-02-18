@@ -1,0 +1,19 @@
+﻿@model Adikov.ViewModels.Forms.FormViewModel
+
+@using (Html.BeginForm("Edit", "Row", new { productId = ViewBag.ProductId }, FormMethod.Post, new { id = "row-form", @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-body">
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Name)
+        @FormHelper.RenderForm(Model)
+    </div>
+    <hr />
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <button type="submit" class="btn green">Сохранить</button>
+                <a href="@Url.Action("Index", "Row", new { productId = ViewBag.ProductId })" class="btn default">Отмена</a>
+            </div>
+        </div>
+    </div>
+}
