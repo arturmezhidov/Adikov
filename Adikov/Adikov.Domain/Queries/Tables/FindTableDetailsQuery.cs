@@ -40,7 +40,7 @@ namespace Adikov.Domain.Queries.Tables
                 return null;
             }
 
-            List<TableColumn> tableColumns = table.TableColumns.OrderBy(i => i.SortNumber).ToList();
+            List<TableColumn> tableColumns = table.TableColumns.Where(i => !i.IsDeleted).OrderBy(i => i.SortNumber).ToList();
             List<Column> columns = DataContext.Columns.Where(i => !(i.IsDeleted && criterion.IsPreview)).ToList();
 
             FindTableDetailsQueryResult result = new FindTableDetailsQueryResult
@@ -51,7 +51,7 @@ namespace Adikov.Domain.Queries.Tables
                 {
                     TableColumn = i,
                     Column = columns.FirstOrDefault(c => c.Id == i.ColumnId)
-                }).ToList()
+                }).Where(i => i.Column != null && i.TableColumn != null).ToList()
             };
 
             return result;
