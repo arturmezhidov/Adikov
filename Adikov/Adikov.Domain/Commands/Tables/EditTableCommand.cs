@@ -59,6 +59,11 @@ namespace Adikov.Domain.Commands.Tables
                 count--;
             }
 
+            if (tableComuns.Count != count)
+            {
+                DataContext.SaveChanges();
+            }
+
             // Adding
             int order = count;
             foreach (int columnId in newColumns)
