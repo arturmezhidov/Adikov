@@ -236,6 +236,7 @@
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormViewModel.cs" />
+    <Compile Include="ViewModels\ProductInfo\ProductInfoIndexViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductAddViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductEditViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductIndexViewModel.cs" />
@@ -5274,7 +5275,9 @@
     <Content Include="Content\assets\pages\scripts\portlet-ajax.min.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.min.js" />
+    <Content Include="Content\css\common.css" />
     <Content Include="Content\img\avatar.jpg" />
+    <Content Include="Content\js\product-info.js" />
     <Content Include="Content\js\products.js" />
     <Content Include="Content\js\columns.js" />
     <Content Include="Content\assets\pages\scripts\profile.js" />
@@ -5734,6 +5737,7 @@
     <Content Include="App_Code\EnumHelper.cshtml" />
     <Content Include="App_Code\ColumnHelper.cshtml" />
     <Content Include="App_Code\FormHelper.cshtml" />
+    <Content Include="Content\css\common.less" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -5787,6 +5791,8 @@
     <Content Include="Views\ProductInfo\Index.cshtml" />
     <Content Include="Views\Row\_EditRowPortlet.cshtml" />
     <Content Include="Views\Row\_EditRowForm.cshtml" />
+    <Content Include="Views\ProductInfo\_ProductInfoPortlet.cshtml" />
+    <Content Include="Views\ProductInfo\_ProductInfoTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

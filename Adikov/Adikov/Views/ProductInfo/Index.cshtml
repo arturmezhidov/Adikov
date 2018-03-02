@@ -1,8 +1,21 @@
-﻿@model int
+﻿@model Adikov.ViewModels.ProductInfo.ProductInfoIndexViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Model.Table.ProductName;
 }
 
-<h2>Index: @Model</h2>
+@Html.Partial("_ProductInfoPortlet", Model.Table)
 
+@section styles_top
+{
+    <link href="~/Content/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css">
+}
+
+@section scripts
+{
+    <script src="~/Content/assets/global/scripts/datatable.js"></script>
+    <script src="~/Content/assets/global/plugins/datatables/datatables.min.js"></script>
+    <script src="~/Content/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+    <script src="~/Content/js/product-info.js"></script>
+}

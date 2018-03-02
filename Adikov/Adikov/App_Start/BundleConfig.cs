@@ -37,9 +37,7 @@ namespace Adikov
                 "~/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/pageCss").Include(
-                "~/Content/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css",
                 "~/Content/assets/global/plugins/morris/morris.css",
-                "~/Content/assets/global/plugins/fullcalendar/fullcalendar.min.css",
                 "~/Content/assets/global/plugins/jqvmap/jqvmap/jqvmap.css"));
 
             bundles.Add(new StyleBundle("~/Content/themeCss").Include(
@@ -50,6 +48,9 @@ namespace Adikov
                 "~/Content/assets/layouts/layout2/css/layout.min.css",
                 "~/Content/assets/layouts/layout2/css/themes/blue.min.css",
                 "~/Content/assets/layouts/layout2/css/custom.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/commonCss").Include(
+                "~/Content/css/common.css"));
         }
     }
 }

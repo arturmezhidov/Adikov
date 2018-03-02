@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Adikov.Domain.Queries.Products;
+using Adikov.ViewModels.ProductInfo;
 
 namespace Adikov.Controllers
 {
@@ -11,7 +9,14 @@ namespace Adikov.Controllers
         // GET: ProductInfo
         public ActionResult Index(int id)
         {
-            return View(id);
+            GetProductTableByIdQueryResult productTable = Query.For<GetProductTableByIdQueryResult>().ById(id);
+
+            ProductInfoIndexViewModel vm = new ProductInfoIndexViewModel
+            {
+                Table = productTable.Table
+            };
+
+            return View(vm);
         }
     }
 }
