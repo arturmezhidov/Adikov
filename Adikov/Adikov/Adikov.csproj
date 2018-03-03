@@ -5276,8 +5276,10 @@
     <Content Include="Content\assets\pages\scripts\portlet-draggable.js" />
     <Content Include="Content\assets\pages\scripts\portlet-draggable.min.js" />
     <Content Include="Content\css\common.css" />
+    <Content Include="Content\css\modal.css" />
     <Content Include="Content\img\avatar.jpg" />
     <Content Include="Content\js\product-info.js" />
+    <Content Include="Content\js\product-order.js" />
     <Content Include="Content\js\products.js" />
     <Content Include="Content\js\columns.js" />
     <Content Include="Content\assets\pages\scripts\profile.js" />
@@ -5738,6 +5740,7 @@
     <Content Include="App_Code\ColumnHelper.cshtml" />
     <Content Include="App_Code\FormHelper.cshtml" />
     <Content Include="Content\css\common.less" />
+    <Content Include="App_Code\TooltipHelper.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -5793,6 +5796,7 @@
     <Content Include="Views\Row\_EditRowForm.cshtml" />
     <Content Include="Views\ProductInfo\_ProductInfoPortlet.cshtml" />
     <Content Include="Views\ProductInfo\_ProductInfoTable.cshtml" />
+    <Content Include="Views\ProductInfo\_OrderModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

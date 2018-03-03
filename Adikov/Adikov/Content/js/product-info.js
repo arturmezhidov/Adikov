@@ -43,9 +43,7 @@
         table.on('change', 'tbody tr .checkboxes', function () {
             var $tr = $(this).closest('tr').toggleClass("active");
             var $unchecked = $tr.siblings('tr').find('input.checkboxes:not(:checked)');
-            if (!$unchecked.length) {
-                table.find('.group-checkable').prop("checked", true);
-            }
+            table.find('.group-checkable').prop("checked", $unchecked.length === 0);
         });
     });
 

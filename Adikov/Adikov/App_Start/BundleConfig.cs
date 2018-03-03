@@ -50,7 +50,8 @@ namespace Adikov
                 "~/Content/assets/layouts/layout2/css/custom.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/commonCss").Include(
-                "~/Content/css/common.css"));
+                "~/Content/css/common.css",
+                "~/Content/css/modal.css"));
         }
     }
 }
