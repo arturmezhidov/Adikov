@@ -9,6 +9,7 @@
         public static readonly string UploadedCategoryPath = UploadedImagesPath + "/Category";
         public static readonly string UploadedUsersPath = UploadedFilesPath + "/Users";
         public static readonly string UploadedUserPathTemplate = UploadedUsersPath + "/User-{0}";
+        public static readonly string UploadedUserFilePathTemplate = UploadedUsersPath + "/User-{0}/{1}";
         public static readonly string DefaultAvatarPath = "/Content/img/avatar.jpg";
     }
 }

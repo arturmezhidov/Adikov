@@ -65,7 +65,7 @@ namespace Adikov.Controllers
         }
 
         [HttpPost]
-        public ActionResult Avatar(AvatarViewModel vm)
+        public async Task<ActionResult> Avatar(AvatarViewModel vm)
         {
             var path = String.Format(PlatformConfiguration.UploadedUserPathTemplate, UserContext.UserId);
             var result = SaveAs(vm.Image, path);
@@ -78,7 +78,9 @@ namespace Adikov.Controllers
                 });
             }
 
-            return View();
+            await SignInManager.UpdateClaims(UserContext);
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
