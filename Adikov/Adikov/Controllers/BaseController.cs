@@ -6,6 +6,7 @@ using Adikov.Domain.Commands.File;
 using Adikov.Infrastructura.Commands;
 using Adikov.Infrastructura.Queries;
 using Adikov.Infrastructura.Security;
+using Microsoft.AspNet.Identity;
 
 namespace Adikov.Controllers
 {
@@ -70,6 +71,14 @@ namespace Adikov.Controllers
         protected string GetUrl(string fileName, string folderPath)
         {
             return String.Format("{0}/{1}", folderPath, fileName);
+        }
+
+        protected void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
         }
     }
 }

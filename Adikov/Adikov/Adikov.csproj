@@ -242,6 +242,7 @@
     <Compile Include="ViewModels\Products\ProductIndexViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductViewModel.cs" />
     <Compile Include="ViewModels\Profile\AvatarViewModel.cs" />
+    <Compile Include="ViewModels\Profile\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Profile\InfoCardViewModel.cs" />
     <Compile Include="ViewModels\Profile\UserCardViewModel.cs" />
     <Compile Include="ViewModels\Profile\UserProfileViewModel.cs" />

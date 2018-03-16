@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Adikov.Domain.Commands.Profile;
 using Adikov.Platform.Configuration;
 using Adikov.ViewModels.Profile;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
 namespace Adikov.Controllers
@@ -13,8 +14,10 @@ namespace Adikov.Controllers
     public class ProfileController : LayoutController
     {
         private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
 
         public ApplicationSignInManager SignInManager => _signInManager ?? (_signInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>());
+        public ApplicationUserManager UserManager => _userManager ?? (_userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>());
 
         [HttpGet]
         public ActionResult Index()
@@ -84,9 +87,35 @@ namespace Adikov.Controllers
         }
 
         [HttpGet]
-        public ActionResult Security()
+        public ActionResult ChangePassword()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+
+            if (result.Succeeded)
+            {
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
+                return RedirectToAction("Index");
+            }
+
+            AddErrors(result);
+
+            return View(model);
         }
     }
 }
