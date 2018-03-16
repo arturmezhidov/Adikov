@@ -5786,7 +5786,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Settings.cshtml" />
     <Content Include="Views\Profile\Avatar.cshtml" />
-    <Content Include="Views\Profile\Security.cshtml" />
+    <Content Include="Views\Profile\ChangePassword.cshtml" />
     <Content Include="Views\Row\Index.cshtml" />
     <Content Include="Views\Row\_AddRowPortlet.cshtml" />
     <Content Include="Views\Row\_AddRowForm.cshtml" />
