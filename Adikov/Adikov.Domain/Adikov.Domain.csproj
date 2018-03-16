@@ -84,7 +84,9 @@
     <Compile Include="Commands\Products\RecoveryProductCommand.cs" />
     <Compile Include="Commands\Profile\UpdateProfileCommand.cs" />
     <Compile Include="Commands\Profile\UpdateAvatarCommand.cs" />
+    <Compile Include="Commands\Rows\EditRowCommand.cs" />
     <Compile Include="Commands\Rows\AddRowCommand.cs" />
+    <Compile Include="Commands\Rows\DeleteRowCommand.cs" />
     <Compile Include="Commands\Tables\EditTableCommand.cs" />
     <Compile Include="Commands\Tables\AddTableCommand.cs" />
     <Compile Include="Commands\Tables\ClearTableCommand.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Queries\Products\FindAllProductQuery.cs" />
     <Compile Include="Queries\Query.cs" />
     <Compile Include="Queries\Products\GetProductTableByIdQuery.cs" />
+    <Compile Include="Queries\Rows\FindRowByIdQuery.cs" />
     <Compile Include="Queries\Tables\FindActiveTableQuery.cs" />
     <Compile Include="Queries\Tables\FindTableEditQuery.cs" />
     <Compile Include="Queries\Tables\FindTableDetailsQuery.cs" />

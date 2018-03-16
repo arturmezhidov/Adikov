@@ -1,0 +1,42 @@
+﻿<div id="order-modal" class="modal fade order-modal" tabindex="-1" data-width="700">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title font-red-sunglo bold uppercase"> <i class="fa fa-paper-plane-o"></i> Отправка заявки</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div id="order-modal-wrapper" class="col-md-6">
+                <form role="form">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label>Отправитель</label>
+                            <input type="text" class="form-control" placeholder="Название организации">
+                        </div>
+                        <div class="form-group">
+                            <label>Контакты</label>
+                            <input type="text" class="form-control" placeholder="Номер телефона или почта">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Продукция</label>
+                            <textarea type="text" class="form-control" placeholder="Дополнительная информация" rows="12"></textarea>
+                        </div>                    <div class="form-group">
+                            <label>Прикрепить документ</label>
+                            <input type="file" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="order-list-wrapper" class="col-md-6">
+                <h5>Список выбранной продукции</h5>
+                <div id="order-list" class="scroller order-list" style="height: 460px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-outline dark">Отмена</button>
+        <button type="button" class="btn green">Отправить</button>
+    </div>
+</div>

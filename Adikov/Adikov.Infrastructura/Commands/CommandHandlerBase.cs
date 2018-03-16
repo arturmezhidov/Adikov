@@ -1,4 +1,5 @@
-﻿using Adikov.Infrastructura.Security;
+﻿using System;
+using Adikov.Infrastructura.Security;
 
 namespace Adikov.Infrastructura.Commands
 {
@@ -21,7 +22,7 @@ namespace Adikov.Infrastructura.Commands
             {
                 OnHandling(command, result);
             }
-            catch
+            catch(Exception e)
             {
                 result.ResultCode = CommandResultCode.Fail;
                 return result;
@@ -31,7 +32,7 @@ namespace Adikov.Infrastructura.Commands
             {
                 OnHandled(command, result);
             }
-            catch
+            catch (Exception e)
             {
                 result.ResultCode = CommandResultCode.Fail;
                 return result;

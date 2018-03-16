@@ -55,9 +55,14 @@
                     break;
                 }
             case ProductStatus.UnderOrder:
-                {
-            <span class="label label-sm label-danger"> @status.GetValueDescription() </span>
-                    break;
-                }
+            {
+                <span class="label label-sm label-danger"> @status.GetValueDescription() </span>
+                break;
+            }
+            case ProductStatus.None:
+            {
+                <span class="label label-sm label-default"> @status.GetValueDescription() </span>
+                break;
+            }
         }
 }

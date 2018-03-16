@@ -1,0 +1,16 @@
+﻿@model Adikov.Domain.Queries.Products.ProductTable
+
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption">
+            @*<i class="fa fa-gift"></i>*@ @Model.ProductName
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="expand" data-original-title="" title="Свернуть/Развернуть" data-placement="left"> </a>
+            <a href="javascript:;" class="fullscreen" data-original-title="" title="На весь экран" data-placement="left"> </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_ProductInfoTable", Model)
+    </div>
+</div>

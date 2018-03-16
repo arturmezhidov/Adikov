@@ -1,0 +1,61 @@
+﻿.order-modal {
+    overflow: auto;
+}
+
+.order-modal h5 {
+    margin-top: 0;
+}
+
+.order-modal .order-list {
+   
+}
+
+.order-modal .list-item {
+    margin: 2px;
+    padding: 5px !important;
+}
+
+.order-modal .list-item .status-label {
+    background: #E26A6A;
+    color: white !important;
+    display: inline-block;
+    width: 90%;
+    padding: 3px 5px;
+}
+
+    .order-modal .list-item .status-label .fa {
+        color: white;
+        font-size: 14px;
+        margin-top: 2px;
+    }
+
+.order-modal .list-item .fa-times {
+    color: #E26A6A;
+    font-size: 19px;
+}
+
+.order-modal .list-item p {
+    margin: 4px;
+
+}
+.order-modal .list-item .item-label {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 100px;
+    display: inline-block;
+}
+
+    .order-modal .list-item .label {
+        display: inline-block;
+        width: 100px;
+        padding: 5px;
+    }
+
+.order-modal .fa-times {
+    cursor: pointer;
+}
+
+    .order-modal .form-group label, .order-modal h5 {
+        color: #3faba4 !important;
+        font-weight: bold;
+    }

@@ -4,7 +4,7 @@
     <div class="portlet-title">
         <div class="caption">
             <i class="fa fa-plus font-red-sunglo"></i>
-            <span class="caption-subject font-red-sunglo bold uppercase"> Добавление новой позиции </span>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Редактирование позиции: #@Model.Id </span>
         </div>
         <div class="actions">
             <a href="@Url.Action("Index", "Product")" class="btn btn-circle red-sunglo ">
@@ -13,6 +13,6 @@
         </div>
     </div>
     <div class="portlet-body">
-        @Html.Partial("_AddRowForm", Model)
+        @Html.Partial("_EditRowForm", Model)
     </div>
 </div>
