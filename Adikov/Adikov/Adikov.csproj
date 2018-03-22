@@ -204,6 +204,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ColumnController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -217,6 +218,9 @@
     </Compile>
     <Compile Include="Models\Home\IndexViewModel.cs" />
     <Compile Include="Models\LayoutContext.cs" />
+    <Compile Include="Models\Menu\FaqRequest.cs" />
+    <Compile Include="Models\Menu\IMenuContext.cs" />
+    <Compile Include="Models\Menu\MenuContext.cs" />
     <Compile Include="Models\Sidebar\ISidebarContext.cs" />
     <Compile Include="Models\Sidebar\SidebarContext.cs" />
     <Compile Include="Models\Sidebar\SidebarGroup.cs" />
@@ -224,6 +228,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MenuService.cs" />
     <Compile Include="Services\SidebarService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
@@ -234,6 +239,8 @@
     <Compile Include="ViewModels\Categories\CategoryIndexViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryAddViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Faq\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Faq\RequestsViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormViewModel.cs" />
     <Compile Include="ViewModels\ProductInfo\ProductInfoIndexViewModel.cs" />
@@ -5797,6 +5804,16 @@
     <Content Include="Views\ProductInfo\_ProductInfoPortlet.cshtml" />
     <Content Include="Views\ProductInfo\_ProductInfoTable.cshtml" />
     <Content Include="Views\ProductInfo\_OrderModal.cshtml" />
+    <Content Include="Views\Faq\Index.cshtml" />
+    <Content Include="Views\Faq\_FaqSearch.cshtml" />
+    <Content Include="Views\Faq\_FaqSection.cshtml" />
+    <Content Include="Views\Faq\_FaqContent.cshtml" />
+    <Content Include="Views\Faq\Requests.cshtml" />
+    <Content Include="Views\Faq\_FaqRequest.cshtml" />
+    <Content Include="Views\Faq\_FaqRequestList.cshtml" />
+    <Content Include="Views\Faq\_FaqRequestPortlet.cshtml" />
+    <Content Include="Views\Shared\_FaqRequestMenuItem.cshtml" />
+    <Content Include="Views\Shared\_TopMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

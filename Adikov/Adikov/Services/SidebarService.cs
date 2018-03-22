@@ -106,6 +106,12 @@ namespace Adikov.Services
             {
                 new SidebarGroup
                 {
+                    Text = "FAQ",
+                    Icon = "icon-question",
+                    ViewLink = "/Faq"
+                },
+                new SidebarGroup
+                {
                     Text = "Контакты",
                     Icon = "icon-call-end",
                     ViewLink = "/Contacts"
@@ -115,12 +121,6 @@ namespace Adikov.Services
                     Text = "Об организации",
                     Icon = "icon-info",
                     ViewLink = "/About"
-                },
-                new SidebarGroup
-                {
-                    Text = "Услуги",
-                    Icon = "icon-calculator",
-                    ViewLink = "/Services"
                 }
             };
         }
