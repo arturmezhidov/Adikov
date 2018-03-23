@@ -204,6 +204,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ColumnController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\FaqCategoryController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
@@ -239,7 +240,8 @@
     <Compile Include="ViewModels\Categories\CategoryIndexViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryAddViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
-    <Compile Include="ViewModels\Faq\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\FaqCategories\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\FaqCategories\IndexViewModel.cs" />
     <Compile Include="ViewModels\Faq\RequestsViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormViewModel.cs" />
@@ -5285,6 +5287,7 @@
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\modal.css" />
     <Content Include="Content\img\avatar.jpg" />
+    <Content Include="Content\js\faq.js" />
     <Content Include="Content\js\product-info.js" />
     <Content Include="Content\js\product-order.js" />
     <Content Include="Content\js\products.js" />
@@ -5814,6 +5817,15 @@
     <Content Include="Views\Faq\_FaqRequestPortlet.cshtml" />
     <Content Include="Views\Shared\_FaqRequestMenuItem.cshtml" />
     <Content Include="Views\Shared\_TopMenu.cshtml" />
+    <Content Include="Views\FaqCategory\Index.cshtml" />
+    <Content Include="Views\FaqCategory\_AddFaqCategoryPortlet.cshtml" />
+    <Content Include="Views\FaqCategory\_AddFaqCategoryForm.cshtml" />
+    <Content Include="Views\FaqCategory\_DeletedFaqCategoryPortlet.cshtml" />
+    <Content Include="Views\FaqCategory\_DeletedFaqCategoryList.cshtml" />
+    <Content Include="Views\FaqCategory\_EditFaqCategoryPortlet.cshtml" />
+    <Content Include="Views\FaqCategory\_EditFaqCategoryForm.cshtml" />
+    <Content Include="Views\FaqCategory\_FaqCategoryListPortlet.cshtml" />
+    <Content Include="Views\FaqCategory\_FaqCategoryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

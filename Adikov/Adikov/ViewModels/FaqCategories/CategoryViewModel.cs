@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Adikov.ViewModels.Faq
+namespace Adikov.ViewModels.FaqCategories
 {
     public class CategoryViewModel
     {
@@ -8,5 +8,7 @@ namespace Adikov.ViewModels.Faq
 
         [Required(ErrorMessage = "Название категории обязательно для заполнения")]
         public string Name { get; set; }
+
+        public bool IsPublished { get; set; }
     }
 }

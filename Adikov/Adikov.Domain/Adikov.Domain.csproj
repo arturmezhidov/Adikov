@@ -62,6 +62,13 @@
     <Compile Include="Commands\Categories\SortUpCategoryCommand.cs" />
     <Compile Include="Commands\Columns\SortDownColumnCommand.cs" />
     <Compile Include="Commands\Columns\SortUpColumnCommand.cs" />
+    <Compile Include="Commands\FaqCategories\ClearFaqCategoryCommand.cs" />
+    <Compile Include="Commands\FaqCategories\DeleteFaqCategoryCommand.cs" />
+    <Compile Include="Commands\FaqCategories\UnpublishFaqCategoryCommand.cs" />
+    <Compile Include="Commands\FaqCategories\PublishFaqCategoryCommand.cs" />
+    <Compile Include="Commands\FaqCategories\RecoveryFaqCategoryCommand.cs" />
+    <Compile Include="Commands\FaqCategories\UpdateFaqCategoryCommand.cs" />
+    <Compile Include="Commands\FaqCategories\AddFaqCategoryCommand.cs" />
     <Compile Include="Commands\Faq\OpenFaqRequestCommand.cs" />
     <Compile Include="Commands\Faq\DeclineFaqRequestCommand.cs" />
     <Compile Include="Commands\Faq\DeleteFaqRequestCommand.cs" />
@@ -122,7 +129,9 @@
     <Compile Include="Queries\Columns\FindAllColumnQuery.cs" />
     <Compile Include="Queries\Columns\FindActiveColumnQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryQuery.cs" />
-    <Compile Include="Queries\Faq\FindFaqCategoriesQuery.cs" />
+    <Compile Include="Queries\FaqCategories\FindFaqCategoriesDetailsQuery.cs" />
+    <Compile Include="Queries\FaqCategories\FindFaqCategoryByIdQuery.cs" />
+    <Compile Include="Queries\FaqCategories\FindFaqCategoriesQuery.cs" />
     <Compile Include="Queries\Faq\FindPendingFaqRequestsQuery.cs" />
     <Compile Include="Queries\Faq\FindFaqRequestsQuery.cs" />
     <Compile Include="Queries\Forms\GenerateFormQuery.cs" />
@@ -149,5 +158,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

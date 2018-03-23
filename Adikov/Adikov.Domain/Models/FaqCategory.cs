@@ -6,6 +6,8 @@ namespace Adikov.Domain.Models
     {
         public string Name { get; set; }
 
+        public bool IsPublished { get; set; }
+
         public virtual ICollection<FaqItem> FaqItems { get; set; }
     }
 }
