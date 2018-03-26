@@ -3,7 +3,7 @@ using System.Linq;
 using Adikov.Domain.Models;
 using Adikov.Infrastructura.Criterion;
 
-namespace Adikov.Domain.Queries.Faq
+namespace Adikov.Domain.Queries.FaqRequests
 {
     public class FindPendingFaqRequestsQueryResult
     {

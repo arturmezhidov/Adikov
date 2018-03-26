@@ -2,22 +2,22 @@
 using Adikov.Domain.Models;
 using Adikov.Infrastructura.Commands;
 
-namespace Adikov.Domain.Commands.Faq
+namespace Adikov.Domain.Commands.FaqRequests
 {
-    public class DeclineFaqRequestCommand : CommandBase
+    public class OpenFaqRequestCommand : CommandBase
     {
         public int Id { get; set; }
     }
 
-    public class DeclineFaqRequestCommandHandler : CommandHandler<DeclineFaqRequestCommand>
+    public class OpenFaqRequestCommandHandler : CommandHandler<OpenFaqRequestCommand>
     {
-        protected override void OnHandling(DeclineFaqRequestCommand command, CommandResult result)
+        protected override void OnHandling(OpenFaqRequestCommand command, CommandResult result)
         {
             FaqRequest request = DataContext.FaqRequests.Find(command.Id);
 
             if (request != null)
             {
-                request.Status = FaqRequestStatus.Declined;
+                request.Status = FaqRequestStatus.Open;
                 DataContext.Entry(request).State = EntityState.Modified;
             }
         }

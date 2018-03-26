@@ -69,10 +69,12 @@
     <Compile Include="Commands\FaqCategories\RecoveryFaqCategoryCommand.cs" />
     <Compile Include="Commands\FaqCategories\UpdateFaqCategoryCommand.cs" />
     <Compile Include="Commands\FaqCategories\AddFaqCategoryCommand.cs" />
-    <Compile Include="Commands\Faq\OpenFaqRequestCommand.cs" />
-    <Compile Include="Commands\Faq\DeclineFaqRequestCommand.cs" />
-    <Compile Include="Commands\Faq\DeleteFaqRequestCommand.cs" />
-    <Compile Include="Commands\Faq\FaqRequestCommand.cs" />
+    <Compile Include="Commands\FaqRequests\RecoveryFaqRequestCommand.cs" />
+    <Compile Include="Commands\FaqRequests\RemoveFaqRequestCommand.cs" />
+    <Compile Include="Commands\FaqRequests\OpenFaqRequestCommand.cs" />
+    <Compile Include="Commands\FaqRequests\DeclineFaqRequestCommand.cs" />
+    <Compile Include="Commands\FaqRequests\DeleteFaqRequestCommand.cs" />
+    <Compile Include="Commands\FaqRequests\FaqRequestCommand.cs" />
     <Compile Include="Commands\File\AddFileCommand.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\File\DeleteFileCommand.cs" />
@@ -132,8 +134,8 @@
     <Compile Include="Queries\FaqCategories\FindFaqCategoriesDetailsQuery.cs" />
     <Compile Include="Queries\FaqCategories\FindFaqCategoryByIdQuery.cs" />
     <Compile Include="Queries\FaqCategories\FindFaqCategoriesQuery.cs" />
-    <Compile Include="Queries\Faq\FindPendingFaqRequestsQuery.cs" />
-    <Compile Include="Queries\Faq\FindFaqRequestsQuery.cs" />
+    <Compile Include="Queries\FaqRequests\FindPendingFaqRequestsQuery.cs" />
+    <Compile Include="Queries\FaqRequests\FindFaqRequestsQuery.cs" />
     <Compile Include="Queries\Forms\GenerateFormQuery.cs" />
     <Compile Include="Queries\Products\FindAllProductQuery.cs" />
     <Compile Include="Queries\Query.cs" />
@@ -158,6 +160,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Commands\Faq\" />
+    <Folder Include="Queries\Faq\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

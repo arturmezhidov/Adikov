@@ -206,6 +206,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\FaqCategoryController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
+    <Compile Include="Controllers\FaqRequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -5811,10 +5812,9 @@
     <Content Include="Views\Faq\_FaqSearch.cshtml" />
     <Content Include="Views\Faq\_FaqSection.cshtml" />
     <Content Include="Views\Faq\_FaqContent.cshtml" />
-    <Content Include="Views\Faq\Requests.cshtml" />
-    <Content Include="Views\Faq\_FaqRequest.cshtml" />
-    <Content Include="Views\Faq\_FaqRequestList.cshtml" />
-    <Content Include="Views\Faq\_FaqRequestPortlet.cshtml" />
+    <Content Include="Views\FaqRequest\Index.cshtml" />
+    <Content Include="Views\FaqRequest\_FaqRequest.cshtml" />
+    <Content Include="Views\FaqRequest\_FaqRequestList.cshtml" />
     <Content Include="Views\Shared\_FaqRequestMenuItem.cshtml" />
     <Content Include="Views\Shared\_TopMenu.cshtml" />
     <Content Include="Views\FaqCategory\Index.cshtml" />
@@ -5826,6 +5826,9 @@
     <Content Include="Views\FaqCategory\_EditFaqCategoryForm.cshtml" />
     <Content Include="Views\FaqCategory\_FaqCategoryListPortlet.cshtml" />
     <Content Include="Views\FaqCategory\_FaqCategoryList.cshtml" />
+    <Content Include="Views\FaqRequest\_FaqPendingRequestPortlet.cshtml" />
+    <Content Include="Views\FaqRequest\_FaqApprovedRequestPortlet.cshtml" />
+    <Content Include="Views\FaqRequest\_FaqDeletedRequestPortlet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

@@ -104,12 +104,7 @@ namespace Adikov.Services
         {
             return new List<SidebarGroup>
             {
-                new SidebarGroup
-                {
-                    Text = "FAQ",
-                    Icon = "icon-question",
-                    ViewLink = "/Faq"
-                },
+                GetFaqItem(),
                 new SidebarGroup
                 {
                     Text = "Контакты",
@@ -123,6 +118,42 @@ namespace Adikov.Services
                     ViewLink = "/About"
                 }
             };
+        }
+
+        protected SidebarGroup GetFaqItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "FAQ",
+                Icon = "icon-question",
+                ViewLink = "/Faq"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.ViewLink = null;
+
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/Faq"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Категории",
+                        ViewLink = "/FaqCategory"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Запросы",
+                        ViewLink = "/FaqRequest"
+                    }
+                };
+            }
+
+            return item;
         }
 
         protected IEnumerable<SidebarGroup> GetProductItems()

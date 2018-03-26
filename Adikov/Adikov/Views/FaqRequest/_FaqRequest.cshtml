@@ -1,0 +1,76 @@
+﻿@using Adikov.Domain.Models
+@model Adikov.Domain.Queries.FaqRequests.FaqRequestDetail
+
+<div class="mt-comment">
+    <div class="mt-comment-img">
+        <img src="@Model.AvatarLink" style="width: 41px;" />
+    </div>
+    <div class="mt-comment-body">
+        <div class="mt-comment-info">
+            <span class="mt-comment-author @(String.IsNullOrEmpty(Model.CreatedBy) ? "font-blue-madison" : "font-green-sharp")">@(Model.CreatedBy ?? "Неизвестный автор")</span>
+            <span class="mt-comment-date">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</span>
+        </div>
+        <div class="mt-comment-text"> @Model.Question </div>
+        <div class="mt-comment-details">
+            @if (Model.IsDeleted)
+            {
+                <span class="label label-danger">Удален</span>
+            }
+            @StatusToLabel(Model.Status)
+            <ul class="mt-comment-actions">
+                @if (Model.IsDeleted)
+                {
+                    <li>
+                        @Html.ActionLink("Восстановить", "RecoveryRequest", new { id = Model.Id })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Удалить безвозвратно", "RemoveRequest", new { id = Model.Id })
+                    </li>
+                }
+                else
+                {
+                    if (Model.Status == FaqRequestStatus.Open)
+                     {
+                         <li>
+                             @Html.ActionLink("Добавить", "Add", new { id = Model.Id })
+                         </li>
+                         <li>
+                             @Html.ActionLink("Отклонить", "DeclineRequest", new { id = Model.Id })
+                         </li>
+                     }
+                    if (Model.Status == FaqRequestStatus.Declined)
+                     {
+                         <li>
+                             @Html.ActionLink("В ожидание", "OpenRequest", new { id = Model.Id })
+                         </li>
+                     }
+                    <li>
+                        @Html.ActionLink("Удалить", "DeleteRequest", new { id = Model.Id })
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@helper StatusToLabel(FaqRequestStatus status)
+{
+    switch (status)
+    {
+        case FaqRequestStatus.Confirmed:
+            {
+                    <span class="label label-success">Подтверждено</span>
+                break;
+            }
+        case FaqRequestStatus.Declined:
+            {
+                    <span class="label label-danger">Отклонено</span>
+                break;
+            }
+        case FaqRequestStatus.Open:
+            {
+                    <span class="label label-warning">В ожидании</span>
+                break;
+            }
+    }
+}

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Adikov.Domain.Models;
-using Adikov.Domain.Queries.Faq;
+using Adikov.Domain.Queries.FaqRequests;
 using Adikov.Infrastructura.Criterion;
 using Adikov.Infrastructura.Queries;
 using Adikov.Models.Menu;

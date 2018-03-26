@@ -1,0 +1,15 @@
+﻿@model Adikov.ViewModels.Faq.RequestsViewModel
+
+@{
+    ViewBag.Title = "Запросы на FAQ";
+}
+
+<div class="row">
+    <div class="col-lg-7">
+       @Html.Partial("_FaqPendingRequestPortlet", Model.Requests)
+    </div>
+    <div class="col-lg-5">
+        @Html.Partial("_FaqApprovedRequestPortlet", Model.Requests)
+        @Html.Partial("_FaqDeletedRequestPortlet", Model.Requests)
+    </div>
+</div>

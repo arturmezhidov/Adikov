@@ -1,4 +1,4 @@
-﻿using Adikov.Domain.Queries.Faq;
+﻿using Adikov.Domain.Queries.FaqRequests;
 
 namespace Adikov.ViewModels.Faq
 {

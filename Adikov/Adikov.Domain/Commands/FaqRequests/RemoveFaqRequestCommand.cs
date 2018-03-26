@@ -1,16 +1,16 @@
 ﻿using Adikov.Domain.Models;
 using Adikov.Infrastructura.Commands;
 
-namespace Adikov.Domain.Commands.Faq
+namespace Adikov.Domain.Commands.FaqRequests
 {
-    public class DeleteFaqRequestCommand : CommandBase
+    public class RemoveFaqRequestCommand : CommandBase
     {
         public int Id { get; set; }
     }
 
-    public class DeleteFaqRequestCommandHandler : CommandHandler<DeleteFaqRequestCommand>
+    public class RemoveFaqRequestCommandHandler : CommandHandler<RemoveFaqRequestCommand>
     {
-        protected override void OnHandling(DeleteFaqRequestCommand command, CommandResult result)
+        protected override void OnHandling(RemoveFaqRequestCommand command, CommandResult result)
         {
             FaqRequest request = DataContext.FaqRequests.Find(command.Id);
 

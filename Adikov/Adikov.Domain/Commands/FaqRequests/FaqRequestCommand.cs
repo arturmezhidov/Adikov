@@ -2,7 +2,7 @@
 using Adikov.Domain.Models;
 using Adikov.Infrastructura.Commands;
 
-namespace Adikov.Domain.Commands.Faq
+namespace Adikov.Domain.Commands.FaqRequests
 {
     public class FaqRequestCommand : CommandBase
     {
