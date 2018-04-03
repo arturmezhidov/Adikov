@@ -95,6 +95,27 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult AboutCompany()
+        {
+            GetAboutCompanyQueryResult result = Query.For<GetAboutCompanyQueryResult>().With(new EmptyCriterion());
+
+            AboutCompanyViewModel vm = ToViewModel(result);
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult AboutCompany(AboutCompanyViewModel vm)
+        {
+            Command.Execute(new EditAboutCompanyCommand
+            {
+                About = ToModel(vm)
+            });
+
+            return RedirectToAction("Index");
+        }
+
         protected AboutHeaderViewModel ToViewModel(GetAboutHeaderQueryResult result)
         {
             AboutHeaderViewModel vm = Mapper.Map<AboutHeaderViewModel>(result.Header);
@@ -130,6 +151,12 @@ namespace Adikov.Controllers
         protected AboutServices ToModel(AboutServicesViewModel vm)
         {
             AboutServices model = Mapper.Map<AboutServices>(vm);
+            return model;
+        }
+
+        protected AboutCompany ToModel(AboutCompanyViewModel vm)
+        {
+            AboutCompany model = Mapper.Map<AboutCompany>(vm);
             return model;
         }
     }

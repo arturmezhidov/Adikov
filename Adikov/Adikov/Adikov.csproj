@@ -5813,6 +5813,7 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\About\Header.cshtml" />
     <Content Include="Views\About\Services.cshtml" />
+    <Content Include="Views\About\AboutCompany.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
