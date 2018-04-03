@@ -36,10 +36,6 @@ namespace Adikov
                 "~/Content/assets/global/plugins/bootstrap/css/bootstrap.min.css",
                 "~/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"));
 
-            bundles.Add(new StyleBundle("~/Content/pageCss").Include(
-                "~/Content/assets/global/plugins/morris/morris.css",
-                "~/Content/assets/global/plugins/jqvmap/jqvmap/jqvmap.css"));
-
             bundles.Add(new StyleBundle("~/Content/themeCss").Include(
                 "~/Content/assets/global/css/components.min.css",
                 "~/Content/assets/global/css/plugins.min.css"));
