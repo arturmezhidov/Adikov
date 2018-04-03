@@ -36,14 +36,5 @@
         public string Icon4 { get; set; }
 
         public string IconColor4 { get; set; }
-
-
-        public string Title5 { get; set; }
-
-        public string Description5 { get; set; }
-
-        public string Icon5 { get; set; }
-
-        public string IconColor5 { get; set; }
     }
 }

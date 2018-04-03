@@ -142,6 +142,11 @@ namespace Adikov.Services
                     {
                         Text = "Баннер",
                         ViewLink = "/About/Header"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Услуги",
+                        ViewLink = "/About/Services"
                     }
                 };
             }

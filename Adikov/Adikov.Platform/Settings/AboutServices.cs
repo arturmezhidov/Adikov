@@ -54,18 +54,5 @@ namespace Adikov.Platform.Settings
 
         [Setting(SettingsKeys.AboutServiceIconColor4)]
         public string IconColor4 { get; set; }
-
-
-        [Setting(SettingsKeys.AboutServiceTitle5)]
-        public string Title5 { get; set; }
-
-        [Setting(SettingsKeys.AboutServiceDescription5)]
-        public string Description5 { get; set; }
-
-        [Setting(SettingsKeys.AboutServiceIcon5)]
-        public string Icon5 { get; set; }
-
-        [Setting(SettingsKeys.AboutServiceIconColor5)]
-        public string IconColor5 { get; set; }
     }
 }
