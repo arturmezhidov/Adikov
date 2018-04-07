@@ -11,7 +11,7 @@ namespace Adikov.Domain.Queries.About
 
         public GetAboutCompanyQueryResult AboutResult { get; set; }
 
-        public GetAboutMembersQueryResult MembersResult { get; set; }
+        public GetAboutMembersDetailsQueryResult MembersResult { get; set; }
 
         public GetAboutLinksQueryResult LinksResult { get; set; }
     }
@@ -25,7 +25,7 @@ namespace Adikov.Domain.Queries.About
                 HeaderResult = new GetAboutHeaderQuery().Execute(new EmptyCriterion()),
                 ServicesResult = new GetAboutServicesQuery().Execute(new EmptyCriterion()),
                 AboutResult = new GetAboutCompanyQuery().Execute(new EmptyCriterion()),
-                MembersResult = new GetAboutMembersQuery().Execute(new EmptyCriterion()),
+                MembersResult = new GetAboutMembersDetailsQuery().Execute(new EmptyCriterion()),
                 LinksResult = new GetAboutLinksQuery().Execute(new EmptyCriterion())
             };
             

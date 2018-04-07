@@ -8,7 +8,7 @@
 
         public AboutCompanyViewModel About { get; set; }
 
-        public AboutMembersViewModel Members { get; set; }
+        public AboutMembersDetailsViewModel Members { get; set; }
 
         public AboutLinksViewModel Links { get; set; }
     }

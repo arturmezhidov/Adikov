@@ -79,73 +79,133 @@
 
         public const string AboutLinks1Title = "AboutLinks1Title";
 
+        public const string AboutLinks1Text1 = "AboutLinks1Text1";
+
         public const string AboutLinks1Link1 = "AboutLinks1Link1";
+
+        public const string AboutLinks1Text2 = "AboutLinks1Text2";
 
         public const string AboutLinks1Link2 = "AboutLinks1Link2";
 
+        public const string AboutLinks1Text3 = "AboutLinks1Text3";
+
         public const string AboutLinks1Link3 = "AboutLinks1Link3";
 
+        public const string AboutLinks1Text4 = "AboutLinks1Text4";
+
         public const string AboutLinks1Link4 = "AboutLinks1Link4";
+
+        public const string AboutLinks1Text5 = "AboutLinks1Text5";
 
         public const string AboutLinks1Link5 = "AboutLinks1Link5";
 
         public const string AboutLinks2Title = "AboutLinks2Title";
 
+        public const string AboutLinks2Text1 = "AboutLinks2Text1";
+
         public const string AboutLinks2Link1 = "AboutLinks2Link1";
+
+        public const string AboutLinks2Text2 = "AboutLinks2Text2";
 
         public const string AboutLinks2Link2 = "AboutLinks2Link2";
 
+        public const string AboutLinks2Text3 = "AboutLinks2Text3";
+
         public const string AboutLinks2Link3 = "AboutLinks2Link3";
 
+        public const string AboutLinks2Text4 = "AboutLinks2Text4";
+
         public const string AboutLinks2Link4 = "AboutLinks2Link4";
+
+        public const string AboutLinks2Text5 = "AboutLinks2Text5";
 
         public const string AboutLinks2Link5 = "AboutLinks2Link5";
 
         public const string AboutLinks3Title = "AboutLinks3Title";
 
+        public const string AboutLinks3Text1 = "AboutLinks3Text1";
+
         public const string AboutLinks3Link1 = "AboutLinks3Link1";
+
+        public const string AboutLinks3Text2 = "AboutLinks3Text2";
 
         public const string AboutLinks3Link2 = "AboutLinks3Link2";
 
+        public const string AboutLinks3Text3 = "AboutLinks3Text3";
+
         public const string AboutLinks3Link3 = "AboutLinks3Link3";
 
+        public const string AboutLinks3Text4 = "AboutLinks3Text4";
+
         public const string AboutLinks3Link4 = "AboutLinks3Link4";
+
+        public const string AboutLinks3Text5 = "AboutLinks3Text5";
 
         public const string AboutLinks3Link5 = "AboutLinks3Link5";
 
         public const string AboutLinks4Title = "AboutLinks4Title";
 
+        public const string AboutLinks4Text1 = "AboutLinks4Text1";
+
         public const string AboutLinks4Link1 = "AboutLinks4Link1";
+
+        public const string AboutLinks4Text2 = "AboutLinks4Text2";
 
         public const string AboutLinks4Link2 = "AboutLinks4Link2";
 
+        public const string AboutLinks4Text3 = "AboutLinks4Text3";
+
         public const string AboutLinks4Link3 = "AboutLinks4Link3";
 
+        public const string AboutLinks4Text4 = "AboutLinks4Text4";
+
         public const string AboutLinks4Link4 = "AboutLinks4Link4";
+
+        public const string AboutLinks4Text5 = "AboutLinks4Text5";
 
         public const string AboutLinks4Link5 = "AboutLinks4Link5";
 
         public const string AboutLinks5Title = "AboutLinks5Title";
 
+        public const string AboutLinks5Text1 = "AboutLinks5Text1";
+
         public const string AboutLinks5Link1 = "AboutLinks5Link1";
+
+        public const string AboutLinks5Text2 = "AboutLinks5Text2";
 
         public const string AboutLinks5Link2 = "AboutLinks5Link2";
 
+        public const string AboutLinks5Text3 = "AboutLinks5Text3";
+
         public const string AboutLinks5Link3 = "AboutLinks5Link3";
 
+        public const string AboutLinks5Text4 = "AboutLinks5Text4";
+
         public const string AboutLinks5Link4 = "AboutLinks5Link4";
+
+        public const string AboutLinks5Text5 = "AboutLinks5Text5";
 
         public const string AboutLinks5Link5 = "AboutLinks5Link5";
 
         public const string AboutLinks6Title = "AboutLinks6Title";
 
+        public const string AboutLinks6Text1 = "AboutLinks6Text1";
+
         public const string AboutLinks6Link1 = "AboutLinks6Link1";
+
+        public const string AboutLinks6Text2 = "AboutLinks6Text2";
 
         public const string AboutLinks6Link2 = "AboutLinks6Link2";
 
+        public const string AboutLinks6Text3 = "AboutLinks6Text3";
+
         public const string AboutLinks6Link3 = "AboutLinks6Link3";
 
+        public const string AboutLinks6Text4 = "AboutLinks6Text4";
+
         public const string AboutLinks6Link4 = "AboutLinks6Link4";
+
+        public const string AboutLinks6Text5 = "AboutLinks6Text5";
 
         public const string AboutLinks6Link5 = "AboutLinks6Link5";
     }

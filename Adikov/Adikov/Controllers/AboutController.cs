@@ -216,6 +216,12 @@ namespace Adikov.Controllers
             return vm;
         }
 
+        protected AboutMembersDetailsViewModel ToViewModel(GetAboutMembersDetailsQueryResult result)
+        {
+            AboutMembersDetailsViewModel vm = Mapper.Map<AboutMembersDetailsViewModel>(result);
+            return vm;
+        }
+
         protected AboutLinksViewModel ToViewModel(GetAboutLinksQueryResult result)
         {
             AboutLinksViewModel vm = Mapper.Map<AboutLinksViewModel>(result.Links);
