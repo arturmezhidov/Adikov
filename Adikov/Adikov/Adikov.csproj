@@ -242,6 +242,7 @@
     <Compile Include="ViewModels\Products\ProductIndexViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductViewModel.cs" />
     <Compile Include="ViewModels\Profile\AvatarViewModel.cs" />
+    <Compile Include="ViewModels\Profile\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Profile\InfoCardViewModel.cs" />
     <Compile Include="ViewModels\Profile\UserCardViewModel.cs" />
     <Compile Include="ViewModels\Profile\UserProfileViewModel.cs" />
@@ -5785,7 +5786,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Settings.cshtml" />
     <Content Include="Views\Profile\Avatar.cshtml" />
-    <Content Include="Views\Profile\Security.cshtml" />
+    <Content Include="Views\Profile\ChangePassword.cshtml" />
     <Content Include="Views\Row\Index.cshtml" />
     <Content Include="Views\Row\_AddRowPortlet.cshtml" />
     <Content Include="Views\Row\_AddRowForm.cshtml" />

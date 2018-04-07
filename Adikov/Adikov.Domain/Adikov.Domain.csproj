@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="BaseApplicationUser.cs" />
     <Compile Include="Commands\Categories\SortDownCategoryCommand.cs" />
     <Compile Include="Commands\Categories\SortUpCategoryCommand.cs" />
     <Compile Include="Commands\Columns\SortDownColumnCommand.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Queries\Columns\FindAllColumnQuery.cs" />
     <Compile Include="Queries\Columns\FindActiveColumnQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryQuery.cs" />
+    <Compile Include="Queries\Files\FindUserAvatarQuery.cs" />
     <Compile Include="Queries\Forms\GenerateFormQuery.cs" />
     <Compile Include="Queries\Products\FindAllProductQuery.cs" />
     <Compile Include="Queries\Query.cs" />
