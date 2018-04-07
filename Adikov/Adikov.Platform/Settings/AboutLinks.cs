@@ -22,6 +22,9 @@ namespace Adikov.Platform.Settings
         [Setting(SettingsKeys.AboutLinks1Link5)]
         public string Group1Link5 { get; set; }
 
+        [Setting(SettingsKeys.AboutLinks2Title)]
+        public string Group2Title { get; set; }
+
         [Setting(SettingsKeys.AboutLinks2Link1)]
         public string Group2Link1 { get; set; }
 
@@ -36,6 +39,9 @@ namespace Adikov.Platform.Settings
 
         [Setting(SettingsKeys.AboutLinks2Link5)]
         public string Group2Link5 { get; set; }
+
+        [Setting(SettingsKeys.AboutLinks3Title)]
+        public string Group3Title { get; set; }
 
         [Setting(SettingsKeys.AboutLinks3Link1)]
         public string Group3Link1 { get; set; }
@@ -52,6 +58,9 @@ namespace Adikov.Platform.Settings
         [Setting(SettingsKeys.AboutLinks3Link5)]
         public string Group3Link5 { get; set; }
 
+        [Setting(SettingsKeys.AboutLinks4Title)]
+        public string Group4Title { get; set; }
+
         [Setting(SettingsKeys.AboutLinks4Link1)]
         public string Group4Link1 { get; set; }
 
@@ -67,6 +76,9 @@ namespace Adikov.Platform.Settings
         [Setting(SettingsKeys.AboutLinks4Link5)]
         public string Group4Link5 { get; set; }
 
+        [Setting(SettingsKeys.AboutLinks5Title)]
+        public string Group5Title { get; set; }
+
         [Setting(SettingsKeys.AboutLinks5Link1)]
         public string Group5Link1 { get; set; }
 
@@ -81,6 +93,9 @@ namespace Adikov.Platform.Settings
 
         [Setting(SettingsKeys.AboutLinks5Link5)]
         public string Group5Link5 { get; set; }
+
+        [Setting(SettingsKeys.AboutLinks6Title)]
+        public string Group6Title { get; set; }
 
         [Setting(SettingsKeys.AboutLinks6Link1)]
         public string Group6Link1 { get; set; }

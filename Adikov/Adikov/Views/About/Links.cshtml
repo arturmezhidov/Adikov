@@ -1,0 +1,300 @@
+﻿@model Adikov.ViewModels.About.AboutLinksViewModel
+
+@{
+    ViewBag.Title = "Ссылки";
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-pencil font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Настройки баннера </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @using (Html.BeginForm("Links", "About", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            <div class="form-body">
+
+                <h4>Группа ссылок 1</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок группы 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group1Title, new { @class = "form-control", placeholder = "Введите заголовок группы 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group1Link1, new { @class = "form-control", placeholder = "Введите ссылку 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group1Link2, new { @class = "form-control", placeholder = "Введите ссылку 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group1Link3, new { @class = "form-control", placeholder = "Введите ссылку 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group1Link4, new { @class = "form-control", placeholder = "Введите ссылку 4" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group1Link5, new { @class = "form-control", placeholder = "Введите ссылку 5" })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Группа ссылок 2</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок группы 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group2Title, new { @class = "form-control", placeholder = "Введите заголовок группы 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group2Link1, new { @class = "form-control", placeholder = "Введите ссылку 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group2Link2, new { @class = "form-control", placeholder = "Введите ссылку 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group2Link3, new { @class = "form-control", placeholder = "Введите ссылку 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group2Link4, new { @class = "form-control", placeholder = "Введите ссылку 4" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group2Link5, new { @class = "form-control", placeholder = "Введите ссылку 5" })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Группа ссылок 3</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок группы 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group3Title, new { @class = "form-control", placeholder = "Введите заголовок группы 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group3Link1, new { @class = "form-control", placeholder = "Введите ссылку 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group3Link2, new { @class = "form-control", placeholder = "Введите ссылку 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group3Link3, new { @class = "form-control", placeholder = "Введите ссылку 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group3Link4, new { @class = "form-control", placeholder = "Введите ссылку 4" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group3Link5, new { @class = "form-control", placeholder = "Введите ссылку 5" })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Группа ссылок 4</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок группы 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group4Title, new { @class = "form-control", placeholder = "Введите заголовок группы 4" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group4Link1, new { @class = "form-control", placeholder = "Введите ссылку 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group4Link2, new { @class = "form-control", placeholder = "Введите ссылку 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group4Link3, new { @class = "form-control", placeholder = "Введите ссылку 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group4Link4, new { @class = "form-control", placeholder = "Введите ссылку 4" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group4Link5, new { @class = "form-control", placeholder = "Введите ссылку 5" })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Группа ссылок 5</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок группы 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group5Title, new { @class = "form-control", placeholder = "Введите заголовок группы 5" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group5Link1, new { @class = "form-control", placeholder = "Введите ссылку 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group5Link2, new { @class = "form-control", placeholder = "Введите ссылку 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group5Link3, new { @class = "form-control", placeholder = "Введите ссылку 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group5Link4, new { @class = "form-control", placeholder = "Введите ссылку 4" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group5Link5, new { @class = "form-control", placeholder = "Введите ссылку 5" })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Группа ссылок 6</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок группы 6 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group6Title, new { @class = "form-control", placeholder = "Введите заголовок группы 6" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group6Link1, new { @class = "form-control", placeholder = "Введите ссылку 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group6Link2, new { @class = "form-control", placeholder = "Введите ссылку 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group6Link3, new { @class = "form-control", placeholder = "Введите ссылку 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group6Link4, new { @class = "form-control", placeholder = "Введите ссылку 4" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Group6Link5, new { @class = "form-control", placeholder = "Введите ссылку 5" })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Картинка</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Картинка </label>
+                    <div class="col-md-4">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                <img src="@Model.ImageUrl" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 90%;"> </div>
+                            <div>
+                                <span class="btn default btn-file">
+                                    <span class="fileinput-new"> Выбрать </span>
+                                    <span class="fileinput-exists"> Изменить </span>
+                                    <input type="file" name="Image" class="ignore">
+                                </span>
+                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Удалить </a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn green">Сохранить</button>
+                        <a class="btn default" href="@Url.Action("Index")">Отмена</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section styles {
+    <link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css">
+}
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+}

@@ -1,4 +1,6 @@
-﻿namespace Adikov.ViewModels.About
+﻿using System.Web;
+
+namespace Adikov.ViewModels.About
 {
     public class AboutLinksViewModel
     {
@@ -14,6 +16,8 @@
 
         public string Group1Link5 { get; set; }
 
+        public string Group2Title { get; set; }
+
         public string Group2Link1 { get; set; }
 
         public string Group2Link2 { get; set; }
@@ -24,6 +28,8 @@
 
         public string Group2Link5 { get; set; }
 
+        public string Group3Title { get; set; }
+
         public string Group3Link1 { get; set; }
 
         public string Group3Link2 { get; set; }
@@ -33,7 +39,9 @@
         public string Group3Link4 { get; set; }
         
         public string Group3Link5 { get; set; }
-        
+
+        public string Group4Title { get; set; }
+
         public string Group4Link1 { get; set; }
         
         public string Group4Link2 { get; set; }
@@ -43,7 +51,9 @@
         public string Group4Link4 { get; set; }
         
         public string Group4Link5 { get; set; }
-        
+
+        public string Group5Title { get; set; }
+
         public string Group5Link1 { get; set; }
         
         public string Group5Link2 { get; set; }
@@ -53,7 +63,9 @@
         public string Group5Link4 { get; set; }
         
         public string Group5Link5 { get; set; }
-        
+
+        public string Group6Title { get; set; }
+
         public string Group6Link1 { get; set; }
         
         public string Group6Link2 { get; set; }
@@ -65,5 +77,7 @@
         public string Group6Link5 { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public HttpPostedFileBase Image { get; set; }
     }
 }

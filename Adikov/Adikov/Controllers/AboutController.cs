@@ -136,6 +136,37 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Links()
+        {
+            GetAboutLinksQueryResult result = Query.For<GetAboutLinksQueryResult>().With(new EmptyCriterion());
+            AboutLinksViewModel vm = ToViewModel(result);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult Links(AboutLinksViewModel vm)
+        {
+            EditAboutLinksCommand command = new EditAboutLinksCommand
+            {
+                Links = ToModel(vm)
+            };
+
+            if (vm.Image != null)
+            {
+                var result = SaveAs(vm.Image, PlatformConfiguration.UploadedSettingsPath);
+
+                if (result != null && result.ResultCode == CommandResultCode.Success)
+                {
+                    command.File = result.File;
+                }
+            }
+
+            Command.Execute(command);
+
+            return RedirectToAction("Index");
+        }
+
         protected AboutHeaderViewModel ToViewModel(GetAboutHeaderQueryResult result)
         {
             AboutHeaderViewModel vm = Mapper.Map<AboutHeaderViewModel>(result.Header);
@@ -207,6 +238,12 @@ namespace Adikov.Controllers
         protected AboutMembers ToModel(AboutMembersViewModel vm)
         {
             AboutMembers model = Mapper.Map<AboutMembers>(vm);
+            return model;
+        }
+
+        protected AboutLinks ToModel(AboutLinksViewModel vm)
+        {
+            AboutLinks model = Mapper.Map<AboutLinks>(vm);
             return model;
         }
     }
