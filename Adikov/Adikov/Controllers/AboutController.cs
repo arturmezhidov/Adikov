@@ -107,6 +107,7 @@ namespace Adikov.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult AboutCompany(AboutCompanyViewModel vm)
         {
             Command.Execute(new EditAboutCompanyCommand

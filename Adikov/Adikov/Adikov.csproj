@@ -5288,6 +5288,7 @@
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\modal.css" />
     <Content Include="Content\img\avatar.jpg" />
+    <Content Include="Content\js\about-page.js" />
     <Content Include="Content\js\product-info.js" />
     <Content Include="Content\js\product-order.js" />
     <Content Include="Content\js\products.js" />

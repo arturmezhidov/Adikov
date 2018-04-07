@@ -17,19 +17,19 @@
             <div class="form-body">
                 <div class="form-group">
                     <label class="col-md-3 control-label">Заголовок </label>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Введите текст заголовка" })
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3 control-label">Контент </label>
-                    <div class="col-md-4">
-                        @Html.TextAreaFor(m => m.HtmlContent, new { @class = "form-control", placeholder = "Введите контент", rows = 5 })
+                    <div class="col-md-6">
+                        @Html.TextAreaFor(m => m.HtmlContent, new { @class = "wysihtml5 form-control", placeholder = "Введите контент", rows = 15 })
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3 control-label">Видео </label>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         @Html.TextBoxFor(m => m.VideoUrl, new { @class = "form-control", placeholder = "Введите ссылку на видео" })
                     </div>
                 </div>
@@ -45,3 +45,20 @@
         }
     </div>
 </div>
+
+@section styles {
+    <link href="~/Content/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css">
+}
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+    <script src="~/Content/js/about-page.js"></script>
+}
+
+<style>
+    .bootstrap-wysihtml5-insert-image-modal + a {
+        display: none !important;
+    }
+</style>
