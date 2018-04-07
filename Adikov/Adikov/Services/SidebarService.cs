@@ -152,6 +152,11 @@ namespace Adikov.Services
                     {
                         Text = "Об организации",
                         ViewLink = "/About/AboutCompany"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Команда",
+                        ViewLink = "/About/Members"
                     }
                 };
             }

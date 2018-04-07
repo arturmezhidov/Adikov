@@ -20,7 +20,7 @@ namespace Adikov.Services
 
                 PropertyInfo sourceProperty = sourceProperties.FirstOrDefault(i => i.Name == receiverProperty.Name);
 
-                if (sourceProperty == null || !sourceProperty.CanRead)
+                if (sourceProperty == null || !sourceProperty.CanRead || sourceProperty.PropertyType != receiverProperty.PropertyType)
                 {
                     continue;
                 }

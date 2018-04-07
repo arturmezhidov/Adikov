@@ -25,7 +25,7 @@ namespace Adikov.Domain.Queries.About
                 HeaderResult = new GetAboutHeaderQuery().Execute(new EmptyCriterion()),
                 ServicesResult = new GetAboutServicesQuery().Execute(new EmptyCriterion()),
                 AboutResult = new GetAboutCompanyQuery().Execute(new EmptyCriterion()),
-                MembersResult = new GetAboutMembersQuery().Execute(new AboutMembersCriterion { IsLoadUsers =  true }),
+                MembersResult = new GetAboutMembersQuery().Execute(new EmptyCriterion()),
                 LinksResult = new GetAboutLinksQuery().Execute(new EmptyCriterion())
             };
             

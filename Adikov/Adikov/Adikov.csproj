@@ -231,6 +231,7 @@
     <Compile Include="ViewModels\About\AboutCompanyViewModel.cs" />
     <Compile Include="ViewModels\About\AboutHeaderEditViewModel.cs" />
     <Compile Include="ViewModels\About\AboutLinksViewModel.cs" />
+    <Compile Include="ViewModels\About\AboutMembersDetailsViewModel.cs" />
     <Compile Include="ViewModels\About\AboutMembersViewModel.cs" />
     <Compile Include="ViewModels\About\AboutServicesViewModel.cs" />
     <Compile Include="ViewModels\About\AboutHeaderViewModel.cs" />
@@ -5814,6 +5815,7 @@
     <Content Include="Views\About\Header.cshtml" />
     <Content Include="Views\About\Services.cshtml" />
     <Content Include="Views\About\AboutCompany.cshtml" />
+    <Content Include="Views\About\Members.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

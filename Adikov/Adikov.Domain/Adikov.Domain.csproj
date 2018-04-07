@@ -115,6 +115,7 @@
     <Compile Include="Models\TableColumn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\About\GetAboutLinksQuery.cs" />
+    <Compile Include="Queries\About\GetAboutMembersDetailsQuery.cs" />
     <Compile Include="Queries\About\GetAboutMembersQuery.cs" />
     <Compile Include="Queries\About\GetAboutServicesQuery.cs" />
     <Compile Include="Queries\About\GetAboutCompanyQuery.cs" />

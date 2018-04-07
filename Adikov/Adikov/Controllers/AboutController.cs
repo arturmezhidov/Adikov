@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Adikov.Domain.Commands.About;
 using Adikov.Domain.Queries.About;
 using Adikov.Infrastructura.Commands;
@@ -116,6 +117,25 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Members()
+        {
+            GetAboutMembersQueryResult result = Query.For<GetAboutMembersQueryResult>().With(new EmptyCriterion());
+            AboutMembersViewModel vm = ToViewModel(result);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult Members(AboutMembersViewModel vm)
+        {
+            Command.Execute(new EditAboutMembersCommand
+            {
+                Members = ToModel(vm)
+            });
+
+            return RedirectToAction("Index");
+        }
+
         protected AboutHeaderViewModel ToViewModel(GetAboutHeaderQueryResult result)
         {
             AboutHeaderViewModel vm = Mapper.Map<AboutHeaderViewModel>(result.Header);
@@ -138,6 +158,30 @@ namespace Adikov.Controllers
         protected AboutMembersViewModel ToViewModel(GetAboutMembersQueryResult result)
         {
             AboutMembersViewModel vm = Mapper.Map<AboutMembersViewModel>(result);
+            vm.Members1 = result.Members.Select(i => new SelectListItem
+            {
+                Value = i.Id,
+                Text = i.FullName,
+                Selected = i.Id == result.Member1Id
+            }).ToList();
+            vm.Members2 = result.Members.Select(i => new SelectListItem
+            {
+                Value = i.Id,
+                Text = i.FullName,
+                Selected = i.Id == result.Member2Id
+            }).ToList();
+            vm.Members3 = result.Members.Select(i => new SelectListItem
+            {
+                Value = i.Id,
+                Text = i.FullName,
+                Selected = i.Id == result.Member3Id
+            }).ToList();
+            vm.Members4 = result.Members.Select(i => new SelectListItem
+            {
+                Value = i.Id,
+                Text = i.FullName,
+                Selected = i.Id == result.Member4Id
+            }).ToList();
             return vm;
         }
 
@@ -157,6 +201,12 @@ namespace Adikov.Controllers
         protected AboutCompany ToModel(AboutCompanyViewModel vm)
         {
             AboutCompany model = Mapper.Map<AboutCompany>(vm);
+            return model;
+        }
+
+        protected AboutMembers ToModel(AboutMembersViewModel vm)
+        {
+            AboutMembers model = Mapper.Map<AboutMembers>(vm);
             return model;
         }
     }

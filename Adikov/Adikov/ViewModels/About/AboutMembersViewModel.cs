@@ -1,4 +1,7 @@
-﻿namespace Adikov.ViewModels.About
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+
+namespace Adikov.ViewModels.About
 {
     public class AboutMembersViewModel
     {
@@ -6,28 +9,20 @@
 
         public string SubTitle { get; set; }
 
-        public string MemberAvatarUrl1 { get; set; }
+        public string Member1Id { get; set; }
 
-        public string MemberFullName1 { get; set; }
+        public string Member2Id { get; set; }
 
-        public string MemberAbout1 { get; set; }
+        public string Member3Id { get; set; }
 
-        public string MemberAvatarUrl2 { get; set; }
+        public string Member4Id { get; set; }
 
-        public string MemberFullName2 { get; set; }
+        public List<SelectListItem> Members1 { get; set; }
 
-        public string MemberAbout2 { get; set; }
+        public List<SelectListItem> Members2 { get; set; }
 
-        public string MemberAvatarUrl3 { get; set; }
+        public List<SelectListItem> Members3 { get; set; }
 
-        public string MemberFullName3 { get; set; }
-
-        public string MemberAbout3 { get; set; }
-
-        public string MemberAvatarUrl4 { get; set; }
-
-        public string MemberFullName4 { get; set; }
-
-        public string MemberAbout4 { get; set; }
+        public List<SelectListItem> Members4 { get; set; }
     }
 }
