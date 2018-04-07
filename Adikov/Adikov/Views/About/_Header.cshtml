@@ -1,0 +1,9 @@
+﻿@model Adikov.ViewModels.About.AboutHeaderViewModel
+
+<div class="row margin-bottom-40 about-header" style="@(String.IsNullOrEmpty(Model.BackgroundImageUrl) ? "" : $"background-image: url({Model.BackgroundImageUrl})")">
+    <div class="col-md-12">
+        <h1>@Model.Title</h1>
+        <h2>@Model.SubTitle</h2>
+        <a href="@Model.LinkUrl" class="btn btn-danger">@Model.LinkText</a>
+    </div>
+</div>

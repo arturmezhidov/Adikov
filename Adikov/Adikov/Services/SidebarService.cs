@@ -110,12 +110,7 @@ namespace Adikov.Services
                     Icon = "icon-call-end",
                     ViewLink = "/Contacts"
                 },
-                new SidebarGroup
-                {
-                    Text = "Об организации",
-                    Icon = "icon-info",
-                    ViewLink = "/About"
-                },
+                GetAboutItem(),
                 new SidebarGroup
                 {
                     Text = "Услуги",
@@ -123,6 +118,55 @@ namespace Adikov.Services
                     ViewLink = "/Services"
                 }
             };
+        }
+
+        protected SidebarGroup GetAboutItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "Об организации",
+                Icon = "icon-info",
+                ViewLink = "/About"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/About"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Баннер",
+                        ViewLink = "/About/Header"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Услуги",
+                        ViewLink = "/About/Services"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Об организации",
+                        ViewLink = "/About/AboutCompany"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Команда",
+                        ViewLink = "/About/Members"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Ссылки",
+                        ViewLink = "/About/Links"
+                    }
+                };
+            }
+
+            return item;
         }
 
         protected IEnumerable<SidebarGroup> GetProductItems()

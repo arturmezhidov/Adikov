@@ -1,0 +1,63 @@
+﻿@model Adikov.ViewModels.About.AboutMembersDetailsViewModel
+
+<div class="row margin-bottom-40 stories-header" data-auto-height="true">
+    <div class="col-md-12">
+        <h1>@Model.Title</h1>
+        <h2>@Model.SubTitle</h2>
+    </div>
+</div>
+
+<div class="row margin-bottom-20 stories-cont">
+    <div class="col-lg-3 col-md-6">
+        <div class="portlet light" style="min-height: 400px;">
+            <div class="photo">
+                <img src="@Model.MemberAvatarUrl1" alt="" class="img-responsive">
+            </div>
+            <div class="title">
+                <span> @Model.MemberFullName1 </span>
+            </div>
+            <div class="desc">
+                <span> @Model.MemberAbout1 </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="portlet light" style="min-height: 400px;">
+            <div class="photo">
+                <img src="@Model.MemberAvatarUrl2" alt="" class="img-responsive">
+            </div>
+            <div class="title">
+                <span> @Model.MemberFullName2 </span>
+            </div>
+            <div class="desc">
+                <span> @Model.MemberAbout2 </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="portlet light" style="min-height: 400px;">
+            <div class="photo">
+                <img src="@Model.MemberAvatarUrl3" alt="" class="img-responsive">
+            </div>
+            <div class="title">
+                <span> @Model.MemberFullName3 </span>
+            </div>
+            <div class="desc">
+                <span> @Model.MemberAbout3 </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="portlet light" style="min-height: 400px;">
+            <div class="photo">
+                <img src="@Model.MemberAvatarUrl4" alt="" class="img-responsive">
+            </div>
+            <div class="title">
+                <span> @Model.MemberFullName4 </span>
+            </div>
+            <div class="desc">
+                <span> @Model.MemberAbout4 </span>
+            </div>
+        </div>
+    </div>
+</div>

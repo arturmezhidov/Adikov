@@ -24,9 +24,9 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
 
     @Styles.Render("~/Content/globalCss")
-    @Styles.Render("~/Content/pageCss")
-    @RenderSection("styles_top", required: false)
+    @RenderSection("plugin_styles", required: false)
     @Styles.Render("~/Content/themeCss")
+    @RenderSection("page_styles", required: false)
     @Styles.Render("~/Content/layoutCss")
     @Styles.Render("~/Content/commonCss")
     @RenderSection("styles", required: false)

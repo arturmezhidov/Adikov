@@ -59,6 +59,11 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="BaseApplicationUser.cs" />
+    <Compile Include="Commands\About\EditAboutCompanyCommand.cs" />
+    <Compile Include="Commands\About\EditAboutLinksCommand.cs" />
+    <Compile Include="Commands\About\EditAboutMembersCommand.cs" />
+    <Compile Include="Commands\About\EditAboutServicesCommand.cs" />
+    <Compile Include="Commands\About\EditAboutHeaderCommand.cs" />
     <Compile Include="Commands\Categories\SortDownCategoryCommand.cs" />
     <Compile Include="Commands\Categories\SortUpCategoryCommand.cs" />
     <Compile Include="Commands\Columns\SortDownColumnCommand.cs" />
@@ -88,6 +93,7 @@
     <Compile Include="Commands\Rows\EditRowCommand.cs" />
     <Compile Include="Commands\Rows\AddRowCommand.cs" />
     <Compile Include="Commands\Rows\DeleteRowCommand.cs" />
+    <Compile Include="Commands\Settings\BaseSettingsCommandHandler.cs" />
     <Compile Include="Commands\Tables\EditTableCommand.cs" />
     <Compile Include="Commands\Tables\AddTableCommand.cs" />
     <Compile Include="Commands\Tables\ClearTableCommand.cs" />
@@ -109,6 +115,13 @@
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\TableColumn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\About\GetAboutLinksQuery.cs" />
+    <Compile Include="Queries\About\GetAboutMembersDetailsQuery.cs" />
+    <Compile Include="Queries\About\GetAboutMembersQuery.cs" />
+    <Compile Include="Queries\About\GetAboutServicesQuery.cs" />
+    <Compile Include="Queries\About\GetAboutCompanyQuery.cs" />
+    <Compile Include="Queries\About\GetAboutQuery.cs" />
+    <Compile Include="Queries\About\GetAboutHeaderQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryDetailsQuery.cs" />
     <Compile Include="Queries\Categories\FindCategoryByIdQuery.cs" />
     <Compile Include="Queries\Categories\GetNavigateItemsQuery.cs" />
@@ -121,6 +134,7 @@
     <Compile Include="Queries\Query.cs" />
     <Compile Include="Queries\Products\GetProductTableByIdQuery.cs" />
     <Compile Include="Queries\Rows\FindRowByIdQuery.cs" />
+    <Compile Include="Queries\Settings\BaseSettingsQuery.cs" />
     <Compile Include="Queries\Tables\FindActiveTableQuery.cs" />
     <Compile Include="Queries\Tables\FindTableEditQuery.cs" />
     <Compile Include="Queries\Tables\FindTableDetailsQuery.cs" />
@@ -140,5 +154,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

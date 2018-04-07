@@ -36,7 +36,7 @@ namespace Adikov.Domain
             userIdentity.AddClaim(ClaimsTypes.USER_LAST_NAME, LastName);
             userIdentity.AddClaim(ClaimsTypes.USER_PHONE_NUMBER, PhoneNumber);
             userIdentity.AddClaim(ClaimsTypes.USER_OCCUPATION, Occupation);
-            userIdentity.AddClaim(ClaimsTypes.USER_INTERESTS, Website);
+            userIdentity.AddClaim(ClaimsTypes.USER_INTERESTS, Interests);
             userIdentity.AddClaim(ClaimsTypes.USER_ABOUT, About);
             userIdentity.AddClaim(ClaimsTypes.USER_WEBSITE, Website);
 
