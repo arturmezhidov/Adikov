@@ -1,0 +1,67 @@
+﻿@model Adikov.ViewModels.FaqItems.EditFaqItemViewModel
+
+@using (Html.BeginForm("Edit", "FaqItem", null, FormMethod.Post, new { id = "faq-item-form", @class = "form-horizontal", role = "form" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-body">
+        <div class="form-group">
+            <label class="col-md-3 control-label">Категория <span class="required" aria-required="true"> * </span></label>
+            <div class="col-md-8">
+                @Html.DropDownListFor(m => m.FaqCategoryId, Model.CategorySelectListItems, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Вопрос <span class="required" aria-required="true"> * </span></label>
+            <div class="col-md-8">
+                @Html.TextAreaFor(m => m.Title, new {@class = "form-control", placeholder = "Введите заголовок ответа", rows = 4})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Ответ <span class="required" aria-required="true"> * </span></label>
+            <div class="col-md-8">
+                @Html.TextAreaFor(m => m.ShortContent, new {@class = "form-control", placeholder = "Введите ответ", rows = 10})
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label"> </label>
+            <div class="col-md-8">
+                <label class="mt-checkbox">
+                    @Html.CheckBoxFor(m => m.IsPublished) Опубликовать сразу
+                    <span></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label"> </label>
+            <div class="col-md-8">
+                <label class="mt-checkbox">
+                    @Html.CheckBoxFor(m => m.IsDysplayOnMainScreen) Отображать на начальном экране
+                    <span></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label"> </label>
+            <div class="col-md-8">
+                <label class="mt-checkbox">
+                    @Html.CheckBoxFor(m => m.IsHtmlContentDisplay, new {id = "switch-long-answer"}) Дать развернутый ответ
+                    <span></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group" id="html-content-group" style="display: @(Model.IsHtmlContentDisplay ? "block" : "none");">
+            <label class="col-md-3 control-label">Развернутый ответ </label>
+            <div class="col-md-8">
+                @Html.TextAreaFor(m => m.HtmlContent, new { @class = "wysihtml5 form-control", placeholder = "Введите ответ", rows = 30 })
+            </div>
+        </div>
+    </div>
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <button type="submit" class="btn green">Сохранить</button>
+                <a href="@Url.Action("Index")" class="btn default">Отмена</a>
+            </div>
+        </div>
+    </div>
+}

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Adikov.Domain.Commands.FaqItems;
 using Adikov.Domain.Models;
 using Adikov.Domain.Queries.FaqCategories;
+using Adikov.Domain.Queries.FaqItems;
 using Adikov.Domain.Queries.FaqRequests;
 using Adikov.ViewModels.FaqItems;
 
@@ -53,6 +54,58 @@ namespace Adikov.Controllers
                 HtmlContent = vm.HtmlContent,
                 FaqCategoryId = vm.FaqCategoryId.Value,
                 RequestId = vm.RequestId,
+                IsPublished = vm.IsPublished,
+                IsHtmlContentDisplay = vm.IsHtmlContentDisplay,
+                IsDysplayOnMainScreen = vm.IsDysplayOnMainScreen
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            FindFaqItemByIdQueryResult result = Query.For<FindFaqItemByIdQueryResult>().ById(id);
+
+            if (!result.IsFounded)
+            {
+                return RedirectToAction("Index");
+            }
+
+            FaqItem item = result.Item;
+
+            EditFaqItemViewModel vm = new EditFaqItemViewModel
+            {
+                Id = id,
+                FaqCategoryId = item.FaqCategoryId,
+                Title = item.Title,
+                ShortContent = item.ShortContent,
+                HtmlContent = item.HtmlContent,
+                IsDysplayOnMainScreen = item.IsDysplayOnMainScreen,
+                IsHtmlContentDisplay = item.IsHtmlContentDisplay,
+                IsPublished = item.IsPublished,
+                CategorySelectListItems = GetFaqCategoriesList(item.FaqCategoryId)
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Edit(EditFaqItemViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                vm.CategorySelectListItems = GetFaqCategoriesList(vm.FaqCategoryId);
+                return View(vm);
+            }
+
+            Command.Execute(new EditFaqItemCommand
+            {
+                Id = vm.Id,
+                Title = vm.Title,
+                ShortContent = vm.ShortContent,
+                HtmlContent = vm.HtmlContent,
+                FaqCategoryId = vm.FaqCategoryId.Value,
                 IsPublished = vm.IsPublished,
                 IsHtmlContentDisplay = vm.IsHtmlContentDisplay,
                 IsDysplayOnMainScreen = vm.IsDysplayOnMainScreen

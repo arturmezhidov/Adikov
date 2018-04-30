@@ -244,6 +244,7 @@
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\FaqCategories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\FaqCategories\IndexViewModel.cs" />
+    <Compile Include="ViewModels\FaqItems\EditFaqItemViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\AddFaqItemViewModel.cs" />
     <Compile Include="ViewModels\Faq\RequestsViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
@@ -5836,6 +5837,9 @@
     <Content Include="Views\FaqItem\_AddFaqItemPortlet.cshtml" />
     <Content Include="Views\FaqItem\_AddFaqItemForm.cshtml" />
     <Content Include="Views\FaqItem\_FaqRequestInfoPortlet.cshtml" />
+    <Content Include="Views\FaqItem\Edit.cshtml" />
+    <Content Include="Views\FaqItem\_EditFaqItemPortlet.cshtml" />
+    <Content Include="Views\FaqItem\_EditFaqItemForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
