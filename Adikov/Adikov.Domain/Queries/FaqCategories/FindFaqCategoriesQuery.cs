@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using Adikov.Domain.Models;
 using Adikov.Infrastructura.Criterion;
@@ -17,15 +16,9 @@ namespace Adikov.Domain.Queries.FaqCategories
         {
             List<FaqCategory> items = DataContext
                 .FaqCategories
-                .Where(i => !i.IsDeleted)
-                .Include(i => i.FaqItems)
                 .AsNoTracking()
+                .Where(i => !i.IsDeleted)
                 .ToList();
-
-            items.ForEach(i =>
-            {
-                i.FaqItems = i.FaqItems.Where(fi => !fi.IsDeleted).ToList();
-            });
 
             FindFaqCategoriesQueryResult result = new FindFaqCategoriesQueryResult
             {

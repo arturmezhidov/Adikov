@@ -69,6 +69,8 @@
     <Compile Include="Commands\FaqCategories\RecoveryFaqCategoryCommand.cs" />
     <Compile Include="Commands\FaqCategories\UpdateFaqCategoryCommand.cs" />
     <Compile Include="Commands\FaqCategories\AddFaqCategoryCommand.cs" />
+    <Compile Include="Commands\FaqItems\AddFaqItemCommand.cs" />
+    <Compile Include="Commands\FaqRequests\ConfirmRequestCommand.cs" />
     <Compile Include="Commands\FaqRequests\RecoveryFaqRequestCommand.cs" />
     <Compile Include="Commands\FaqRequests\RemoveFaqRequestCommand.cs" />
     <Compile Include="Commands\FaqRequests\OpenFaqRequestCommand.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Queries\FaqCategories\FindFaqCategoriesDetailsQuery.cs" />
     <Compile Include="Queries\FaqCategories\FindFaqCategoryByIdQuery.cs" />
     <Compile Include="Queries\FaqCategories\FindFaqCategoriesQuery.cs" />
+    <Compile Include="Queries\FaqRequests\FindFaqRequestByIdQuery.cs" />
     <Compile Include="Queries\FaqRequests\FindPendingFaqRequestsQuery.cs" />
     <Compile Include="Queries\FaqRequests\FindFaqRequestsQuery.cs" />
     <Compile Include="Queries\Forms\GenerateFormQuery.cs" />

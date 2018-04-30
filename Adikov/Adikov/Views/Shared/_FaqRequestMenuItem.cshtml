@@ -12,14 +12,14 @@
                 <h3>
                     У вас <span class="bold">@Model.RequestsCount новых</span> запросов
                 </h3>
-                @Html.ActionLink("все", "Requests", "Faq")
+                @Html.ActionLink("все", "Index", "FaqRequest")
             </li>
             <li>
                 <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
                     @foreach (var request in Model.Requests)
                     {
                         <li>
-                            <a href="@Url.Action("Index", "Faq", new { id = request.Id })">
+                            <a href="@Url.Action("Add", "FaqItem", new { requestId = request.Id })">
                                 <span class="photo">
                                     <img src="@request.AvatarLink" class="img-circle" alt="">
                                 </span>

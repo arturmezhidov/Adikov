@@ -32,7 +32,7 @@
                     if (Model.Status == FaqRequestStatus.Open)
                      {
                          <li>
-                             @Html.ActionLink("Добавить", "Add", new { id = Model.Id })
+                             @Html.ActionLink("Добавить", "Add", "FaqItem", new { requestId = Model.Id }, null)
                          </li>
                          <li>
                              @Html.ActionLink("Отклонить", "DeclineRequest", new { id = Model.Id })

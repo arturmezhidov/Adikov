@@ -206,6 +206,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\FaqCategoryController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
+    <Compile Include="Controllers\FaqItemController.cs" />
     <Compile Include="Controllers\FaqRequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\FaqCategories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\FaqCategories\IndexViewModel.cs" />
+    <Compile Include="ViewModels\FaqItems\AddFaqItemViewModel.cs" />
     <Compile Include="ViewModels\Faq\RequestsViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormViewModel.cs" />
@@ -5829,6 +5831,11 @@
     <Content Include="Views\FaqRequest\_FaqPendingRequestPortlet.cshtml" />
     <Content Include="Views\FaqRequest\_FaqApprovedRequestPortlet.cshtml" />
     <Content Include="Views\FaqRequest\_FaqDeletedRequestPortlet.cshtml" />
+    <Content Include="Views\FaqItem\Index.cshtml" />
+    <Content Include="Views\FaqItem\Add.cshtml" />
+    <Content Include="Views\FaqItem\_AddFaqItemPortlet.cshtml" />
+    <Content Include="Views\FaqItem\_AddFaqItemForm.cshtml" />
+    <Content Include="Views\FaqItem\_FaqRequestInfoPortlet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
