@@ -13,5 +13,7 @@
         public static readonly string UploadedUserPathTemplate = UploadedUsersPath + "/User-{0}";
         public static readonly string UploadedUserFilePathTemplate = UploadedUsersPath + "/User-{0}/{1}";
         public static readonly string DefaultAvatarPath = "/Content/img/avatar.jpg";
+        public static readonly string DocumentsPath = UploadedFilesPath + "/Documents";
+        public static readonly string DocumentsPathTemplate = DocumentsPath + "/{0}";
     }
 }

@@ -1,0 +1,235 @@
+﻿@model Adikov.ViewModels.Contacts.MapViewModel
+
+@{
+    ViewBag.Title = "Настройки карты";
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-pencil font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Настройки карты </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @using (Html.BeginForm("Map", "Contacts", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <div class="form-body">
+
+                <h4>Карта</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.MapTitle, new { @class = "form-control", placeholder = "Введите заголовок контактов" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Текст маркера </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.MarkerTitle, new { @class = "form-control", placeholder = "Введите текст маркера на карте" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Широта </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Latitude, new { @class = "form-control", placeholder = "Введите широту (например: 27.624522)" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Долгота </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Longitude, new { @class = "form-control", placeholder = "Введите долготу (например: 53.857539)" })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Адрес</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> </label>
+                    <div class="col-md-6">
+                        <label class="mt-checkbox">
+                            @Html.CheckBoxFor(m => m.IsDisplayedAddress) Отображать секцию адреса
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Адрес </label>
+                    <div class="col-md-4">
+                        @Html.TextAreaFor(m => m.Address, new { @class = "form-control", placeholder = "Введите адрес", rows = 5 })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Контакты</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> </label>
+                    <div class="col-md-6">
+                        <label class="mt-checkbox">
+                            @Html.CheckBoxFor(m => m.IsDisplayedContacts) Отображать секцию контактов
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Контакт 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Contact1, new { @class = "form-control", placeholder = "Введите контакт 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Иконка контакта 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.ContactIcon1, new { @class = "form-control", placeholder = "Введите название иконки контакта 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> </label>
+                    <div class="col-md-6">
+                        <label class="mt-checkbox">
+                            @Html.CheckBoxFor(m => m.IsDisplayedContact1) Отображать секцию контактов 1
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Контакт 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Contact2, new { @class = "form-control", placeholder = "Введите контакт 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Иконка контакта 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.ContactIcon2, new { @class = "form-control", placeholder = "Введите название иконки контакта 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> </label>
+                    <div class="col-md-6">
+                        <label class="mt-checkbox">
+                            @Html.CheckBoxFor(m => m.IsDisplayedContact2) Отображать секцию контактов 2
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Контакт 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Contact3, new { @class = "form-control", placeholder = "Введите контакт 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Иконка контакта 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.ContactIcon3, new { @class = "form-control", placeholder = "Введите название иконки контакта 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> </label>
+                    <div class="col-md-6">
+                        <label class="mt-checkbox">
+                            @Html.CheckBoxFor(m => m.IsDisplayedContact3) Отображать секцию контактов 3
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <h4>Социальные сети и ссылки</h4>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> </label>
+                    <div class="col-md-6">
+                        <label class="mt-checkbox">
+                            @Html.CheckBoxFor(m => m.IsDisplayedSocial) Отображать секцию социальные сети и ссылки
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Иконка ссылки 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialIcon1, new { @class = "form-control", placeholder = "Введите иконку ссылки 1" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 1 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialLink1, new { @class = "form-control", placeholder = "Введите ссылку 1" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Иконка ссылки 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialIcon2, new { @class = "form-control", placeholder = "Введите иконку ссылки 2" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 2 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialLink2, new { @class = "form-control", placeholder = "Введите ссылку 2" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Иконка ссылки 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialIcon3, new { @class = "form-control", placeholder = "Введите иконку ссылки 3" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 3 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialLink3, new { @class = "form-control", placeholder = "Введите ссылку 3" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Иконка ссылки 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialIcon4, new { @class = "form-control", placeholder = "Введите иконку ссылки 4" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 4 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialLink4, new { @class = "form-control", placeholder = "Введите ссылку 4" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Иконка ссылки 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialIcon5, new { @class = "form-control", placeholder = "Введите иконку ссылки 5" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ссылка 5 </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SocialLink5, new { @class = "form-control", placeholder = "Введите ссылку 5" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="submit" class="btn green">Сохранить</button>
+                            <a class="btn default" href="@Url.Action("Index")">Отмена</a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+            </div>
+        }
+    </div>
+</div>

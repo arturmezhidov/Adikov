@@ -28,7 +28,18 @@ namespace Adikov.Domain.Queries.Settings
                 if (settings.ContainsKey(settingAttribute.Key))
                 {
                     Setting setting = settings[settingAttribute.Key];
-                    property.SetValue(obj, setting?.Value);
+                    string value = setting?.Value;
+
+                    if (property.PropertyType == typeof(bool))
+                    {
+                        bool bValue;
+                        bool.TryParse(value, out bValue);
+                        property.SetValue(obj, bValue);
+                    }
+                    else
+                    {
+                        property.SetValue(obj, value);
+                    }
                 }
             }
 

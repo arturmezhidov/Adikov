@@ -26,7 +26,17 @@ namespace Adikov.Services
                 }
 
                 string value = sourceProperty.GetValue(source)?.ToString();
-                receiverProperty.SetValue(receiver, value);
+
+                if(receiverProperty.PropertyType == typeof(bool))
+                {
+                    bool bValue;
+                    bool.TryParse(value, out bValue);
+                    receiverProperty.SetValue(receiver, bValue);
+                }
+                else
+                {
+                    receiverProperty.SetValue(receiver, value);
+                }
             }
 
             return receiver;

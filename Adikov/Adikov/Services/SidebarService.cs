@@ -104,12 +104,7 @@ namespace Adikov.Services
         {
             return new List<SidebarGroup>
             {
-                new SidebarGroup
-                {
-                    Text = "Контакты",
-                    Icon = "icon-call-end",
-                    ViewLink = "/Contacts"
-                },
+                GetContactsItem(),
                 GetAboutItem(),
                 new SidebarGroup
                 {
@@ -118,6 +113,50 @@ namespace Adikov.Services
                     ViewLink = "/Services"
                 }
             };
+        }
+
+        protected SidebarGroup GetContactsItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "Контакты",
+                Icon = "icon-call-end",
+                ViewLink = "/Contacts"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/Contacts"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Карта",
+                        ViewLink = "/Contacts/Map"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Документы",
+                        ViewLink = "/Contacts/Documents"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Вопросы",
+                        ViewLink = "/Contacts/Question"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Форма",
+                        ViewLink = "/Contacts/KeepInTouch"
+                    }
+                };
+            }
+
+            return item;
         }
 
         protected SidebarGroup GetAboutItem()

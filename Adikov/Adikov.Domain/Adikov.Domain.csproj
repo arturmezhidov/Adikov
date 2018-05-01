@@ -68,6 +68,10 @@
     <Compile Include="Commands\Categories\SortUpCategoryCommand.cs" />
     <Compile Include="Commands\Columns\SortDownColumnCommand.cs" />
     <Compile Include="Commands\Columns\SortUpColumnCommand.cs" />
+    <Compile Include="Commands\Contacts\EditContactsDocumentsCommand.cs" />
+    <Compile Include="Commands\Contacts\EditContactsKeepInTouchCommand.cs" />
+    <Compile Include="Commands\Contacts\EditContactsQuestionCommand.cs" />
+    <Compile Include="Commands\Contacts\EditContactsMapCommand.cs" />
     <Compile Include="Commands\File\AddFileCommand.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\File\DeleteFileCommand.cs" />
@@ -128,6 +132,10 @@
     <Compile Include="Queries\Columns\FindAllColumnQuery.cs" />
     <Compile Include="Queries\Columns\FindActiveColumnQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryQuery.cs" />
+    <Compile Include="Queries\Contacts\GetDocumentsQuery.cs" />
+    <Compile Include="Queries\Contacts\GetKeepInTouchQuery.cs" />
+    <Compile Include="Queries\Contacts\GetQuestionQuery.cs" />
+    <Compile Include="Queries\Contacts\GetContactsMapQuery.cs" />
     <Compile Include="Queries\Files\FindUserAvatarQuery.cs" />
     <Compile Include="Queries\Forms\GenerateFormQuery.cs" />
     <Compile Include="Queries\Products\FindAllProductQuery.cs" />
