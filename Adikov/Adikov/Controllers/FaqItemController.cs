@@ -16,7 +16,15 @@ namespace Adikov.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            GetAllFaqItemsQueryResult result = Query.For<GetAllFaqItemsQueryResult>().Empty();
+
+            IndexViewModel vm = new IndexViewModel
+            {
+                ActiveItems = result.ActiveItems,
+                DeletedItems = result.DeletedItems
+            };
+
+            return View(vm);
         }
 
         [HttpGet]
@@ -109,6 +117,73 @@ namespace Adikov.Controllers
                 IsPublished = vm.IsPublished,
                 IsHtmlContentDisplay = vm.IsHtmlContentDisplay,
                 IsDysplayOnMainScreen = vm.IsDysplayOnMainScreen
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Command.Execute(new DeleteFaqItemCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Clear()
+        {
+            Command.Execute(new ClearFaqItemCommand());
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Recovery(int id)
+        {
+            Command.Execute(new RecoveryFaqItemCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Publish(int id)
+        {
+            Command.Execute(new PublishFaqItemCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Unpublish(int id)
+        {
+            Command.Execute(new UnpublishFaqItemCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DisplayOnMainScreen(int id)
+        {
+            Command.Execute(new DisplayOnMainScreenFaqItemCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult HideOnMainScreen(int id)
+        {
+            Command.Execute(new HideOnMainScreenFaqItemCommand
+            {
+                Id = id
             });
 
             return RedirectToAction("Index");

@@ -78,22 +78,32 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Recovery(int id)
+        public ActionResult Recovery(int id, bool? isAnswersPage = false)
         {
             Command.Execute(new RecoveryFaqCategoryCommand
             {
                 Id = id
             });
 
+            if (isAnswersPage.HasValue && isAnswersPage.Value)
+            {
+                return RedirectToAction("Index", "FaqItem");
+            }
+
             return RedirectToAction("Index");
         }
 
-        public ActionResult Publish(int id)
+        public ActionResult Publish(int id, bool? isAnswersPage = false)
         {
             Command.Execute(new PublishFaqCategoryCommand
             {
                 Id = id
             });
+
+            if (isAnswersPage.HasValue && isAnswersPage.Value)
+            {
+                return RedirectToAction("Index", "FaqItem");
+            }
 
             return RedirectToAction("Index");
         }

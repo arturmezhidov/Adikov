@@ -1,7 +1,24 @@
-﻿
+﻿@model Adikov.ViewModels.FaqItems.IndexViewModel
+
 @{
-    ViewBag.Title = "Элементы FAQ";
+    ViewBag.Title = "Ответы FAQ";
 }
 
-<h2>Элементы FAQ</h2>
-
+<div class="row">
+    <div class="col-lg-8">
+        @if (Model.ActiveItems.Any())
+        {
+            foreach (var item in Model.ActiveItems)
+            {
+                @Html.Partial("_FaqItemPortlet", item)
+            }
+        }
+        else
+        {
+            @Html.Partial("_FaqItemEmptyPortlet")
+        }
+    </div>
+    <div class="col-lg-4">
+        @Html.Partial("_DeletedFaqItemsPortlet", Model.DeletedItems)
+    </div>
+</div>
