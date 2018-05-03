@@ -1,4 +1,5 @@
-﻿
+﻿@model Adikov.ViewModels.Contacts.IndexViewModel
+
 @{
     ViewBag.Title = "Контакты";
 }
@@ -69,21 +70,7 @@
                     <button class="btn grey-cararra font-dark">Learn More</button>
                 </div>
             </div>
-            <div class="c-container bg-grey-steel">
-                <div class="c-content-title-1">
-                    <h3 class="uppercase">Have a question?</h3>
-                    <div class="c-line-left bg-dark"></div>
-                    <form action="#">
-                        <div class="input-group input-group-lg c-square">
-                            <input type="text" class="form-control c-square" placeholder="Ask a question" />
-                            <span class="input-group-btn">
-                                <button class="btn uppercase" type="button">Go!</button>
-                            </span>
-                        </div>
-                    </form>
-                    <p>Ask your questions away and let our dedicated customer service help you look through our FAQs to get your questions answered!</p>
-                </div>
-            </div>
+            @Html.Partial("_Question", Model.Question)
         </div>
         <div class="col-md-6">
             <div class="c-contact">

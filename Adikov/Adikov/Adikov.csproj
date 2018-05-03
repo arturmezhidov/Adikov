@@ -246,6 +246,7 @@
     <Compile Include="ViewModels\Categories\CategoryAddViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Contacts\DocumentsViewModel.cs" />
+    <Compile Include="ViewModels\Contacts\IndexViewModel.cs" />
     <Compile Include="ViewModels\Contacts\KeepInTouchViewModel.cs" />
     <Compile Include="ViewModels\Contacts\MapViewModel.cs" />
     <Compile Include="ViewModels\Contacts\QuestionViewModel.cs" />
@@ -5830,6 +5831,7 @@
     <Content Include="Views\Contacts\Question.cshtml" />
     <Content Include="Views\Contacts\KeepInTouch.cshtml" />
     <Content Include="Views\Contacts\Documents.cshtml" />
+    <Content Include="Views\Contacts\_Question.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

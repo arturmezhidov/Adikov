@@ -13,7 +13,14 @@ namespace Adikov.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            GetQuestionQueryResult question = Query.For<GetQuestionQueryResult>().With(new EmptyCriterion());
+
+            IndexViewModel vm = new IndexViewModel
+            {
+                Question = ToViewModel(question.Question)
+            };
+
+            return View(vm);
         }
 
         [HttpGet]
