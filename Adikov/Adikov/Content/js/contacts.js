@@ -6,15 +6,15 @@
             $(document).ready(function () {
                 map = new GMaps({
                     div: '#gmapbg',
-                    lat: 53.857539,
-                    lng: 27.624522
+                    lat: window.MapConfig.lat,
+                    lng: window.MapConfig.lng
                 });
                 var marker = map.addMarker({
-                    lat: 53.857539,
-                    lng: 27.624522,
+                    lat: window.MapConfig.lat,
+                    lng: window.MapConfig.lng,
                     title: 'ADIKOV',
                     infoWindow: {
-                        content: "<b>ADIKOV</b> г. Минск ул. Щетовка 36 кв2, офис и склад"
+                        content: "<b>ADIKOV</b> " + window.MapConfig.content
                     }
                 });
 
