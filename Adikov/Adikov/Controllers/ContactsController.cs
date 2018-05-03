@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Adikov.Domain.Commands.Contacts;
 using Adikov.Domain.Queries.Contacts;
 using Adikov.Infrastructura.Criterion;
@@ -13,11 +14,17 @@ namespace Adikov.Controllers
     {
         public ActionResult Index()
         {
+            GetContactsMapQueryResult map = Query.For<GetContactsMapQueryResult>().With(new EmptyCriterion());
             GetQuestionQueryResult question = Query.For<GetQuestionQueryResult>().With(new EmptyCriterion());
+            GetDocumentsQueryResult documents = Query.For<GetDocumentsQueryResult>().With(new EmptyCriterion());
+            GetKeepInTouchQueryResult keepInTouch = Query.For<GetKeepInTouchQueryResult>().With(new EmptyCriterion());
 
             IndexViewModel vm = new IndexViewModel
             {
-                Question = ToViewModel(question.Question)
+                Map = ToViewModel(map.Map),
+                Documents = ToViewModel(documents),
+                Question = ToViewModel(question.Question),
+                GetKeepInTouch = ToViewModel(keepInTouch.KeepInTouch)
             };
 
             return View(vm);
@@ -100,7 +107,7 @@ namespace Adikov.Controllers
             Command.Execute(new EditContactsDocumentsCommand
             {
                 Documents = ToModel(vm),
-                File = result.File
+                File = result?.File
             });
 
             return RedirectToAction("Index");
@@ -122,6 +129,10 @@ namespace Adikov.Controllers
         {
             DocumentsViewModel vm = Mapper.Map<DocumentsViewModel>(model.Documents);
             vm.FileUrl = model.DocumentsLink;
+            vm.FileName = model.FileName;
+            vm.UpdatedAt = DateTime.TryParse(vm.UpdatedAt, out DateTime date)
+                ? date.ToShortDateString()
+                : null;
             return vm;
         }
 

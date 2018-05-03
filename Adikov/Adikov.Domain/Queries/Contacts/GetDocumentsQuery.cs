@@ -11,6 +11,8 @@ namespace Adikov.Domain.Queries.Contacts
         public ContactsDocuments Documents { get; set; }
 
         public string DocumentsLink { get; set; }
+
+        public string FileName { get; set; }
     }
 
     public class GetDocumentsQuery : BaseSettingsQuery<EmptyCriterion, GetDocumentsQueryResult>
@@ -27,9 +29,15 @@ namespace Adikov.Domain.Queries.Contacts
             if(file != null)
             {
                 result.DocumentsLink = string.Format(PlatformConfiguration.DocumentsPathTemplate, file.PhysicalName);
+                result.FileName = file.PhysicalName;
             }
 
             return result;
+        }
+
+        public static GetDocumentsQueryResult Execute()
+        {
+            return new GetDocumentsQuery().Execute(new EmptyCriterion());
         }
     }
 }

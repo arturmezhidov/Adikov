@@ -10,6 +10,8 @@ namespace Adikov.ViewModels.Contacts
 
         public string FileUrl { get; set; }
 
+        public string FileName { get; set; }
+
         public HttpPostedFileBase File { get; set; }
 
         public string UpdatedAt { get; set; }

@@ -62,14 +62,7 @@
 <div class="c-content-feedback-1 c-option-1">
     <div class="row">
         <div class="col-md-6">
-            <div class="c-container bg-green">
-                <div class="c-content-title-1 c-inverse">
-                    <h3 class="uppercase">Need to know more?</h3>
-                    <div class="c-line-left"></div>
-                    <p class="c-font-lowercase">Try visiting our FAQ page to learn more about our greatest ever expanding theme, Metronic.</p>
-                    <button class="btn grey-cararra font-dark">Learn More</button>
-                </div>
-            </div>
+            @Html.Partial("_Documents", Model.Documents)
             @Html.Partial("_Question", Model.Question)
         </div>
         <div class="col-md-6">

@@ -1,0 +1,14 @@
+﻿@model Adikov.ViewModels.Contacts.DocumentsViewModel
+
+<div class="c-container bg-green">
+    <div class="c-content-title-1 c-inverse">
+        <h3 class="uppercase"> @Model.Title </h3>
+        <div class="c-line-left"></div>
+        <p class="c-font-lowercase"> @Model.Description </p>
+        @if (Model.FileUrl != null)
+        {
+            <a href="@Model.FileUrl" class="btn grey-cararra font-dark">Скачать пакет</a>
+        }
+        <span class="pull-right font-white margin-top-15">@(String.IsNullOrEmpty(Model.UpdatedAt) ? "Не загружены" : "Обновлено " + Model.UpdatedAt)</span>
+    </div>
+</div>

@@ -34,6 +34,16 @@
                         @Html.TextBoxFor(m => m.File, new { @class = "form-control", type = "file" })
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Дата обновления </label>
+                    <div class="col-md-4">
+                        <span class="bold margin-right-10">@(String.IsNullOrEmpty(Model.UpdatedAt) ? "Не загружен" : Model.UpdatedAt) </span>
+                        @if (!String.IsNullOrEmpty(Model.FileUrl))
+                        {
+                            <a href="@Model.FileUrl" class="btn btn-info  ">Скачать пакет</a>
+                        }
+                    </div>
+                </div>
 
                 <br />
                 <div class="form-actions">

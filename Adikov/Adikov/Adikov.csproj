@@ -5832,6 +5832,7 @@
     <Content Include="Views\Contacts\KeepInTouch.cshtml" />
     <Content Include="Views\Contacts\Documents.cshtml" />
     <Content Include="Views\Contacts\_Question.cshtml" />
+    <Content Include="Views\Contacts\_Documents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

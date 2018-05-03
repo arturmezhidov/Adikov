@@ -1,4 +1,5 @@
 ﻿using Adikov.Domain.Commands.Settings;
+using Adikov.Domain.Queries.Contacts;
 using Adikov.Infrastructura.Commands;
 using Adikov.Platform.Settings;
 using System;
@@ -16,13 +17,18 @@ namespace Adikov.Domain.Commands.Contacts
     {
         protected override void OnHandling(EditContactsDocumentsCommand command, CommandResult result)
         {
+            ContactsDocuments documents = GetDocumentsQuery.Execute().Documents;
+
+            documents.Title = command.Documents.Title;
+            documents.Description = command.Documents.Description;
+
             if (command.File != null)
             {
-                command.Documents.FileId = command.File.Id.ToString();
-                command.Documents.UpdatedAt = DateTime.Now.ToString();
+                documents.FileId = command.File.Id.ToString();
+                documents.UpdatedAt = DateTime.Now.ToString();
             }
 
-            UpdateSettings(command.Documents);
+            UpdateSettings(documents);
         }
     }
 }
