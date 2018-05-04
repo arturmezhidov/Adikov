@@ -152,11 +152,6 @@ namespace Adikov.Services
                     },
                     new SidebarItem
                     {
-                        Text = "Добавить ответ",
-                        ViewLink = "/FaqItem/Add"
-                    },
-                    new SidebarItem
-                    {
                         Text = "Запросы",
                         ViewLink = "/FaqRequest"
                     }
