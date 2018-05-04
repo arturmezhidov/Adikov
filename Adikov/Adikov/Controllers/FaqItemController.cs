@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Adikov.Domain.Commands.FaqItems;
 using Adikov.Domain.Models;
 using Adikov.Domain.Queries.FaqCategories;
 using Adikov.Domain.Queries.FaqItems;
 using Adikov.Domain.Queries.FaqRequests;
+using Adikov.Infrastructura.Criterion;
 using Adikov.ViewModels.FaqItems;
 
 namespace Adikov.Controllers
 {
     public class FaqItemController : LayoutController
     {
+        [HttpGet]
         public ActionResult Index()
         {
             GetAllFaqItemsQueryResult result = Query.For<GetAllFaqItemsQueryResult>().Empty();
@@ -23,6 +24,21 @@ namespace Adikov.Controllers
                 ActiveItems = result.ActiveItems,
                 DeletedItems = result.DeletedItems
             };
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            FindFaqItemByIdQueryResult result = Query.For<FindFaqItemByIdQueryResult>().With(new IdCriterion(id));
+
+            if (!result.IsFounded)
+            {
+                return RedirectToAction("Index");
+            }
+
+            FaqItemDetailsViewModel vm = ToViewModel(result.Item);
 
             return View(vm);
         }
@@ -122,14 +138,14 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string redirectUrl = null)
         {
             Command.Execute(new DeleteFaqItemCommand
             {
                 Id = id
             });
 
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqItem");
         }
 
         public ActionResult Clear()
@@ -139,54 +155,54 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Recovery(int id)
+        public ActionResult Recovery(int id, string redirectUrl = null)
         {
             Command.Execute(new RecoveryFaqItemCommand
             {
                 Id = id
             });
 
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqItem");
         }
 
-        public ActionResult Publish(int id)
+        public ActionResult Publish(int id, string redirectUrl = null)
         {
             Command.Execute(new PublishFaqItemCommand
             {
                 Id = id
             });
 
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqItem");
         }
 
-        public ActionResult Unpublish(int id)
+        public ActionResult Unpublish(int id, string redirectUrl = null)
         {
             Command.Execute(new UnpublishFaqItemCommand
             {
                 Id = id
             });
 
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqItem");
         }
 
-        public ActionResult DisplayOnMainScreen(int id)
+        public ActionResult DisplayOnMainScreen(int id, string redirectUrl = null)
         {
             Command.Execute(new DisplayOnMainScreenFaqItemCommand
             {
                 Id = id
             });
 
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqItem");
         }
 
-        public ActionResult HideOnMainScreen(int id)
+        public ActionResult HideOnMainScreen(int id, string redirectUrl = null)
         {
             Command.Execute(new HideOnMainScreenFaqItemCommand
             {
                 Id = id
             });
 
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqItem");
         }
 
         protected List<SelectListItem> GetFaqCategoriesList(int? categoryId = null)
@@ -205,6 +221,22 @@ namespace Adikov.Controllers
         {
             FindFaqRequestByIdQueryResult request = Query.For<FindFaqRequestByIdQueryResult>().ById(requestId);
             return request.RequestDetail;
+        }
+
+        protected FaqItemDetailsViewModel ToViewModel(FaqItem item)
+        {
+            return new FaqItemDetailsViewModel
+            {
+                Id = item.Id,
+                Title = item.Title,
+                ShortContent = item.ShortContent,
+                HtmlContent = item.HtmlContent,
+                IsDeleted = item.IsDeleted,
+                IsPublished = item.IsPublished,
+                IsDysplayOnMainScreen = item.IsDysplayOnMainScreen,
+                IsHtmlContentDisplay = item.IsHtmlContentDisplay,
+                FaqCategory = item.FaqCategory
+            };
         }
     }
 }

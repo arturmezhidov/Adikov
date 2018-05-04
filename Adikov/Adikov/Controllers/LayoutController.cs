@@ -92,5 +92,15 @@ namespace Adikov.Controllers
 
             return context;
         }
+
+        protected virtual ActionResult Redirect(string redirectUrl, string defaultUrl)
+        {
+            if (String.IsNullOrEmpty(redirectUrl))
+            {
+                return Redirect(defaultUrl);
+            }
+
+            return Redirect(redirectUrl);
+        }
     }
 }

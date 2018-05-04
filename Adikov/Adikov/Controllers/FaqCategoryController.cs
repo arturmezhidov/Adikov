@@ -61,14 +61,14 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string redirectUrl = null)
         {
             Command.Execute(new DeleteFaqCategoryCommand
             {
                 Id = id
             });
 
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqCategory");
         }
 
         public ActionResult Clear()
@@ -78,44 +78,34 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Recovery(int id, bool? isAnswersPage = false)
+        public ActionResult Recovery(int id, string redirectUrl = null)
         {
             Command.Execute(new RecoveryFaqCategoryCommand
             {
                 Id = id
             });
 
-            if (isAnswersPage.HasValue && isAnswersPage.Value)
-            {
-                return RedirectToAction("Index", "FaqItem");
-            }
-
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqCategory");
         }
 
-        public ActionResult Publish(int id, bool? isAnswersPage = false)
+        public ActionResult Publish(int id, string redirectUrl = null)
         {
             Command.Execute(new PublishFaqCategoryCommand
             {
                 Id = id
             });
 
-            if (isAnswersPage.HasValue && isAnswersPage.Value)
-            {
-                return RedirectToAction("Index", "FaqItem");
-            }
-
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqCategory");
         }
 
-        public ActionResult Unpublish(int id)
+        public ActionResult Unpublish(int id, string redirectUrl = null)
         {
             Command.Execute(new UnpublishFaqCategoryCommand
             {
                 Id = id
             });
 
-            return RedirectToAction("Index");
+            return Redirect(redirectUrl, "/FaqCategory");
         }
     }
 }

@@ -246,6 +246,7 @@
     <Compile Include="ViewModels\FaqCategories\IndexViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\EditFaqItemViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\AddFaqItemViewModel.cs" />
+    <Compile Include="ViewModels\FaqItems\FaqItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\IndexViewModel.cs" />
     <Compile Include="ViewModels\Faq\RequestsViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
@@ -5846,6 +5847,7 @@
     <Content Include="Views\FaqItem\_FaqItemEmptyPortlet.cshtml" />
     <Content Include="Views\FaqItem\_FaqItemList.cshtml" />
     <Content Include="Views\FaqItem\_DeletedFaqItemList.cshtml" />
+    <Content Include="Views\FaqItem\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

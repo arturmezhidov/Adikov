@@ -17,13 +17,13 @@
         <div class="actions">
             @if (Model.IsDeleted)
             {
-                <a href="@Url.Action("Recovery", "FaqCategory", new { id = Model.Id, isAnswersPage = true })" class="btn btn-circle red-sunglo ">
+                <a href="@Url.Action("Recovery", "FaqCategory", new { id = Model.Id, redirectUrl = "/FaqItem" })" class="btn btn-circle red-sunglo ">
                     <i class="icon-share-alt"></i> Восстановить
                 </a>
             }
             @if (!Model.IsPublish)
             {
-                <a href="@Url.Action("Publish", "FaqCategory", new { id = Model.Id, isAnswersPage = true })" class="btn btn-circle red-sunglo ">
+                <a href="@Url.Action("Publish", "FaqCategory", new { id = Model.Id, redirectUrl = "/FaqItem" })" class="btn btn-circle red-sunglo ">
                     <i class="icon-eye"></i> Опубликовать
                 </a>
             }

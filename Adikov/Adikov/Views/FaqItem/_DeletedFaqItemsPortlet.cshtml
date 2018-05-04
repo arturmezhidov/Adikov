@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Adikov.Domain.Models.FaqItem>
     
 <div class="portlet light">
-    <div class="portlet-title">
+    @*<div class="portlet-title">
         <div class="caption">
             <i class="icon-trash font-red-sunglo"></i>
             <span class="caption-subject font-red-sunglo bold uppercase"> Удаленные ответы </span>
@@ -14,7 +14,7 @@
                 </a>
             </div>
         }
-    </div>
+    </div>*@
     <div class="portlet-body">
         @if (Model.Any())
         {

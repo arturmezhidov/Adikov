@@ -13,14 +13,14 @@
             {
                 <li class="mt-list-item">
                     <div class="list-icon-container">
-                        <a href="javascript:;">
+                        <a href="@Url.Action("Details", new { id = item.Id })">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </div>
                     <div class="list-datetime bold uppercase font-green"> @item.FaqCategory.Name </div>
                     <div class="list-item-content">
                         <h3 class="uppercase">
-                            <a href="javascript:;">@(item.Title.Length > 40 ? item.Title.Substring(0, 40) + "..." : item.Title)</a>
+                            <a href="@Url.Action("Details", new { id = item.Id })">@(item.Title.Length > 40 ? item.Title.Substring(0, 40) + "..." : item.Title)</a>
                         </h3>
                         <p> @(item.ShortContent.Length > 200 ? item.ShortContent.Substring(0, 200) + "..." : item.ShortContent) </p>
                     </div>
