@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Policy;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Adikov.Domain.Models;
+using Adikov.Domain.Queries.Files;
 using Adikov.Infrastructura.Security;
 using Adikov.Platform.Extensions;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Adikov.Domain
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : BaseApplicationUser
     {
         public string FirstName { get; set; }
 
@@ -39,11 +36,20 @@ namespace Adikov.Domain
             userIdentity.AddClaim(ClaimsTypes.USER_LAST_NAME, LastName);
             userIdentity.AddClaim(ClaimsTypes.USER_PHONE_NUMBER, PhoneNumber);
             userIdentity.AddClaim(ClaimsTypes.USER_OCCUPATION, Occupation);
-            userIdentity.AddClaim(ClaimsTypes.USER_INTERESTS, Website);
+            userIdentity.AddClaim(ClaimsTypes.USER_INTERESTS, Interests);
             userIdentity.AddClaim(ClaimsTypes.USER_ABOUT, About);
             userIdentity.AddClaim(ClaimsTypes.USER_WEBSITE, Website);
 
-            if (Avatar != null) userIdentity.AddClaim(ClaimsTypes.USER_AVATAR, Avatar.PhysicalName);
+            if (AvatarId.HasValue)
+            {
+                FindUserAvatarQueryResult result = Query.For<FindUserAvatarQueryResult>().ById(Id);
+
+                if (result != null)
+                {
+                    Avatar = result.Avatar;
+                    userIdentity.AddClaim(ClaimsTypes.USER_AVATAR, result.ImageUrl);
+                }
+            }
 
             return userIdentity;
         }

@@ -1,0 +1,65 @@
+﻿@model Adikov.ViewModels.About.AboutMembersViewModel
+
+@{
+    ViewBag.Title = "Команда";
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-pencil font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Настройки команды </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @using (Html.BeginForm("Members", "About", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Введите текст заголовка" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Подзаголовок </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SubTitle, new { @class = "form-control", placeholder = "Введите текст подзаголовка" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Пользователь 1 </label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.Member1Id, Model.Members1, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Пользователь 2 </label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.Member2Id, Model.Members2, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Пользователь 3 </label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.Member3Id, Model.Members3, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Пользователь 4 </label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.Member4Id, Model.Members4, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="submit" class="btn green">Сохранить</button>
+                            <a class="btn default" href="@Url.Action("Index")">Отмена</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

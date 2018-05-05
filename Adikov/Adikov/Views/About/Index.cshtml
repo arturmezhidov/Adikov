@@ -1,0 +1,16 @@
+﻿@model Adikov.ViewModels.About.AboutIndexViewModel
+
+@{
+    ViewBag.Title = "О нас";
+}
+
+@Html.Partial("_Header", Model.Header)
+@Html.Partial("_ServicesSection", Model.Services)
+@Html.Partial("_AboutSection", Model.About)
+@Html.Partial("_MembersSection", Model.Members)
+@Html.Partial("_LinksSection", Model.Links)
+
+@section page_styles
+{
+    <link href="~/Content/assets/pages/css/about.min.css" rel="stylesheet" type="text/css">
+}

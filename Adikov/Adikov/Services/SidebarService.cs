@@ -105,19 +105,57 @@ namespace Adikov.Services
             return new List<SidebarGroup>
             {
                 GetFaqItem(),
-                new SidebarGroup
-                {
-                    Text = "Контакты",
-                    Icon = "icon-call-end",
-                    ViewLink = "/Contacts"
-                },
-                new SidebarGroup
-                {
-                    Text = "Об организации",
-                    Icon = "icon-info",
-                    ViewLink = "/About"
-                }
+                GetAboutItem()
             };
+        }
+
+        protected SidebarGroup GetAboutItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "Об организации",
+                Icon = "icon-info",
+                ViewLink = "/About"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/About"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Баннер",
+                        ViewLink = "/About/Header"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Услуги",
+                        ViewLink = "/About/Services"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Об организации",
+                        ViewLink = "/About/AboutCompany"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Команда",
+                        ViewLink = "/About/Members"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Ссылки",
+                        ViewLink = "/About/Links"
+                    }
+                };
+            }
+
+            return item;
         }
 
         protected SidebarGroup GetFaqItem()
