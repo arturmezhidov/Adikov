@@ -62,16 +62,18 @@
     }
 
     var faqItemPageInit = function () {
-        $('.wysihtml5').wysihtml5({
-            "stylesheets": ["/Content/assets/global/plugins/bootstrap-wysihtml5/wysiwyg-color.css"]
-        });
-        $('#switch-long-answer').change(function() {
-            if (this.checked) {
-                $('#html-content-group').slideDown();
-            } else {
-                $('#html-content-group').slideUp();
-            }
-        });
+        if ($.fn.wysihtml5) {
+            $('.wysihtml5').wysihtml5({
+                "stylesheets": ["/Content/assets/global/plugins/bootstrap-wysihtml5/wysiwyg-color.css"]
+            });
+            $('#switch-long-answer').change(function () {
+                if (this.checked) {
+                    $('#html-content-group').slideDown();
+                } else {
+                    $('#html-content-group').slideUp();
+                }
+            });
+        }
 
         var form = $('#faq-item-form');
 
@@ -144,10 +146,85 @@
         });
     }
 
+    var faqSearch = function () {
+        var $search = $('#faq-search');
+
+        if (!$search.length) {
+            return;
+        }
+
+        var sections = getSections();
+        var $input = $search.find('input');
+        var timeoutId = null;
+
+        $input.on('keyup', function () {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            timeoutId = setTimeout(function () {
+                var text = $input.val();
+                search(sections, text);
+            }, 500);
+        });
+
+        function getSections() {
+            return $('.faq-content-container .faq-section').map(function () {
+                var $section = $(this);
+                var items = $section.find('.panel').map(function () {
+                    var $item = $(this);
+                    return {
+                        $item: $item,
+                        title: $item.find('.panel-title').text().trim().toLowerCase(),
+                        content: $item.find('.panel-body').text().trim().toLowerCase(),
+                        hide: function () {
+                            $item.hide();
+                        },
+                        show: function () {
+                            $item.show();
+                        }
+                    }
+                });
+                return {
+                    $section: $section,
+                    items: items,
+                    hide: function () {
+                        $section.hide();
+                    },
+                    show: function () {
+                        $section.show();
+                    }
+                }
+            });
+        }
+
+        function search(sections, text) {
+            text = text
+                ? text.toLowerCase()
+                : "";
+            sections.each(function () {
+                var isFound = false;
+                this.items.each(function () {
+                    if ((this.title && this.title.indexOf(text) >= 0) || (this.content && this.content.indexOf(text) >= 0)) {
+                        this.show();
+                        isFound = true;
+                    } else {
+                        this.hide();
+                    }
+                });
+                if (isFound) {
+                    this.show();
+                } else {
+                    this.hide();
+                }
+            });
+        }
+    }
+
     return {
         init: function () {
             handleFaqCategoryFormValidation();
             faqItemPageInit();
+            faqSearch();
         }
     };
 
