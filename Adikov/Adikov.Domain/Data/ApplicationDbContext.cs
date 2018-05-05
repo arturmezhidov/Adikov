@@ -23,6 +23,12 @@ namespace Adikov.Domain.Data
 
         public DbSet<File> Files { get; set; }
 
+        public DbSet<FaqCategory> FaqCategories { get; set; }
+
+        public DbSet<FaqItem> FaqItems { get; set; }
+
+        public DbSet<FaqRequest> FaqRequests { get; set; }
+
         public DbSet<Setting> Settings { get; set; }
 
         public ApplicationDbContext() : base(PlatformConfiguration.ConnectionString, throwIfV1Schema: false)

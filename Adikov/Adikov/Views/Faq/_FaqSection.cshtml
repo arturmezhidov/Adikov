@@ -1,0 +1,30 @@
+﻿@model Adikov.ViewModels.Faq.FaqCategoryViewModel
+
+<div class="faq-section ">
+    <h2 class="faq-title uppercase font-blue"> @Model.Name </h2>
+    <div class="panel-group accordion faq-content" id="accordion-@Model.Id">
+        @foreach (var item in Model.Items)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i class="fa fa-circle"></i>
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-@Model.Id" href="#collapse_@item.Id"> @item.Title </a>
+                    </h4>
+                </div>
+                <div id="collapse_@item.Id" class="panel-collapse collapse">
+                    @if (item.IsHtmlContentDisplay)
+                    {
+                        <div class="panel-body">
+                            @Html.Raw(item.HtmlContent)
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="panel-body" style="white-space: pre-wrap;">@item.ShortContent</div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

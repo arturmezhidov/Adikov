@@ -104,19 +104,8 @@ namespace Adikov.Services
         {
             return new List<SidebarGroup>
             {
-                new SidebarGroup
-                {
-                    Text = "Контакты",
-                    Icon = "icon-call-end",
-                    ViewLink = "/Contacts"
-                },
-                GetAboutItem(),
-                new SidebarGroup
-                {
-                    Text = "Услуги",
-                    Icon = "icon-calculator",
-                    ViewLink = "/Services"
-                }
+                GetFaqItem(),
+                GetAboutItem()
             };
         }
 
@@ -162,6 +151,47 @@ namespace Adikov.Services
                     {
                         Text = "Ссылки",
                         ViewLink = "/About/Links"
+                    }
+                };
+            }
+
+            return item;
+        }
+
+        protected SidebarGroup GetFaqItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "FAQ",
+                Icon = "icon-question",
+                ViewLink = "/Faq"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.ViewLink = null;
+
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/Faq"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Категории",
+                        ViewLink = "/FaqCategory"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Ответы",
+                        ViewLink = "/FaqItem"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Запросы",
+                        ViewLink = "/FaqRequest"
                     }
                 };
             }
