@@ -258,7 +258,10 @@
     <Compile Include="ViewModels\FaqItems\AddFaqItemViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\FaqItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\IndexViewModel.cs" />
-    <Compile Include="ViewModels\Faq\RequestsViewModel.cs" />
+    <Compile Include="ViewModels\FaqRequests\RequestsViewModel.cs" />
+    <Compile Include="ViewModels\Faq\FaqCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Faq\FaqItemViewModel.cs" />
+    <Compile Include="ViewModels\Faq\IndexViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormViewModel.cs" />
     <Compile Include="ViewModels\ProductInfo\ProductInfoIndexViewModel.cs" />

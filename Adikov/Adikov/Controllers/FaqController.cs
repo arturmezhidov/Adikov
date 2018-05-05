@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Adikov.Domain.Models;
-using Adikov.Infrastructura.Criterion;
+using Adikov.Services;
 using Adikov.ViewModels.Faq;
+using Adikov.Domain.Queries.Faq;
 
 namespace Adikov.Controllers
 {
@@ -13,12 +11,27 @@ namespace Adikov.Controllers
     {
         public ActionResult Index()
         {
-            //Command.Execute(new FaqRequestCommand
-            //{
-            //    Question = DateTime.Now + "Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. "
-            //});
+            GetFaqQueryResult result = Query.For<GetFaqQueryResult>().Empty();
 
-            return View();
+            IndexViewModel vm = new IndexViewModel
+            {
+                Categories = result.Categories.Select(ToViewModel)
+            };
+
+            return View(vm);
+        }
+
+        protected FaqCategoryViewModel ToViewModel(FaqCategory category)
+        {
+            FaqCategoryViewModel vm = Mapper.Map<FaqCategoryViewModel>(category);
+            vm.Items = category.FaqItems.Select(ToViewModel);
+            return vm;
+        }
+
+        protected FaqItemViewModel ToViewModel(FaqItem item)
+        {
+            FaqItemViewModel vm = Mapper.Map<FaqItemViewModel>(item);
+            return vm;
         }
     }
 }

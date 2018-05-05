@@ -2,76 +2,82 @@
 
 <table class="table table-bordered table-striped">
     <thead>
-    <tr>
-        <th> Название </th>
-        <th> Статус </th>
-        <th> Элементы </th>
-        <th width="50"> Действие </th>
-    </tr>
+        <tr>
+            <th> Название </th>
+            <th> Статус </th>
+            <th> Ответы </th>
+            <th width="50"> Действие </th>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td> @item.Name </td>
-            <td> 
-                @if (item.IsPublished)
-                {
-                    <span class="label label-sm label-success"> Опубликован </span>
-                }
-                else
-                {
-                    <span class="label label-sm label-warning"> Не опубликован </span>
-                }
-            </td>
-            <td>
-                @if (item.ItemsCount == 0)
-                {
-                    <span class="badge badge-default"> @item.ItemsCount </span>
-                }
-                else
-                {
-                    <span class="badge badge-info"> @item.ItemsCount </span>
-                }
-            </td>
-            <td>
-                <div class="btn-group">
-                    <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                        Действия
-                        <i class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        @if (item.IsPublished)
-                        {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @item.Name </td>
+                <td>
+                    @if (item.IsPublished)
+                    {
+                        <span class="label label-sm label-success"> Опубликован </span>
+                    }
+                    else
+                    {
+                        <span class="label label-sm label-warning"> Не опубликован </span>
+                    }
+                </td>
+                <td>
+                    @if (item.ItemsCount == 0)
+                    {
+                        <span class="badge badge-default"> @item.ItemsCount </span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-info"> @item.ItemsCount </span>
+                    }
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            Действия
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="@Url.Action("Unpublish", new { id = item.Id })">
-                                    <i class="icon-eye"></i> Снять с публикации
+                                <a href="@Url.Action("Add", "FaqItem", new { categoryId = item.Id})">
+                                    <i class="icon-plus"></i> Добавить ответ
                                 </a>
                             </li>
-                        }
-                        else
-                        {
+                            <li class="divider"> </li>
+                            @if (item.IsPublished)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Unpublish", new { id = item.Id })">
+                                        <i class="icon-eye"></i> Снять с публикации
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@Url.Action("Publish", new { id = item.Id })">
+                                        <i class="icon-eye"></i> Опубликовать
+                                    </a>
+                                </li>
+                            }
+                            <li class="divider"> </li>
                             <li>
-                                <a href="@Url.Action("Publish", new { id = item.Id })">
-                                    <i class="icon-eye"></i> Опубликовать
+                                <a href="@Url.Action("Index", new { id = item.Id })">
+                                    <i class="icon-pencil"></i> Редактировать
                                 </a>
                             </li>
-                        }
-                        <li class="divider"> </li>
-                        <li>
-                            <a href="@Url.Action("Index", new { id = item.Id })">
-                                <i class="icon-pencil"></i> Редактировать
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Delete", new { id = item.Id })">
-                                <i class="icon-trash"></i> Удалить
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </td>
-        </tr>
-    }
+                            <li>
+                                <a href="@Url.Action("Delete", new { id = item.Id })">
+                                    <i class="icon-trash"></i> Удалить
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

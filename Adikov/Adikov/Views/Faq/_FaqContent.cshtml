@@ -1,8 +1,32 @@
-﻿<div class="faq-content-container">
+﻿@model IEnumerable<Adikov.ViewModels.Faq.FaqCategoryViewModel>
+
+@{
+    var items = Model.ToList();
+}
+
+<div class="faq-content-container">
     <div class="row">
         <div class="col-md-6">
-            @Html.Partial("_FaqSection")
+            @for (int i = 0; i <= items.Count; i += 2)
+            {
+                var item = items.ElementAtOrDefault(i);
+
+                if (item != null)
+                {
+                    @Html.Partial("_FaqSection", item)
+                }
+            }
         </div>
-        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            @for (int i = 1; i <= items.Count; i += 2)
+            {
+                var item = items.ElementAtOrDefault(i);
+
+                if (item != null)
+                {
+                    @Html.Partial("_FaqSection", item)
+                }
+            }
+        </div>
     </div>
 </div>

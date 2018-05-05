@@ -2,7 +2,7 @@
 using Adikov.Domain.Commands.FaqRequests;
 using Adikov.Domain.Queries.FaqRequests;
 using Adikov.Infrastructura.Criterion;
-using Adikov.ViewModels.Faq;
+using Adikov.ViewModels.FaqRequests;
 
 namespace Adikov.Controllers
 {

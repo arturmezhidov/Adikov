@@ -1,11 +1,12 @@
-﻿
+﻿@model Adikov.ViewModels.Faq.IndexViewModel
+
 @{
     ViewBag.Title = "FAQ";
 }
 
 <div class="faq-page faq-content-1">
     @Html.Partial("_FaqSearch")
-    @Html.Partial("_FaqContent")
+    @Html.Partial("_FaqContent", Model.Categories)
 </div>
 
 @section page_styles

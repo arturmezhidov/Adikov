@@ -5,22 +5,12 @@
         <div class="caption">
             <i class="icon-list font-red-sunglo"></i>
             <span class="caption-subject font-red-sunglo bold uppercase"> @Model.Title </span>
-            @if (Model.IsDeleted)
-            {
-                <span class="label label-sm label-danger"> Удален </span>
-            }
             @if (!Model.IsPublish)
             {
                 <span class="label label-sm label-warning"> Не опубликован </span>
             }
         </div>
         <div class="actions">
-            @if (Model.IsDeleted)
-            {
-                <a href="@Url.Action("Recovery", "FaqCategory", new { id = Model.Id, redirectUrl = "/FaqItem" })" class="btn btn-circle red-sunglo ">
-                    <i class="icon-share-alt"></i> Восстановить
-                </a>
-            }
             @if (!Model.IsPublish)
             {
                 <a href="@Url.Action("Publish", "FaqCategory", new { id = Model.Id, redirectUrl = "/FaqItem" })" class="btn btn-circle red-sunglo ">
@@ -33,6 +23,14 @@
         </div>
     </div>
     <div class="portlet-body">
-        @Html.Partial("_FaqItemList", Model.Items)
+        @if (Model.Items.Any())
+        {
+            @Html.Partial("_FaqItemList", Model.Items)
+        }
+        else
+        {
+            <h3 style="text-align: center;">Нет записей</h3>
+            <br />
+        }
     </div>
 </div>

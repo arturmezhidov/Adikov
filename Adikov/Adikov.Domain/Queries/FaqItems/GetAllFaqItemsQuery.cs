@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using Adikov.Domain.Models;
 using Adikov.Infrastructura.Criterion;
 
@@ -12,8 +13,6 @@ namespace Adikov.Domain.Queries.FaqItems
         public string Title { get; set; }
 
         public bool IsPublish { get; set; }
-
-        public bool IsDeleted { get; set; }
 
         public IEnumerable<FaqItem> Items { get; set; }
     }
@@ -29,7 +28,11 @@ namespace Adikov.Domain.Queries.FaqItems
     {
         protected override GetAllFaqItemsQueryResult OnExecuting(EmptyCriterion criterion)
         {
-            var items = DataContext.FaqItems.GroupBy(i => i.FaqCategory).ToList();
+            var categories = DataContext
+                .FaqCategories
+                .Include(i => i.FaqItems)
+                .Where(i => !i.IsDeleted)
+                .ToList();
 
             GetAllFaqItemsQueryResult result = new GetAllFaqItemsQueryResult
             {
@@ -37,29 +40,27 @@ namespace Adikov.Domain.Queries.FaqItems
                 DeletedItems = new List<FaqItem>()
             };
 
-            items.ForEach(group =>
+            categories.ForEach(category =>
             {
-                if (group.Any())
+                if(category.FaqItems == null)
                 {
-                    var activeItems = group.Where(i => !i.IsDeleted).ToList();
-                    var deletedItems = group.Where(i => i.IsDeleted).ToList();
+                    category.FaqItems = new List<FaqItem>();
+                }
 
-                    if (activeItems.Any())
-                    {
-                        result.ActiveItems.Add(new FaqItemCategory
-                        {
-                            Id = group.Key.Id,
-                            Title = group.Key.Name,
-                            IsPublish = group.Key.IsPublished,
-                            IsDeleted = group.Key.IsDeleted,
-                            Items = activeItems
-                        });
-                    }
+                var activeItems = category.FaqItems.Where(i => !i.IsDeleted).ToList();
+                var deletedItems = category.FaqItems.Where(i => i.IsDeleted).ToList();
 
-                    if (deletedItems.Any())
-                    {
-                        result.DeletedItems.AddRange(deletedItems);
-                    }
+                result.ActiveItems.Add(new FaqItemCategory
+                {
+                    Id = category.Id,
+                    Title = category.Name,
+                    IsPublish = category.IsPublished,
+                    Items = activeItems
+                });
+
+                if (deletedItems.Any())
+                {
+                    result.DeletedItems.AddRange(deletedItems);
                 }
             });
 
