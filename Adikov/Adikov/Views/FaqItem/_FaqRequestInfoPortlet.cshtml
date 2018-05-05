@@ -1,0 +1,47 @@
+﻿@using Adikov.Domain.Models
+@model Adikov.Domain.Queries.FaqRequests.FaqRequestDetail
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-question font-blue"></i>
+            <span class="caption-subject bold font-blue uppercase"> Запрос </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="@Model.AvatarLink" style="width: 41px;">
+            </div>
+            <div class="col-md-10">
+                <span class="text-success bold">@(Model.CreatedBy ?? "Неизвестный автор")</span>
+                <p>@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</p>
+            </div>
+        </div>
+        <div class="note note-info">
+            <h4 class="block text-info"><i class="fa fa-quote-right text-info"></i> Текст запроса</h4>
+            <p class="bold font-grey-mint"> @Model.Question </p>
+        </div>
+        <div>
+            @switch (Model.Status)
+            {
+                case FaqRequestStatus.Confirmed:
+                {
+                    <span class="label label-success">Подтверждено</span>
+                    break;
+                }
+                case FaqRequestStatus.Declined:
+                {
+                    <span class="label label-danger">Отклонено</span>
+                    break;
+                }
+                case FaqRequestStatus.Open:
+                {
+                    <span class="label label-warning">В ожидании</span>
+                    break;
+                }
+            }
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

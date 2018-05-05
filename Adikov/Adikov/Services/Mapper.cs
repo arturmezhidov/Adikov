@@ -25,12 +25,12 @@ namespace Adikov.Services
                     continue;
                 }
 
-                string value = sourceProperty.GetValue(source)?.ToString();
+                object value = sourceProperty.GetValue(source);
 
-                if(receiverProperty.PropertyType == typeof(bool))
+                if (receiverProperty.PropertyType == typeof(bool))
                 {
                     bool bValue;
-                    bool.TryParse(value, out bValue);
+                    bool.TryParse(value?.ToString(), out bValue);
                     receiverProperty.SetValue(receiver, bValue);
                 }
                 else

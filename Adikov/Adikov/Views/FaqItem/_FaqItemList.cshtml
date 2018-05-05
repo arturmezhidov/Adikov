@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Adikov.Domain.Models.FaqItem>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th> Заголовок </th>
+            <th> Опубликован </th>
+            <th> Главный экран </th>
+            <th> Html контент </th>
+            <th width="50"> Действие </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @Html.ActionLink(item.Title, "Details", new { id = item.Id }) </td>
+                <td>
+                    @if (item.IsPublished)
+                    {
+                        <span class="label label-sm label-success"> Опубликован </span>
+                    }
+                    else
+                    {
+                        <span class="label label-sm label-warning"> Не опубликован </span>
+                    }
+                </td>
+                <td>
+                    @if (item.IsDysplayOnMainScreen)
+                    {
+                        <span class="label label-sm label-success"> Отображается </span>
+                    }
+                    else
+                    {
+                        <span class="label label-sm label-default"> Не отображается </span>
+                    }
+                </td>
+                <td>
+                    @if (item.IsHtmlContentDisplay)
+                    {
+                        <span class="label label-sm label-info"> Html контент </span>
+                    }
+                    else
+                    {
+                        <span class="label label-sm label-success"> Текстовый контент </span>
+                    }
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            Действия
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="@Url.Action("Details", new {id = item.Id})">
+                                    <i class="icon-list"></i> Детали
+                                </a>
+                            </li>
+                            <li class="divider"> </li>
+                            @if (item.IsPublished)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Unpublish", new {id = item.Id})">
+                                        <i class="icon-eye"></i> Снять с публикации
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@Url.Action("Publish", new {id = item.Id})">
+                                        <i class="icon-eye"></i> Опубликовать
+                                    </a>
+                                </li>
+                            }
+                            @if (item.IsDysplayOnMainScreen)
+                            {
+                                <li>
+                                    <a href="@Url.Action("HideOnMainScreen", new {id = item.Id})">
+                                        <i class="fa fa-television"></i> Убрать с главной страницы
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@Url.Action("DisplayOnMainScreen", new {id = item.Id})">
+                                        <i class="fa fa-television"></i> Отобразить на главной странице
+                                    </a>
+                                </li>
+                            }
+                            <li class="divider"> </li>
+                            <li>
+                                <a href="@Url.Action("Edit", new {id = item.Id})">
+                                    <i class="icon-pencil"></i> Редактировать
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Delete", new {id = item.Id})">
+                                    <i class="icon-trash"></i> Удалить
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Routing;
 using Adikov.Domain.Queries.Categories;
 using Adikov.Infrastructura.Criterion;
 using Adikov.Infrastructura.Queries;
@@ -104,14 +103,9 @@ namespace Adikov.Services
         {
             return new List<SidebarGroup>
             {
+                GetFaqItem(),
                 GetContactsItem(),
-                GetAboutItem(),
-                new SidebarGroup
-                {
-                    Text = "Услуги",
-                    Icon = "icon-calculator",
-                    ViewLink = "/Services"
-                }
+                GetAboutItem()
             };
         }
 
@@ -201,6 +195,47 @@ namespace Adikov.Services
                     {
                         Text = "Ссылки",
                         ViewLink = "/About/Links"
+                    }
+                };
+            }
+
+            return item;
+        }
+
+        protected SidebarGroup GetFaqItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "FAQ",
+                Icon = "icon-question",
+                ViewLink = "/Faq"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.ViewLink = null;
+
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/Faq"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Категории",
+                        ViewLink = "/FaqCategory"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Ответы",
+                        ViewLink = "/FaqItem"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Запросы",
+                        ViewLink = "/FaqRequest"
                     }
                 };
             }

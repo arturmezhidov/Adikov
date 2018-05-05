@@ -1,0 +1,24 @@
+﻿@model Adikov.ViewModels.FaqCategories.CategoryViewModel
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Добавление новой категории </span>
+        </div>
+        <div class="actions">
+            <a href="@Url.Action("Index", "FaqItem")" class="btn btn-circle red-sunglo ">
+                <i class="icon-list"></i> Ответы
+            </a>
+            <a href="@Url.Action("Index", "FaqRequest")" class="btn btn-circle red-sunglo ">
+                <i class="icon-question"></i> Запросы
+            </a>
+            <a href="@Url.Action("Index", "Faq")" class="btn btn-circle red-sunglo ">
+                <i class="icon-home"></i> Домой
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_AddFaqCategoryForm", Model)
+    </div>
+</div>

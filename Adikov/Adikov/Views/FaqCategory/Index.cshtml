@@ -1,0 +1,29 @@
+﻿@using Adikov.ViewModels.FaqCategories
+@model IndexViewModel
+
+@{
+    ViewBag.Title = "Категории FAQ";
+}
+
+<div class="row">
+    <div class="col-lg-8">
+        @if (Model.EditingCategory == null)
+        {
+            @Html.Partial("_AddFaqCategoryPortlet", new CategoryViewModel())
+        }
+        else
+        {
+            @Html.Partial("_EditFaqCategoryPortlet", Model.EditingCategory)
+        }
+        @Html.Partial("_FaqCategoryListPortlet", Model.Categories)
+    </div>
+    <div class="col-lg-4">
+        @Html.Partial("_DeletedFaqCategoryPortlet", Model.DeletedCategories)
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/js/faq.js"></script>
+}

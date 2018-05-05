@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Adikov.Domain.Models.FaqItem>
+    
+<div class="portlet light">
+    @*<div class="portlet-title">
+        <div class="caption">
+            <i class="icon-trash font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Удаленные ответы </span>
+        </div>
+        @if (Model.Any())
+        {
+            <div class="actions">
+                <a href="@Url.Action("Clear", "FaqCategory")" class="btn btn-circle red-sunglo">
+                    <i class="icon-close"></i> Очистить
+                </a>
+            </div>
+        }
+    </div>*@
+    <div class="portlet-body">
+        @if (Model.Any())
+        {
+            @Html.Partial("_DeletedFaqItemList", Model)
+        }
+        else
+        {
+            <h3 style="text-align: center;">Нет записей</h3>
+            <br />
+        }
+    </div>
+</div>

@@ -8,9 +8,10 @@
 
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
+                @Html.Partial("_TopMenu")
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle" src="@Model.Avatar" />
+                        <img alt="" class="img-circle" src="@Model.Avatar"/>
                         <span class="username username-hide-on-mobile"> @(String.IsNullOrEmpty(Model.FirstName) ? Model.Email : Model.FirstName) </span>
                         <i class="fa fa-angle-down"></i>
                     </a>

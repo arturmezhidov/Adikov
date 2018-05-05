@@ -7,6 +7,8 @@ namespace Adikov.Infrastructura.Queries
     {
         TResponse With<TCriterion>(TCriterion criterion) where TCriterion : ICriterion;
 
+        TResponse Empty();
+
         TResponse ById(object id);
 
         IQueryable<TResponse> All();

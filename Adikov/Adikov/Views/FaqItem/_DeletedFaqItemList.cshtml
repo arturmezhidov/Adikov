@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Adikov.Domain.Models.FaqItem>
+    
+<div class="mt-element-list">
+    <div class="mt-list-head list-news font-white bg-blue">
+        <div class="list-head-title-container">
+            <span class="badge badge-primary pull-right">@Model.Count()</span>
+            <h3 class="list-title">Список всех удаленных ответов</h3>
+        </div>
+    </div>
+    <div class="mt-list-container list-news">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li class="mt-list-item">
+                    <div class="list-icon-container">
+                        <a href="@Url.Action("Details", new { id = item.Id })">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                    <div class="list-datetime bold uppercase font-green"> @item.FaqCategory.Name </div>
+                    <div class="list-item-content">
+                        <h3 class="uppercase">
+                            <a href="@Url.Action("Details", new { id = item.Id })">@(item.Title.Length > 40 ? item.Title.Substring(0, 40) + "..." : item.Title)</a>
+                        </h3>
+                        <p> @(item.ShortContent.Length > 200 ? item.ShortContent.Substring(0, 200) + "..." : item.ShortContent) </p>
+                    </div>
+                    @if (item.IsDeleted)
+                    {
+                        <a href="@Url.Action("Recovery", "FaqItem", new { id = item.Id })" class="btn btn-sm green">
+                            <i class="icon-share-alt"></i> Восстановить
+                        </a>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+</div>
