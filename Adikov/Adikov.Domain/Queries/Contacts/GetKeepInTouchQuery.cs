@@ -20,5 +20,10 @@ namespace Adikov.Domain.Queries.Contacts
 
             return result;
         }
+
+        public static ContactsKeepInTouch Execute()
+        {
+            return new GetKeepInTouchQuery().Execute(new EmptyCriterion()).KeepInTouch;
+        }
     }
 }

@@ -8,6 +8,6 @@
 
         public QuestionViewModel Question { get; set; }
 
-        public KeepInTouchViewModel GetKeepInTouch { get; set; }
+        public KeepInTouchViewModel KeepInTouch { get; set; }
     }
 }

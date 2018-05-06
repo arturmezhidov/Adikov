@@ -1,4 +1,6 @@
-﻿namespace Adikov.Platform.Configuration
+﻿using System.Configuration;
+
+namespace Adikov.Platform.Configuration
 {
     public static class PlatformConfiguration
     {
@@ -15,5 +17,25 @@
         public static readonly string DefaultAvatarPath = "/Content/img/avatar.jpg";
         public static readonly string DocumentsPath = UploadedFilesPath + "/Documents";
         public static readonly string DocumentsPathTemplate = DocumentsPath + "/{0}";
+
+        public static string SmtpServerName => GetString("SmtpServerName", "smtp.gmail.com");
+        public static int SmtpServerPort => GetInt("SmtpServerPort", 587);
+        public static string SmtpEmailAddress => GetString("SmtpEmailAddress", "adikov.noreply@gmail.com");
+        public static string SmtpEmailPassword => GetString("SmtpEmailPassword", "1q2w#E$R");
+
+        static string GetString(string key, string defaultValue = null)
+        {
+            string value = ConfigurationManager.AppSettings[key];
+            return value ?? defaultValue;
+        }
+        static int GetInt(string key, int defaultValue = 0)
+        {
+            string valueStr = GetString(key);
+            if(int.TryParse(valueStr, out int value))
+            {
+                return value;
+            }
+            return defaultValue;
+        }
     }
 }

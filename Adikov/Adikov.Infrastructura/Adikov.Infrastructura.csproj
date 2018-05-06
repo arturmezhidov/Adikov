@@ -90,6 +90,9 @@
     <Compile Include="Security\IUserContext.cs" />
     <Compile Include="Security\UserContext.cs" />
     <Compile Include="Security\UserRoles.cs" />
+    <Compile Include="Services\Email\EmailMessage.cs" />
+    <Compile Include="Services\Email\EmailService.cs" />
+    <Compile Include="Services\Email\IEmailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
