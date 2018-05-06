@@ -265,6 +265,7 @@
     <Compile Include="ViewModels\FaqItems\AddFaqItemViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\FaqItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\IndexViewModel.cs" />
+    <Compile Include="ViewModels\FaqRequests\AddFaqRequestViewModel.cs" />
     <Compile Include="ViewModels\FaqRequests\RequestsViewModel.cs" />
     <Compile Include="ViewModels\Faq\FaqCategoryViewModel.cs" />
     <Compile Include="ViewModels\Faq\FaqItemViewModel.cs" />

@@ -20,6 +20,41 @@ namespace Adikov.Controllers
             return View(vm);
         }
 
+        [HttpPost]
+        public ActionResult Add(AddFaqRequestViewModel vm)
+        {
+            if(vm == null || string.IsNullOrWhiteSpace(vm.Question))
+            {
+                return Json(new
+                {
+                    message = "Пожалуйста, введите вопрос!",
+                    success = false
+                });
+            }
+
+            try
+            {
+                Command.Execute(new FaqRequestCommand
+                {
+                    Question = vm.Question
+                });
+
+                return Json(new
+                {
+                    message = "Мы успешно получили Ваш вопрос!",
+                    success = true
+                });
+            }
+            catch
+            {
+                return Json(new
+                {
+                    message = "Произошла неизвестная ошибка!",
+                    success = false
+                });
+            }
+        }
+
         public ActionResult OpenRequest(int id)
         {
             Command.Execute(new OpenFaqRequestCommand
@@ -65,16 +100,6 @@ namespace Adikov.Controllers
             Command.Execute(new RemoveFaqRequestCommand
             {
                 Id = id
-            });
-
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult Add()
-        {
-            Command.Execute(new FaqRequestCommand
-            {
-                Question = "Creates an array of array values not included in the other given arrays using SameValueZero for equality comparisons. "
             });
 
             return RedirectToAction("Index");

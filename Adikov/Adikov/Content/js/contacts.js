@@ -161,10 +161,62 @@
         }
     }
 
+    function faqRequestInit() {
+
+        var $form = $('#faq-request-form');
+        if (!$form.length) {
+            return;
+        }
+
+        handleSubmit();
+
+        function handleSubmit() {
+            $form.on('submit', function (e) {
+                var data = getMessage();
+                if (data.Question) {
+                    sendMessage(data);
+                } else {
+                    swal("Ошибка!", "Пожалуйста, введите вопрос!", "warning")
+                }                
+                return false;
+            });
+        }
+
+        function getMessage() {
+            return {
+                Question: $form.find('[name=Question]').val()
+            }
+        }
+
+        function sendMessage(data) {
+            $.ajax({
+                type: "POST",
+                url: '/FaqRequest/Add',
+                data: data
+            })
+            .success(success)
+            .fail(fail);
+        }
+
+        function success(e) {
+            if (e.success) {
+                $form[0].reset();
+                swal("Спасибо за Ваш вопрос!", e.message, "success")
+            } else {
+                fail(e);
+            }
+        }
+
+        function fail(e) {
+            swal("Ошибка!", e.message, "error")
+        }
+    }
+
     return {
         init: function () {
             mapInit();
             keepInTouchInit();
+            faqRequestInit();
         }
     };
 
