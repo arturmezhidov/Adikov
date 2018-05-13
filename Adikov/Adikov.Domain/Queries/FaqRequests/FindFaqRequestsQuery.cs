@@ -97,6 +97,11 @@ namespace Adikov.Domain.Queries.FaqRequests
                 }
             }
 
+            if (String.IsNullOrEmpty(requestDetail.CreatedBy))
+            {
+                requestDetail.CreatedBy = "Неизвестный автор";
+            }
+
             return requestDetail;
         }
     }
