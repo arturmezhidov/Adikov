@@ -33,6 +33,9 @@
 
         function handleValidation() {
             $.validator.addMethod('phoneNumber', function (value) {
+                if (!value) {
+                    return true;
+                }
                 return /^(\+)?[\d\- ()]{7,19}$/g.test(value);
             }, 'Введите корректное значение.');
 
@@ -49,13 +52,13 @@
                         required: 'Поле обязательно для заполнения.'
                     },
                     Phone: {
-                        required: 'Поле обязательно для заполнения.',
                         minlength: 'Телефон не может быть короче 7 символов.',
                         maxlength: 'Телефон не может быть длинее 20 символов.',
                         phoneNumber: 'Введите корректный номер телефона'
                     },
                     Email: {
-                        email: 'Введите корректный адрес почты'
+                        email: 'Введите корректный адрес почты',
+                        required: 'Поле обязательно для заполнения.'
                     }
                 },
                 rules: {
@@ -66,10 +69,12 @@
                         required: true
                     },
                     Phone: {
-                        required: true,
                         minlength: 7,
                         maxlength: 20,
                         phoneNumber: true
+                    },
+                    Email: {
+                        required: true
                     }
                 },
 
