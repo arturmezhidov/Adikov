@@ -3,7 +3,7 @@ using Adikov.Domain.Models;
 using Adikov.Domain.Queries.Settings;
 using Adikov.Infrastructura.Criterion;
 
-namespace Adikov.Domain.Queries.Contacts
+namespace Adikov.Domain.Queries.Messages
 {
     public class GetMessageQueryResult
     {

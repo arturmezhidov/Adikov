@@ -4,7 +4,7 @@ using Adikov.Infrastructura.Criterion;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Adikov.Domain.Queries.Contacts
+namespace Adikov.Domain.Queries.Messages
 {
     public class GetMessagesQueryResult
     {
@@ -19,7 +19,7 @@ namespace Adikov.Domain.Queries.Contacts
     {
         protected override GetMessagesQueryResult OnExecuting(EmptyCriterion criterion)
         {
-            var messages = DataContext.Messages.ToList();
+            var messages = DataContext.Messages.OrderByDescending(i => i.CreatedAt).ToList();
 
             GetMessagesQueryResult result = new GetMessagesQueryResult
             {

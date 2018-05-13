@@ -227,6 +227,7 @@
     <Compile Include="Models\Menu\FaqRequest.cs" />
     <Compile Include="Models\Menu\IMenuContext.cs" />
     <Compile Include="Models\Menu\MenuContext.cs" />
+    <Compile Include="Models\Menu\Message.cs" />
     <Compile Include="Models\Sidebar\ISidebarContext.cs" />
     <Compile Include="Models\Sidebar\SidebarContext.cs" />
     <Compile Include="Models\Sidebar\SidebarGroup.cs" />
@@ -5901,6 +5902,7 @@
     <Content Include="Views\Message\_MessagesPortlet.cshtml" />
     <Content Include="Views\Message\_MessagesList.cshtml" />
     <Content Include="Views\Message\Details.cshtml" />
+    <Content Include="Views\Shared\_MessagesMenuItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

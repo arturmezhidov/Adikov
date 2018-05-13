@@ -4,4 +4,5 @@
     LayoutContext LayoutContext = this.ViewData["LayoutContext"] as LayoutContext ?? new LayoutContext();
 }
 
+@Html.Partial("_MessagesMenuItem", LayoutContext.Menu)
 @Html.Partial("_FaqRequestMenuItem", LayoutContext.Menu)

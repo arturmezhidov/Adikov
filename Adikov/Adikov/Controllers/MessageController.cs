@@ -1,12 +1,8 @@
 ﻿using Adikov.Domain.Commands.Messages;
-using Adikov.Domain.Models;
-using Adikov.Domain.Queries.Contacts;
+using Adikov.Domain.Queries.Messages;
 using Adikov.Services;
 using Adikov.ViewModels.Messages;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Adikov.Controllers
