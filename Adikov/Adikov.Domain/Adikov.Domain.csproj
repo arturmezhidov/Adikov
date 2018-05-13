@@ -68,6 +68,13 @@
     <Compile Include="Commands\Categories\SortUpCategoryCommand.cs" />
     <Compile Include="Commands\Columns\SortDownColumnCommand.cs" />
     <Compile Include="Commands\Columns\SortUpColumnCommand.cs" />
+    <Compile Include="Commands\Contacts\EditContactsDocumentsCommand.cs" />
+    <Compile Include="Commands\Contacts\EditContactsKeepInTouchCommand.cs" />
+    <Compile Include="Commands\Contacts\EditContactsQuestionCommand.cs" />
+    <Compile Include="Commands\Contacts\EditContactsMapCommand.cs" />
+    <Compile Include="Commands\Messages\ReadMessageCommand.cs" />
+    <Compile Include="Commands\Messages\DeleteMessageCommand.cs" />
+    <Compile Include="Commands\Messages\SendMessageCommand.cs" />
     <Compile Include="Commands\FaqCategories\ClearFaqCategoryCommand.cs" />
     <Compile Include="Commands\FaqCategories\DeleteFaqCategoryCommand.cs" />
     <Compile Include="Commands\FaqCategories\UnpublishFaqCategoryCommand.cs" />
@@ -134,6 +141,7 @@
     <Compile Include="Models\Column.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\FaqItem.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\ProductStatus.cs" />
     <Compile Include="Models\ColumnType.cs" />
     <Compile Include="Models\Row.cs" />
@@ -155,6 +163,13 @@
     <Compile Include="Queries\Columns\FindAllColumnQuery.cs" />
     <Compile Include="Queries\Columns\FindActiveColumnQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryQuery.cs" />
+    <Compile Include="Queries\Contacts\GetDocumentsQuery.cs" />
+    <Compile Include="Queries\Contacts\GetKeepInTouchQuery.cs" />
+    <Compile Include="Queries\Messages\GetMessageQuery.cs" />
+    <Compile Include="Queries\Messages\GetNewMessagesQuery.cs" />
+    <Compile Include="Queries\Messages\GetMessagesQuery.cs" />
+    <Compile Include="Queries\Contacts\GetQuestionQuery.cs" />
+    <Compile Include="Queries\Contacts\GetContactsMapQuery.cs" />
     <Compile Include="Queries\FaqCategories\FindFaqCategoriesDetailsQuery.cs" />
     <Compile Include="Queries\FaqCategories\FindFaqCategoryByIdQuery.cs" />
     <Compile Include="Queries\FaqCategories\FindFaqCategoriesQuery.cs" />

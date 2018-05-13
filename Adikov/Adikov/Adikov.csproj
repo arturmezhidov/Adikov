@@ -205,6 +205,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ColumnController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\FaqCategoryController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\FaqItemController.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductInfoController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -225,6 +227,7 @@
     <Compile Include="Models\Menu\FaqRequest.cs" />
     <Compile Include="Models\Menu\IMenuContext.cs" />
     <Compile Include="Models\Menu\MenuContext.cs" />
+    <Compile Include="Models\Menu\Message.cs" />
     <Compile Include="Models\Sidebar\ISidebarContext.cs" />
     <Compile Include="Models\Sidebar\SidebarContext.cs" />
     <Compile Include="Models\Sidebar\SidebarGroup.cs" />
@@ -252,12 +255,21 @@
     <Compile Include="ViewModels\Categories\CategoryIndexViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryAddViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Contacts\DocumentsViewModel.cs" />
+    <Compile Include="ViewModels\Contacts\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Messages\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\Messages\MessagesViewModel.cs" />
+    <Compile Include="ViewModels\Messages\MessageViewModel.cs" />
+    <Compile Include="ViewModels\Contacts\KeepInTouchViewModel.cs" />
+    <Compile Include="ViewModels\Contacts\MapViewModel.cs" />
+    <Compile Include="ViewModels\Contacts\QuestionViewModel.cs" />
     <Compile Include="ViewModels\FaqCategories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\FaqCategories\IndexViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\EditFaqItemViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\AddFaqItemViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\FaqItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\FaqItems\IndexViewModel.cs" />
+    <Compile Include="ViewModels\FaqRequests\AddFaqRequestViewModel.cs" />
     <Compile Include="ViewModels\FaqRequests\RequestsViewModel.cs" />
     <Compile Include="ViewModels\Faq\FaqCategoryViewModel.cs" />
     <Compile Include="ViewModels\Faq\FaqItemViewModel.cs" />
@@ -5309,6 +5321,7 @@
     <Content Include="Content\img\avatar.jpg" />
     <Content Include="Content\js\faq.js" />
     <Content Include="Content\js\about-page.js" />
+    <Content Include="Content\js\contacts.js" />
     <Content Include="Content\js\product-info.js" />
     <Content Include="Content\js\product-order.js" />
     <Content Include="Content\js\products.js" />
@@ -5873,6 +5886,23 @@
     <Content Include="Views\About\AboutCompany.cshtml" />
     <Content Include="Views\About\Members.cshtml" />
     <Content Include="Views\About\Links.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Contacts\Map.cshtml" />
+    <Content Include="Views\Contacts\Question.cshtml" />
+    <Content Include="Views\Contacts\KeepInTouch.cshtml" />
+    <Content Include="Views\Contacts\Documents.cshtml" />
+    <Content Include="Views\Contacts\_Question.cshtml" />
+    <Content Include="Views\Contacts\_Documents.cshtml" />
+    <Content Include="Views\Contacts\_Map.cshtml" />
+    <Content Include="Views\Contacts\_MessageSuccess.cshtml" />
+    <Content Include="Views\Contacts\_MessageFail.cshtml" />
+    <Content Include="Views\Contacts\_KeepInTouch.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <Content Include="Views\Message\_MessagesPortlet.cshtml" />
+    <Content Include="Views\Message\_MessagesList.cshtml" />
+    <Content Include="Views\Message\Details.cshtml" />
+    <Content Include="Views\Shared\_MessagesMenuItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

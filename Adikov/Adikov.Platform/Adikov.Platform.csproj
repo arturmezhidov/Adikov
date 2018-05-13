@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +53,10 @@
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\AboutServices.cs" />
+    <Compile Include="Settings\ContactsDocuments.cs" />
+    <Compile Include="Settings\ContactsKeepInTouch.cs" />
+    <Compile Include="Settings\ContactsMap.cs" />
+    <Compile Include="Settings\ContactsQuestion.cs" />
     <Compile Include="Settings\SettingsKeys.cs" />
   </ItemGroup>
   <ItemGroup />

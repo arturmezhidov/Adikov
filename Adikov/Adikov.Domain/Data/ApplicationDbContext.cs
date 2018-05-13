@@ -29,6 +29,8 @@ namespace Adikov.Domain.Data
 
         public DbSet<FaqRequest> FaqRequests { get; set; }
 
+        public DbSet<Message> Messages { get; set; }
+
         public DbSet<Setting> Settings { get; set; }
 
         public ApplicationDbContext() : base(PlatformConfiguration.ConnectionString, throwIfV1Schema: false)

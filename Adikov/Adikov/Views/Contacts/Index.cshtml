@@ -1,0 +1,36 @@
+﻿@model Adikov.ViewModels.Contacts.IndexViewModel
+
+@{
+    ViewBag.Title = "Контакты";
+}
+
+@Html.Partial("_Map", Model.Map)
+
+<div class="c-content-feedback-1 c-option-1">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("_Documents", Model.Documents)
+            @Html.Partial("_Question", Model.Question)
+        </div>
+        <div class="col-md-6">
+            @Html.Partial("_KeepInTouch", Model.KeepInTouch)
+        </div>
+    </div>
+</div>
+
+@section  plugin_styles {
+    <link href="~/Content/assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+}
+
+@section  page_styles {
+    <link href="~/Content/assets/pages/css/contact.min.css" rel="stylesheet" type="text/css">
+}
+
+@section scripts
+{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3TAfH2PO9Fp-HIgUQ37GFn5J9MYuFqVQ" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/gmaps/gmaps.min.js"></script>
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
+    <script src="~/Content/js/contacts.js"></script>
+}

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Routing;
 using Adikov.Domain.Queries.Categories;
 using Adikov.Infrastructura.Criterion;
 using Adikov.Infrastructura.Queries;
@@ -105,8 +104,58 @@ namespace Adikov.Services
             return new List<SidebarGroup>
             {
                 GetFaqItem(),
+                GetContactsItem(),
                 GetAboutItem()
             };
+        }
+
+        protected SidebarGroup GetContactsItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "Контакты",
+                Icon = "icon-call-end",
+                ViewLink = "/Contacts"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/Contacts"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Карта",
+                        ViewLink = "/Contacts/Map"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Документы",
+                        ViewLink = "/Contacts/Documents"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Вопросы",
+                        ViewLink = "/Contacts/Question"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Форма",
+                        ViewLink = "/Contacts/KeepInTouch"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Сообщения",
+                        ViewLink = "/Message"
+                    }
+                };
+            }
+
+            return item;
         }
 
         protected SidebarGroup GetAboutItem()

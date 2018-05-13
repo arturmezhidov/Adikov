@@ -7,5 +7,9 @@ namespace Adikov.Models.Menu
         List<FaqRequest> Requests { get; set; }
 
         int RequestsCount { get; }
+
+        List<Message> Messages { get; set; }
+
+        int MessagesCount { get; }
     }
 }

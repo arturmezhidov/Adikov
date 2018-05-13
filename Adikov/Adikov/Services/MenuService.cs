@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Adikov.Domain.Queries.FaqRequests;
-using Adikov.Infrastructura.Criterion;
+using Adikov.Domain.Queries.Messages;
 using Adikov.Infrastructura.Queries;
 using Adikov.Models.Menu;
 using FaqRequest = Adikov.Models.Menu.FaqRequest;
@@ -27,7 +27,8 @@ namespace Adikov.Services
         {
             IMenuContext context = new MenuContext
             {
-                Requests = GetFaqRequests().Select(ToFaqRequest).ToList()
+                Requests = GetFaqRequests().Select(ToFaqRequest).ToList(),
+                Messages = GetMessages().Select(ToMessage).ToList()
             };
 
             return context;
@@ -35,7 +36,12 @@ namespace Adikov.Services
 
         protected IEnumerable<FaqRequestDetail> GetFaqRequests()
         {
-            return Query.For<FindPendingFaqRequestsQueryResult>().With(new EmptyCriterion()).Requests;
+            return Query.For<FindPendingFaqRequestsQueryResult>().Empty().Requests;
+        }
+
+        protected IEnumerable<MessageDetails> GetMessages()
+        {
+            return Query.For<GetNewMessagesQueryResult>().Empty().Messages;
         }
 
         private FaqRequest ToFaqRequest(FaqRequestDetail request)
@@ -47,6 +53,18 @@ namespace Adikov.Services
                 CreatedBy = request.CreatedBy,
                 CreatedAt = request.CreatedAt,
                 AvatarLink = request.AvatarLink
+            };
+        }
+
+        private Message ToMessage(MessageDetails message)
+        {
+            return new Message
+            {
+                Id = message.Id,
+                Username = message.Username,
+                Content = message.Content,
+                CreatedAt = message.CreatedAt,
+                ImageUrl = message.ImageUrl
             };
         }
     }
