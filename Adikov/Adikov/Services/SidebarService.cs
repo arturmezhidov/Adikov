@@ -146,6 +146,11 @@ namespace Adikov.Services
                     {
                         Text = "Форма",
                         ViewLink = "/Contacts/KeepInTouch"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Сообщения",
+                        ViewLink = "/Message"
                     }
                 };
             }

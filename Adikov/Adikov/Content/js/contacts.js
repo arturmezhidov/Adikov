@@ -140,7 +140,7 @@
         function sendMessage(data) {
             $.ajax({
                 type: "POST",
-                url: '/Contacts/KeepInTouchMessage',
+                url: '/Message/KeepInTouchMessage',
                 data: data
             })
             .success(success)

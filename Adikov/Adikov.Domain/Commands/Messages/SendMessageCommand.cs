@@ -8,7 +8,7 @@ using Adikov.Infrastructura.Services.Email;
 using Adikov.Platform.Configuration;
 using Adikov.Platform.Settings;
 
-namespace Adikov.Domain.Commands.Contacts
+namespace Adikov.Domain.Commands.Messages
 {
     public class SendMessageCommand : CommandBase
     {
@@ -27,7 +27,7 @@ namespace Adikov.Domain.Commands.Contacts
 
         protected override void OnHandling(SendMessageCommand command, CommandResult result)
         {
-            var model = new Models.KeepInTouch
+            var model = new Models.Message
             {
                 Username = command.Username,
                 Email = command.Email,
@@ -86,7 +86,7 @@ namespace Adikov.Domain.Commands.Contacts
             model.IsSent = model.NotSentReason == null;
 
 
-            DataContext.KeepInTouchs.Add(model);
+            DataContext.Messages.Add(model);
         }
 
         protected string FormatContent(SendMessageCommand command)

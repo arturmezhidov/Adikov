@@ -114,44 +114,6 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult KeepInTouchMessage(KeepInTouchMessageViewModel vm)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return Json(new
-                    {
-                        message = ModelState.Values.FirstOrDefault()?.Errors?.FirstOrDefault()?.ErrorMessage ?? "Введите корректную информацию!",
-                        success = false
-                    });
-                }
-
-                Command.Execute(new SendMessageCommand
-                {
-                    Username = vm.Username,
-                    Email = vm.Email,
-                    Phone = vm.Phone,
-                    Content = vm.Content
-                });
-
-                return Json(new
-                {
-                    message = "Сообщение отправлено успешно!",
-                    success = true
-                });
-            }
-            catch
-            {
-                return Json(new
-                {
-                    message = "Произошла неизвестная ошибка!",
-                    success = false
-                });
-            }
-        }
-
         protected MapViewModel ToViewModel(ContactsMap model)
         {
             MapViewModel vm = Mapper.Map<MapViewModel>(model);

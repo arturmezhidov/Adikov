@@ -2,7 +2,7 @@
 
 namespace Adikov.Domain.Models
 {
-    public class KeepInTouch : BaseEntity
+    public class Message : BaseEntity
     {
         public string Username { get; set; }
 

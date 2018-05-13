@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Adikov.ViewModels.Contacts
+namespace Adikov.ViewModels.Messages
 {
-    public class KeepInTouchMessageViewModel
+    public class MessageViewModel
     {
         [Required(ErrorMessage = "Имя обязательна для заполнения.")]
         public string Username { get; set; }

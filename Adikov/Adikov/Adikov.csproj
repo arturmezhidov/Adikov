@@ -213,6 +213,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductInfoController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -255,7 +256,9 @@
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Contacts\DocumentsViewModel.cs" />
     <Compile Include="ViewModels\Contacts\IndexViewModel.cs" />
-    <Compile Include="ViewModels\Contacts\KeepInTouchMessageViewModel.cs" />
+    <Compile Include="ViewModels\Messages\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\Messages\MessagesViewModel.cs" />
+    <Compile Include="ViewModels\Messages\MessageViewModel.cs" />
     <Compile Include="ViewModels\Contacts\KeepInTouchViewModel.cs" />
     <Compile Include="ViewModels\Contacts\MapViewModel.cs" />
     <Compile Include="ViewModels\Contacts\QuestionViewModel.cs" />
@@ -5893,6 +5896,11 @@
     <Content Include="Views\Contacts\_MessageSuccess.cshtml" />
     <Content Include="Views\Contacts\_MessageFail.cshtml" />
     <Content Include="Views\Contacts\_KeepInTouch.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <Content Include="Views\Message\_MessagesPortlet.cshtml" />
+    <Content Include="Views\Message\_MessagesList.cshtml" />
+    <Content Include="Views\Message\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

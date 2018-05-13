@@ -1,0 +1,50 @@
+﻿@model Adikov.ViewModels.Messages.DetailsViewModel
+
+@{
+    ViewBag.Title = "Письмо";
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-envelope-open font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> @ViewBag.Title </span>
+        </div>
+        <div class="actions">
+            <a href="@Url.Action("Index")" class="btn btn-circle red-sunglo ">
+                <i class="icon-envelope-letter"></i> Входящие
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Row("Имя", Model.Message.Username)
+        @Row("Почта", Model.Message.Email)
+        @Row("Телефон", Model.Message.Phone)
+        @Row("Дата", Model.Message.CreatedAt.ToString())
+        @Row("Сообщение", Model.Message.Content)
+        @Row("Отправка на почту", Model.Message.IsSent ? "Да" : "Нет")
+        @if (Model.Message.IsSent)
+        {
+            @Row("Получили", Model.Message.SentEmails)
+        }
+        else
+        {
+            @Row("Почему не получили", Model.Message.NotSentReason)
+        }
+        @Row("Удален", Model.Message.IsDeleted ? "Да" : "Нет")
+    </div>
+</div>
+
+@helper Row(string label, string value)
+{
+    <br />
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <span class="bold pull-right">@label:</span>
+
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            @value
+        </div>
+    </div>
+}

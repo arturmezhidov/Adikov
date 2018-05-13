@@ -72,7 +72,9 @@
     <Compile Include="Commands\Contacts\EditContactsKeepInTouchCommand.cs" />
     <Compile Include="Commands\Contacts\EditContactsQuestionCommand.cs" />
     <Compile Include="Commands\Contacts\EditContactsMapCommand.cs" />
-    <Compile Include="Commands\Contacts\SendMessageCommand.cs" />
+    <Compile Include="Commands\Messages\ReadMessageCommand.cs" />
+    <Compile Include="Commands\Messages\DeleteMessageCommand.cs" />
+    <Compile Include="Commands\Messages\SendMessageCommand.cs" />
     <Compile Include="Commands\FaqCategories\ClearFaqCategoryCommand.cs" />
     <Compile Include="Commands\FaqCategories\DeleteFaqCategoryCommand.cs" />
     <Compile Include="Commands\FaqCategories\UnpublishFaqCategoryCommand.cs" />
@@ -139,7 +141,7 @@
     <Compile Include="Models\Column.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\FaqItem.cs" />
-    <Compile Include="Models\KeepInTouch.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\ProductStatus.cs" />
     <Compile Include="Models\ColumnType.cs" />
     <Compile Include="Models\Row.cs" />
@@ -163,6 +165,8 @@
     <Compile Include="Queries\Categories\FindAllCategoryQuery.cs" />
     <Compile Include="Queries\Contacts\GetDocumentsQuery.cs" />
     <Compile Include="Queries\Contacts\GetKeepInTouchQuery.cs" />
+    <Compile Include="Queries\Messages\GetMessageQuery.cs" />
+    <Compile Include="Queries\Messages\GetMessagesQuery.cs" />
     <Compile Include="Queries\Contacts\GetQuestionQuery.cs" />
     <Compile Include="Queries\Contacts\GetContactsMapQuery.cs" />
     <Compile Include="Queries\FaqCategories\FindFaqCategoriesDetailsQuery.cs" />
