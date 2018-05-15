@@ -1,0 +1,34 @@
+﻿@model Adikov.Domain.Queries.Blog.BlogView
+    
+<div class="blog-single-content bordered blog-container">
+    <div class="blog-single-head">
+        <h1 class="blog-single-head-title">@Model.Title</h1>
+    </div>
+    <div class="blog-single-img">
+        <img src="@Model.ImageUrl">
+    </div>
+    <div class="blog-single-desc">
+        @Html.Raw(Model.HtmlContent)
+    </div>
+    <br/>
+    <hr/>
+    <div class="pull-right">
+        <i class="icon-calendar font-blue"></i>
+        <a href="javascript:;">@Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")</a>
+    </div>
+    <br />
+    <br />
+    @*<div class="blog-single-foot">
+        <ul class="blog-post-tags">
+            <li class="uppercase">
+                <a href="javascript:;">Bootstrap</a>
+            </li>
+            <li class="uppercase">
+                <a href="javascript:;">Sass</a>
+            </li>
+            <li class="uppercase">
+                <a href="javascript:;">HTML</a>
+            </li>
+        </ul>
+    </div>*@
+</div>

@@ -1,0 +1,23 @@
+﻿@model Adikov.Domain.Queries.Blog.BlogView
+    
+<div class="blog-post-lg bordered blog-container">
+    <div class="blog-img-thumb">
+        <a href="@Url.Action("Details", new { id = Model.Id })">
+            <img src="@Model.ImageUrl">
+        </a>
+    </div>
+    <div class="blog-post-content">
+        <h2 class="blog-title blog-post-title">
+            <a href="@Url.Action("Details", new { id = Model.Id })">@Model.Title</a>
+        </h2>
+        <p class="blog-post-desc">
+            @Model.PreviewContent
+        </p>
+        <div class="blog-post-foot">
+            <div class="blog-post-meta">
+                <i class="icon-calendar font-blue"></i>
+                <a href="javascript:;">@Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")</a>
+            </div>
+        </div>
+    </div>
+</div>

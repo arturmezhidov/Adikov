@@ -25,5 +25,19 @@ namespace Adikov.Domain.Queries
 
             return String.Format(template ?? PlatformConfiguration.UploadedSettingsPathTemplate, UserContext.UserId, file.PhysicalName);
         }
+
+        protected virtual File GetFile(string id)
+        {
+            if (int.TryParse(id, out var fileId))
+            {
+                return GetFile(fileId);
+            }
+            return null;
+        }
+
+        protected virtual File GetFile(int id)
+        {
+            return DataContext.Files.Find(id);
+        }
     }
 }

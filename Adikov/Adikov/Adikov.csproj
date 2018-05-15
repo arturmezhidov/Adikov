@@ -203,6 +203,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ColumnController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
@@ -249,6 +250,11 @@
     <Compile Include="ViewModels\About\AboutIndexViewModel.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Blog\EditBlogViewModel.cs" />
+    <Compile Include="ViewModels\Blog\AddBlogViewModel.cs" />
+    <Compile Include="ViewModels\Blog\BlogDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Blog\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Blog\ListViewModel.cs" />
     <Compile Include="ViewModels\Columns\ColumnViewModel.cs" />
     <Compile Include="ViewModels\Columns\ColumnIndexViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryEditViewModel.cs" />
@@ -5321,6 +5327,7 @@
     <Content Include="Content\img\avatar.jpg" />
     <Content Include="Content\js\faq.js" />
     <Content Include="Content\js\about-page.js" />
+    <Content Include="Content\js\blog.js" />
     <Content Include="Content\js\contacts.js" />
     <Content Include="Content\js\product-info.js" />
     <Content Include="Content\js\product-order.js" />
@@ -5886,6 +5893,14 @@
     <Content Include="Views\About\AboutCompany.cshtml" />
     <Content Include="Views\About\Members.cshtml" />
     <Content Include="Views\About\Links.cshtml" />
+    <Content Include="Views\Blog\Add.cshtml" />
+    <Content Include="Views\Blog\_AddBlogPortlet.cshtml" />
+    <Content Include="Views\Blog\_AddBlogForm.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
+    <Content Include="Views\Blog\_BlogDetailsPortlet.cshtml" />
+    <Content Include="Views\Blog\_BlogCard.cshtml" />
+    <Content Include="Views\Blog\_BlogPreview.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Contacts\Map.cshtml" />
     <Content Include="Views\Contacts\Question.cshtml" />
@@ -5903,6 +5918,12 @@
     <Content Include="Views\Message\_MessagesList.cshtml" />
     <Content Include="Views\Message\Details.cshtml" />
     <Content Include="Views\Shared\_MessagesMenuItem.cshtml" />
+    <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Blog\_EditBlogForm.cshtml" />
+    <Content Include="Views\Blog\_EditBlogPortlet.cshtml" />
+    <Content Include="Views\Blog\List.cshtml" />
+    <Content Include="Views\Blog\_ListBlogPortlet.cshtml" />
+    <Content Include="Views\Blog\_ListBlogTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
