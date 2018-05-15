@@ -65,6 +65,26 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete(int id)
+        {
+            Command.Execute(new DeletePriceListLinkCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Recovery(int id)
+        {
+            Command.Execute(new RecoveryPriceListLinkCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
         protected PriceListLinkViewModel ToViewModel(PriceListLink model)
         {
             PriceListLinkViewModel vm = Mapper.Map<PriceListLinkViewModel>(model);

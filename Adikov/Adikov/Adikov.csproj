@@ -5935,6 +5935,8 @@
     <Content Include="Views\PriceListLink\_AddPriceListLinkForm.cshtml" />
     <Content Include="Views\PriceListLink\_EditPriceListLinkForm.cshtml" />
     <Content Include="Views\PriceListLink\_EditPriceListLinkPortlet.cshtml" />
+    <Content Include="Views\PriceListLink\_PriceListLinkPortlet.cshtml" />
+    <Content Include="Views\PriceListLink\_PriceListLinkList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
