@@ -22,7 +22,7 @@ namespace Adikov.Infrastructura.Commands
             }
             finally
             {
-                if (command == null)
+                if (handler == null)
                 {
                     throw new NotImplementedException($"Interface ICommandHandler<{typeof(TCommand).Name}, {typeof(TResult).Name}> does not implement.");
                 }

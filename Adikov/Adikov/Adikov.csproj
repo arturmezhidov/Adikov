@@ -250,6 +250,7 @@
     <Compile Include="ViewModels\About\AboutIndexViewModel.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Blog\EditBlogViewModel.cs" />
     <Compile Include="ViewModels\Blog\AddBlogViewModel.cs" />
     <Compile Include="ViewModels\Blog\BlogDetailsViewModel.cs" />
     <Compile Include="ViewModels\Blog\IndexViewModel.cs" />
@@ -5916,6 +5917,9 @@
     <Content Include="Views\Message\_MessagesList.cshtml" />
     <Content Include="Views\Message\Details.cshtml" />
     <Content Include="Views\Shared\_MessagesMenuItem.cshtml" />
+    <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Blog\_EditBlogForm.cshtml" />
+    <Content Include="Views\Blog\_EditBlogPortlet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

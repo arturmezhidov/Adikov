@@ -1,0 +1,63 @@
+﻿@model Adikov.ViewModels.Blog.EditBlogViewModel
+    
+@using (Html.BeginForm("Edit", "Blog", null, FormMethod.Post, new { id = "blog-form", @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-body">
+        <div class="form-group">
+            <label class="col-md-3 control-label">Заголовок <span class="required" aria-required="true"> * </span></label>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Введите заголовок" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Короткое описание <span class="required" aria-required="true"> * </span></label>
+            <div class="col-md-8">
+                @Html.TextAreaFor(m => m.PreviewContent, new { @class = "form-control", placeholder = "Введите короткое описание", rows = 5 })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label"> </label>
+            <div class="col-md-6">
+                <label class="mt-checkbox">
+                    @Html.CheckBoxFor(m => m.IsPublished) Опубликовать сразу
+                    <span></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Картинка <span class="required" aria-required="true"> * </span></label>
+            <div class="col-md-4">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="Картинка не выбрана" />
+                    </div>
+                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                    <div>
+                        <span class="btn default btn-file">
+                            <span class="fileinput-new"> Выбрать </span>
+                            <span class="fileinput-exists"> Изменить </span>
+                            <input type="file" name="Image">
+                        </span>
+                        <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Удалить </a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Контент </label>
+            <div class="col-md-8">
+                @Html.TextAreaFor(m => m.HtmlContent, new { @class = "wysihtml5 form-control", placeholder = "Введите контент", rows = 50 })
+            </div>
+        </div>
+    </div>
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <button type="submit" class="btn green">Сохранить</button>
+                <a href="@Url.Action("Index")" class="btn default">Отмена</a>
+            </div>
+        </div>
+    </div>
+}

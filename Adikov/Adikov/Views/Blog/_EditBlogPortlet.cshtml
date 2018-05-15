@@ -1,9 +1,9 @@
-﻿@model Adikov.ViewModels.Blog.AddBlogViewModel
+﻿@model Adikov.ViewModels.Blog.EditBlogViewModel
     
 <div class="portlet light">
     <div class="portlet-title">
         <div class="caption">
-            <i class="fa fa-plus font-red-sunglo"></i>
+            <i class="fa fa-pencil font-red-sunglo"></i>
             <span class="caption-subject font-red-sunglo bold uppercase"> @ViewBag.Title </span>
         </div>
         <div class="actions">
@@ -13,6 +13,6 @@
         </div>
     </div>
     <div class="portlet-body">
-        @Html.Partial("_AddBlogForm", Model)
+        @Html.Partial("_EditBlogForm", Model)
     </div>
 </div>

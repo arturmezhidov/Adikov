@@ -44,7 +44,7 @@
                     required: true
                 },
                 Image: {
-                    required: true
+                    required: window.isEditMode !== true
                 }
             },
 

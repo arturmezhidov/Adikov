@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Adikov.Domain.Commands.Blog;
+using Adikov.Domain.Models;
 using Adikov.Domain.Queries.Blog;
+using Adikov.Infrastructura.Commands;
 using Adikov.Infrastructura.Criterion;
 using Adikov.Platform.Configuration;
 using Adikov.ViewModels.Blog;
@@ -78,6 +80,66 @@ namespace Adikov.Controllers
             });
 
             return RedirectToAction("Details", new {id = commandResult.Blog.Id});
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            GetBlogByIdQueryResult result = Query.For<GetBlogByIdQueryResult>().ById(id);
+
+            if (!result.IsFound)
+            {
+                return RedirectToAction("Index");
+            }
+
+            EditBlogViewModel vm = ToEditViewModel(result.Blog);
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Edit(EditBlogViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            EditBlogCommand command = new EditBlogCommand
+            {
+                Id = vm.Id,
+                Title = vm.Title,
+                PreviewContent = vm.PreviewContent,
+                HtmlContent = vm.HtmlContent,
+                IsPublished = vm.IsPublished
+            };
+
+            if (vm.Image != null)
+            {
+                var result = SaveAs(vm.Image, PlatformConfiguration.UploadedBlogPath);
+
+                if (result.ResultCode == CommandResultCode.Success && result.File != null)
+                {
+                    command.FileId = result.File.Id;
+                }
+            }
+
+            Command.Execute(command);
+
+            return RedirectToAction("Details", new { id = vm.Id });
+        }
+
+        protected EditBlogViewModel ToEditViewModel(Blog item)
+        {
+            return new EditBlogViewModel
+            {
+                Id = item.Id,
+                Title = item.Title,
+                PreviewContent = item.PreviewContent,
+                HtmlContent = item.HtmlContent,
+                IsPublished = item.IsPublished
+            };
         }
     }
 }
