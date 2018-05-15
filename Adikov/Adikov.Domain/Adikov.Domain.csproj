@@ -119,6 +119,8 @@
     <Compile Include="Commands\Categories\RecoveryAllCategoryCommand.cs" />
     <Compile Include="Commands\Categories\RecoveryCategoryCommand.cs" />
     <Compile Include="Commands\Categories\DeleteCategoryCommand.cs" />
+    <Compile Include="Commands\PriceListLinks\SortDownPriceListLinkCommand.cs" />
+    <Compile Include="Commands\PriceListLinks\SortUpPriceListLinkCommand.cs" />
     <Compile Include="Commands\PriceListLinks\RecoveryPriceListLinkCommand.cs" />
     <Compile Include="Commands\PriceListLinks\DeletePriceListLinkCommand.cs" />
     <Compile Include="Commands\PriceListLinks\EditPriceListLinkCommand.cs" />

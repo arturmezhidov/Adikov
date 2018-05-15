@@ -1,4 +1,5 @@
 ﻿using Adikov.Infrastructura.Commands;
+using System.Linq;
 
 namespace Adikov.Domain.Commands.PriceListLinks
 {
@@ -20,6 +21,7 @@ namespace Adikov.Domain.Commands.PriceListLinks
             }
 
             item.IsDeleted = false;
+            item.OrderNumber = DataContext.PriceListLinks.Count() + 1;
 
             DataContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
         }

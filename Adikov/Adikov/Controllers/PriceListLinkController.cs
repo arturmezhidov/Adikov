@@ -85,6 +85,26 @@ namespace Adikov.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult SortUp(int id)
+        {
+            Command.Execute(new SortUpPriceListLinkCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult SortDown(int id)
+        {
+            Command.Execute(new SortDownPriceListLinkCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("Index");
+        }
+
         protected PriceListLinkViewModel ToViewModel(PriceListLink model)
         {
             PriceListLinkViewModel vm = Mapper.Map<PriceListLinkViewModel>(model);

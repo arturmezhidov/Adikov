@@ -25,6 +25,26 @@
                                 <i class="fa fa-angle-down"></i>
                             </button>
                             <ul class="dropdown-menu" role="menu">
+                                @if (!item.IsDeleted)
+                                {
+                                    if (item != Model.First())
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("SortUp", new {id = item.Id})">
+                                                <i class="fa fa-arrow-up"></i> Вверх
+                                            </a>
+                                        </li>
+                                    }
+                                    if (item != Model.Last())
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("SortDown", new {id = item.Id})">
+                                                <i class="fa fa-arrow-down"></i> Вниз
+                                            </a>
+                                        </li>
+                                    }
+                                    <li class="divider"> </li>
+                                }
                                 <li>
                                     <a href="@Url.Action("Index", new { id = item.Id })">
                                         <i class="icon-pencil"></i> Редактировать

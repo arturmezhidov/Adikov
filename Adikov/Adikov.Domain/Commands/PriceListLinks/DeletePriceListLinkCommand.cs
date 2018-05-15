@@ -20,6 +20,7 @@ namespace Adikov.Domain.Commands.PriceListLinks
             }
 
             item.IsDeleted = true;
+            item.OrderNumber = -1;
 
             DataContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
         }
