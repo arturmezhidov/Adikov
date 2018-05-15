@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Routing;
 using Adikov.Domain.Queries.Categories;
 using Adikov.Infrastructura.Criterion;
 using Adikov.Infrastructura.Queries;
@@ -105,20 +104,88 @@ namespace Adikov.Services
             return new List<SidebarGroup>
             {
                 GetBlogItem(),
-                new SidebarGroup
-                {
-                    Text = "Контакты",
-                    Icon = "icon-call-end",
-                    ViewLink = "/Contacts"
-                },
-                GetAboutItem(),
-                new SidebarGroup
-                {
-                    Text = "Услуги",
-                    Icon = "icon-calculator",
-                    ViewLink = "/Services"
-                }
+                GetFaqItem(),
+                GetContactsItem(),
+                GetAboutItem()
             };
+        }
+
+        protected SidebarGroup GetBlogItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "Блог",
+                Icon = "icon-info",
+                ViewLink = "/Blog"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/Blog"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Добавить",
+                        ViewLink = "/Blog/Add"
+                    }
+                };
+            }
+
+            return item;
+        }
+
+        protected SidebarGroup GetContactsItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "Контакты",
+                Icon = "icon-call-end",
+                ViewLink = "/Contacts"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/Contacts"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Карта",
+                        ViewLink = "/Contacts/Map"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Документы",
+                        ViewLink = "/Contacts/Documents"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Вопросы",
+                        ViewLink = "/Contacts/Question"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Форма",
+                        ViewLink = "/Contacts/KeepInTouch"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Сообщения",
+                        ViewLink = "/Message"
+                    }
+                };
+            }
+
+            return item;
         }
 
         protected SidebarGroup GetAboutItem()
@@ -170,28 +237,40 @@ namespace Adikov.Services
             return item;
         }
 
-        protected SidebarGroup GetBlogItem()
+        protected SidebarGroup GetFaqItem()
         {
             SidebarGroup item = new SidebarGroup
             {
-                Text = "Блог",
-                Icon = "icon-info",
-                ViewLink = "/Blog"
+                Text = "FAQ",
+                Icon = "icon-question",
+                ViewLink = "/Faq"
             };
 
             if (UserContext.IsAdmin)
             {
+                item.ViewLink = null;
+
                 item.Items = new List<SidebarItem>
                 {
                     new SidebarItem
                     {
                         Text = "Предпросмотр",
-                        ViewLink = "/Blog"
+                        ViewLink = "/Faq"
                     },
                     new SidebarItem
                     {
-                        Text = "Добавить",
-                        ViewLink = "/Blog/Add"
+                        Text = "Категории",
+                        ViewLink = "/FaqCategory"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Ответы",
+                        ViewLink = "/FaqItem"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Запросы",
+                        ViewLink = "/FaqRequest"
                     }
                 };
             }

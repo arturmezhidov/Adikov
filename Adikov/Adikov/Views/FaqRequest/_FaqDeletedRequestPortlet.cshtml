@@ -1,0 +1,26 @@
+﻿@model Adikov.Domain.Queries.FaqRequests.FaqRequests
+
+<div class="portlet light ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-question-circle font-red-sunglo"></i>
+            <span class="caption-subject bold font-red-sunglo uppercase">Удаленные запросы</span>
+            @if (Model.DeletedRequestsCount == 0)
+            {
+                <span class="caption-helper">нет удаленных запросов...</span>
+            }
+            else
+            {
+                <span class="badge badge-danger badge-roundless"> @Model.DeletedRequestsCount </span>
+            }
+        </div>
+        <div class="tools">
+            <a href="" class="collapse" data-original-title="" title="Свернуть/Развернуть"> </a>
+            <a href="" class="fullscreen" data-original-title="" title="На полный экран"> </a>
+            <a href="" class="remove" data-original-title="" title="Удалить"> </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_FaqRequestList", Model.DeletedRequests)
+    </div>
+</div>

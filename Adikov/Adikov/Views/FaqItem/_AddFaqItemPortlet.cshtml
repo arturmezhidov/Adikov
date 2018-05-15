@@ -1,0 +1,25 @@
+﻿@model Adikov.ViewModels.FaqItems.AddFaqItemViewModel
+
+<div class="portlet light" style="min-height: 900px;">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-blue"></i>
+            <span class="caption-subject bold font-blue uppercase"> Добавление нового ответа </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @if (Model.RequestId == null)
+        {
+            <div class="row">
+                <div class="col-md-offset-3 col-md-8">
+                    <div class="note note-info">
+                        <h4 class="block text-info"><i class="icon-info text-info"></i> Внимание!</h4>
+                        <p> При создании ответа по запросу, не забудьте переместить запрос в подтвержденные запросы или удалить запрос при необходимости. </p>
+                    </div>
+                </div>
+            </div>
+            <br/>
+        }
+        @Html.Partial("_AddFaqItemForm", Model)
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿@model Adikov.ViewModels.Contacts.MapViewModel
+
+<div class="c-content-contact-1 c-opt-1">
+    <div class="row" data-auto-height=".c-height">
+        <div class="col-lg-8 col-md-6 c-desktop"></div>
+        <div class="col-lg-4 col-md-6">
+            <div class="c-body">
+
+                <div class="c-section">
+                    <h3>@Model.MapTitle</h3>
+                </div>
+
+                @if (Model.IsDisplayedAddress)
+                {
+                    <div class="c-section">
+                        <div class="c-content-label uppercase bg-blue">Адрес</div>
+                        <p style="white-space: pre-wrap">@Model.Address</p>
+                    </div>
+                }
+
+                @if (Model.IsDisplayedContacts)
+                {
+                    <div class="c-section">
+                        <div class="c-content-label uppercase bg-blue">Контакты</div>
+                        <p>
+                            @if (Model.IsDisplayedContact1)
+                            {
+                                <strong><i class="@Model.ContactIcon1"></i></strong> @Model.Contact1
+                                <br />
+                            }
+                            @if (Model.IsDisplayedContact2)
+                            {
+                                <strong><i class="@Model.ContactIcon2"></i></strong> @Model.Contact2
+                                <br />
+                            }
+                            @if (Model.IsDisplayedContact3)
+                            {
+                                <strong><i class="@Model.ContactIcon3"></i></strong> @Model.Contact3
+                                <br />
+                            }
+                        </p>
+                    </div>
+                }
+
+                @if (Model.IsDisplayedSocial)
+                {
+                    <div class="c-section">
+                        <div class="c-content-label uppercase bg-blue">Ссылки</div>
+                        <br />
+                        <ul class="c-content-iconlist-1 ">
+                            @if (Model.SocialIcon1 != null)
+                            {
+                                <li>
+                                    <a href = "@Model.SocialLink1">
+                                        <i class="@Model.SocialIcon1"></i>
+                                    </a>
+                                </li>
+                            }
+                            @if (Model.SocialIcon2 != null)
+                            {
+                                <li>
+                                    <a href="@Model.SocialLink2">
+                                        <i class="@Model.SocialIcon2"></i>
+                                    </a>
+                                </li>
+                            }
+                            @if (Model.SocialIcon3 != null)
+                            {
+                                <li>
+                                    <a href="@Model.SocialLink3">
+                                        <i class="@Model.SocialIcon3"></i>
+                                    </a>
+                                </li>
+                            }
+                            @if (Model.SocialIcon4 != null)
+                            {
+                                <li>
+                                    <a href="@Model.SocialLink4">
+                                        <i class="@Model.SocialIcon4"></i>
+                                    </a>
+                                </li>
+                            }
+                            @if (Model.SocialIcon5 != null)
+                            {
+                                <li>
+                                    <a href="@Model.SocialLink5">
+                                        <i class="@Model.SocialIcon5"></i>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div id="gmapbg" class="c-content-contact-1-gmap" style="height: 615px;"></div>
+</div>
+
+<script>
+    window.MapConfig = {
+        lat: '@Model.Latitude',
+        lng: '@Model.Longitude',
+        content: '@Model.MarkerTitle'
+    }
+</script>

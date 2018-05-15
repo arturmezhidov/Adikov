@@ -1,0 +1,55 @@
+﻿@model Adikov.Models.Menu.IMenuContext
+
+@if (Model.MessagesCount > 0)
+{
+    <li class="dropdown dropdown-extended dropdown-inbox">
+        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+            <i class="icon-envelope-open"></i>
+            <span class="badge badge-default"> @Model.MessagesCount </span>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="external">
+                <h3>
+                    У вас <span class="bold">@Model.MessagesCount новых</span> сообщений
+                </h3>
+                @Html.ActionLink("все", "Index", "Message")
+            </li>
+            <li>
+                <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                    @foreach (var message in Model.Messages)
+                    {
+                        <li>
+                            <a href="@Url.Action("Details", "Message", new { id = message.Id })">
+                                <span class="photo">
+                                    <img src="@message.ImageUrl" class="img-circle" alt="">
+                                </span>
+                                <span class="subject">
+                                    <span class="from"> @message.Username </span>
+                                    <span class="time"> @message.CreatedAt.ToString("dd/MM HH:mm") </span>
+                                </span>
+                                <span class="message"> @format(message.Content) </span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        </ul>
+    </li>
+}
+
+@functions
+{
+    string  format(string text)
+    {
+        if (String.IsNullOrEmpty(text))
+        {
+            text = String.Empty;
+        }
+        else if (text.Length > 60)
+        {
+            text = text.Substring(0, 60) + "...";
+        }
+
+        return text;
+    }
+}

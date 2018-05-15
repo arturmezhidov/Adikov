@@ -1,6 +1,9 @@
-﻿using Adikov.Domain.Queries.Settings;
+﻿using Adikov.Domain.Models;
+using Adikov.Domain.Queries.Settings;
 using Adikov.Infrastructura.Criterion;
+using Adikov.Platform.Configuration;
 using Adikov.Platform.Settings;
+using System;
 
 namespace Adikov.Domain.Queries.About
 {
@@ -23,6 +26,16 @@ namespace Adikov.Domain.Queries.About
             result.ImageUrl = GetFileUrl(GetFile(result.Links.ImageId));
 
             return result;
+        }
+
+        protected override string GetFileUrl(File file, string template = null)
+        {
+            if (file == null)
+            {
+                return String.Empty;
+            }
+
+            return String.Format(PlatformConfiguration.UploadedSettingsPathTemplate, file.PhysicalName);
         }
     }
 }

@@ -1,0 +1,62 @@
+﻿@model Adikov.ViewModels.Contacts.DocumentsViewModel
+
+@{
+    ViewBag.Title = "Настройки документов";
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-pencil font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> @ViewBag.Title </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @using (Html.BeginForm("Documents", "Contacts", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            <div class="form-body">
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Введите заголовок" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Описание </label>
+                    <div class="col-md-4">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Введите текст описания", rows = 5 })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Архив документов </label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.File, new { @class = "form-control", type = "file" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Дата обновления </label>
+                    <div class="col-md-4">
+                        <span class="bold margin-right-10">@(String.IsNullOrEmpty(Model.UpdatedAt) ? "Не загружен" : Model.UpdatedAt) </span>
+                        @if (!String.IsNullOrEmpty(Model.FileUrl))
+                        {
+                            <a href="@Model.FileUrl" class="btn btn-info  ">Скачать пакет</a>
+                        }
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="submit" class="btn green">Сохранить</button>
+                            <a class="btn default" href="@Url.Action("Index")">Отмена</a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+            </div>
+        }
+    </div>
+</div>

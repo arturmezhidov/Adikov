@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Adikov.Domain.Queries.FaqCategories.FaqCategoryDetails>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th> Название </th>
+            <th width="50"> Элементы </th>
+            <th width="50"> Действие </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @item.Name </td>
+                <td>
+                    @if (item.ItemsCount == 0)
+                    {
+                        <span class="badge badge-default"> @item.ItemsCount </span>
+                    }
+                    else if (item.ItemsCount < 3)
+                    {
+                        <span class="badge badge-info"> @item.ItemsCount </span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-warning"> @item.ItemsCount </span>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Recovery", new { id = item.Id })" class="btn btn-xs green">
+                        Восстановить
+                        <i class="icon-share-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

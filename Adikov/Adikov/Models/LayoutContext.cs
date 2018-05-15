@@ -1,4 +1,5 @@
 ﻿using Adikov.Infrastructura.Security;
+using Adikov.Models.Menu;
 using Adikov.Models.Sidebar;
 
 namespace Adikov.Models
@@ -10,6 +11,8 @@ namespace Adikov.Models
         public IUserContext User { get; set; }
 
         public ISidebarContext Sidebar { get; set; }
+
+        public IMenuContext Menu { get; set; }
 
         public string ContollerName { get; set; }
 
