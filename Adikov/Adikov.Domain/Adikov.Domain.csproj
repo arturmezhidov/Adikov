@@ -64,6 +64,12 @@
     <Compile Include="Commands\About\EditAboutMembersCommand.cs" />
     <Compile Include="Commands\About\EditAboutServicesCommand.cs" />
     <Compile Include="Commands\About\EditAboutHeaderCommand.cs" />
+    <Compile Include="Commands\Blog\RecoveryBlogCommand.cs" />
+    <Compile Include="Commands\Blog\DeleteBlogCommand.cs" />
+    <Compile Include="Commands\Blog\UnpublishBlogCommand.cs" />
+    <Compile Include="Commands\Blog\PublishBlogCommand.cs" />
+    <Compile Include="Commands\Blog\EditBlogCommand.cs" />
+    <Compile Include="Commands\Blog\AddBlogCommand.cs" />
     <Compile Include="Commands\Categories\SortDownCategoryCommand.cs" />
     <Compile Include="Commands\Categories\SortUpCategoryCommand.cs" />
     <Compile Include="Commands\Columns\SortDownColumnCommand.cs" />
@@ -103,6 +109,7 @@
     <Compile Include="Criterion\StringSizeCriterion.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Column.cs" />
@@ -122,6 +129,10 @@
     <Compile Include="Queries\About\GetAboutCompanyQuery.cs" />
     <Compile Include="Queries\About\GetAboutQuery.cs" />
     <Compile Include="Queries\About\GetAboutHeaderQuery.cs" />
+    <Compile Include="Queries\Blog\FindLastBlogsQuery.cs" />
+    <Compile Include="Queries\Blog\GetBlogDetailsByIdQuery.cs" />
+    <Compile Include="Queries\Blog\FindActiveBlogsQuery.cs" />
+    <Compile Include="Queries\Blog\FindAllBlogsQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryDetailsQuery.cs" />
     <Compile Include="Queries\Categories\FindCategoryByIdQuery.cs" />
     <Compile Include="Queries\Categories\GetNavigateItemsQuery.cs" />

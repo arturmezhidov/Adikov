@@ -1,0 +1,27 @@
+﻿@model Adikov.Domain.Queries.Blog.BlogView
+    
+@{
+    int maxContentLength = 300; 
+}
+    
+<div class="blog-post-lg bordered blog-container">
+    <div class="blog-img-thumb">
+        <a href="@Url.Action("Details", new { id = Model.Id })">
+            <img src="@Model.ImageUrl">
+        </a>
+    </div>
+    <div class="blog-post-content">
+        <h2 class="blog-title blog-post-title">
+            <a href="@Url.Action("Details", new { id = Model.Id })">@Model.Title</a>
+        </h2>
+        <p class="blog-post-desc">
+            @Html.Raw(Model.HtmlContent != null && Model.HtmlContent.Length > maxContentLength ? Model.HtmlContent.Substring(0, maxContentLength) + "..." : Model.HtmlContent)
+        </p>
+        <div class="blog-post-foot">
+            <div class="blog-post-meta">
+                <i class="icon-calendar font-blue"></i>
+                <a href="javascript:;">@Model.CreatedDate</a>
+            </div>
+        </div>
+    </div>
+</div>

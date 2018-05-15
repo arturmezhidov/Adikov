@@ -104,6 +104,7 @@ namespace Adikov.Services
         {
             return new List<SidebarGroup>
             {
+                GetBlogItem(),
                 new SidebarGroup
                 {
                     Text = "Контакты",
@@ -162,6 +163,35 @@ namespace Adikov.Services
                     {
                         Text = "Ссылки",
                         ViewLink = "/About/Links"
+                    }
+                };
+            }
+
+            return item;
+        }
+
+        protected SidebarGroup GetBlogItem()
+        {
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "Блог",
+                Icon = "icon-info",
+                ViewLink = "/Blog"
+            };
+
+            if (UserContext.IsAdmin)
+            {
+                item.Items = new List<SidebarItem>
+                {
+                    new SidebarItem
+                    {
+                        Text = "Предпросмотр",
+                        ViewLink = "/Blog"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Добавить",
+                        ViewLink = "/Blog/Add"
                     }
                 };
             }

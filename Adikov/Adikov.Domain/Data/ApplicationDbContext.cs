@@ -25,6 +25,8 @@ namespace Adikov.Domain.Data
 
         public DbSet<Setting> Settings { get; set; }
 
+        public DbSet<Blog> Blogs { get; set; }
+
         public ApplicationDbContext() : base(PlatformConfiguration.ConnectionString, throwIfV1Schema: false)
         {
         }

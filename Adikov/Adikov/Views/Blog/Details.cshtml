@@ -1,0 +1,33 @@
+﻿@model Adikov.ViewModels.Blog.BlogDetailsViewModel
+
+@{
+    ViewBag.Title = Model.Blog.Title;
+}
+
+<div class="blog-page">
+    <div class="row">
+        <div class="col-lg-9 blog-content-2">
+            @Html.Partial("_BlogDetailsPortlet", Model.Blog)
+        </div>
+        <div class="col-lg-3 blog-content-1">
+            @foreach (var blog in Model.LastBlogs)
+            {
+                @Html.Partial("_BlogCard", blog)
+            }
+        </div>
+    </div>
+</div>
+
+
+@section styles {
+    <link href="~/Content/assets/pages/css/blog.min.css" rel="stylesheet" type="text/css" />
+}
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script src="~/Content/js/blog.js"></script>
+}
