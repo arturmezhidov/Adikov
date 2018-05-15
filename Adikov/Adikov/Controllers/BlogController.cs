@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Adikov.Domain.Commands.Blog;
 using Adikov.Domain.Models;
 using Adikov.Domain.Queries.Blog;
 using Adikov.Infrastructura.Commands;
-using Adikov.Infrastructura.Criterion;
 using Adikov.Platform.Configuration;
 using Adikov.ViewModels.Blog;
 
@@ -42,6 +37,20 @@ namespace Adikov.Controllers
             {
                 Blog = result.Blog,
                 LastBlogs = result.LastBlogs
+            };
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public ActionResult List()
+        {
+            FindAllBlogsQueryResult result = Query.For<FindAllBlogsQueryResult>().Empty();
+
+            ListViewModel vm = new ListViewModel
+            {
+                ActiveBlogs = result.ActiveBlogs,
+                DeletedBlogs = result.DeletedBlogs
             };
 
             return View(vm);
@@ -128,6 +137,46 @@ namespace Adikov.Controllers
             Command.Execute(command);
 
             return RedirectToAction("Details", new { id = vm.Id });
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Command.Execute(new DeleteBlogCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("List");
+        }
+
+        public ActionResult Recovery(int id)
+        {
+            Command.Execute(new RecoveryBlogCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("List");
+        }
+
+        public ActionResult Publish(int id)
+        {
+            Command.Execute(new PublishBlogCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("List");
+        }
+
+        public ActionResult Unpublish(int id)
+        {
+            Command.Execute(new UnpublishBlogCommand
+            {
+                Id = id
+            });
+
+            return RedirectToAction("List");
         }
 
         protected EditBlogViewModel ToEditViewModel(Blog item)

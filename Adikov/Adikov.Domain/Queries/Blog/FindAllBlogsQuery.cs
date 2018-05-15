@@ -19,8 +19,8 @@ namespace Adikov.Domain.Queries.Blog
 
             FindAllBlogsQueryResult result = new FindAllBlogsQueryResult
             {
-                ActiveBlogs = items.Where(i => !i.IsDeleted).OrderBy(i => i.CreatedDate).ToList(),
-                DeletedBlogs = items.Where(i => i.IsDeleted).OrderBy(i => i.CreatedDate).ToList()
+                ActiveBlogs = items.Where(i => !i.IsDeleted).OrderByDescending(i => i.CreatedDate).ToList(),
+                DeletedBlogs = items.Where(i => i.IsDeleted).OrderByDescending(i => i.CreatedDate).ToList()
             };
 
             return result;

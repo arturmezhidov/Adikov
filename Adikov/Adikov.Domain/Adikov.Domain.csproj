@@ -167,7 +167,6 @@
     <Compile Include="Queries\Blog\FindLastBlogsQuery.cs" />
     <Compile Include="Queries\Blog\GetBlogByIdQuery.cs" />
     <Compile Include="Queries\Blog\GetBlogDetailsByIdQuery.cs" />
-    <Compile Include="Queries\Blog\FindActiveBlogsQuery.cs" />
     <Compile Include="Queries\Blog\FindAllBlogsQuery.cs" />
     <Compile Include="Queries\Categories\FindAllCategoryDetailsQuery.cs" />
     <Compile Include="Queries\Categories\FindCategoryByIdQuery.cs" />

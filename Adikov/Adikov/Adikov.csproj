@@ -254,6 +254,7 @@
     <Compile Include="ViewModels\Blog\AddBlogViewModel.cs" />
     <Compile Include="ViewModels\Blog\BlogDetailsViewModel.cs" />
     <Compile Include="ViewModels\Blog\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Blog\ListViewModel.cs" />
     <Compile Include="ViewModels\Columns\ColumnViewModel.cs" />
     <Compile Include="ViewModels\Columns\ColumnIndexViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryEditViewModel.cs" />
@@ -5920,6 +5921,9 @@
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Blog\_EditBlogForm.cshtml" />
     <Content Include="Views\Blog\_EditBlogPortlet.cshtml" />
+    <Content Include="Views\Blog\List.cshtml" />
+    <Content Include="Views\Blog\_ListBlogPortlet.cshtml" />
+    <Content Include="Views\Blog\_ListBlogTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

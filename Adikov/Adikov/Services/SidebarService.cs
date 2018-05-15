@@ -132,6 +132,11 @@ namespace Adikov.Services
                     {
                         Text = "Добавить",
                         ViewLink = "/Blog/Add"
+                    },
+                    new SidebarItem
+                    {
+                        Text = "Посты",
+                        ViewLink = "/Blog/List"
                     }
                 };
             }
