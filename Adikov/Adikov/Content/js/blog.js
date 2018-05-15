@@ -23,6 +23,9 @@
                 Title: {
                     required: 'Поле обязательно для заполнения.'
                 },
+                PreviewContent: {
+                    required: 'Поле обязательно для заполнения.'
+                },
                 HtmlContent: {
                     required: 'Поле обязательно для заполнения.'
                 },
@@ -32,6 +35,9 @@
             },
             rules: {
                 Title: {
+                    required: true
+                },
+                PreviewContent: {
                     required: true
                 },
                 HtmlContent: {
