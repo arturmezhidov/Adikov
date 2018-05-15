@@ -34,8 +34,8 @@ namespace Adikov.Domain.Queries.Blog
             List<BlogView> items = DataContext.Blogs
                 .Include(i => i.File)
                 .Where(i => !i.IsDeleted && i.IsPublished)
-                .OrderBy(i => i.CreatedDate)
-                .Take(10)
+                .OrderByDescending(i => i.CreatedDate)
+                .Take(50)
                 .AsEnumerable()
                 .Select(ToView)
                 .ToList();
