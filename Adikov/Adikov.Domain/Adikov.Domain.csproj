@@ -197,6 +197,8 @@
     <Compile Include="Queries\Faq\GetFaqQuery.cs" />
     <Compile Include="Queries\Files\FindUserAvatarQuery.cs" />
     <Compile Include="Queries\Forms\GenerateFormQuery.cs" />
+    <Compile Include="Queries\PriceListLinks\FindAllPriceListLinksQuery.cs" />
+    <Compile Include="Queries\PriceListLinks\GetPriceListLinkByIdQuery.cs" />
     <Compile Include="Queries\Products\FindAllProductQuery.cs" />
     <Compile Include="Queries\Query.cs" />
     <Compile Include="Queries\Products\GetProductTableByIdQuery.cs" />

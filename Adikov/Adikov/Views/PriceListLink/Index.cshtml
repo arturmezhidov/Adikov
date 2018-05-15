@@ -1,0 +1,20 @@
+﻿@model Adikov.ViewModels.PriceListLinks.IndexViewModel
+
+@{
+    ViewBag.Title = "Прайс лист";
+}
+
+@if (Model.EditLink == null)
+{
+    @Html.Partial("_AddPriceListLinkPortlet", Model.AddLink)
+}
+else
+{
+    @Html.Partial("_EditPriceListLinkPortlet", Model.EditLink)
+}
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/js/price-list-links.js"></script>
+}
