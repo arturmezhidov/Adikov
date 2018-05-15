@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Adikov.Domain.Queries.Categories;
+using Adikov.Domain.Queries.PriceListLinks;
 using Adikov.Infrastructura.Criterion;
 using Adikov.Infrastructura.Queries;
 using Adikov.Infrastructura.Security;
@@ -48,6 +49,13 @@ namespace Adikov.Services
             if (UserContext.IsAdmin)
             {
                 items.AddRange(GetAdminItems());
+            }
+
+            var priceItem = GetPriceListItems();
+
+            if(priceItem != null)
+            {
+                items.Add(priceItem);
             }
 
             items.AddRange(GetProductItems());
@@ -108,6 +116,29 @@ namespace Adikov.Services
                 GetContactsItem(),
                 GetAboutItem()
             };
+        }
+
+        protected SidebarGroup GetPriceListItems()
+        {
+            FindActivePriceListLinksQueryResult result = Query.For<FindActivePriceListLinksQueryResult>().Empty();
+
+            if (!result.Links.Any())
+            {
+                return null;
+            }
+
+            SidebarGroup item = new SidebarGroup
+            {
+                Text = "Прайс-листы",
+                Icon = "fa fa-dollar",
+                ViewLink = "/PriceListLink",
+                Items = result.Links.Select(i => new SidebarItem {
+                    Text = i.Text,
+                    ViewLink = String.Format("/PriceListLink/Price/{0}", i.Id)
+                }).ToList()
+            };
+
+            return item;
         }
 
         protected SidebarGroup GetBlogItem()
