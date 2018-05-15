@@ -35,6 +35,8 @@ namespace Adikov.Domain.Data
 
         public DbSet<Blog> Blogs { get; set; }
 
+        public DbSet<PriceListLink> PriceListLinks { get; set; }
+
         public ApplicationDbContext() : base(PlatformConfiguration.ConnectionString, throwIfV1Schema: false)
         {
         }

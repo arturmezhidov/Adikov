@@ -119,6 +119,10 @@
     <Compile Include="Commands\Categories\RecoveryAllCategoryCommand.cs" />
     <Compile Include="Commands\Categories\RecoveryCategoryCommand.cs" />
     <Compile Include="Commands\Categories\DeleteCategoryCommand.cs" />
+    <Compile Include="Commands\PriceListLinks\RecoveryPriceListLinkCommand.cs" />
+    <Compile Include="Commands\PriceListLinks\DeletePriceListLinkCommand.cs" />
+    <Compile Include="Commands\PriceListLinks\EditPriceListLinkCommand.cs" />
+    <Compile Include="Commands\PriceListLinks\AddPriceListLinkCommand.cs" />
     <Compile Include="Commands\Products\AddProductCommand.cs" />
     <Compile Include="Commands\Products\DeleteProductCommand.cs" />
     <Compile Include="Commands\Products\EditProductCommand.cs" />
@@ -149,6 +153,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\FaqItem.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\PriceListLink.cs" />
     <Compile Include="Models\ProductStatus.cs" />
     <Compile Include="Models\ColumnType.cs" />
     <Compile Include="Models\Row.cs" />
