@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using Adikov.Infrastructura.Criterion;
@@ -35,7 +34,7 @@ namespace Adikov.Domain.Queries.Blog
                 result.LastBlogs = DataContext.Blogs
                     .Include(i => i.File)
                     .Where(i => !i.IsDeleted && i.IsPublished && i.Id != item.Id)
-                    .OrderBy(i => i.CreatedDate)
+                    .OrderByDescending(i => i.CreatedDate)
                     .Take(10)
                     .AsEnumerable()
                     .Select(ToView)

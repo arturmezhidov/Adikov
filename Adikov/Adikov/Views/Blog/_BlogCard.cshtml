@@ -2,7 +2,7 @@
 
 <div class="blog-post-sm bordered blog-container">
     <div class="blog-img-thumb">
-        <a href="javascript:;">
+        <a href="@Url.Action("Details", new { id = Model.Id })">
             <img src="@Model.ImageUrl">
         </a>
     </div>
@@ -10,15 +10,11 @@
         <h2 class="blog-title blog-post-title">
             <a href="@Url.Action("Details", new { id = Model.Id })">@Model.Title</a>
         </h2>
-        <p class="blog-post-desc"> @Html.Raw(Model.HtmlContent != null && Model.HtmlContent.Length > 100 ? Model.HtmlContent.Substring(0, 100) + "..." : Model.HtmlContent) </p>
+        <p class="blog-post-desc"> @Model.PreviewContent </p>
         <div class="blog-post-foot">
             <div class="blog-post-meta">
                 <i class="icon-calendar font-blue"></i>
-                <a href="javascript:;">Oct 24, 2015</a>
-            </div>
-            <div class="blog-post-meta">
-                <i class="icon-bubble font-blue"></i>
-                <a href="@Url.Action("Details", new { id = Model.Id })">Перейти</a>
+                <a href="javascript:;">@Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")</a>
             </div>
         </div>
     </div>

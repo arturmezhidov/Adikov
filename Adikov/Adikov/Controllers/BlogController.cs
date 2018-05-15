@@ -16,7 +16,7 @@ namespace Adikov.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            FindLastBlogsQueryResult result = Query.For<FindLastBlogsQueryResult>().With(new EmptyCriterion());
+            FindLastBlogsQueryResult result = Query.For<FindLastBlogsQueryResult>().Empty();
 
             IndexViewModel vm = new IndexViewModel
             {

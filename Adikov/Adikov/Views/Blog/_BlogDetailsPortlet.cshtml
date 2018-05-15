@@ -3,10 +3,6 @@
 <div class="blog-single-content bordered blog-container">
     <div class="blog-single-head">
         <h1 class="blog-single-head-title">@Model.Title</h1>
-        <div class="blog-single-head-date">
-            <i class="icon-calendar font-blue"></i>
-            <a href="javascript:;">@Model.CreatedDate</a>
-        </div>
     </div>
     <div class="blog-single-img">
         <img src="@Model.ImageUrl">
@@ -15,6 +11,13 @@
         @Html.Raw(Model.HtmlContent)
     </div>
     <br/>
+    <hr/>
+    <div class="pull-right">
+        <i class="icon-calendar font-blue"></i>
+        <a href="javascript:;">@Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")</a>
+    </div>
+    <br />
+    <br />
     @*<div class="blog-single-foot">
         <ul class="blog-post-tags">
             <li class="uppercase">
