@@ -219,6 +219,7 @@
     <Compile Include="Controllers\ProductInfoController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RowController.cs" />
+    <Compile Include="Controllers\ShareController.cs" />
     <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -293,6 +294,8 @@
     <Compile Include="ViewModels\Profile\UserCardViewModel.cs" />
     <Compile Include="ViewModels\Profile\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\Rows\RowAddViewModel.cs" />
+    <Compile Include="ViewModels\Shares\EditShareViewModel.cs" />
+    <Compile Include="ViewModels\Shares\AddShareViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableDetailsViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableEditViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableIndexViewModel.cs" />
@@ -5325,6 +5328,7 @@
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\modal.css" />
     <Content Include="Content\img\avatar.jpg" />
+    <Content Include="Content\js\share.js" />
     <Content Include="Content\js\faq.js" />
     <Content Include="Content\js\about-page.js" />
     <Content Include="Content\js\blog.js" />
@@ -5924,6 +5928,8 @@
     <Content Include="Views\Blog\List.cshtml" />
     <Content Include="Views\Blog\_ListBlogPortlet.cshtml" />
     <Content Include="Views\Blog\_ListBlogTable.cshtml" />
+    <Content Include="Views\Share\Add.cshtml" />
+    <Content Include="Views\Share\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">
