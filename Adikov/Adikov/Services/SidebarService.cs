@@ -115,7 +115,7 @@ namespace Adikov.Services
             SidebarGroup item = new SidebarGroup
             {
                 Text = "Блог",
-                Icon = "icon-info",
+                Icon = "icon-notebook",
                 ViewLink = "/Blog"
             };
 
