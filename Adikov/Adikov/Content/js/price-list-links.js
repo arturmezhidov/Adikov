@@ -67,9 +67,30 @@
         });
     }
 
+    var parsePriceList = function () {
+
+        var $contaner = $('#tables-container');
+
+        if (!$contaner.length) {
+            return;
+        }
+
+        var $tables = $contaner
+            .find('#tables table')
+            .addClass('table table-striped table-hover');
+
+        $tables.find('tr').find('th:last').remove();
+        $tables.find('tr').find('td:last').remove();
+
+        $contaner
+            .html($tables)
+            .show();
+    }
+
     return {
         init: function () {
             handleValidation();
+            parsePriceList();
         }
     };
 

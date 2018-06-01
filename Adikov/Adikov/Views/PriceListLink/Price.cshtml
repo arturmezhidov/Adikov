@@ -1,0 +1,28 @@
+﻿@model Adikov.ViewModels.PriceListLinks.PriceListLinkViewModel
+
+@{
+    ViewBag.Title = Model.Text;
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-table font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> @ViewBag.Title </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @if (!String.IsNullOrEmpty(Model.Description))
+        {
+            <p class="font-grey-mint font-lg sbold">@Model.Description</p>
+        }
+        <div id="tables-container" style="display: none">
+            @Html.Raw(Model.HtmlContent)
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Content/js/price-list-links.js"></script>
+}

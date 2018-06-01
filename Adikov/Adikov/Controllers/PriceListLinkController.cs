@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.IO;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Adikov.Domain.Commands.PriceListLinks;
 using Adikov.Domain.Models;
@@ -36,6 +37,36 @@ namespace Adikov.Controllers
             }
 
             return View(vm);
+        }
+
+        public async Task<ActionResult> Price(int id)
+        {
+            GetPriceListLinkByIdQueryResult result = Query.For<GetPriceListLinkByIdQueryResult>().ById(id);
+
+            if (!result.IsFound)
+            {
+                return Redirect("/");
+            }
+
+            PriceListLinkViewModel vm = ToViewModel(result.Link);
+
+            vm.HtmlContent = await GetDocument(vm.Url);
+
+            return View(vm);
+        }
+
+        public async Task<ActionResult> Load(int id)
+        {
+            GetPriceListLinkByIdQueryResult result = Query.For<GetPriceListLinkByIdQueryResult>().ById(id);
+
+            if (!result.IsFound)
+            {
+                return HttpNotFound();
+            }
+
+            string document = await GetDocument(result.Link.Url);
+
+            return Content(document);
         }
 
         [HttpPost]
@@ -115,6 +146,48 @@ namespace Adikov.Controllers
         {
             EditPriceListLinkViewModel vm = Mapper.Map<EditPriceListLinkViewModel>(model);
             return vm;
+        }
+
+        protected async Task<string> GetDocument(string url)
+        {
+            HttpWebResponse response = null;
+
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    StreamReader reader = new StreamReader(response.GetResponseStream());
+                    return  await reader.ReadToEndAsync();
+
+                    //Encoding iso = Encoding.GetEncoding("windows-1251");
+
+                    //return Convert(iso, Encoding.Unicode, text);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                if(response != null)
+                {
+                    response.Close();
+                }
+            }
+
+            return null;
+        }
+
+        protected string Convert(Encoding from, Encoding to, string text)
+        {
+            byte[] fromBytes = from.GetBytes(text);
+            byte[] toBytes = Encoding.Convert(from, to, fromBytes);
+            string convertedText = to.GetString(toBytes);
+            return convertedText;
         }
     }
 }
