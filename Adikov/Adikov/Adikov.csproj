@@ -215,6 +215,7 @@
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\PriceListLinkController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductInfoController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -282,6 +283,10 @@
     <Compile Include="ViewModels\Faq\IndexViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormControlViewModel.cs" />
     <Compile Include="ViewModels\Forms\FormViewModel.cs" />
+    <Compile Include="ViewModels\PriceListLinks\AddPriceListLinkViewModel.cs" />
+    <Compile Include="ViewModels\PriceListLinks\EditPriceListLinkViewModel.cs" />
+    <Compile Include="ViewModels\PriceListLinks\IndexViewModel.cs" />
+    <Compile Include="ViewModels\PriceListLinks\PriceListLinkViewModel.cs" />
     <Compile Include="ViewModels\ProductInfo\ProductInfoIndexViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductAddViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductEditViewModel.cs" />
@@ -5325,6 +5330,7 @@
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\modal.css" />
     <Content Include="Content\img\avatar.jpg" />
+    <Content Include="Content\js\price-list-links.js" />
     <Content Include="Content\js\faq.js" />
     <Content Include="Content\js\about-page.js" />
     <Content Include="Content\js\blog.js" />
@@ -5924,6 +5930,14 @@
     <Content Include="Views\Blog\List.cshtml" />
     <Content Include="Views\Blog\_ListBlogPortlet.cshtml" />
     <Content Include="Views\Blog\_ListBlogTable.cshtml" />
+    <Content Include="Views\PriceListLink\Index.cshtml" />
+    <Content Include="Views\PriceListLink\_AddPriceListLinkPortlet.cshtml" />
+    <Content Include="Views\PriceListLink\_AddPriceListLinkForm.cshtml" />
+    <Content Include="Views\PriceListLink\_EditPriceListLinkForm.cshtml" />
+    <Content Include="Views\PriceListLink\_EditPriceListLinkPortlet.cshtml" />
+    <Content Include="Views\PriceListLink\_PriceListLinkPortlet.cshtml" />
+    <Content Include="Views\PriceListLink\_PriceListLinkList.cshtml" />
+    <Content Include="Views\PriceListLink\Price.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

@@ -1,0 +1,81 @@
+﻿@model List<Adikov.ViewModels.PriceListLinks.PriceListLinkViewModel>
+
+@if (Model.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th> Текст </th>
+                <th> Адрес </th>
+                <th> Описание </th>
+                <th width="200"> Действия </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td> @item.Text </td>
+                    <td> <a href="@item.Url">@item.Url</a></td>
+                    <td> @item.Description </td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                Действия
+                                <i class="fa fa-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                @if (!item.IsDeleted)
+                                {
+                                    if (item != Model.First())
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("SortUp", new {id = item.Id})">
+                                                <i class="fa fa-arrow-up"></i> Вверх
+                                            </a>
+                                        </li>
+                                    }
+                                    if (item != Model.Last())
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("SortDown", new {id = item.Id})">
+                                                <i class="fa fa-arrow-down"></i> Вниз
+                                            </a>
+                                        </li>
+                                    }
+                                    <li class="divider"> </li>
+                                }
+                                <li>
+                                    <a href="@Url.Action("Index", new { id = item.Id })">
+                                        <i class="icon-pencil"></i> Редактировать
+                                    </a>
+                                </li>
+                                @if (item.IsDeleted)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Recovery", new {id = item.Id})">
+                                            <i class="icon-action-undo"></i> Восстановить
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Delete", new {id = item.Id})">
+                                            <i class="icon-trash"></i> Удалить
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3 style="text-align: center;">Нет записей</h3>
+    <br />
+}

@@ -1,0 +1,28 @@
+﻿@model Adikov.ViewModels.PriceListLinks.IndexViewModel
+
+<div class="portlet light">
+    <div class="portlet-title tabbable-line">
+        <div class="caption">
+            <i class="fa fa-list font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Все записи </span>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#portlet_tab-active" data-toggle="tab"> Активные </a>
+            </li>
+            <li>
+                <a href="#portlet_tab-deleted" data-toggle="tab"> Удаленные </a>
+            </li>
+        </ul>
+    </div>
+    <div class="portlet-body">
+        <div class="tab-content">
+            <div class="tab-pane active" id="portlet_tab-active">
+                @Html.Partial("_PriceListLinkList", Model.ActiveLinks)
+            </div>
+            <div class="tab-pane" id="portlet_tab-deleted">
+                @Html.Partial("_PriceListLinkList", Model.DeletedLinks)
+            </div>
+        </div>
+    </div>
+</div>
