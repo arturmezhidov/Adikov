@@ -70,6 +70,12 @@ namespace Adikov.Services
             {
                 new SidebarGroup
                 {
+                    Text = "Пользователи",
+                    Icon = "icon-users",
+                    ViewLink = "/User"
+                },
+                new SidebarGroup
+                {
                     Text = "Шаблоны",
                     Icon = "fa fa-puzzle-piece",
                     Items = new List<SidebarItem>

@@ -221,6 +221,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RowController.cs" />
     <Compile Include="Controllers\TableController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -303,6 +304,8 @@
     <Compile Include="ViewModels\Tables\TableIndexViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableAddViewModel.cs" />
     <Compile Include="ViewModels\Tables\TableViewModel.cs" />
+    <Compile Include="ViewModels\Users\UserEditViewModel.cs" />
+    <Compile Include="ViewModels\Users\UserIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\apps\css\inbox.css" />
@@ -5938,6 +5941,10 @@
     <Content Include="Views\PriceListLink\_PriceListLinkPortlet.cshtml" />
     <Content Include="Views\PriceListLink\_PriceListLinkList.cshtml" />
     <Content Include="Views\PriceListLink\Price.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\_UserListPortlet.cshtml" />
+    <Content Include="Views\User\_UserListTable.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Domain\Adikov.Domain.csproj">

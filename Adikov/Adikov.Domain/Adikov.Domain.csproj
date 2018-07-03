@@ -142,6 +142,11 @@
     <Compile Include="Commands\Tables\DeleteTableCommand.cs" />
     <Compile Include="Commands\Tables\RecoveryAllTableCommand.cs" />
     <Compile Include="Commands\Tables\RecoveryTableCommand.cs" />
+    <Compile Include="Commands\Users\UpdateUserCommand.cs" />
+    <Compile Include="Commands\Users\UnlockUserCommand.cs" />
+    <Compile Include="Commands\Users\RemoveAdminUserCommand.cs" />
+    <Compile Include="Commands\Users\LockUserCommand .cs" />
+    <Compile Include="Commands\Users\SetAdminUserCommand.cs" />
     <Compile Include="Criterion\StringSizeCriterion.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
@@ -211,6 +216,8 @@
     <Compile Include="Queries\Tables\FindTableEditQuery.cs" />
     <Compile Include="Queries\Tables\FindTableDetailsQuery.cs" />
     <Compile Include="Queries\Tables\FindAllTableQuery.cs" />
+    <Compile Include="Queries\Users\GetUserByIdQuery.cs" />
+    <Compile Include="Queries\Users\GetAllUsersQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adikov.Infrastructura\Adikov.Infrastructura.csproj">
