@@ -25,7 +25,20 @@ namespace Adikov.Infrastructura.Security
 
         public bool IsAdmin
         {
-            get { return true; }
+            get
+            {
+                if (!IsAuth)
+                {
+                    return false;
+                }
+
+                if (!isAdmin.HasValue)
+                {
+                    isAdmin = User.IsInRole(UserRoles.ADMIN);
+                }
+
+                return isAdmin.Value;
+            }
         }
 
         public string Email => email ?? (email = GetClaimValue(ClaimsTypes.USER_EMAIL));
