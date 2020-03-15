@@ -1,0 +1,30 @@
+﻿@using System.Web.Mvc.Html
+
+@model Adikov.ViewModels.Users.UserIndexViewModel
+
+<div class="portlet light">
+    <div class="portlet-title tabbable-line">
+        <div class="caption">
+            <i class="icon-list font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> @ViewBag.Title </span>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#portlet_tab-active" data-toggle="tab"> Активные </a>
+            </li>
+            <li>
+                <a href="#portlet_tab-deleted" data-toggle="tab"> Заблокированные </a>
+            </li>
+        </ul>
+    </div>
+    <div class="portlet-body">
+        <div class="tab-content">
+            <div class="tab-pane active" id="portlet_tab-active">
+                @Html.Partial("_UserListTable", Model.Users.ActiveUsers)
+            </div>
+            <div class="tab-pane" id="portlet_tab-deleted">
+                @Html.Partial("_UserListTable", Model.Users.LockedUsers)
+            </div>
+        </div>
+    </div>
+</div>

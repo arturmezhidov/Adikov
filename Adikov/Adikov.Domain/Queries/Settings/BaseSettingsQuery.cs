@@ -28,7 +28,18 @@ namespace Adikov.Domain.Queries.Settings
                 if (settings.ContainsKey(settingAttribute.Key))
                 {
                     Setting setting = settings[settingAttribute.Key];
-                    property.SetValue(obj, setting?.Value);
+                    string value = setting?.Value;
+
+                    if (property.PropertyType == typeof(bool))
+                    {
+                        bool bValue;
+                        bool.TryParse(value, out bValue);
+                        property.SetValue(obj, bValue);
+                    }
+                    else
+                    {
+                        property.SetValue(obj, value);
+                    }
                 }
             }
 
@@ -51,20 +62,6 @@ namespace Adikov.Domain.Queries.Settings
         protected virtual IDictionary<string, Setting> GetSettings(params string[] keys)
         {
             return DataContext.Settings.Where(i => keys.Contains(i.Key)).ToDictionary(i => i.Key, k => k);
-        }
-
-        protected virtual File GetFile(string id)
-        {
-            if (int.TryParse(id, out var fileId))
-            {
-                return GetFile(fileId);
-            }
-            return null;
-        }
-
-        protected virtual File GetFile(int id)
-        {
-            return DataContext.Files.Find(id);
         }
     }
 }

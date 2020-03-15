@@ -1,0 +1,36 @@
+﻿@model Adikov.Domain.Queries.FaqItems.FaqItemCategory
+    
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-list font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> @Model.Title </span>
+            @if (!Model.IsPublish)
+            {
+                <span class="label label-sm label-warning"> Не опубликован </span>
+            }
+        </div>
+        <div class="actions">
+            @if (!Model.IsPublish)
+            {
+                <a href="@Url.Action("Publish", "FaqCategory", new { id = Model.Id, redirectUrl = "/FaqItem" })" class="btn btn-circle red-sunglo ">
+                    <i class="icon-eye"></i> Опубликовать
+                </a>
+            }
+            <a href="@Url.Action("Add", "FaqItem", new {categoryId = Model.Id})" class="btn btn-circle red-sunglo ">
+                <i class="icon-plus"></i> Добавить
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @if (Model.Items.Any())
+        {
+            @Html.Partial("_FaqItemList", Model.Items)
+        }
+        else
+        {
+            <h3 style="text-align: center;">Нет записей</h3>
+            <br />
+        }
+    </div>
+</div>

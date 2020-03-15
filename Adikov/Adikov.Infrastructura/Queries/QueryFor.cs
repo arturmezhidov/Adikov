@@ -33,6 +33,25 @@ namespace Adikov.Infrastructura.Queries
             return query.Execute(criterion);
         }
 
+        public TResponse Empty()
+        {
+            IQuery<EmptyCriterion, TResponse> query = null;
+
+            try
+            {
+                query = dependencyResolver.GetService<IQuery<EmptyCriterion, TResponse>>();
+            }
+            finally
+            {
+                if (query == null)
+                {
+                    throw new NotImplementedException($"Interface IQuery<{typeof(EmptyCriterion).Name}, {typeof(TResponse).Name}> does not implement.");
+                }
+            }
+
+            return query.Execute(new EmptyCriterion());
+        }
+
         public TResponse ById(object id)
         {
             IQuery<IdCriterion, TResponse> query = null;

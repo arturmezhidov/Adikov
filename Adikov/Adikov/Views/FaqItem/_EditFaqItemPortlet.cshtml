@@ -1,0 +1,13 @@
+﻿@model Adikov.ViewModels.FaqItems.EditFaqItemViewModel
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-pencil font-blue"></i>
+            <span class="caption-subject bold font-blue uppercase"> Редактирование ответа </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_EditFaqItemForm", Model)
+    </div>
+</div>

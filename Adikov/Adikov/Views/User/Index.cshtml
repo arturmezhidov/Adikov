@@ -1,0 +1,9 @@
+﻿@using System.Web.Mvc.Html
+
+@model Adikov.ViewModels.Users.UserIndexViewModel
+
+@{
+    ViewBag.Title = "Пользователи";
+}
+
+@Html.Partial("_UserListPortlet", Model)

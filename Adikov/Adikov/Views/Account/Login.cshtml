@@ -45,6 +45,11 @@
             @Html.AntiForgeryToken()
 
             <h3 class="form-title font-green">@ViewBag.Title</h3>
+            
+            if(ViewBag.Message != null)
+            {
+                <p class="text-center font-red">@ViewBag.Message</p>
+            }
 
             if (ViewData.ModelState.ContainsKey("attempt"))
             {

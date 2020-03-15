@@ -22,6 +22,8 @@ namespace Adikov.Domain
 
         public string Website { get; set; }
 
+        public bool IsLock { get; set; }
+
         public int? AvatarId { get; set; }
 
         public File Avatar { get; set; }

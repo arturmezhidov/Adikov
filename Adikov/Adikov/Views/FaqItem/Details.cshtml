@@ -1,0 +1,211 @@
+﻿@model Adikov.ViewModels.FaqItems.FaqItemDetailsViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-list font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Описание ответа </span>
+        </div>
+        <div class="actions">
+            <a href="@Url.Action("Index", "FaqItem")" class="btn btn-circle red-sunglo ">
+                <i class="icon-list"></i> Все ответы
+            </a>
+            <a href="@Url.Action("Index", "FaqCategory")" class="btn btn-circle red-sunglo ">
+                <i class="icon-list"></i> Все категории
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        
+        <br/>
+        <h2>Информация о категории ответа</h2>
+        <br/>
+
+        <div class="row static-info">
+            <div class="col-md-3 bold">Категория</div>
+            <div class="col-md-7">@Model.FaqCategory.Name</div>
+        </div>
+        <br />
+        <div class="row static-info">
+            <div class="col-md-3 bold">Публикация</div>
+            <div class="col-md-7">
+                @if (Model.FaqCategory.IsPublished)
+                {
+                    <span class="label label-sm label-success"> Опубликован </span>
+                }
+                else
+                {
+                    <span class="label label-sm label-warning"> Не опубликован </span>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row static-info">
+            <div class="col-md-3 bold">Удален</div>
+            <div class="col-md-7">
+                @if (Model.FaqCategory.IsDeleted)
+                {
+                    <span class="label label-sm label-danger"> Удален </span>
+                }
+                else
+                {
+                    <span class="label label-sm label-success"> Активный </span>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-10">
+                @if (Model.FaqCategory.IsPublished)
+                {
+                    <a href="@Url.Action("Unpublish", "FaqCategory", new {id = Model.FaqCategory.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn red-sunglo">
+                        <i class="icon-eye"></i> Снять с публикации
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Publish", "FaqCategory", new {id = Model.FaqCategory.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn green">
+                        <i class="icon-eye"></i> Опубликовать
+                    </a>
+                }
+                @if (Model.FaqCategory.IsDeleted)
+                {
+                    <a href="@Url.Action("Recovery", "FaqCategory", new {id = Model.FaqCategory.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn green">
+                        <i class="icon-share-alt"></i> Восстановить
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Delete", "FaqCategory", new {id = Model.FaqCategory.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn red-sunglo">
+                        <i class="icon-trash"></i> Удалить
+                    </a>
+                }
+            </div>
+        </div>
+        <br />
+
+        <br/>
+        <h2>Информация об ответе</h2>
+        <br/>
+
+        <div class="row static-info">
+            <div class="col-md-3 bold">Название</div>
+            <div class="col-md-7">@Model.Title</div>
+        </div>
+        <br />
+        <div class="row static-info">
+            <div class="col-md-3 bold">Ответ</div>
+            <div class="col-md-7">@Model.ShortContent</div>
+        </div>
+        <br />
+        <div class="row static-info">
+            <div class="col-md-3 bold">Публикация</div>
+            <div class="col-md-7">
+                @if (Model.IsPublished)
+                {
+                    <span class="label label-sm label-success"> Опубликован </span>
+                }
+                else
+                {
+                    <span class="label label-sm label-warning"> Не опубликован </span>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row static-info">
+            <div class="col-md-3 bold">Главный экран</div>
+            <div class="col-md-7">
+                @if (Model.IsDysplayOnMainScreen)
+                {
+                    <span class="label label-sm label-success"> Отображается </span>
+                }
+                else
+                {
+                    <span class="label label-sm label-default"> Не отображается </span>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row static-info">
+            <div class="col-md-3 bold">HTML контен</div>
+            <div class="col-md-7">
+                @if (Model.IsHtmlContentDisplay)
+                {
+                    <span class="label label-sm label-info"> Html контент </span>
+                }
+                else
+                {
+                    <span class="label label-sm label-success"> Текстовый контент </span>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row static-info">
+            <div class="col-md-3 bold">Удален</div>
+            <div class="col-md-7">
+                @if (Model.IsDeleted)
+                {
+                    <span class="label label-sm label-danger"> Удален </span>
+                }
+                else
+                {
+                    <span class="label label-sm label-success"> Активный </span>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row static-info">
+            <div class="col-md-3 bold">HTML контент</div>
+            <div class="col-md-7">@Html.Raw(Model.HtmlContent)</div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-10">
+                <a href="@Url.Action("Edit", "FaqItem", new { id = Model.Id })" class="btn btn-info">
+                    <i class="icon-pencil"></i> Редактировать
+                </a>
+                @if (Model.IsPublished)
+                {
+                    <a href="@Url.Action("Unpublish", "FaqItem", new {id = Model.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn red-sunglo">
+                        <i class="icon-eye"></i> Снять с публикации
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Publish", "FaqItem", new {id = Model.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn green">
+                        <i class="icon-eye"></i> Опубликовать
+                    </a>
+                }
+                @if (Model.IsDysplayOnMainScreen)
+                {
+                    <a href="@Url.Action("HideOnMainScreen", "FaqItem", new {id = Model.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn red-sunglo">
+                        <i class="fa fa-television"></i> Убрать с главной
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("DisplayOnMainScreen", "FaqItem", new {id = Model.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn green">
+                        <i class="fa fa-television"></i> Отображать на главной
+                    </a>
+                }
+                @if (Model.IsDeleted)
+                {
+                    <a href="@Url.Action("Recovery", "FaqItem", new {id = Model.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn green">
+                        <i class="icon-share-alt"></i> Восстановить
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Delete", "FaqItem", new {id = Model.Id, redirectUrl = "/FaqItem/Details/" + Model.Id})" class="btn red-sunglo">
+                        <i class="icon-trash"></i> Удалить
+                    </a>
+                }
+            </div>
+        </div>
+        <br />
+
+    </div>
+</div>

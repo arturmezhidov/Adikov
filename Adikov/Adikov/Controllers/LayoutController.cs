@@ -11,6 +11,7 @@ namespace Adikov.Controllers
         private const string layoutContextKey = "LayoutContext";
         private LayoutContext layoutContext;
         private ISidebarService sidebarService;
+        private IMenuService menuService;
 
         protected LayoutContext LayoutContext
         {
@@ -35,6 +36,19 @@ namespace Adikov.Controllers
                 }
 
                 return sidebarService;
+            }
+        }
+
+        protected IMenuService MenuService
+        {
+            get
+            {
+                if (menuService == null)
+                {
+                    menuService = new MenuService(Query);
+                }
+
+                return menuService;
             }
         }
 
@@ -72,10 +86,21 @@ namespace Adikov.Controllers
             context.User = UserContext;
             context.LogoUrl = PlatformConfiguration.LogoPath;
             context.Sidebar = SidebarService.CreateContext();
+            context.Menu = MenuService.CreateContext();
             context.ActionName = (String)RouteData.Values["action"];
             context.ContollerName = (String)RouteData.Values["controller"];
 
             return context;
+        }
+
+        protected virtual ActionResult Redirect(string redirectUrl, string defaultUrl)
+        {
+            if (String.IsNullOrEmpty(redirectUrl))
+            {
+                return Redirect(defaultUrl);
+            }
+
+            return Redirect(redirectUrl);
         }
     }
 }

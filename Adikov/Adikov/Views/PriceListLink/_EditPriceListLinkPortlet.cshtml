@@ -1,0 +1,13 @@
+﻿@model Adikov.ViewModels.PriceListLinks.EditPriceListLinkViewModel
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-pencil font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> Редактирование записи - @Model.Text </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_EditPriceListLinkForm", Model)
+    </div>
+</div>

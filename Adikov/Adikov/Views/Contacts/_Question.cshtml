@@ -1,0 +1,17 @@
+﻿@model Adikov.ViewModels.Contacts.QuestionViewModel
+
+<div class="c-container bg-grey-steel">
+    <div class="c-content-title-1">
+        <h3 class="uppercase">@Model.Title</h3>
+        <div class="c-line-left bg-dark"></div>
+        <form id="faq-request-form">
+            <div class="input-group input-group-lg c-square">
+                <input type="text" name="Question" class="form-control c-square" placeholder="Задайте вопрос" />
+                <span class="input-group-btn">
+                    <button class="btn uppercase" type="submit">Задать</button>
+                </span>
+            </div>
+        </form>
+        <p>@Model.Description</p>
+    </div>
+</div>
