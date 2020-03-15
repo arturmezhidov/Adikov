@@ -19,6 +19,8 @@ namespace Adikov.Platform.Configuration
         public static readonly string DefaultAvatarPath = "/Content/img/avatar.jpg";
         public static readonly string DocumentsPath = UploadedFilesPath + "/Documents";
         public static readonly string DocumentsPathTemplate = DocumentsPath + "/{0}";
+        public static readonly string SharesPath = UploadedFilesPath + "/Shares";
+        public static readonly string SharesPathTemplate = SharesPath + "/{0}";
 
         public static string SmtpServerName => GetString("SmtpServerName", "smtp.gmail.com");
         public static int SmtpServerPort => GetInt("SmtpServerPort", 587);

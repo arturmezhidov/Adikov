@@ -2,6 +2,10 @@ var ComponentsDateTimePickers = function () {
 
     var handleDatePickers = function () {
 
+        if (!jQuery().datepicker) {
+            return;
+        }
+
         if (jQuery().datepicker) {
             $('.date-picker').datepicker({
                 rtl: App.isRTL(),
@@ -20,6 +24,10 @@ var ComponentsDateTimePickers = function () {
     }
 
     var handleTimePickers = function () {
+
+        if (!jQuery().timepicker) {
+            return;
+        }
 
         if (jQuery().timepicker) {
             $('.timepicker-default').timepicker({
@@ -157,7 +165,7 @@ var ComponentsDateTimePickers = function () {
         $(".form_datetime").datetimepicker({
             autoclose: true,
             isRTL: App.isRTL(),
-            format: "dd MM yyyy - hh:ii",
+            format: "dd.MM.yyyy hh:ii",
             fontAwesome: true,
             pickerPosition: (App.isRTL() ? "bottom-right" : "bottom-left")
         });

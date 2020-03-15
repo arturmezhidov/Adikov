@@ -1,0 +1,110 @@
+﻿@model Adikov.ViewModels.Shares.AddShareViewModel
+
+@{
+    ViewBag.Title = "Добавление акции";
+}
+
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-plus font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase"> @ViewBag.Title </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.ValidationSummary()
+        @using (Html.BeginForm("Add", "Share", null, FormMethod.Post, new {id = "share-form", @class = "form-horizontal", role = "form", enctype = "multipart/form-data"}))
+        {
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Заголовок <span class="required" aria-required="true"> * </span></label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Title, new {@class = "form-control", placeholder = "Введите заголовок"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Описание <span class="required" aria-required="true"> * </span></label>
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(m => m.Description, new {@class = "form-control", placeholder = "Введите описание", rows = 5})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Дата окончания <span class="required" aria-required="true"> * </span></label>
+                    <div class="col-md-8">
+                        <div class="input-group date form_datetime form_datetime bs-datetime">
+                            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", size = "16" })
+                            <span class="input-group-addon">
+                                <button class="btn default date-set" type="button">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Текст выноски </label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.RibbonText, new {@class = "form-control", placeholder = "Введите текст выноски"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Цвет выноски (код) </label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.RibbonColor, new {@class = "form-control", placeholder = "Введите цвет выноски (код)"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> </label>
+                    <div class="col-md-6">
+                        <label class="mt-checkbox">
+                            @Html.CheckBoxFor(m => m.IsRibbonDisplayed) Отображать выноску
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Картинка <span class="required" aria-required="true"> * </span></label>
+                    <div class="col-md-4">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="Картинка не выбрана"/>
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                            <div>
+                                <span class="btn default btn-file">
+                                    <span class="fileinput-new"> Выбрать </span>
+                                    <span class="fileinput-exists"> Изменить </span>
+                                    <input type="file" name="Image">
+                                </span>
+                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Удалить </a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn green">Добавить</button>
+                        <button type="reset" class="btn default">Очистить</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section styles {
+    <link href="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+}
+
+@section scripts
+{
+    <script src="~/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/Content/assets/pages/scripts/components-date-time-pickers.js"></script>
+    <script src="~/Content/js/share.js"></script>
+}

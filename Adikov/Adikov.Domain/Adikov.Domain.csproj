@@ -136,6 +136,8 @@
     <Compile Include="Commands\Rows\AddRowCommand.cs" />
     <Compile Include="Commands\Rows\DeleteRowCommand.cs" />
     <Compile Include="Commands\Settings\BaseSettingsCommandHandler.cs" />
+    <Compile Include="Commands\Shares\EditShareCommand.cs" />
+    <Compile Include="Commands\Shares\AddShareCommand.cs" />
     <Compile Include="Commands\Tables\EditTableCommand.cs" />
     <Compile Include="Commands\Tables\AddTableCommand.cs" />
     <Compile Include="Commands\Tables\ClearTableCommand.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Models\Row.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Share.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\TableColumn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
